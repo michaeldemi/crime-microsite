@@ -223,14 +223,14 @@
                  <!-- Leaflet map will be initialized here -->
             </div>
             <div class="mt-6 pt-6 border-t border-gray-300">
-                <h3 class="text-2xl font-bold mb-1">Get a monthly check-in for <span class="fsa-placeholder"></span></h3>
+                <h3 class="lead-gen-heading text-2xl font-bold mb-1"></h3>
                 <form class="lead-gen-form">
                     <input type="email" required placeholder="Email" class="w-full px-4 py-3 border border-gray-300 rounded-lg mt-4 focus:ring-2 focus:ring-blue-500">
                     <div class="flex items-start gap-2 mt-4">
                         <input type="checkbox" id="consent-map" class="mt-1" checked>
                         <label for="consent-map" class="text-sm text-gray-600">We'll email only about <span class="fsa-placeholder"></span> coverage and monthly alerts. Unsubscribe anytime. <a href="#" class="underline">Privacy Policy</a>.</label>
                     </div>
-                    <button type="submit" class="w-full bg-[#8c6d44] text-white font-bold py-3 px-4 rounded-lg mt-6 hover:bg-[#7a5f3a] transition-transform transform hover:scale-105">Get <span class="fsa-placeholder"></span> Alerts</button>
+                    <button type="submit" class="lead-gen-button w-full bg-[#8c6d44] text-white font-bold py-3 px-4 rounded-lg mt-6 hover:bg-[#7a5f3a] transition-transform transform hover:scale-105"></button>
                 </form>
             </div>
         </div>
@@ -438,6 +438,8 @@
                     }
                     
                     template.querySelectorAll('.fsa-placeholder').forEach(el => el.textContent = state.currentFSA);
+                    template.querySelector('.lead-gen-heading').textContent = `Get a monthly check-in for ${state.currentFSA}`;
+                    template.querySelector('.lead-gen-button').textContent = `Get Free Safety Alerts for ${state.currentFSA}`;
                     contentContainer.appendChild(template);
                     addCommonEventListeners();
 
@@ -479,6 +481,8 @@
                     map.addLayer(markers);
 
                     template.querySelectorAll('.fsa-placeholder').forEach(el => el.textContent = state.currentFSA);
+                    template.querySelector('.lead-gen-heading').textContent = `Get a monthly check-in for ${state.currentFSA}`;
+                    template.querySelector('.lead-gen-button').textContent = `Get Free Safety Alerts for ${state.currentFSA}`;
                     addCommonEventListeners();
 
                 } catch (error) {
