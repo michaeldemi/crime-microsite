@@ -96,7 +96,7 @@
                 <div class="flex justify-around text-center">
                     <div>
                         <p class="text-5xl font-bold" id="result-monthly-count">3</p>
-                        <p class="text-gray-300" id="result-month-name">August 2025</p>
+                        <p class="text-gray-300" id="result-month-name">Last 30 Days</p>
                     </div>
                     <div class="border-l border-gray-500"></div>
                     <div>
@@ -133,11 +133,11 @@
                 Change area
             </button>
             <div class="bg-green-100 text-green-800 p-4 rounded-lg mb-4">
-                <h3 class="text-xl font-bold">Good news: no reported break-ins in <span class="fsa-placeholder"></span> this month.</h3>
-                <p class="text-sm">August 1–30, 2025 · Source: York Regional Police</p>
+                <h3 class="text-xl font-bold">Good news: no reported break-ins in <span class="fsa-placeholder"></span> in the last 30 days.</h3>
+                <p class="text-sm">Source: York Regional Police</p>
             </div>
             <div id="comparison-list-container">
-                <h4 class="text-lg font-semibold mb-2">How York Region compares (this month)</h4>
+                <h4 class="text-lg font-semibold mb-2">How York Region compares (last 30 days)</h4>
                 <ul id="comparison-list" class="divide-y divide-gray-200">
                     <!-- List items will be injected here -->
                 </ul>
@@ -188,7 +188,7 @@
                 Back to dashboard
             </button>
             <h3 class="text-xl font-bold mb-1">How York Region compares</h3>
-            <p class="text-sm text-gray-500 mb-4">August 1–30, 2025 · Source: York Regional Police</p>
+            <p class="text-sm text-gray-500 mb-4">Last 30 Days · Source: York Regional Police</p>
             <ul id="full-comparison-list" class="divide-y divide-gray-200">
                 <!-- Full list injected here -->
             </ul>
@@ -217,7 +217,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
                 Back to dashboard
             </button>
-            <h3 class="text-xl font-bold mb-1">York Region Break-ins: August 2025</h3>
+            <h3 class="text-xl font-bold mb-1">York Region Break-ins: Last 30 Days</h3>
             <p class="text-sm text-gray-500 mb-4">Source: York Regional Police</p>
             <div id="map" class="w-full aspect-square rounded-lg overflow-hidden z-10">
                  <!-- Leaflet map will be initialized here -->
@@ -274,7 +274,6 @@
                 errorMessage.textContent = '';
                 state.currentFSA = fsa;
 
-                // Show loading state
                 searchBtn.disabled = true;
                 searchBtn.querySelector('.btn-text').classList.add('hidden');
                 searchBtn.querySelector('.btn-spinner').classList.remove('hidden');
@@ -288,10 +287,11 @@
                     const data = await response.json();
                     state.lastResultData = data;
                     
-                    const monthlyCount = data.filter(rec => {
-                        const d = new Date(rec['occurrence_date']);
-                        return d.getFullYear() === 2025 && d.getMonth() === 7;
-                    }).length;
+                    const today = new Date();
+                    const thirtyDaysAgo = new Date();
+                    thirtyDaysAgo.setDate(today.getDate() - 30);
+
+                    const monthlyCount = data.filter(rec => new Date(rec['occurrence_date']) >= thirtyDaysAgo).length;
 
                     if (monthlyCount > 0) {
                         displayResults(fsa, data, monthlyCount);
@@ -303,7 +303,6 @@
                     errorMessage.textContent = "Could not connect to the data source.";
                     console.error("Fetch error:", error);
                 } finally {
-                    // Hide loading state
                     searchBtn.disabled = false;
                     searchBtn.querySelector('.btn-text').classList.remove('hidden');
                     searchBtn.querySelector('.btn-spinner').classList.add('hidden');
@@ -316,7 +315,7 @@
                 contentContainer.classList.remove('hidden');
                 contentContainer.innerHTML = '';
 
-                const oneYearAgo = new Date(2025, 7, 1);
+                const oneYearAgo = new Date();
                 oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
                 const yearlyCount = records.filter(rec => new Date(rec['occurrence_date']) >= oneYearAgo).length;
 
@@ -325,7 +324,7 @@
                 template.getElementById('result-monthly-count').textContent = monthlyCount;
                 template.getElementById('result-yearly-count').textContent = yearlyCount;
                 template.querySelectorAll('.fsa-placeholder').forEach(el => el.textContent = fsa);
-                template.querySelector('.lead-gen-heading').textContent = `${monthlyCount} break-in${monthlyCount > 1 ? 's were' : ' was'} reported in ${fsa} this month. Get free alerts to stay informed.`;
+                template.querySelector('.lead-gen-heading').textContent = `${monthlyCount} break-in${monthlyCount > 1 ? 's were' : ' was'} reported in ${fsa} in the last 30 days. Get free alerts to stay informed.`;
                 template.querySelector('.lead-gen-button').textContent = `Get Free Safety Alerts for ${fsa}`;
                 
                 contentContainer.appendChild(template);
@@ -340,12 +339,11 @@
 
                 const template = noResultTemplate.content.cloneNode(true);
                 template.querySelectorAll('.fsa-placeholder').forEach(el => el.textContent = fsa);
-                template.querySelector('.lead-gen-heading').textContent = `Good news! No break-ins in ${fsa} this month. Keep it that way.`;
+                template.querySelector('.lead-gen-heading').textContent = `Good news! No break-ins in ${fsa} in the last 30 days. Keep it that way.`;
                 template.querySelector('.lead-gen-button').textContent = `Get Free Safety Alerts for ${fsa}`;
                 
                 contentContainer.appendChild(template);
                 
-                // Fetch and populate comparison data
                 try {
                     const response = await fetch('./data/monthly_summary.json');
                     if (!response.ok) throw new Error('Could not load summary data.');
@@ -510,8 +508,13 @@
 
                 contentContainer.querySelector('.back-to-results-btn')?.addEventListener('click', (e) => {
                     e.preventDefault();
-                    if (state.lastResultData.filter(rec => new Date(rec['occurrence_date']).getFullYear() === 2025 && new Date(rec['occurrence_date']).getMonth() === 7).length > 0) {
-                         displayResults(state.currentFSA, state.lastResultData, state.lastResultData.filter(rec => new Date(rec['occurrence_date']).getFullYear() === 2025 && new Date(rec['occurrence_date']).getMonth() === 7).length);
+                    const today = new Date();
+                    const thirtyDaysAgo = new Date();
+                    thirtyDaysAgo.setDate(today.getDate() - 30);
+                    const monthlyCount = state.lastResultData.filter(rec => new Date(rec['occurrence_date']) >= thirtyDaysAgo).length;
+
+                    if (monthlyCount > 0) {
+                         displayResults(state.currentFSA, state.lastResultData, monthlyCount);
                     } else {
                         displayNoResults(state.currentFSA, state.lastResultData);
                     }
