@@ -40,6 +40,8 @@ jobs:
           # Check if there are any changes to commit
           if ! git diff --staged --quiet; then
             git commit -m "Automated data update"
+            # Pull the latest changes from the remote repository before pushing
+            git pull --rebase
             git push
           else
             echo "No data changes to commit."
