@@ -13,6 +13,9 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    # This is the new section that grants the necessary permissions
+    permissions:
+      contents: write
     steps:
       # Step 1: Check out the code from your repository
       - name: Checkout repository
