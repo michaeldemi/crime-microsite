@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Guardian - Is Your Home Safe?</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <!-- LeafletJS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <!-- Leaflet MarkerCluster CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .map-bg {
+            background-image: url('https://images.unsplash.com/photo-1573283984368-8059329d0a35?q=80&w=2960&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .comparison-list-collapsed li:nth-child(n+5) {
+            display: none;
+        }
+        /* Leaflet Map Container */
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div id="app" class="relative min-h-screen w-full map-bg">
+        <div class="absolute inset-0 bg-blue-900/50 backdrop-blur-sm"></div>
+
+        <!-- Header -->
+        <header class="relative z-10 p-4 bg-[#0e2a47]">
+            <div class="container mx-auto flex items-center gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256" class="text-white"><path fill="currentColor" d="M224 48H32a16 16 0 0 0-16 16v128a16 16 0 0 0 16 16h192a16 16 0 0 0 16-16V64a16 16 0 0 0-16-16m-96 64a24 24 0 1 1-24-24a24 24 0 0 1 24 24m88 96H40V71.61l44.2-22.1a8 8 0 0 1 7.6 0L136 71.29V64a16 16 0 0 0-16-16a15.82 15.82 0 0 0-11.42 5.21a40 40 0 1 0-49.16 49.16A15.82 15.82 0 0 0 48 120a16 16 0 0 0 16 16h.31l-24.09 12.05A8 8 0 0 1 32 140.44V192h184Z"/></svg>
+                <h1 class="text-2xl font-bold text-white">Window Guardian</h1>
+            </div>
+        </header>
+
+        <main class="relative z-10 container mx-auto p-4 md:p-8 flex flex-col items-center justify-center min-h-[calc(100vh-80px)]">
+
+            <!-- Home Screen -->
+            <div id="home-screen" class="w-full max-w-md bg-white p-8 rounded-xl shadow-2xl fade-in">
+                <h2 class="text-4xl font-bold text-gray-800 mb-2">Is Your Home Safe?</h2>
+                <p class="text-gray-600 mb-6">Window Guardian: Trusted by families for home safety</p>
+                <form id="search-form">
+                    <input type="text" id="fsa-input" placeholder="Postal code (first 3)" class="w-full px-4 py-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" maxlength="3">
+                    <p class="text-sm text-gray-500 mt-2">Enter your postal code to see break-in stats for your area.</p>
+                    <button id="search-btn" type="submit" class="w-full bg-[#8c6d44] text-white font-bold py-3 px-4 rounded-lg mt-6 hover:bg-[#7a5f3a] transition-transform transform hover:scale-105 flex items-center justify-center disabled:bg-gray-400">
+                        <span class="btn-text">See break-ins near me</span>
+                        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden btn-spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </button>
+                </form>
+                <p id="error-message" class="text-red-500 mt-4 h-5"></p>
+            </div>
+
+            <!-- All other screens are managed here -->
+            <div id="content-container" class="w-full max-w-md hidden">
+                <!-- This will be populated by JS -->
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Templates for different screens -->
+    <template id="result-template">
+        <div class="bg-white/90 backdrop-blur-md p-6 rounded-xl shadow-2xl text-gray-800 fade-in">
+            <button class="change-area-btn text-blue-600 font-semibold mb-4 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                Change area
+            </button>
+            <div class="bg-[#0e2a47] text-white p-6 rounded-lg mb-4">
+                <h3 class="text-xl font-semibold mb-2" id="result-fsa-header"></h3>
+                <p class="text-sm text-gray-300 mb-4">Source: York Regional Police</p>
+                <div class="flex justify-around text-center">
+                    <div>
+                        <p class="text-5xl font-bold" id="result-monthly-count">3</p>
+                        <p class="text-gray-300" id="result-month-name">August 2025</p>
+                    </div>
+                    <div class="border-l border-gray-500"></div>
+                    <div>
+                        <p class="text-5xl font-bold" id="result-yearly-count">14</p>
+                        <p class="text-gray-300">Last 12 months</p>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="view-map-btn block py-3 border-b border-gray-300 hover:bg-gray-100/50 rounded-t-lg px-2 flex justify-between items-center">Open York Region map <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a>
+            <a href="#" class="view-comparison-btn block py-3 hover:bg-gray-100/50 rounded-b-lg px-2 flex justify-between items-center">See how the region compares <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a>
+            <div class="mt-4 p-3 bg-blue-100 text-blue-800 rounded-lg flex items-center gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                <p class="font-semibold">Lock doors & windows to deter burglars</p>
+            </div>
+            <div class="mt-6 pt-6 border-t border-gray-300">
+                <h3 class="lead-gen-heading text-2xl font-bold mb-1"></h3>
+                <p class="text-sm text-gray-500 mt-2 hidden" id="social-proof">Join over 500 residents in your area staying informed.</p>
+                <form class="lead-gen-form">
+                    <input type="email" required placeholder="Email" class="w-full px-4 py-3 border border-gray-300 rounded-lg mt-4 focus:ring-2 focus:ring-blue-500">
+                    <div class="flex items-start gap-2 mt-4">
+                        <input type="checkbox" id="consent-result" class="mt-1" checked>
+                        <label for="consent-result" class="text-sm text-gray-600">We'll email only about <span class="fsa-placeholder"></span> coverage and monthly alerts. Unsubscribe anytime. <a href="#" class="underline">Privacy Policy</a>.</label>
+                    </div>
+                    <button type="submit" class="lead-gen-button w-full bg-[#8c6d44] text-white font-bold py-3 px-4 rounded-lg mt-6 hover:bg-[#7a5f3a] transition-transform transform hover:scale-105"></button>
+                </form>
+            </div>
+        </div>
+    </template>
+
+    <template id="no-result-template">
+        <div class="bg-white/90 backdrop-blur-md p-6 rounded-xl shadow-2xl text-gray-800 fade-in">
+             <button class="change-area-btn text-blue-600 font-semibold mb-4 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                Change area
+            </button>
+            <div class="bg-green-100 text-green-800 p-4 rounded-lg mb-4">
+                <h3 class="text-xl font-bold">Good news: no reported break-ins in <span class="fsa-placeholder"></span> this month.</h3>
+                <p class="text-sm">August 1–30, 2025 · Source: York Regional Police</p>
+            </div>
+            <div id="comparison-list-container">
+                <h4 class="text-lg font-semibold mb-2">How York Region compares (this month)</h4>
+                <ul id="comparison-list" class="divide-y divide-gray-200">
+                    <!-- List items will be injected here -->
+                </ul>
+                <a href="#" id="view-all-btn" class="block text-blue-600 font-semibold mt-2 py-2">View all (9)</a>
+            </div>
+            <div class="mt-4 p-3 bg-blue-100 text-blue-800 rounded-lg flex items-center gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                <p class="font-semibold">Lock doors & windows to deter burglars</p>
+            </div>
+            <div class="mt-6 pt-6 border-t border-gray-300">
+                <h3 class="lead-gen-heading text-2xl font-bold mb-1"></h3>
+                 <p class="text-sm text-gray-500 mt-2 hidden" id="social-proof">Join over 500 residents in your area staying informed.</p>
+                <form class="lead-gen-form">
+                    <input type="email" required placeholder="Email" class="w-full px-4 py-3 border border-gray-300 rounded-lg mt-4 focus:ring-2 focus:ring-blue-500">
+                    <div class="flex items-start gap-2 mt-4">
+                        <input type="checkbox" id="consent-no-result" class="mt-1" checked>
+                        <label for="consent-no-result" class="text-sm text-gray-600">We'll email only about <span class="fsa-placeholder"></span> coverage and monthly alerts. Unsubscribe anytime. <a href="#" class="underline">Privacy Policy</a>.</label>
+                    </div>
+                    <button type="submit" class="lead-gen-button w-full bg-[#8c6d44] text-white font-bold py-3 px-4 rounded-lg mt-6 hover:bg-[#7a5f3a] transition-transform transform hover:scale-105"></button>
+                </form>
+            </div>
+        </div>
+    </template>
+    
+    <template id="not-supported-template">
+        <div class="bg-white p-8 rounded-xl shadow-2xl fade-in">
+            <button class="change-area-btn text-blue-600 font-semibold mb-4 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                Change area
+            </button>
+            <h2 class="text-3xl font-bold text-gray-800">Coverage coming soon to <span class="fsa-placeholder"></span></h2>
+            <p class="text-gray-600 my-4">We're expanding our map. Be first to know when <span class="fsa-placeholder"></span> goes live.</p>
+            <form class="lead-gen-form">
+                <input type="email" required placeholder="name@domain.com" class="w-full px-4 py-3 border border-gray-300 rounded-lg mt-4 focus:ring-2 focus:ring-blue-500">
+                <div class="flex items-start gap-2 mt-4 text-left">
+                    <input type="checkbox" id="consent-not-supported" class="mt-1" checked>
+                    <label for="consent-not-supported" class="text-sm text-gray-600">We'll email only about <span class="fsa-placeholder"></span> coverage and monthly alerts. Unsubscribe anytime. <a href="#" class="underline">Privacy Policy</a>.</label>
+                </div>
+                <button type="submit" class="w-full bg-[#8c6d44] text-white font-bold py-3 px-4 rounded-lg mt-6 hover:bg-[#7a5f3a] transition-transform transform hover:scale-105">Join the <span class="fsa-placeholder"></span> waitlist</button>
+            </form>
+        </div>
+    </template>
+
+    <template id="municipal-data-template">
+        <div class="bg-white/90 backdrop-blur-md p-6 rounded-xl shadow-2xl text-gray-800 fade-in w-full">
+             <button class="back-to-results-btn text-blue-600 font-semibold mb-4 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                Back to dashboard
+            </button>
+            <h3 class="text-xl font-bold mb-1">How York Region compares</h3>
+            <p class="text-sm text-gray-500 mb-4">August 1–30, 2025 · Source: York Regional Police</p>
+            <ul id="full-comparison-list" class="divide-y divide-gray-200">
+                <!-- Full list injected here -->
+            </ul>
+            <a href="#" id="view-all-btn" class="block text-blue-600 font-semibold mt-2 py-2">View all (9)</a>
+            <div class="mt-4 p-3 bg-blue-100 text-blue-800 rounded-lg flex items-center gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                <p class="font-semibold">Lock doors & windows to deter burglars</p>
+            </div>
+             <div class="mt-6 pt-6 border-t border-gray-300">
+                <h3 class="lead-gen-heading text-2xl font-bold mb-1">Get a monthly check-in for <span class="fsa-placeholder"></span></h3>
+                <form class="lead-gen-form">
+                    <input type="email" required placeholder="Email" class="w-full px-4 py-3 border border-gray-300 rounded-lg mt-4 focus:ring-2 focus:ring-blue-500">
+                    <div class="flex items-start gap-2 mt-4">
+                        <input type="checkbox" id="consent-municipal" class="mt-1" checked>
+                        <label for="consent-municipal" class="text-sm text-gray-600">We'll email only about <span class="fsa-placeholder"></span> coverage and monthly alerts. Unsubscribe anytime. <a href="#" class="underline">Privacy Policy</a>.</label>
+                    </div>
+                    <button type="submit" class="lead-gen-button w-full bg-[#8c6d44] text-white font-bold py-3 px-4 rounded-lg mt-6 hover:bg-[#7a5f3a] transition-transform transform hover:scale-105">Get Free Alerts</button>
+                </form>
+            </div>
+        </div>
+    </template>
+
+    <template id="map-template">
+        <div class="bg-white/90 backdrop-blur-md p-6 rounded-xl shadow-2xl text-gray-800 fade-in w-full">
+            <button class="back-to-results-btn text-blue-600 font-semibold mb-4 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                Back to dashboard
+            </button>
+            <h3 class="text-xl font-bold mb-1">York Region Break-ins: August 2025</h3>
+            <p class="text-sm text-gray-500 mb-4">Source: York Regional Police</p>
+            <div id="map" class="w-full aspect-square rounded-lg overflow-hidden z-10">
+                 <!-- Leaflet map will be initialized here -->
+            </div>
+            <div class="mt-6 pt-6 border-t border-gray-300">
+                <h3 class="text-2xl font-bold mb-1">Get a monthly check-in for <span class="fsa-placeholder"></span></h3>
+                <form class="lead-gen-form">
+                    <input type="email" required placeholder="Email" class="w-full px-4 py-3 border border-gray-300 rounded-lg mt-4 focus:ring-2 focus:ring-blue-500">
+                    <div class="flex items-start gap-2 mt-4">
+                        <input type="checkbox" id="consent-map" class="mt-1" checked>
+                        <label for="consent-map" class="text-sm text-gray-600">We'll email only about <span class="fsa-placeholder"></span> coverage and monthly alerts. Unsubscribe anytime. <a href="#" class="underline">Privacy Policy</a>.</label>
+                    </div>
+                    <button type="submit" class="w-full bg-[#8c6d44] text-white font-bold py-3 px-4 rounded-lg mt-6 hover:bg-[#7a5f3a] transition-transform transform hover:scale-105">Get <span class="fsa-placeholder"></span> Alerts</button>
+                </form>
+            </div>
+        </div>
+    </template>
+    
+    <!-- LeafletJS Script -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- Leaflet MarkerCluster Script -->
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const homeScreen = document.getElementById('home-screen');
+            const contentContainer = document.getElementById('content-container');
+            const searchForm = document.getElementById('search-form');
+            const fsaInput = document.getElementById('fsa-input');
+            const searchBtn = document.getElementById('search-btn');
+            const errorMessage = document.getElementById('error-message');
+            const resultTemplate = document.getElementById('result-template');
+            const notSupportedTemplate = document.getElementById('not-supported-template');
+            const noResultTemplate = document.getElementById('no-result-template');
+            const municipalDataTemplate = document.getElementById('municipal-data-template');
+            const mapTemplate = document.getElementById('map-template');
+
+            let state = {
+                currentFSA: null,
+                lastResultData: null,
+                lastScreen: 'home'
+            };
+
+            fsaInput.addEventListener('input', (e) => {
+                e.target.value = e.target.value.toUpperCase();
+            });
+
+            searchForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const fsa = fsaInput.value.trim().toUpperCase();
+                if (fsa.length !== 3) {
+                    errorMessage.textContent = "Please enter a valid 3-character FSA.";
+                    return;
+                }
+                errorMessage.textContent = '';
+                state.currentFSA = fsa;
+
+                // Show loading state
+                searchBtn.disabled = true;
+                searchBtn.querySelector('.btn-text').classList.add('hidden');
+                searchBtn.querySelector('.btn-spinner').classList.remove('hidden');
+
+                try {
+                    const response = await fetch(`./data/${fsa}.json`);
+                    if (!response.ok) {
+                        displayNotSupported(fsa);
+                        return;
+                    }
+                    const data = await response.json();
+                    state.lastResultData = data;
+                    
+                    const monthlyCount = data.filter(rec => {
+                        const d = new Date(rec['occurrence_date']);
+                        return d.getFullYear() === 2025 && d.getMonth() === 7;
+                    }).length;
+
+                    if (monthlyCount > 0) {
+                        displayResults(fsa, data, monthlyCount);
+                    } else {
+                        displayNoResults(fsa, data);
+                    }
+
+                } catch (error) {
+                    errorMessage.textContent = "Could not connect to the data source.";
+                    console.error("Fetch error:", error);
+                } finally {
+                    // Hide loading state
+                    searchBtn.disabled = false;
+                    searchBtn.querySelector('.btn-text').classList.remove('hidden');
+                    searchBtn.querySelector('.btn-spinner').classList.add('hidden');
+                }
+            });
+
+            function displayResults(fsa, records, monthlyCount) {
+                state.lastScreen = 'results';
+                homeScreen.classList.add('hidden');
+                contentContainer.classList.remove('hidden');
+                contentContainer.innerHTML = '';
+
+                const oneYearAgo = new Date(2025, 7, 1);
+                oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+                const yearlyCount = records.filter(rec => new Date(rec['occurrence_date']) >= oneYearAgo).length;
+
+                const template = resultTemplate.content.cloneNode(true);
+                template.getElementById('result-fsa-header').textContent = `${fsa} Break-ins`;
+                template.getElementById('result-monthly-count').textContent = monthlyCount;
+                template.getElementById('result-yearly-count').textContent = yearlyCount;
+                template.querySelectorAll('.fsa-placeholder').forEach(el => el.textContent = fsa);
+                template.querySelector('.lead-gen-heading').textContent = `${monthlyCount} break-in${monthlyCount > 1 ? 's were' : ' was'} reported in ${fsa} this month. Get free alerts to stay informed.`;
+                template.querySelector('.lead-gen-button').textContent = `Get Free Safety Alerts for ${fsa}`;
+                
+                contentContainer.appendChild(template);
+                addCommonEventListeners();
+            }
+
+            async function displayNoResults(fsa, records) {
+                state.lastScreen = 'no-results';
+                homeScreen.classList.add('hidden');
+                contentContainer.classList.remove('hidden');
+                contentContainer.innerHTML = '';
+
+                const template = noResultTemplate.content.cloneNode(true);
+                template.querySelectorAll('.fsa-placeholder').forEach(el => el.textContent = fsa);
+                template.querySelector('.lead-gen-heading').textContent = `Good news! No break-ins in ${fsa} this month. Keep it that way.`;
+                template.querySelector('.lead-gen-button').textContent = `Get Free Safety Alerts for ${fsa}`;
+                
+                contentContainer.appendChild(template);
+                
+                // Fetch and populate comparison data
+                try {
+                    const response = await fetch('./data/monthly_summary.json');
+                    if (!response.ok) throw new Error('Could not load summary data.');
+                    const summaryData = await response.json();
+                    
+                    const list = contentContainer.querySelector('#comparison-list');
+                    const viewAllBtn = contentContainer.querySelector('#view-all-btn');
+                    list.innerHTML = '';
+                    const summaryEntries = Object.entries(summaryData);
+
+                    summaryEntries.slice(0, 4).forEach(([municipality, count]) => {
+                        const li = document.createElement('li');
+                        li.className = 'flex justify-between items-center py-2';
+                        li.innerHTML = `<span>${municipality}</span><span class="font-semibold">${count}</span>`;
+                        list.appendChild(li);
+                    });
+
+                    if (summaryEntries.length > 4) {
+                        viewAllBtn.textContent = `View all (${summaryEntries.length})`;
+                        viewAllBtn.addEventListener('click', (e) => { e.preventDefault(); displayMunicipalData(); });
+                    } else {
+                        viewAllBtn.style.display = 'none';
+                    }
+                } catch(e) {
+                    console.error("Could not load comparison data for no-results page:", e);
+                }
+
+                addCommonEventListeners();
+            }
+
+            function displayNotSupported(fsa) {
+                state.lastScreen = 'not-supported';
+                homeScreen.classList.add('hidden');
+                contentContainer.classList.remove('hidden');
+                contentContainer.innerHTML = '';
+
+                const template = notSupportedTemplate.content.cloneNode(true);
+                template.querySelectorAll('.fsa-placeholder').forEach(el => el.textContent = fsa);
+                contentContainer.appendChild(template);
+                addCommonEventListeners();
+            }
+
+            async function displayMunicipalData() {
+                state.lastScreen = 'municipal';
+                homeScreen.classList.add('hidden');
+                contentContainer.classList.remove('hidden');
+                contentContainer.innerHTML = '';
+
+                try {
+                    const response = await fetch('./data/monthly_summary.json');
+                    if (!response.ok) throw new Error('Could not load summary data.');
+                    const summaryData = await response.json();
+
+                    const template = municipalDataTemplate.content.cloneNode(true);
+                    const list = template.getElementById('full-comparison-list');
+                    const viewAllBtn = template.getElementById('view-all-btn');
+                    list.innerHTML = '';
+                    
+                    const summaryEntries = Object.entries(summaryData);
+
+                    summaryEntries.forEach(([municipality, count], index) => {
+                        const li = document.createElement('li');
+                        li.className = 'flex justify-between items-center py-3';
+                        li.innerHTML = `<span>${municipality}</span><span class="font-semibold text-lg">${count}</span>`;
+                        if (index >= 4) {
+                            li.classList.add('hidden');
+                        }
+                        list.appendChild(li);
+                    });
+                    
+                    if (summaryEntries.length > 4) {
+                        viewAllBtn.textContent = `View all (${summaryEntries.length})`;
+                        viewAllBtn.style.display = 'block';
+
+                        viewAllBtn.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            let isNowCollapsed = false;
+                            list.querySelectorAll('li').forEach((li, index) => {
+                                if (index >= 4) {
+                                    li.classList.toggle('hidden');
+                                    if(index === 4) {
+                                        isNowCollapsed = li.classList.contains('hidden');
+                                    }
+                                }
+                            });
+                            viewAllBtn.textContent = isNowCollapsed ? `View all (${summaryEntries.length})` : 'Show less';
+                        });
+                    } else {
+                        viewAllBtn.style.display = 'none';
+                    }
+                    
+                    template.querySelectorAll('.fsa-placeholder').forEach(el => el.textContent = state.currentFSA);
+                    contentContainer.appendChild(template);
+                    addCommonEventListeners();
+
+                } catch (error) {
+                    errorMessage.textContent = error.message;
+                    console.error("Summary fetch error:", error);
+                }
+            }
+            
+            async function displayMap() {
+                state.lastScreen = 'map';
+                homeScreen.classList.add('hidden');
+                contentContainer.classList.remove('hidden');
+                contentContainer.innerHTML = '';
+
+                try {
+                    const response = await fetch('./data/map_data.json');
+                    if (!response.ok) throw new Error('Could not load map data.');
+                    const mapData = await response.json();
+
+                    const template = mapTemplate.content.cloneNode(true);
+                    contentContainer.appendChild(template);
+                    
+                    const map = L.map('map').setView([43.95, -79.45], 9);
+                    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">'
+                    }).addTo(map);
+
+                    const markers = L.markerClusterGroup();
+
+                    mapData.forEach(incident => {
+                        if (incident.lat && incident.lon) {
+                            const marker = L.marker([incident.lat, incident.lon]);
+                            marker.bindTooltip(`<b>${incident.fsa}</b><br>${incident.municipality}`);
+                            markers.addLayer(marker);
+                        }
+                    });
+
+                    map.addLayer(markers);
+
+                    template.querySelectorAll('.fsa-placeholder').forEach(el => el.textContent = state.currentFSA);
+                    addCommonEventListeners();
+
+                } catch (error) {
+                    errorMessage.textContent = error.message;
+                    console.error("Map fetch error:", error);
+                }
+            }
+
+            function addCommonEventListeners() {
+                contentContainer.querySelector('.change-area-btn')?.addEventListener('click', () => {
+                    homeScreen.classList.remove('hidden');
+                    contentContainer.classList.add('hidden');
+                    fsaInput.value = '';
+                });
+
+                contentContainer.querySelector('.view-comparison-btn')?.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    displayMunicipalData();
+                });
+                
+                contentContainer.querySelector('.view-map-btn')?.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    displayMap();
+                });
+
+                contentContainer.querySelector('.back-to-results-btn')?.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (state.lastResultData.filter(rec => new Date(rec['occurrence_date']).getFullYear() === 2025 && new Date(rec['occurrence_date']).getMonth() === 7).length > 0) {
+                         displayResults(state.currentFSA, state.lastResultData, state.lastResultData.filter(rec => new Date(rec['occurrence_date']).getFullYear() === 2025 && new Date(rec['occurrence_date']).getMonth() === 7).length);
+                    } else {
+                        displayNoResults(state.currentFSA, state.lastResultData);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
