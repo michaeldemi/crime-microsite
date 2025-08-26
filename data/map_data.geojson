@@ -1,0 +1,1083 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.71839,
+          43.888031
+        ]
+      },
+      "properties": {
+        "fsa": "L7E",
+        "municipality": "King"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.626056,
+          43.803822
+        ]
+      },
+      "properties": {
+        "fsa": "L4H",
+        "municipality": "Vaughan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.617355,
+          43.799389
+        ]
+      },
+      "properties": {
+        "fsa": "L4H",
+        "municipality": "Vaughan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.615004,
+          43.783916
+        ]
+      },
+      "properties": {
+        "fsa": "L4L",
+        "municipality": "Vaughan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.59796,
+          44.009484
+        ]
+      },
+      "properties": {
+        "fsa": "L7B",
+        "municipality": "King"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.599935,
+          43.789967
+        ]
+      },
+      "properties": {
+        "fsa": "L4L",
+        "municipality": "Vaughan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.599249,
+          43.792591
+        ]
+      },
+      "properties": {
+        "fsa": "L4L",
+        "municipality": "Vaughan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.596628,
+          43.785015
+        ]
+      },
+      "properties": {
+        "fsa": "L4L",
+        "municipality": "Vaughan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.58736,
+          43.873469
+        ]
+      },
+      "properties": {
+        "fsa": "L4H",
+        "municipality": "Vaughan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.578251,
+          43.78483
+        ]
+      },
+      "properties": {
+        "fsa": "L4L",
+        "municipality": "Vaughan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.561207,
+          44.062919
+        ]
+      },
+      "properties": {
+        "fsa": "L3Y",
+        "municipality": "King"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.566118,
+          43.845152
+        ]
+      },
+      "properties": {
+        "fsa": "L4H",
+        "municipality": "Vaughan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.564606,
+          43.821243
+        ]
+      },
+      "properties": {
+        "fsa": "L4L",
+        "municipality": "Vaughan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.563787,
+          43.811954
+        ]
+      },
+      "properties": {
+        "fsa": "L4L",
+        "municipality": "Vaughan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.559537,
+          43.807989
+        ]
+      },
+      "properties": {
+        "fsa": "L4L",
+        "municipality": "Vaughan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.555362,
+          43.861735
+        ]
+      },
+      "properties": {
+        "fsa": "L4H",
+        "municipality": "Vaughan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.551529,
+          43.843751
+        ]
+      },
+      "properties": {
+        "fsa": "L4H",
+        "municipality": "Vaughan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.494611,
+          44.120426
+        ]
+      },
+      "properties": {
+        "fsa": "L9N",
+        "municipality": "East Gwillimbury"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.493873,
+          44.051457
+        ]
+      },
+      "properties": {
+        "fsa": "L3X",
+        "municipality": "Newmarket"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.4897,
+          44.034785
+        ]
+      },
+      "properties": {
+        "fsa": "L3X",
+        "municipality": "Newmarket"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.486494,
+          44.049687
+        ]
+      },
+      "properties": {
+        "fsa": "L3Y",
+        "municipality": "Newmarket"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.48634,
+          43.971592
+        ]
+      },
+      "properties": {
+        "fsa": "L4G",
+        "municipality": "Aurora"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.472316,
+          44.239192
+        ]
+      },
+      "properties": {
+        "fsa": "L4P",
+        "municipality": "Georgina"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.475651,
+          44.063922
+        ]
+      },
+      "properties": {
+        "fsa": "L3Y",
+        "municipality": "Newmarket"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.476642,
+          43.920902
+        ]
+      },
+      "properties": {
+        "fsa": "L4E",
+        "municipality": "Vaughan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.473492,
+          44.005001
+        ]
+      },
+      "properties": {
+        "fsa": "L4G",
+        "municipality": "Aurora"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.471308,
+          43.992995
+        ]
+      },
+      "properties": {
+        "fsa": "L4G",
+        "municipality": "Aurora"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.472409,
+          43.919215
+        ]
+      },
+      "properties": {
+        "fsa": "L4E",
+        "municipality": "Richmond Hill"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.468545,
+          44.01295
+        ]
+      },
+      "properties": {
+        "fsa": "L4G",
+        "municipality": "Aurora"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.469483,
+          43.946808
+        ]
+      },
+      "properties": {
+        "fsa": "L4E",
+        "municipality": "Richmond Hill"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.466875,
+          44.008512
+        ]
+      },
+      "properties": {
+        "fsa": "L4G",
+        "municipality": "Aurora"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.461069,
+          44.195764
+        ]
+      },
+      "properties": {
+        "fsa": "L4P",
+        "municipality": "Georgina"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.47057,
+          43.824934
+        ]
+      },
+      "properties": {
+        "fsa": "L4J",
+        "municipality": "Vaughan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.460494,
+          44.215434
+        ]
+      },
+      "properties": {
+        "fsa": "L4P",
+        "municipality": "Georgina"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.467906,
+          43.886536
+        ]
+      },
+      "properties": {
+        "fsa": "L6A",
+        "municipality": "Vaughan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.462395,
+          44.005402
+        ]
+      },
+      "properties": {
+        "fsa": "L4G",
+        "municipality": "Aurora"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.459605,
+          44.05423
+        ]
+      },
+      "properties": {
+        "fsa": "L3Y",
+        "municipality": "Newmarket"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.459605,
+          44.05423
+        ]
+      },
+      "properties": {
+        "fsa": "L3Y",
+        "municipality": "Newmarket"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.455161,
+          44.156941
+        ]
+      },
+      "properties": {
+        "fsa": "L0G",
+        "municipality": "East Gwillimbury"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.451733,
+          44.221727
+        ]
+      },
+      "properties": {
+        "fsa": "L4P",
+        "municipality": "Georgina"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.455477,
+          44.059823
+        ]
+      },
+      "properties": {
+        "fsa": "L3Y",
+        "municipality": "Newmarket"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.457115,
+          43.925182
+        ]
+      },
+      "properties": {
+        "fsa": "L4E",
+        "municipality": "Richmond Hill"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.453348,
+          44.06269
+        ]
+      },
+      "properties": {
+        "fsa": "L3Y",
+        "municipality": "Newmarket"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.455532,
+          43.921311
+        ]
+      },
+      "properties": {
+        "fsa": "L4E",
+        "municipality": "Richmond Hill"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.449105,
+          44.071978
+        ]
+      },
+      "properties": {
+        "fsa": "L3Y",
+        "municipality": "Newmarket"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.449471,
+          44.056005
+        ]
+      },
+      "properties": {
+        "fsa": "L3Y",
+        "municipality": "Newmarket"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.438709,
+          44.102011
+        ]
+      },
+      "properties": {
+        "fsa": "L9N",
+        "municipality": "East Gwillimbury"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.434983,
+          44.069499
+        ]
+      },
+      "properties": {
+        "fsa": "L3Y",
+        "municipality": "Newmarket"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.439432,
+          43.880775
+        ]
+      },
+      "properties": {
+        "fsa": "L4C",
+        "municipality": "Richmond Hill"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.43779,
+          43.85771
+        ]
+      },
+      "properties": {
+        "fsa": "L4C",
+        "municipality": "Richmond Hill"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.430447,
+          44.099916
+        ]
+      },
+      "properties": {
+        "fsa": "L9N",
+        "municipality": "East Gwillimbury"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.429063,
+          44.047336
+        ]
+      },
+      "properties": {
+        "fsa": "L3Y",
+        "municipality": "Newmarket"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.430852,
+          43.859945
+        ]
+      },
+      "properties": {
+        "fsa": "L4C",
+        "municipality": "Richmond Hill"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.423971,
+          43.883847
+        ]
+      },
+      "properties": {
+        "fsa": "L4C",
+        "municipality": "Richmond Hill"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.422259,
+          43.824522
+        ]
+      },
+      "properties": {
+        "fsa": "L3T",
+        "municipality": "Markham"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.413475,
+          43.886369
+        ]
+      },
+      "properties": {
+        "fsa": "L4C",
+        "municipality": "Richmond Hill"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.392738,
+          44.004268
+        ]
+      },
+      "properties": {
+        "fsa": "L0H",
+        "municipality": "Whitchurch-Stouffville"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.390349,
+          43.838511
+        ]
+      },
+      "properties": {
+        "fsa": "L3T",
+        "municipality": "Markham"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.388777,
+          43.822563
+        ]
+      },
+      "properties": {
+        "fsa": "L3T",
+        "municipality": "Markham"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.375248,
+          43.967202
+        ]
+      },
+      "properties": {
+        "fsa": "L4A",
+        "municipality": "Whitchurch-Stouffville"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.371548,
+          43.892164
+        ]
+      },
+      "properties": {
+        "fsa": "L6C",
+        "municipality": "Markham"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.367883,
+          43.830902
+        ]
+      },
+      "properties": {
+        "fsa": "L3T",
+        "municipality": "Markham"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.367883,
+          43.830902
+        ]
+      },
+      "properties": {
+        "fsa": "L3T",
+        "municipality": "Markham"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.323604,
+          43.915613
+        ]
+      },
+      "properties": {
+        "fsa": "L6C",
+        "municipality": "Markham"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.318288,
+          43.86382
+        ]
+      },
+      "properties": {
+        "fsa": "L3R",
+        "municipality": "Markham"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.317428,
+          43.880202
+        ]
+      },
+      "properties": {
+        "fsa": "L3R",
+        "municipality": "Markham"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.30349,
+          43.898695
+        ]
+      },
+      "properties": {
+        "fsa": "L6C",
+        "municipality": "Markham"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.288746,
+          43.840204
+        ]
+      },
+      "properties": {
+        "fsa": "L3S",
+        "municipality": "Markham"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.288358,
+          43.839132
+        ]
+      },
+      "properties": {
+        "fsa": "L3S",
+        "municipality": "Markham"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.268806,
+          44.026705
+        ]
+      },
+      "properties": {
+        "fsa": "L4A",
+        "municipality": "Whitchurch-Stouffville"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.262374,
+          43.878407
+        ]
+      },
+      "properties": {
+        "fsa": "L3P",
+        "municipality": "Markham"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.2563,
+          43.884767
+        ]
+      },
+      "properties": {
+        "fsa": "L3P",
+        "municipality": "Markham"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.253988,
+          43.887965
+        ]
+      },
+      "properties": {
+        "fsa": "L3P",
+        "municipality": "Markham"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.24796,
+          43.977088
+        ]
+      },
+      "properties": {
+        "fsa": "L4A",
+        "municipality": "Whitchurch-Stouffville"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.248756,
+          43.862265
+        ]
+      },
+      "properties": {
+        "fsa": "L3S",
+        "municipality": "Markham"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.245386,
+          43.976024
+        ]
+      },
+      "properties": {
+        "fsa": "L4A",
+        "municipality": "Whitchurch-Stouffville"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.23554,
+          43.904129
+        ]
+      },
+      "properties": {
+        "fsa": "L6B",
+        "municipality": "Markham"
+      }
+    }
+  ]
+}
