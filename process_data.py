@@ -1,33 +1,19 @@
 import csv
 import json
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 
 # --- Configuration ---
-# This is the name of the source CSV file you will update each month.
 CSV_FILE_PATH = 'York Break-ins 2024_2025.csv'
-
-# This is the folder where the microsite's data files will be saved.
 OUTPUT_FOLDER = 'data'
-
-# These are the names of the columns the script will look for in your CSV.
-# The script is case-insensitive, so 'fsa' or 'FSA' will both work.
+# We will search for these headers case-insensitively
 DATE_COLUMN_NAME = 'occurrence_date'
 FSA_COLUMN_NAME = 'fsa'
 MUNICIPALITY_COLUMN_NAME = 'municipality'
 LATITUDE_COLUMN_NAME = 'latitude'
 LONGITUDE_COLUMN_NAME = 'longitude'
 
-# Set the month and year for the summary data files.
-# This should be the most recent month of data in your CSV.
-SUMMARY_YEAR = 2025
-SUMMARY_MONTH = 8 # 1 = Jan, 2 = Feb, ..., 8 = Aug
-
 def process_data():
-    """
-    Reads the source CSV, processes the data, and generates JSON files
-    for the microsite (per-FSA files, a monthly summary, and map data).
-    """
     if not os.path.exists(OUTPUT_FOLDER):
         os.makedirs(OUTPUT_FOLDER)
 
@@ -36,6 +22,9 @@ def process_data():
     map_incidents = []
     row_count = 0
     processed_count = 0
+    
+    # Get the date 30 days ago from today for filtering
+    thirty_days_ago = datetime.now() - timedelta(days=30)
 
     print(f"Attempting to read data from {CSV_FILE_PATH}...")
 
@@ -43,7 +32,6 @@ def process_data():
         with open(CSV_FILE_PATH, mode='r', encoding='utf-8-sig') as infile:
             reader = csv.DictReader(infile)
             
-            # Find the actual header names, ignoring case
             headers = [h.lower() for h in reader.fieldnames]
             actual_fsa_column = reader.fieldnames[headers.index(FSA_COLUMN_NAME.lower())]
             actual_date_column = reader.fieldnames[headers.index(DATE_COLUMN_NAME.lower())]
@@ -71,8 +59,8 @@ def process_data():
                         print(f"Warning on row {row_count}: Could not parse date '{date_str}'. Skipping.")
                         continue
                 
-                # Add to monthly summary and map data if it matches the month/year
-                if date_obj.year == SUMMARY_YEAR and date_obj.month == SUMMARY_MONTH:
+                # Add to monthly summary and map data if it's within the last 30 days
+                if date_obj >= thirty_days_ago:
                     monthly_summary[municipality] = monthly_summary.get(municipality, 0) + 1
                     map_incidents.append({
                         "lat": float(row[actual_lat_column]),
