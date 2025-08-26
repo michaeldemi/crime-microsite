@@ -1,0 +1,464 @@
+[
+  {
+    "lat": 43.888031,
+    "lon": -79.71839,
+    "fsa": "L7E",
+    "municipality": "King"
+  },
+  {
+    "lat": 43.803822,
+    "lon": -79.626056,
+    "fsa": "L4H",
+    "municipality": "Vaughan"
+  },
+  {
+    "lat": 43.799389,
+    "lon": -79.617355,
+    "fsa": "L4H",
+    "municipality": "Vaughan"
+  },
+  {
+    "lat": 43.783916,
+    "lon": -79.615004,
+    "fsa": "L4L",
+    "municipality": "Vaughan"
+  },
+  {
+    "lat": 44.009484,
+    "lon": -79.59796,
+    "fsa": "L7B",
+    "municipality": "King"
+  },
+  {
+    "lat": 43.789967,
+    "lon": -79.599935,
+    "fsa": "L4L",
+    "municipality": "Vaughan"
+  },
+  {
+    "lat": 43.792591,
+    "lon": -79.599249,
+    "fsa": "L4L",
+    "municipality": "Vaughan"
+  },
+  {
+    "lat": 43.785015,
+    "lon": -79.596628,
+    "fsa": "L4L",
+    "municipality": "Vaughan"
+  },
+  {
+    "lat": 43.873469,
+    "lon": -79.58736,
+    "fsa": "L4H",
+    "municipality": "Vaughan"
+  },
+  {
+    "lat": 43.78483,
+    "lon": -79.578251,
+    "fsa": "L4L",
+    "municipality": "Vaughan"
+  },
+  {
+    "lat": 44.062919,
+    "lon": -79.561207,
+    "fsa": "L3Y",
+    "municipality": "King"
+  },
+  {
+    "lat": 43.845152,
+    "lon": -79.566118,
+    "fsa": "L4H",
+    "municipality": "Vaughan"
+  },
+  {
+    "lat": 43.821243,
+    "lon": -79.564606,
+    "fsa": "L4L",
+    "municipality": "Vaughan"
+  },
+  {
+    "lat": 43.811954,
+    "lon": -79.563787,
+    "fsa": "L4L",
+    "municipality": "Vaughan"
+  },
+  {
+    "lat": 43.807989,
+    "lon": -79.559537,
+    "fsa": "L4L",
+    "municipality": "Vaughan"
+  },
+  {
+    "lat": 43.861735,
+    "lon": -79.555362,
+    "fsa": "L4H",
+    "municipality": "Vaughan"
+  },
+  {
+    "lat": 43.843751,
+    "lon": -79.551529,
+    "fsa": "L4H",
+    "municipality": "Vaughan"
+  },
+  {
+    "lat": 44.120426,
+    "lon": -79.494611,
+    "fsa": "L9N",
+    "municipality": "East Gwillimbury"
+  },
+  {
+    "lat": 44.051457,
+    "lon": -79.493873,
+    "fsa": "L3X",
+    "municipality": "Newmarket"
+  },
+  {
+    "lat": 44.034785,
+    "lon": -79.4897,
+    "fsa": "L3X",
+    "municipality": "Newmarket"
+  },
+  {
+    "lat": 44.049687,
+    "lon": -79.486494,
+    "fsa": "L3Y",
+    "municipality": "Newmarket"
+  },
+  {
+    "lat": 43.971592,
+    "lon": -79.48634,
+    "fsa": "L4G",
+    "municipality": "Aurora"
+  },
+  {
+    "lat": 44.239192,
+    "lon": -79.472316,
+    "fsa": "L4P",
+    "municipality": "Georgina"
+  },
+  {
+    "lat": 44.063922,
+    "lon": -79.475651,
+    "fsa": "L3Y",
+    "municipality": "Newmarket"
+  },
+  {
+    "lat": 43.920902,
+    "lon": -79.476642,
+    "fsa": "L4E",
+    "municipality": "Vaughan"
+  },
+  {
+    "lat": 44.005001,
+    "lon": -79.473492,
+    "fsa": "L4G",
+    "municipality": "Aurora"
+  },
+  {
+    "lat": 43.992995,
+    "lon": -79.471308,
+    "fsa": "L4G",
+    "municipality": "Aurora"
+  },
+  {
+    "lat": 43.919215,
+    "lon": -79.472409,
+    "fsa": "L4E",
+    "municipality": "Richmond Hill"
+  },
+  {
+    "lat": 44.01295,
+    "lon": -79.468545,
+    "fsa": "L4G",
+    "municipality": "Aurora"
+  },
+  {
+    "lat": 43.946808,
+    "lon": -79.469483,
+    "fsa": "L4E",
+    "municipality": "Richmond Hill"
+  },
+  {
+    "lat": 44.008512,
+    "lon": -79.466875,
+    "fsa": "L4G",
+    "municipality": "Aurora"
+  },
+  {
+    "lat": 44.195764,
+    "lon": -79.461069,
+    "fsa": "L4P",
+    "municipality": "Georgina"
+  },
+  {
+    "lat": 43.824934,
+    "lon": -79.47057,
+    "fsa": "L4J",
+    "municipality": "Vaughan"
+  },
+  {
+    "lat": 44.215434,
+    "lon": -79.460494,
+    "fsa": "L4P",
+    "municipality": "Georgina"
+  },
+  {
+    "lat": 43.886536,
+    "lon": -79.467906,
+    "fsa": "L6A",
+    "municipality": "Vaughan"
+  },
+  {
+    "lat": 44.005402,
+    "lon": -79.462395,
+    "fsa": "L4G",
+    "municipality": "Aurora"
+  },
+  {
+    "lat": 44.05423,
+    "lon": -79.459605,
+    "fsa": "L3Y",
+    "municipality": "Newmarket"
+  },
+  {
+    "lat": 44.05423,
+    "lon": -79.459605,
+    "fsa": "L3Y",
+    "municipality": "Newmarket"
+  },
+  {
+    "lat": 44.156941,
+    "lon": -79.455161,
+    "fsa": "L0G",
+    "municipality": "East Gwillimbury"
+  },
+  {
+    "lat": 44.221727,
+    "lon": -79.451733,
+    "fsa": "L4P",
+    "municipality": "Georgina"
+  },
+  {
+    "lat": 44.059823,
+    "lon": -79.455477,
+    "fsa": "L3Y",
+    "municipality": "Newmarket"
+  },
+  {
+    "lat": 43.925182,
+    "lon": -79.457115,
+    "fsa": "L4E",
+    "municipality": "Richmond Hill"
+  },
+  {
+    "lat": 44.06269,
+    "lon": -79.453348,
+    "fsa": "L3Y",
+    "municipality": "Newmarket"
+  },
+  {
+    "lat": 43.921311,
+    "lon": -79.455532,
+    "fsa": "L4E",
+    "municipality": "Richmond Hill"
+  },
+  {
+    "lat": 44.071978,
+    "lon": -79.449105,
+    "fsa": "L3Y",
+    "municipality": "Newmarket"
+  },
+  {
+    "lat": 44.056005,
+    "lon": -79.449471,
+    "fsa": "L3Y",
+    "municipality": "Newmarket"
+  },
+  {
+    "lat": 44.102011,
+    "lon": -79.438709,
+    "fsa": "L9N",
+    "municipality": "East Gwillimbury"
+  },
+  {
+    "lat": 44.069499,
+    "lon": -79.434983,
+    "fsa": "L3Y",
+    "municipality": "Newmarket"
+  },
+  {
+    "lat": 43.880775,
+    "lon": -79.439432,
+    "fsa": "L4C",
+    "municipality": "Richmond Hill"
+  },
+  {
+    "lat": 43.85771,
+    "lon": -79.43779,
+    "fsa": "L4C",
+    "municipality": "Richmond Hill"
+  },
+  {
+    "lat": 44.099916,
+    "lon": -79.430447,
+    "fsa": "L9N",
+    "municipality": "East Gwillimbury"
+  },
+  {
+    "lat": 44.047336,
+    "lon": -79.429063,
+    "fsa": "L3Y",
+    "municipality": "Newmarket"
+  },
+  {
+    "lat": 43.859945,
+    "lon": -79.430852,
+    "fsa": "L4C",
+    "municipality": "Richmond Hill"
+  },
+  {
+    "lat": 43.883847,
+    "lon": -79.423971,
+    "fsa": "L4C",
+    "municipality": "Richmond Hill"
+  },
+  {
+    "lat": 43.824522,
+    "lon": -79.422259,
+    "fsa": "L3T",
+    "municipality": "Markham"
+  },
+  {
+    "lat": 43.886369,
+    "lon": -79.413475,
+    "fsa": "L4C",
+    "municipality": "Richmond Hill"
+  },
+  {
+    "lat": 44.004268,
+    "lon": -79.392738,
+    "fsa": "L0H",
+    "municipality": "Whitchurch-Stouffville"
+  },
+  {
+    "lat": 43.838511,
+    "lon": -79.390349,
+    "fsa": "L3T",
+    "municipality": "Markham"
+  },
+  {
+    "lat": 43.822563,
+    "lon": -79.388777,
+    "fsa": "L3T",
+    "municipality": "Markham"
+  },
+  {
+    "lat": 43.967202,
+    "lon": -79.375248,
+    "fsa": "L4A",
+    "municipality": "Whitchurch-Stouffville"
+  },
+  {
+    "lat": 43.892164,
+    "lon": -79.371548,
+    "fsa": "L6C",
+    "municipality": "Markham"
+  },
+  {
+    "lat": 43.830902,
+    "lon": -79.367883,
+    "fsa": "L3T",
+    "municipality": "Markham"
+  },
+  {
+    "lat": 43.830902,
+    "lon": -79.367883,
+    "fsa": "L3T",
+    "municipality": "Markham"
+  },
+  {
+    "lat": 43.915613,
+    "lon": -79.323604,
+    "fsa": "L6C",
+    "municipality": "Markham"
+  },
+  {
+    "lat": 43.86382,
+    "lon": -79.318288,
+    "fsa": "L3R",
+    "municipality": "Markham"
+  },
+  {
+    "lat": 43.880202,
+    "lon": -79.317428,
+    "fsa": "L3R",
+    "municipality": "Markham"
+  },
+  {
+    "lat": 43.898695,
+    "lon": -79.30349,
+    "fsa": "L6C",
+    "municipality": "Markham"
+  },
+  {
+    "lat": 43.840204,
+    "lon": -79.288746,
+    "fsa": "L3S",
+    "municipality": "Markham"
+  },
+  {
+    "lat": 43.839132,
+    "lon": -79.288358,
+    "fsa": "L3S",
+    "municipality": "Markham"
+  },
+  {
+    "lat": 44.026705,
+    "lon": -79.268806,
+    "fsa": "L4A",
+    "municipality": "Whitchurch-Stouffville"
+  },
+  {
+    "lat": 43.878407,
+    "lon": -79.262374,
+    "fsa": "L3P",
+    "municipality": "Markham"
+  },
+  {
+    "lat": 43.884767,
+    "lon": -79.2563,
+    "fsa": "L3P",
+    "municipality": "Markham"
+  },
+  {
+    "lat": 43.887965,
+    "lon": -79.253988,
+    "fsa": "L3P",
+    "municipality": "Markham"
+  },
+  {
+    "lat": 43.977088,
+    "lon": -79.24796,
+    "fsa": "L4A",
+    "municipality": "Whitchurch-Stouffville"
+  },
+  {
+    "lat": 43.862265,
+    "lon": -79.248756,
+    "fsa": "L3S",
+    "municipality": "Markham"
+  },
+  {
+    "lat": 43.976024,
+    "lon": -79.245386,
+    "fsa": "L4A",
+    "municipality": "Whitchurch-Stouffville"
+  },
+  {
+    "lat": 43.904129,
+    "lon": -79.23554,
+    "fsa": "L6B",
+    "municipality": "Markham"
+  }
+]
