@@ -10,9 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
     <!-- LeafletJS CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-    <!-- Leaflet MarkerCluster CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -37,7 +34,8 @@
         }
         /* Leaflet Map Container */
         #map {
-            height: 100%;
+            min-height: 400px;
+            height: 400px;
             width: 100%;
         }
     </style>
@@ -230,7 +228,9 @@
                         <input type="checkbox" id="consent-map" class="mt-1" checked>
                         <label for="consent-map" class="text-sm text-gray-600">We'll email only about <span class="fsa-placeholder"></span> coverage and monthly alerts. Unsubscribe anytime. <a href="#" class="underline">Privacy Policy</a>.</label>
                     </div>
-                    <button type="submit" class="lead-gen-button w-full bg-[#8c6d44] text-white font-bold py-3 px-4 rounded-lg mt-6 hover:bg-[#7a5f3a] transition-transform transform hover:scale-105"></button>
+                    <button type="submit" class="lead-gen-button w-full bg-[#8c6d44] text-white font-bold py-3 px-4 rounded-lg mt-6 hover:bg-[#7a5f3a] transition-transform transform hover:scale-105">
+                        Get Free Safety Alerts
+                    </button>
                 </form>
             </div>
         </div>
@@ -324,7 +324,7 @@
                 template.getElementById('result-monthly-count').textContent = monthlyCount;
                 template.getElementById('result-yearly-count').textContent = yearlyCount;
                 template.querySelectorAll('.fsa-placeholder').forEach(el => el.textContent = fsa);
-                template.querySelector('.lead-gen-heading').textContent = `${monthlyCount} break-in${monthlyCount > 1 ? 's were' : ' was'} reported in ${fsa} in the last 30 days. Get free alerts to stay informed.`;
+                template.querySelector('.lead-gen-heading').textContent = `${monthlyCount} break-in${monthlyCount !== 1 ? 's were' : ' was'} reported in ${fsa} in the last 30 days. Get free alerts to stay informed.`;
                 template.querySelector('.lead-gen-button').textContent = `Get Free Safety Alerts for ${fsa}`;
                 
                 contentContainer.appendChild(template);
@@ -435,10 +435,10 @@
                         viewAllBtn.style.display = 'none';
                     }
                     
-                    template.querySelectorAll('.fsa-placeholder').forEach(el => el.textContent = state.currentFSA);
-                    template.querySelector('.lead-gen-heading').textContent = `Get a monthly check-in for ${state.currentFSA}`;
-                    template.querySelector('.lead-gen-button').textContent = `Get Free Safety Alerts for ${state.currentFSA}`;
                     contentContainer.appendChild(template);
+                    contentContainer.querySelectorAll('.fsa-placeholder').forEach(el => el.textContent = state.currentFSA);
+                    contentContainer.querySelector('.lead-gen-heading').textContent = `Get a monthly check-in for ${state.currentFSA}`;
+                    contentContainer.querySelector('.lead-gen-button').textContent = `Get Free Safety Alerts for ${state.currentFSA}`;
                     addCommonEventListeners();
 
                 } catch (error) {
@@ -454,33 +454,36 @@
                 contentContainer.innerHTML = '';
 
                 try {
-                    const response = await fetch('./data/map_data.json');
-                    if (!response.ok) throw new Error('Could not load map data.');
-                    const mapData = await response.json();
-
                     const template = mapTemplate.content.cloneNode(true);
                     contentContainer.appendChild(template);
-                    
+
                     const map = L.map('map').setView([43.95, -79.45], 10);
                     L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
                         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">'
                     }).addTo(map);
 
-                    const markers = L.markerClusterGroup();
+                    // Only use GeoJSON for rendering points
+                    fetch('./data/map_data.geojson')
+                        .then(res => res.json())
+                        .then(geojson => {
+                            L.geoJSON(geojson, {
+                                onEachFeature: function (feature, layer) {
+                                    if (feature.properties && feature.properties.fsa && feature.properties.municipality) {
+                                        layer.bindTooltip(`<b>${feature.properties.fsa}</b><br>${feature.properties.municipality}`);
+                                    }
+                                }
+                            }).addTo(map);
+                        })
+                        .catch(err => {
+                            errorMessage.textContent = "Could not load map data.";
+                            console.error("GeoJSON fetch error:", err);
+                        });
 
-                    mapData.forEach(incident => {
-                        if (incident.lat && incident.lon) {
-                            const marker = L.marker([incident.lat, incident.lon]);
-                            marker.bindTooltip(`<b>${incident.fsa}</b><br>${incident.municipality}`);
-                            markers.addLayer(marker);
-                        }
-                    });
-
-                    map.addLayer(markers);
-
-                    template.querySelectorAll('.fsa-placeholder').forEach(el => el.textContent = state.currentFSA);
-                    template.querySelector('.lead-gen-heading').textContent = `Get a monthly check-in for ${state.currentFSA}`;
-                    template.querySelector('.lead-gen-button').textContent = `Get Free Safety Alerts for ${state.currentFSA}`;
+                    // Set dynamic heading and button
+                    const fsa = state.currentFSA || 'your area';
+                    contentContainer.querySelector('.lead-gen-heading').textContent =
+                        `Get a monthly check-in for ${fsa}`;
+                    contentContainer.querySelector('.lead-gen-button').textContent = `Get Free Safety Alerts for ${fsa}`;
                     addCommonEventListeners();
 
                 } catch (error) {
