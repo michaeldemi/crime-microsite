@@ -104,10 +104,27 @@ def process_data():
         sorted_summary = sorted(monthly_summary.items(), key=lambda item: item[1], reverse=True)
         json.dump(dict(sorted_summary), outfile, indent=2)
 
-    # Write the map data file
-    map_data_output_path = os.path.join(OUTPUT_FOLDER, "map_data.json")
+    # Write the map data file as GeoJSON
+    geojson = {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [incident["lon"], incident["lat"]]
+                },
+                "properties": {
+                    "fsa": incident["fsa"],
+                    "municipality": incident["municipality"]
+                }
+            }
+            for incident in map_incidents
+        ]
+    }
+    map_data_output_path = os.path.join(OUTPUT_FOLDER, "map_data.geojson")
     with open(map_data_output_path, 'w', encoding='utf-8') as outfile:
-        json.dump(map_incidents, outfile, indent=2)
+        json.dump(geojson, outfile, indent=2)
 
 
     print(f"\nSuccessfully created {len(fsa_data)} FSA JSON files, 1 summary file, and 1 map data file in the '{OUTPUT_FOLDER}' folder.")
