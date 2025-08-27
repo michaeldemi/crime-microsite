@@ -328,20 +328,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.475651,
-          44.063922
-        ]
-      },
-      "properties": {
-        "fsa": "L3Y",
-        "municipality": "Newmarket"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -79.476642,
           43.920902
         ]
