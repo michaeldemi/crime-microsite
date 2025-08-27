@@ -1,7 +1,7 @@
+from datetime import datetime, timedelta
 import csv
 import json
 import os
-from datetime import datetime, timedelta
 
 # --- Configuration ---
 CSV_FILE_PATH = 'York Break-ins 2024_2025.csv'
@@ -19,12 +19,14 @@ def process_data():
 
     fsa_data = {}
     monthly_summary = {}
+    yearly_summary = {}
     map_incidents = []
     row_count = 0
     processed_count = 0
     
     # Get the date 30 days ago from today for filtering
     thirty_days_ago = datetime.now() - timedelta(days=30)
+    twelve_months_ago = datetime.now() - timedelta(days=365)
 
     print(f"Attempting to read data from {CSV_FILE_PATH}...")
 
@@ -69,6 +71,10 @@ def process_data():
                         "municipality": municipality
                     })
 
+                # Add to yearly summary if it's within the last 12 months
+                if date_obj >= twelve_months_ago:
+                    yearly_summary[municipality] = yearly_summary.get(municipality, 0) + 1
+
                 # Overwrite the original date with the new, standardized format for the JSON files
                 row[actual_date_column] = date_obj.strftime("%Y-%m-%d %H:%M:%S")
 
@@ -103,6 +109,14 @@ def process_data():
     with open(summary_output_path, 'w', encoding='utf-8') as outfile:
         sorted_summary = sorted(monthly_summary.items(), key=lambda item: item[1], reverse=True)
         json.dump(dict(sorted_summary), outfile, indent=2)
+
+    # Write York Region totals
+    york_totals = {
+        "monthly": sum(monthly_summary.values()),
+        "yearly": sum(yearly_summary.values())
+    }
+    with open(os.path.join(OUTPUT_FOLDER, "york_totals.json"), "w", encoding="utf-8") as f:
+        json.dump(york_totals, f, indent=2)
 
     # Write the map data file as GeoJSON
     geojson = {
