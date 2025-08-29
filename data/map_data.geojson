@@ -804,20 +804,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.288746,
-          43.840204
-        ]
-      },
-      "properties": {
-        "fsa": "L3S",
-        "municipality": "Markham"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -79.268806,
           44.026705
         ]
