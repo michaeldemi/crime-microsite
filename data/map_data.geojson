@@ -230,20 +230,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.494611,
-          44.120426
-        ]
-      },
-      "properties": {
-        "fsa": "L9N",
-        "municipality": "East Gwillimbury"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -79.493873,
           44.051457
         ]
@@ -279,20 +265,6 @@
       "properties": {
         "fsa": "L3Y",
         "municipality": "Newmarket"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.472316,
-          44.239192
-        ]
-      },
-      "properties": {
-        "fsa": "L4P",
-        "municipality": "Georgina"
       }
     },
     {
@@ -524,20 +496,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.455532,
-          43.921311
-        ]
-      },
-      "properties": {
-        "fsa": "L4E",
-        "municipality": "Richmond Hill"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -79.449471,
           44.056005
         ]
@@ -554,20 +512,6 @@
         "coordinates": [
           -79.439432,
           43.880775
-        ]
-      },
-      "properties": {
-        "fsa": "L4C",
-        "municipality": "Richmond Hill"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.43779,
-          43.85771
         ]
       },
       "properties": {
