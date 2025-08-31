@@ -132,20 +132,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.578251,
-          43.78483
-        ]
-      },
-      "properties": {
-        "fsa": "L4L",
-        "municipality": "Vaughan"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -79.561207,
           44.062919
         ]
@@ -166,34 +152,6 @@
       },
       "properties": {
         "fsa": "L4H",
-        "municipality": "Vaughan"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.564606,
-          43.821243
-        ]
-      },
-      "properties": {
-        "fsa": "L4L",
-        "municipality": "Vaughan"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.563787,
-          43.811954
-        ]
-      },
-      "properties": {
-        "fsa": "L4L",
         "municipality": "Vaughan"
       }
     },
@@ -288,20 +246,6 @@
         "coordinates": [
           -79.473492,
           44.005001
-        ]
-      },
-      "properties": {
-        "fsa": "L4G",
-        "municipality": "Aurora"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.471308,
-          43.992995
         ]
       },
       "properties": {
