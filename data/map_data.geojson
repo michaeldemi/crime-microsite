@@ -104,20 +104,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.596628,
-          43.785015
-        ]
-      },
-      "properties": {
-        "fsa": "L4L",
-        "municipality": "Vaughan"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -79.58736,
           43.873469
         ]
@@ -440,48 +426,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.449471,
-          44.056005
-        ]
-      },
-      "properties": {
-        "fsa": "L3Y",
-        "municipality": "Newmarket"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.439432,
-          43.880775
-        ]
-      },
-      "properties": {
-        "fsa": "L4C",
-        "municipality": "Richmond Hill"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.430447,
-          44.099916
-        ]
-      },
-      "properties": {
-        "fsa": "L9N",
-        "municipality": "East Gwillimbury"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -79.429063,
           44.047336
         ]
@@ -545,20 +489,6 @@
       "properties": {
         "fsa": "L4C",
         "municipality": "Richmond Hill"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.392738,
-          44.004268
-        ]
-      },
-      "properties": {
-        "fsa": "L0H",
-        "municipality": "Whitchurch-Stouffville"
       }
     },
     {
@@ -678,20 +608,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.30349,
-          43.898695
-        ]
-      },
-      "properties": {
-        "fsa": "L6C",
-        "municipality": "Markham"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -79.268806,
           44.026705
         ]
@@ -699,20 +615,6 @@
       "properties": {
         "fsa": "L4A",
         "municipality": "Whitchurch-Stouffville"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.262374,
-          43.878407
-        ]
-      },
-      "properties": {
-        "fsa": "L3P",
-        "municipality": "Markham"
       }
     },
     {
@@ -762,20 +664,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.248756,
-          43.862265
-        ]
-      },
-      "properties": {
-        "fsa": "L3S",
-        "municipality": "Markham"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -79.245386,
           43.976024
         ]
@@ -783,20 +671,6 @@
       "properties": {
         "fsa": "L4A",
         "municipality": "Whitchurch-Stouffville"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.23554,
-          43.904129
-        ]
-      },
-      "properties": {
-        "fsa": "L6B",
-        "municipality": "Markham"
       }
     }
   ]
