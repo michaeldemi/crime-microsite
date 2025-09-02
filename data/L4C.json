@@ -1,938 +1,1094 @@
 [
   {
-    "date": "2024-08-09 03:30:00",
+    "occurrence_date": "2024-08-09 03:30:00",
     "municipality": "Richmond Hill",
-    "lat": 43.878058,
-    "lon": -79.462638
+    "fsa": "L4C",
+    "latitude": "43.878058",
+    "longitude": "-79.462638"
   },
   {
-    "date": "2024-07-27 01:50:00",
+    "occurrence_date": "2024-07-27 01:50:00",
     "municipality": "Richmond Hill",
-    "lat": 43.871136,
-    "lon": -79.461892
+    "fsa": "L4C",
+    "latitude": "43.871136",
+    "longitude": "-79.461892"
   },
   {
-    "date": "2025-06-22 04:00:00",
+    "occurrence_date": "2025-06-22 04:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.890864,
-    "lon": -79.460511
+    "fsa": "L4C",
+    "latitude": "43.890864",
+    "longitude": "-79.460511"
   },
   {
-    "date": "2024-07-26 16:37:00",
+    "occurrence_date": "2024-07-26 16:37:00",
     "municipality": "Richmond Hill",
-    "lat": 43.875988,
-    "lon": -79.460466
+    "fsa": "L4C",
+    "latitude": "43.875988",
+    "longitude": "-79.460466"
   },
   {
-    "date": "2024-09-16 13:37:00",
+    "occurrence_date": "2024-09-16 13:37:00",
     "municipality": "Richmond Hill",
-    "lat": 43.874083,
-    "lon": -79.46027
+    "fsa": "L4C",
+    "latitude": "43.874083",
+    "longitude": "-79.46027"
   },
   {
-    "date": "2025-04-12 21:06:00",
+    "occurrence_date": "2025-04-12 21:06:00",
     "municipality": "Richmond Hill",
-    "lat": 43.856365,
-    "lon": -79.460652
+    "fsa": "L4C",
+    "latitude": "43.856365",
+    "longitude": "-79.460652"
   },
   {
-    "date": "2024-08-18 01:00:00",
+    "occurrence_date": "2024-08-18 01:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.886767,
-    "lon": -79.459113
+    "fsa": "L4C",
+    "latitude": "43.886767",
+    "longitude": "-79.459113"
   },
   {
-    "date": "2025-03-20 04:01:00",
+    "occurrence_date": "2025-03-20 04:01:00",
     "municipality": "Richmond Hill",
-    "lat": 43.864397,
-    "lon": -79.458843
+    "fsa": "L4C",
+    "latitude": "43.864397",
+    "longitude": "-79.458843"
   },
   {
-    "date": "2024-11-14 17:00:00",
+    "occurrence_date": "2024-11-14 17:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.860921,
-    "lon": -79.458731
+    "fsa": "L4C",
+    "latitude": "43.860921",
+    "longitude": "-79.458731"
   },
   {
-    "date": "2025-01-22 19:10:00",
+    "occurrence_date": "2025-01-22 19:10:00",
     "municipality": "Richmond Hill",
-    "lat": 43.870136,
-    "lon": -79.458473
+    "fsa": "L4C",
+    "latitude": "43.870136",
+    "longitude": "-79.458473"
   },
   {
-    "date": "2024-07-19 14:20:00",
+    "occurrence_date": "2024-07-19 14:20:00",
     "municipality": "Richmond Hill",
-    "lat": 43.886114,
-    "lon": -79.457742
+    "fsa": "L4C",
+    "latitude": "43.886114",
+    "longitude": "-79.457742"
   },
   {
-    "date": "2025-05-24 22:49:00",
+    "occurrence_date": "2025-05-24 22:49:00",
     "municipality": "Richmond Hill",
-    "lat": 43.886114,
-    "lon": -79.457742
+    "fsa": "L4C",
+    "latitude": "43.886114",
+    "longitude": "-79.457742"
   },
   {
-    "date": "2025-05-12 15:27:00",
+    "occurrence_date": "2025-05-12 15:27:00",
     "municipality": "Richmond Hill",
-    "lat": 43.874594,
-    "lon": -79.457936
+    "fsa": "L4C",
+    "latitude": "43.874594",
+    "longitude": "-79.457936"
   },
   {
-    "date": "2024-10-12 14:00:00",
+    "occurrence_date": "2024-10-12 14:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.867775,
-    "lon": -79.458072
+    "fsa": "L4C",
+    "latitude": "43.867775",
+    "longitude": "-79.458072"
   },
   {
-    "date": "2024-10-07 02:00:00",
+    "occurrence_date": "2024-10-07 02:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.887948,
-    "lon": -79.457388
+    "fsa": "L4C",
+    "latitude": "43.887948",
+    "longitude": "-79.457388"
   },
   {
-    "date": "2024-09-01 15:10:00",
+    "occurrence_date": "2024-09-01 15:10:00",
     "municipality": "Richmond Hill",
-    "lat": 43.866193,
-    "lon": -79.457422
+    "fsa": "L4C",
+    "latitude": "43.866193",
+    "longitude": "-79.457422"
   },
   {
-    "date": "2024-10-01 18:20:00",
+    "occurrence_date": "2024-10-01 18:20:00",
     "municipality": "Richmond Hill",
-    "lat": 43.871389,
-    "lon": -79.456598
+    "fsa": "L4C",
+    "latitude": "43.871389",
+    "longitude": "-79.456598"
   },
   {
-    "date": "2025-05-25 02:15:00",
+    "occurrence_date": "2025-05-25 02:15:00",
     "municipality": "Richmond Hill",
-    "lat": 43.871389,
-    "lon": -79.456598
+    "fsa": "L4C",
+    "latitude": "43.871389",
+    "longitude": "-79.456598"
   },
   {
-    "date": "2025-04-18 17:00:00",
+    "occurrence_date": "2025-04-18 17:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.870294,
-    "lon": -79.456559
+    "fsa": "L4C",
+    "latitude": "43.870294",
+    "longitude": "-79.456559"
   },
   {
-    "date": "2024-12-07 05:00:00",
+    "occurrence_date": "2024-12-07 05:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.866425,
-    "lon": -79.456343
+    "fsa": "L4C",
+    "latitude": "43.866425",
+    "longitude": "-79.456343"
   },
   {
-    "date": "2025-03-12 12:30:00",
+    "occurrence_date": "2025-03-12 12:30:00",
     "municipality": "Richmond Hill",
-    "lat": 43.876334,
-    "lon": -79.455787
+    "fsa": "L4C",
+    "latitude": "43.876334",
+    "longitude": "-79.455787"
   },
   {
-    "date": "2025-03-15 07:15:00",
+    "occurrence_date": "2025-03-15 07:15:00",
     "municipality": "Richmond Hill",
-    "lat": 43.872365,
-    "lon": -79.455772
+    "fsa": "L4C",
+    "latitude": "43.872365",
+    "longitude": "-79.455772"
   },
   {
-    "date": "2024-11-16 23:09:00",
+    "occurrence_date": "2024-11-16 23:09:00",
     "municipality": "Richmond Hill",
-    "lat": 43.891311,
-    "lon": -79.455274
+    "fsa": "L4C",
+    "latitude": "43.891311",
+    "longitude": "-79.455274"
   },
   {
-    "date": "2024-08-22 07:32:00",
+    "occurrence_date": "2024-08-22 07:32:00",
     "municipality": "Richmond Hill",
-    "lat": 43.859234,
-    "lon": -79.455516
+    "fsa": "L4C",
+    "latitude": "43.859234",
+    "longitude": "-79.455516"
   },
   {
-    "date": "2024-09-09 10:22:00",
+    "occurrence_date": "2024-09-09 10:22:00",
     "municipality": "Richmond Hill",
-    "lat": 43.854149,
-    "lon": -79.455295
+    "fsa": "L4C",
+    "latitude": "43.854149",
+    "longitude": "-79.455295"
   },
   {
-    "date": "2025-05-23 20:00:00",
+    "occurrence_date": "2025-05-23 20:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.861005,
-    "lon": -79.453782
+    "fsa": "L4C",
+    "latitude": "43.861005",
+    "longitude": "-79.453782"
   },
   {
-    "date": "2024-07-24 05:17:00",
+    "occurrence_date": "2024-07-24 05:17:00",
     "municipality": "Richmond Hill",
-    "lat": 43.886001,
-    "lon": -79.451951
+    "fsa": "L4C",
+    "latitude": "43.886001",
+    "longitude": "-79.451951"
   },
   {
-    "date": "2024-10-12 13:30:00",
+    "occurrence_date": "2024-10-12 13:30:00",
     "municipality": "Richmond Hill",
-    "lat": 43.850453,
-    "lon": -79.451784
+    "fsa": "L4C",
+    "latitude": "43.850453",
+    "longitude": "-79.451784"
   },
   {
-    "date": "2024-10-13 01:00:00",
+    "occurrence_date": "2024-10-13 01:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.850453,
-    "lon": -79.451784
+    "fsa": "L4C",
+    "latitude": "43.850453",
+    "longitude": "-79.451784"
   },
   {
-    "date": "2024-12-09 23:27:00",
+    "occurrence_date": "2024-12-09 23:27:00",
     "municipality": "Richmond Hill",
-    "lat": 43.860516,
-    "lon": -79.451347
+    "fsa": "L4C",
+    "latitude": "43.860516",
+    "longitude": "-79.451347"
   },
   {
-    "date": "2025-01-03 23:30:00",
+    "occurrence_date": "2025-01-03 23:30:00",
     "municipality": "Richmond Hill",
-    "lat": 43.848847,
-    "lon": -79.450921
+    "fsa": "L4C",
+    "latitude": "43.848847",
+    "longitude": "-79.450921"
   },
   {
-    "date": "2025-01-18 00:12:00",
+    "occurrence_date": "2025-01-18 00:12:00",
     "municipality": "Richmond Hill",
-    "lat": 43.864536,
-    "lon": -79.450155
+    "fsa": "L4C",
+    "latitude": "43.864536",
+    "longitude": "-79.450155"
   },
   {
-    "date": "2024-07-25 20:20:00",
+    "occurrence_date": "2024-07-25 20:20:00",
     "municipality": "Richmond Hill",
-    "lat": 43.873541,
-    "lon": -79.44976
+    "fsa": "L4C",
+    "latitude": "43.873541",
+    "longitude": "-79.44976"
   },
   {
-    "date": "2024-07-26 01:00:00",
+    "occurrence_date": "2024-07-26 01:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.890082,
-    "lon": -79.448497
+    "fsa": "L4C",
+    "latitude": "43.890082",
+    "longitude": "-79.448497"
   },
   {
-    "date": "2024-11-26 14:18:00",
+    "occurrence_date": "2024-11-26 14:18:00",
     "municipality": "Richmond Hill",
-    "lat": 43.843371,
-    "lon": -79.448715
+    "fsa": "L4C",
+    "latitude": "43.843371",
+    "longitude": "-79.448715"
   },
   {
-    "date": "2025-02-25 05:00:00",
+    "occurrence_date": "2025-02-25 05:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.86488,
-    "lon": -79.448157
+    "fsa": "L4C",
+    "latitude": "43.86488",
+    "longitude": "-79.448157"
   },
   {
-    "date": "2024-12-05 23:30:00",
+    "occurrence_date": "2024-12-05 23:30:00",
     "municipality": "Richmond Hill",
-    "lat": 43.86116,
-    "lon": -79.448184
+    "fsa": "L4C",
+    "latitude": "43.86116",
+    "longitude": "-79.448184"
   },
   {
-    "date": "2025-02-16 00:50:00",
+    "occurrence_date": "2025-02-16 00:50:00",
     "municipality": "Richmond Hill",
-    "lat": 43.839495,
-    "lon": -79.44874
+    "fsa": "L4C",
+    "latitude": "43.839495",
+    "longitude": "-79.44874"
   },
   {
-    "date": "2025-05-10 00:31:00",
+    "occurrence_date": "2025-05-10 00:31:00",
     "municipality": "Richmond Hill",
-    "lat": 43.839495,
-    "lon": -79.44874
+    "fsa": "L4C",
+    "latitude": "43.839495",
+    "longitude": "-79.44874"
   },
   {
-    "date": "2025-04-27 05:00:00",
+    "occurrence_date": "2025-04-27 05:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.879831,
-    "lon": -79.446178
+    "fsa": "L4C",
+    "latitude": "43.879831",
+    "longitude": "-79.446178"
   },
   {
-    "date": "2025-06-29 03:53:00",
+    "occurrence_date": "2025-06-29 03:53:00",
     "municipality": "Richmond Hill",
-    "lat": 43.861572,
-    "lon": -79.445997
+    "fsa": "L4C",
+    "latitude": "43.861572",
+    "longitude": "-79.445997"
   },
   {
-    "date": "2025-02-19 21:00:00",
+    "occurrence_date": "2025-02-19 21:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.880569,
-    "lon": -79.445153
+    "fsa": "L4C",
+    "latitude": "43.880569",
+    "longitude": "-79.445153"
   },
   {
-    "date": "2025-03-13 00:30:00",
+    "occurrence_date": "2025-03-13 00:30:00",
     "municipality": "Richmond Hill",
-    "lat": 43.876702,
-    "lon": -79.445123
+    "fsa": "L4C",
+    "latitude": "43.876702",
+    "longitude": "-79.445123"
   },
   {
-    "date": "2024-10-27 03:22:00",
+    "occurrence_date": "2024-10-27 03:22:00",
     "municipality": "Richmond Hill",
-    "lat": 43.836893,
-    "lon": -79.445978
+    "fsa": "L4C",
+    "latitude": "43.836893",
+    "longitude": "-79.445978"
   },
   {
-    "date": "2025-01-10 22:20:00",
+    "occurrence_date": "2025-01-10 22:20:00",
     "municipality": "Richmond Hill",
-    "lat": 43.838414,
-    "lon": -79.44515
+    "fsa": "L4C",
+    "latitude": "43.838414",
+    "longitude": "-79.44515"
   },
   {
-    "date": "2025-06-28 04:42:00",
+    "occurrence_date": "2025-06-28 04:42:00",
     "municipality": "Richmond Hill",
-    "lat": 43.866662,
-    "lon": -79.444309
+    "fsa": "L4C",
+    "latitude": "43.866662",
+    "longitude": "-79.444309"
   },
   {
-    "date": "2024-12-26 23:17:00",
+    "occurrence_date": "2024-12-26 23:17:00",
     "municipality": "Richmond Hill",
-    "lat": 43.847933,
-    "lon": -79.444455
+    "fsa": "L4C",
+    "latitude": "43.847933",
+    "longitude": "-79.444455"
   },
   {
-    "date": "2025-06-13 02:45:00",
+    "occurrence_date": "2025-06-13 02:45:00",
     "municipality": "Richmond Hill",
-    "lat": 43.847933,
-    "lon": -79.444455
+    "fsa": "L4C",
+    "latitude": "43.847933",
+    "longitude": "-79.444455"
   },
   {
-    "date": "2025-02-20 00:03:00",
+    "occurrence_date": "2025-02-20 00:03:00",
     "municipality": "Richmond Hill",
-    "lat": 43.845534,
-    "lon": -79.444489
+    "fsa": "L4C",
+    "latitude": "43.845534",
+    "longitude": "-79.444489"
   },
   {
-    "date": "2025-02-05 00:10:00",
+    "occurrence_date": "2025-02-05 00:10:00",
     "municipality": "Richmond Hill",
-    "lat": 43.840593,
-    "lon": -79.443221
+    "fsa": "L4C",
+    "latitude": "43.840593",
+    "longitude": "-79.443221"
   },
   {
-    "date": "2025-02-09 19:00:00",
+    "occurrence_date": "2025-02-09 19:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.840593,
-    "lon": -79.443221
+    "fsa": "L4C",
+    "latitude": "43.840593",
+    "longitude": "-79.443221"
   },
   {
-    "date": "2024-12-05 19:07:00",
+    "occurrence_date": "2024-12-05 19:07:00",
     "municipality": "Richmond Hill",
-    "lat": 43.881329,
-    "lon": -79.441616
+    "fsa": "L4C",
+    "latitude": "43.881329",
+    "longitude": "-79.441616"
   },
   {
-    "date": "2024-09-06 20:49:00",
+    "occurrence_date": "2024-09-06 20:49:00",
     "municipality": "Richmond Hill",
-    "lat": 43.872171,
-    "lon": -79.441803
+    "fsa": "L4C",
+    "latitude": "43.872171",
+    "longitude": "-79.441803"
   },
   {
-    "date": "2025-02-21 17:46:00",
+    "occurrence_date": "2025-02-21 17:46:00",
     "municipality": "Richmond Hill",
-    "lat": 43.872171,
-    "lon": -79.441803
+    "fsa": "L4C",
+    "latitude": "43.872171",
+    "longitude": "-79.441803"
   },
   {
-    "date": "2025-02-10 12:30:00",
+    "occurrence_date": "2025-02-10 12:30:00",
     "municipality": "Richmond Hill",
-    "lat": 43.880363,
-    "lon": -79.441361
+    "fsa": "L4C",
+    "latitude": "43.880363",
+    "longitude": "-79.441361"
   },
   {
-    "date": "2025-07-08 15:30:00",
+    "occurrence_date": "2025-07-08 15:30:00",
     "municipality": "Richmond Hill",
-    "lat": 43.880363,
-    "lon": -79.441361
+    "fsa": "L4C",
+    "latitude": "43.880363",
+    "longitude": "-79.441361"
   },
   {
-    "date": "2025-04-03 14:00:00",
+    "occurrence_date": "2025-04-03 14:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.862763,
-    "lon": -79.441048
+    "fsa": "L4C",
+    "latitude": "43.862763",
+    "longitude": "-79.441048"
   },
   {
-    "date": "2024-08-22 07:44:00",
+    "occurrence_date": "2024-08-22 07:44:00",
     "municipality": "Richmond Hill",
-    "lat": 43.862883,
-    "lon": -79.440783
+    "fsa": "L4C",
+    "latitude": "43.862883",
+    "longitude": "-79.440783"
   },
   {
-    "date": "2024-11-14 08:30:00",
+    "occurrence_date": "2024-11-14 08:30:00",
     "municipality": "Richmond Hill",
-    "lat": 43.862883,
-    "lon": -79.440783
+    "fsa": "L4C",
+    "latitude": "43.862883",
+    "longitude": "-79.440783"
   },
   {
-    "date": "2024-10-20 10:32:00",
+    "occurrence_date": "2024-10-20 10:32:00",
     "municipality": "Richmond Hill",
-    "lat": 43.84467,
-    "lon": -79.440823
+    "fsa": "L4C",
+    "latitude": "43.84467",
+    "longitude": "-79.440823"
   },
   {
-    "date": "2024-09-10 21:00:00",
+    "occurrence_date": "2024-09-10 21:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.835083,
-    "lon": -79.440895
+    "fsa": "L4C",
+    "latitude": "43.835083",
+    "longitude": "-79.440895"
   },
   {
-    "date": "2025-07-22 21:21:00",
+    "occurrence_date": "2025-07-22 21:21:00",
     "municipality": "Richmond Hill",
-    "lat": 43.881752,
-    "lon": -79.439661
+    "fsa": "L4C",
+    "latitude": "43.881752",
+    "longitude": "-79.439661"
   },
   {
-    "date": "2024-07-12 09:26:00",
+    "occurrence_date": "2024-07-12 09:26:00",
     "municipality": "Richmond Hill",
-    "lat": 43.868949,
-    "lon": -79.439973
+    "fsa": "L4C",
+    "latitude": "43.868949",
+    "longitude": "-79.439973"
   },
   {
-    "date": "2024-12-21 00:22:00",
+    "occurrence_date": "2024-12-21 00:22:00",
     "municipality": "Richmond Hill",
-    "lat": 43.842338,
-    "lon": -79.440643
+    "fsa": "L4C",
+    "latitude": "43.842338",
+    "longitude": "-79.440643"
   },
   {
-    "date": "2024-12-26 00:02:00",
+    "occurrence_date": "2024-12-26 00:02:00",
     "municipality": "Richmond Hill",
-    "lat": 43.842338,
-    "lon": -79.440643
+    "fsa": "L4C",
+    "latitude": "43.842338",
+    "longitude": "-79.440643"
   },
   {
-    "date": "2025-08-01 16:24:00",
+    "occurrence_date": "2025-08-01 16:24:00",
     "municipality": "Richmond Hill",
-    "lat": 43.880775,
-    "lon": -79.439432
+    "fsa": "L4C",
+    "latitude": "43.880775",
+    "longitude": "-79.439432"
   },
   {
-    "date": "2024-09-28 23:47:00",
+    "occurrence_date": "2024-09-28 23:47:00",
     "municipality": "Richmond Hill",
-    "lat": 43.878989,
-    "lon": -79.439025
+    "fsa": "L4C",
+    "latitude": "43.878989",
+    "longitude": "-79.439025"
   },
   {
-    "date": "2025-05-03 09:00:00",
+    "occurrence_date": "2025-05-03 09:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.852501,
-    "lon": -79.439419
+    "fsa": "L4C",
+    "latitude": "43.852501",
+    "longitude": "-79.439419"
   },
   {
-    "date": "2025-06-22 02:59:00",
+    "occurrence_date": "2025-06-22 02:59:00",
     "municipality": "Richmond Hill",
-    "lat": 43.848562,
-    "lon": -79.439009
+    "fsa": "L4C",
+    "latitude": "43.848562",
+    "longitude": "-79.439009"
   },
   {
-    "date": "2024-08-06 14:41:00",
+    "occurrence_date": "2024-08-06 14:41:00",
     "municipality": "Richmond Hill",
-    "lat": 43.874352,
-    "lon": -79.437908
+    "fsa": "L4C",
+    "latitude": "43.874352",
+    "longitude": "-79.437908"
   },
   {
-    "date": "2025-01-28 13:25:00",
+    "occurrence_date": "2025-01-28 13:25:00",
     "municipality": "Richmond Hill",
-    "lat": 43.874352,
-    "lon": -79.437908
+    "fsa": "L4C",
+    "latitude": "43.874352",
+    "longitude": "-79.437908"
   },
   {
-    "date": "2025-07-18 04:01:00",
+    "occurrence_date": "2025-07-18 04:01:00",
     "municipality": "Richmond Hill",
-    "lat": 43.878248,
-    "lon": -79.437387
+    "fsa": "L4C",
+    "latitude": "43.878248",
+    "longitude": "-79.437387"
   },
   {
-    "date": "2025-04-11 06:34:00",
+    "occurrence_date": "2025-04-11 06:34:00",
     "municipality": "Richmond Hill",
-    "lat": 43.85771,
-    "lon": -79.43779
+    "fsa": "L4C",
+    "latitude": "43.85771",
+    "longitude": "-79.43779"
   },
   {
-    "date": "2025-07-05 15:46:00",
+    "occurrence_date": "2025-07-05 15:46:00",
     "municipality": "Richmond Hill",
-    "lat": 43.85771,
-    "lon": -79.43779
+    "fsa": "L4C",
+    "latitude": "43.85771",
+    "longitude": "-79.43779"
   },
   {
-    "date": "2025-07-30 08:08:00",
+    "occurrence_date": "2025-07-30 08:08:00",
     "municipality": "Richmond Hill",
-    "lat": 43.85771,
-    "lon": -79.43779
+    "fsa": "L4C",
+    "latitude": "43.85771",
+    "longitude": "-79.43779"
   },
   {
-    "date": "2025-01-23 05:01:00",
+    "occurrence_date": "2025-01-23 05:01:00",
     "municipality": "Richmond Hill",
-    "lat": 43.87125,
-    "lon": -79.43724
+    "fsa": "L4C",
+    "latitude": "43.87125",
+    "longitude": "-79.43724"
   },
   {
-    "date": "2025-03-13 19:52:00",
+    "occurrence_date": "2025-03-13 19:52:00",
     "municipality": "Richmond Hill",
-    "lat": 43.87125,
-    "lon": -79.43724
+    "fsa": "L4C",
+    "latitude": "43.87125",
+    "longitude": "-79.43724"
   },
   {
-    "date": "2024-10-12 23:37:00",
+    "occurrence_date": "2024-10-12 23:37:00",
     "municipality": "Richmond Hill",
-    "lat": 43.836356,
-    "lon": -79.438003
+    "fsa": "L4C",
+    "latitude": "43.836356",
+    "longitude": "-79.438003"
   },
   {
-    "date": "2024-11-13 23:11:00",
+    "occurrence_date": "2024-11-13 23:11:00",
     "municipality": "Richmond Hill",
-    "lat": 43.836356,
-    "lon": -79.438003
+    "fsa": "L4C",
+    "latitude": "43.836356",
+    "longitude": "-79.438003"
   },
   {
-    "date": "2024-11-16 01:25:00",
+    "occurrence_date": "2024-11-16 01:25:00",
     "municipality": "Richmond Hill",
-    "lat": 43.836356,
-    "lon": -79.438003
+    "fsa": "L4C",
+    "latitude": "43.836356",
+    "longitude": "-79.438003"
   },
   {
-    "date": "2024-08-23 16:00:00",
+    "occurrence_date": "2024-08-23 16:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.843298,
-    "lon": -79.436064
+    "fsa": "L4C",
+    "latitude": "43.843298",
+    "longitude": "-79.436064"
   },
   {
-    "date": "2025-04-27 06:00:00",
+    "occurrence_date": "2025-04-27 06:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.862127,
-    "lon": -79.435158
+    "fsa": "L4C",
+    "latitude": "43.862127",
+    "longitude": "-79.435158"
   },
   {
-    "date": "2025-03-19 04:00:00",
+    "occurrence_date": "2025-03-19 04:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.880151,
-    "lon": -79.434517
+    "fsa": "L4C",
+    "latitude": "43.880151",
+    "longitude": "-79.434517"
   },
   {
-    "date": "2024-07-08 06:22:00",
+    "occurrence_date": "2024-07-08 06:22:00",
     "municipality": "Richmond Hill",
-    "lat": 43.866996,
-    "lon": -79.434514
+    "fsa": "L4C",
+    "latitude": "43.866996",
+    "longitude": "-79.434514"
   },
   {
-    "date": "2024-09-25 01:10:00",
+    "occurrence_date": "2024-09-25 01:10:00",
     "municipality": "Richmond Hill",
-    "lat": 43.858464,
-    "lon": -79.434292
+    "fsa": "L4C",
+    "latitude": "43.858464",
+    "longitude": "-79.434292"
   },
   {
-    "date": "2024-10-01 04:00:00",
+    "occurrence_date": "2024-10-01 04:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.858464,
-    "lon": -79.434292
+    "fsa": "L4C",
+    "latitude": "43.858464",
+    "longitude": "-79.434292"
   },
   {
-    "date": "2025-06-04 02:34:00",
+    "occurrence_date": "2025-06-04 02:34:00",
     "municipality": "Richmond Hill",
-    "lat": 43.858464,
-    "lon": -79.434292
+    "fsa": "L4C",
+    "latitude": "43.858464",
+    "longitude": "-79.434292"
   },
   {
-    "date": "2024-11-07 00:00:00",
+    "occurrence_date": "2024-11-07 00:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.836481,
-    "lon": -79.434571
+    "fsa": "L4C",
+    "latitude": "43.836481",
+    "longitude": "-79.434571"
   },
   {
-    "date": "2025-07-08 06:00:00",
+    "occurrence_date": "2025-07-08 06:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.865441,
-    "lon": -79.433728
+    "fsa": "L4C",
+    "latitude": "43.865441",
+    "longitude": "-79.433728"
   },
   {
-    "date": "2024-10-10 14:55:00",
+    "occurrence_date": "2024-10-10 14:55:00",
     "municipality": "Richmond Hill",
-    "lat": 43.87816,
-    "lon": -79.432853
+    "fsa": "L4C",
+    "latitude": "43.87816",
+    "longitude": "-79.432853"
   },
   {
-    "date": "2024-10-16 23:31:00",
+    "occurrence_date": "2024-10-16 23:31:00",
     "municipality": "Richmond Hill",
-    "lat": 43.87816,
-    "lon": -79.432853
+    "fsa": "L4C",
+    "latitude": "43.87816",
+    "longitude": "-79.432853"
   },
   {
-    "date": "2025-03-21 21:00:00",
+    "occurrence_date": "2025-03-21 21:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.877173,
-    "lon": -79.432545
+    "fsa": "L4C",
+    "latitude": "43.877173",
+    "longitude": "-79.432545"
   },
   {
-    "date": "2025-02-19 03:32:00",
+    "occurrence_date": "2025-02-19 03:32:00",
     "municipality": "Richmond Hill",
-    "lat": 43.83359,
-    "lon": -79.43366
+    "fsa": "L4C",
+    "latitude": "43.83359",
+    "longitude": "-79.43366"
   },
   {
-    "date": "2024-08-29 02:43:00",
+    "occurrence_date": "2024-08-29 02:43:00",
     "municipality": "Richmond Hill",
-    "lat": 43.840937,
-    "lon": -79.433422
+    "fsa": "L4C",
+    "latitude": "43.840937",
+    "longitude": "-79.433422"
   },
   {
-    "date": "2024-08-05 03:00:00",
+    "occurrence_date": "2024-08-05 03:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.866642,
-    "lon": -79.431688
+    "fsa": "L4C",
+    "latitude": "43.866642",
+    "longitude": "-79.431688"
   },
   {
-    "date": "2025-01-29 15:46:00",
+    "occurrence_date": "2025-01-29 15:46:00",
     "municipality": "Richmond Hill",
-    "lat": 43.862919,
-    "lon": -79.431512
+    "fsa": "L4C",
+    "latitude": "43.862919",
+    "longitude": "-79.431512"
   },
   {
-    "date": "2025-05-25 10:39:00",
+    "occurrence_date": "2025-05-25 10:39:00",
     "municipality": "Richmond Hill",
-    "lat": 43.848295,
-    "lon": -79.43186
+    "fsa": "L4C",
+    "latitude": "43.848295",
+    "longitude": "-79.43186"
   },
   {
-    "date": "2024-07-03 11:30:00",
+    "occurrence_date": "2024-07-03 11:30:00",
     "municipality": "Richmond Hill",
-    "lat": 43.83536,
-    "lon": -79.431971
+    "fsa": "L4C",
+    "latitude": "43.83536",
+    "longitude": "-79.431971"
   },
   {
-    "date": "2024-11-23 23:34:00",
+    "occurrence_date": "2024-11-23 23:34:00",
     "municipality": "Richmond Hill",
-    "lat": 43.83536,
-    "lon": -79.431971
+    "fsa": "L4C",
+    "latitude": "43.83536",
+    "longitude": "-79.431971"
   },
   {
-    "date": "2025-03-01 23:51:00",
+    "occurrence_date": "2025-03-01 23:51:00",
     "municipality": "Richmond Hill",
-    "lat": 43.83536,
-    "lon": -79.431971
+    "fsa": "L4C",
+    "latitude": "43.83536",
+    "longitude": "-79.431971"
   },
   {
-    "date": "2024-08-09 04:00:00",
+    "occurrence_date": "2024-08-09 04:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.859945,
-    "lon": -79.430852
+    "fsa": "L4C",
+    "latitude": "43.859945",
+    "longitude": "-79.430852"
   },
   {
-    "date": "2024-08-16 04:00:00",
+    "occurrence_date": "2024-08-16 04:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.859945,
-    "lon": -79.430852
+    "fsa": "L4C",
+    "latitude": "43.859945",
+    "longitude": "-79.430852"
   },
   {
-    "date": "2024-08-16 07:00:00",
+    "occurrence_date": "2024-08-16 07:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.859945,
-    "lon": -79.430852
+    "fsa": "L4C",
+    "latitude": "43.859945",
+    "longitude": "-79.430852"
   },
   {
-    "date": "2024-08-17 04:00:00",
+    "occurrence_date": "2024-08-17 04:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.859945,
-    "lon": -79.430852
+    "fsa": "L4C",
+    "latitude": "43.859945",
+    "longitude": "-79.430852"
   },
   {
-    "date": "2024-08-17 04:00:00",
+    "occurrence_date": "2024-08-17 04:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.859945,
-    "lon": -79.430852
+    "fsa": "L4C",
+    "latitude": "43.859945",
+    "longitude": "-79.430852"
   },
   {
-    "date": "2024-08-17 05:30:00",
+    "occurrence_date": "2024-08-17 05:30:00",
     "municipality": "Richmond Hill",
-    "lat": 43.859945,
-    "lon": -79.430852
+    "fsa": "L4C",
+    "latitude": "43.859945",
+    "longitude": "-79.430852"
   },
   {
-    "date": "2024-08-17 05:30:00",
+    "occurrence_date": "2024-08-17 05:30:00",
     "municipality": "Richmond Hill",
-    "lat": 43.859945,
-    "lon": -79.430852
+    "fsa": "L4C",
+    "latitude": "43.859945",
+    "longitude": "-79.430852"
   },
   {
-    "date": "2024-08-20 00:00:00",
+    "occurrence_date": "2024-08-20 00:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.859945,
-    "lon": -79.430852
+    "fsa": "L4C",
+    "latitude": "43.859945",
+    "longitude": "-79.430852"
   },
   {
-    "date": "2025-02-02 06:50:00",
+    "occurrence_date": "2025-02-02 06:50:00",
     "municipality": "Richmond Hill",
-    "lat": 43.859945,
-    "lon": -79.430852
+    "fsa": "L4C",
+    "latitude": "43.859945",
+    "longitude": "-79.430852"
   },
   {
-    "date": "2025-08-11 23:00:00",
+    "occurrence_date": "2025-08-11 23:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.859945,
-    "lon": -79.430852
+    "fsa": "L4C",
+    "latitude": "43.859945",
+    "longitude": "-79.430852"
   },
   {
-    "date": "2024-10-25 16:00:00",
+    "occurrence_date": "2024-10-25 16:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.859241,
-    "lon": -79.430619
+    "fsa": "L4C",
+    "latitude": "43.859241",
+    "longitude": "-79.430619"
   },
   {
-    "date": "2024-12-01 20:03:00",
+    "occurrence_date": "2024-12-01 20:03:00",
     "municipality": "Richmond Hill",
-    "lat": 43.859241,
-    "lon": -79.430619
+    "fsa": "L4C",
+    "latitude": "43.859241",
+    "longitude": "-79.430619"
   },
   {
-    "date": "2024-11-28 04:00:00",
+    "occurrence_date": "2024-11-28 04:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.860154,
-    "lon": -79.429876
+    "fsa": "L4C",
+    "latitude": "43.860154",
+    "longitude": "-79.429876"
   },
   {
-    "date": "2025-06-15 09:08:00",
+    "occurrence_date": "2025-06-15 09:08:00",
     "municipality": "Richmond Hill",
-    "lat": 43.844451,
-    "lon": -79.430148
+    "fsa": "L4C",
+    "latitude": "43.844451",
+    "longitude": "-79.430148"
   },
   {
-    "date": "2025-03-13 15:00:00",
+    "occurrence_date": "2025-03-13 15:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.890041,
-    "lon": -79.42854
+    "fsa": "L4C",
+    "latitude": "43.890041",
+    "longitude": "-79.42854"
   },
   {
-    "date": "2025-07-11 13:00:00",
+    "occurrence_date": "2025-07-11 13:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.839248,
-    "lon": -79.42971
+    "fsa": "L4C",
+    "latitude": "43.839248",
+    "longitude": "-79.42971"
   },
   {
-    "date": "2025-04-01 17:31:00",
+    "occurrence_date": "2025-04-01 17:31:00",
     "municipality": "Richmond Hill",
-    "lat": 43.868347,
-    "lon": -79.428406
+    "fsa": "L4C",
+    "latitude": "43.868347",
+    "longitude": "-79.428406"
   },
   {
-    "date": "2024-11-03 06:07:00",
+    "occurrence_date": "2024-11-03 06:07:00",
     "municipality": "Richmond Hill",
-    "lat": 43.901867,
-    "lon": -79.426389
+    "fsa": "L4C",
+    "latitude": "43.901867",
+    "longitude": "-79.426389"
   },
   {
-    "date": "2025-01-24 23:40:00",
+    "occurrence_date": "2025-01-24 23:40:00",
     "municipality": "Richmond Hill",
-    "lat": 43.861138,
-    "lon": -79.427445
+    "fsa": "L4C",
+    "latitude": "43.861138",
+    "longitude": "-79.427445"
   },
   {
-    "date": "2025-04-08 08:30:00",
+    "occurrence_date": "2025-04-08 08:30:00",
     "municipality": "Richmond Hill",
-    "lat": 43.914547,
-    "lon": -79.425798
+    "fsa": "L4C",
+    "latitude": "43.914547",
+    "longitude": "-79.425798"
   },
   {
-    "date": "2024-10-08 21:01:00",
+    "occurrence_date": "2024-10-08 21:01:00",
     "municipality": "Richmond Hill",
-    "lat": 43.86968,
-    "lon": -79.4267
+    "fsa": "L4C",
+    "latitude": "43.86968",
+    "longitude": "-79.4267"
   },
   {
-    "date": "2025-04-29 15:53:00",
+    "occurrence_date": "2025-04-29 15:53:00",
     "municipality": "Richmond Hill",
-    "lat": 43.894658,
-    "lon": -79.425839
+    "fsa": "L4C",
+    "latitude": "43.894658",
+    "longitude": "-79.425839"
   },
   {
-    "date": "2024-12-28 21:30:00",
+    "occurrence_date": "2024-12-28 21:30:00",
     "municipality": "Richmond Hill",
-    "lat": 43.899477,
-    "lon": -79.425278
+    "fsa": "L4C",
+    "latitude": "43.899477",
+    "longitude": "-79.425278"
   },
   {
-    "date": "2025-01-09 05:54:00",
+    "occurrence_date": "2025-01-09 05:54:00",
     "municipality": "Richmond Hill",
-    "lat": 43.856058,
-    "lon": -79.426138
+    "fsa": "L4C",
+    "latitude": "43.856058",
+    "longitude": "-79.426138"
   },
   {
-    "date": "2024-09-18 23:51:00",
+    "occurrence_date": "2024-09-18 23:51:00",
     "municipality": "Richmond Hill",
-    "lat": 43.855527,
-    "lon": -79.425059
+    "fsa": "L4C",
+    "latitude": "43.855527",
+    "longitude": "-79.425059"
   },
   {
-    "date": "2025-02-07 23:31:00",
+    "occurrence_date": "2025-02-07 23:31:00",
     "municipality": "Richmond Hill",
-    "lat": 43.85268,
-    "lon": -79.424833
+    "fsa": "L4C",
+    "latitude": "43.85268",
+    "longitude": "-79.424833"
   },
   {
-    "date": "2025-08-04 12:30:00",
+    "occurrence_date": "2025-08-04 12:30:00",
     "municipality": "Richmond Hill",
-    "lat": 43.883847,
-    "lon": -79.423971
+    "fsa": "L4C",
+    "latitude": "43.883847",
+    "longitude": "-79.423971"
   },
   {
-    "date": "2024-09-30 01:30:00",
+    "occurrence_date": "2024-09-30 01:30:00",
     "municipality": "Richmond Hill",
-    "lat": 43.900019,
-    "lon": -79.42245
+    "fsa": "L4C",
+    "latitude": "43.900019",
+    "longitude": "-79.42245"
   },
   {
-    "date": "2025-01-03 21:00:00",
+    "occurrence_date": "2025-01-03 21:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.86819,
-    "lon": -79.423037
+    "fsa": "L4C",
+    "latitude": "43.86819",
+    "longitude": "-79.423037"
   },
   {
-    "date": "2025-01-03 23:10:00",
+    "occurrence_date": "2025-01-03 23:10:00",
     "municipality": "Richmond Hill",
-    "lat": 43.86819,
-    "lon": -79.423037
+    "fsa": "L4C",
+    "latitude": "43.86819",
+    "longitude": "-79.423037"
   },
   {
-    "date": "2024-12-06 02:39:00",
+    "occurrence_date": "2024-12-06 02:39:00",
     "municipality": "Richmond Hill",
-    "lat": 43.917554,
-    "lon": -79.421669
+    "fsa": "L4C",
+    "latitude": "43.917554",
+    "longitude": "-79.421669"
   },
   {
-    "date": "2024-10-23 13:37:00",
+    "occurrence_date": "2024-10-23 13:37:00",
     "municipality": "Richmond Hill",
-    "lat": 43.879416,
-    "lon": -79.421985
+    "fsa": "L4C",
+    "latitude": "43.879416",
+    "longitude": "-79.421985"
   },
   {
-    "date": "2024-09-10 17:09:00",
+    "occurrence_date": "2024-09-10 17:09:00",
     "municipality": "Richmond Hill",
-    "lat": 43.872603,
-    "lon": -79.422074
+    "fsa": "L4C",
+    "latitude": "43.872603",
+    "longitude": "-79.422074"
   },
   {
-    "date": "2025-06-13 12:00:00",
+    "occurrence_date": "2025-06-13 12:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.867454,
-    "lon": -79.421907
+    "fsa": "L4C",
+    "latitude": "43.867454",
+    "longitude": "-79.421907"
   },
   {
-    "date": "2024-10-11 12:00:00",
+    "occurrence_date": "2024-10-11 12:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.898414,
-    "lon": -79.420954
+    "fsa": "L4C",
+    "latitude": "43.898414",
+    "longitude": "-79.420954"
   },
   {
-    "date": "2024-11-25 21:30:00",
+    "occurrence_date": "2024-11-25 21:30:00",
     "municipality": "Richmond Hill",
-    "lat": 43.898414,
-    "lon": -79.420954
+    "fsa": "L4C",
+    "latitude": "43.898414",
+    "longitude": "-79.420954"
   },
   {
-    "date": "2025-01-05 22:55:00",
+    "occurrence_date": "2025-01-05 22:55:00",
     "municipality": "Richmond Hill",
-    "lat": 43.870842,
-    "lon": -79.421348
+    "fsa": "L4C",
+    "latitude": "43.870842",
+    "longitude": "-79.421348"
   },
   {
-    "date": "2024-08-29 10:00:00",
+    "occurrence_date": "2024-08-29 10:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.883074,
-    "lon": -79.42051
+    "fsa": "L4C",
+    "latitude": "43.883074",
+    "longitude": "-79.42051"
   },
   {
-    "date": "2025-05-19 07:28:00",
+    "occurrence_date": "2025-05-19 07:28:00",
     "municipality": "Richmond Hill",
-    "lat": 43.889455,
-    "lon": -79.420046
+    "fsa": "L4C",
+    "latitude": "43.889455",
+    "longitude": "-79.420046"
   },
   {
-    "date": "2025-03-20 13:10:00",
+    "occurrence_date": "2025-03-20 13:10:00",
     "municipality": "Richmond Hill",
-    "lat": 43.872983,
-    "lon": -79.420321
+    "fsa": "L4C",
+    "latitude": "43.872983",
+    "longitude": "-79.420321"
   },
   {
-    "date": "2025-01-23 01:24:00",
+    "occurrence_date": "2025-01-23 01:24:00",
     "municipality": "Richmond Hill",
-    "lat": 43.857231,
-    "lon": -79.420237
+    "fsa": "L4C",
+    "latitude": "43.857231",
+    "longitude": "-79.420237"
   },
   {
-    "date": "2025-03-23 21:00:00",
+    "occurrence_date": "2025-03-23 21:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.879993,
-    "lon": -79.419392
+    "fsa": "L4C",
+    "latitude": "43.879993",
+    "longitude": "-79.419392"
   },
   {
-    "date": "2024-07-07 14:30:00",
+    "occurrence_date": "2024-07-07 14:30:00",
     "municipality": "Richmond Hill",
-    "lat": 43.869722,
-    "lon": -79.419536
+    "fsa": "L4C",
+    "latitude": "43.869722",
+    "longitude": "-79.419536"
   },
   {
-    "date": "2025-01-27 16:38:00",
+    "occurrence_date": "2025-01-27 16:38:00",
     "municipality": "Richmond Hill",
-    "lat": 43.887376,
-    "lon": -79.418254
+    "fsa": "L4C",
+    "latitude": "43.887376",
+    "longitude": "-79.418254"
   },
   {
-    "date": "2025-04-18 14:50:00",
+    "occurrence_date": "2025-04-18 14:50:00",
     "municipality": "Richmond Hill",
-    "lat": 43.859074,
-    "lon": -79.417118
+    "fsa": "L4C",
+    "latitude": "43.859074",
+    "longitude": "-79.417118"
   },
   {
-    "date": "2025-03-13 18:02:00",
+    "occurrence_date": "2025-03-13 18:02:00",
     "municipality": "Richmond Hill",
-    "lat": 43.859669,
-    "lon": -79.416416
+    "fsa": "L4C",
+    "latitude": "43.859669",
+    "longitude": "-79.416416"
   },
   {
-    "date": "2024-11-26 22:56:00",
+    "occurrence_date": "2024-11-26 22:56:00",
     "municipality": "Richmond Hill",
-    "lat": 43.854738,
-    "lon": -79.415402
+    "fsa": "L4C",
+    "latitude": "43.854738",
+    "longitude": "-79.415402"
   },
   {
-    "date": "2025-01-11 00:25:00",
+    "occurrence_date": "2025-01-11 00:25:00",
     "municipality": "Richmond Hill",
-    "lat": 43.854738,
-    "lon": -79.415402
+    "fsa": "L4C",
+    "latitude": "43.854738",
+    "longitude": "-79.415402"
   },
   {
-    "date": "2025-08-14 14:30:00",
+    "occurrence_date": "2025-08-14 14:30:00",
     "municipality": "Richmond Hill",
-    "lat": 43.886369,
-    "lon": -79.413475
+    "fsa": "L4C",
+    "latitude": "43.886369",
+    "longitude": "-79.413475"
   },
   {
-    "date": "2025-01-12 05:00:00",
+    "occurrence_date": "2025-01-12 05:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.851098,
-    "lon": -79.413878
+    "fsa": "L4C",
+    "latitude": "43.851098",
+    "longitude": "-79.413878"
   },
   {
-    "date": "2024-12-24 14:00:00",
+    "occurrence_date": "2024-12-24 14:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.860864,
-    "lon": -79.412716
+    "fsa": "L4C",
+    "latitude": "43.860864",
+    "longitude": "-79.412716"
   },
   {
-    "date": "2024-12-10 19:00:00",
+    "occurrence_date": "2024-12-10 19:00:00",
     "municipality": "Richmond Hill",
-    "lat": 43.867545,
-    "lon": -79.409334
+    "fsa": "L4C",
+    "latitude": "43.867545",
+    "longitude": "-79.409334"
   },
   {
-    "date": "2025-01-11 16:30:00",
+    "occurrence_date": "2025-01-11 16:30:00",
     "municipality": "Richmond Hill",
-    "lat": 43.866626,
-    "lon": -79.408831
+    "fsa": "L4C",
+    "latitude": "43.866626",
+    "longitude": "-79.408831"
   },
   {
-    "date": "2025-05-06 17:52:00",
+    "occurrence_date": "2025-05-06 17:52:00",
     "municipality": "Richmond Hill",
-    "lat": 43.873362,
-    "lon": -79.408512
+    "fsa": "L4C",
+    "latitude": "43.873362",
+    "longitude": "-79.408512"
   },
   {
-    "date": "2025-07-24 03:27:00",
+    "occurrence_date": "2025-07-24 03:27:00",
     "municipality": "Richmond Hill",
-    "lat": 43.859781,
-    "lon": -79.408509
+    "fsa": "L4C",
+    "latitude": "43.859781",
+    "longitude": "-79.408509"
   },
   {
-    "date": "2024-07-23 17:40:00",
+    "occurrence_date": "2024-07-23 17:40:00",
     "municipality": "Richmond Hill",
-    "lat": 43.858146,
-    "lon": -79.407485
+    "fsa": "L4C",
+    "latitude": "43.858146",
+    "longitude": "-79.407485"
   }
 ]

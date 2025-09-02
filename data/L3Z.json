@@ -1,8 +1,9 @@
 [
   {
-    "date": "2025-04-12 05:46:00",
+    "occurrence_date": "2025-04-12 05:46:00",
     "municipality": "King",
-    "lat": 44.098013,
-    "lon": -79.544066
+    "fsa": "L3Z",
+    "latitude": "44.098013",
+    "longitude": "-79.544066"
   }
 ]

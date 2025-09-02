@@ -1,194 +1,226 @@
 [
   {
-    "date": "2024-07-07 02:00:00",
+    "occurrence_date": "2024-07-07 02:00:00",
     "municipality": "King",
-    "lat": 43.991894,
-    "lon": -79.623118
+    "fsa": "L7B",
+    "latitude": "43.991894",
+    "longitude": "-79.623118"
   },
   {
-    "date": "2024-12-31 19:32:00",
+    "occurrence_date": "2024-12-31 19:32:00",
     "municipality": "King",
-    "lat": 43.991894,
-    "lon": -79.623118
+    "fsa": "L7B",
+    "latitude": "43.991894",
+    "longitude": "-79.623118"
   },
   {
-    "date": "2025-02-13 00:39:00",
+    "occurrence_date": "2025-02-13 00:39:00",
     "municipality": "King",
-    "lat": 43.991894,
-    "lon": -79.623118
+    "fsa": "L7B",
+    "latitude": "43.991894",
+    "longitude": "-79.623118"
   },
   {
-    "date": "2024-12-13 22:25:00",
+    "occurrence_date": "2024-12-13 22:25:00",
     "municipality": "King",
-    "lat": 44.006456,
-    "lon": -79.610886
+    "fsa": "L7B",
+    "latitude": "44.006456",
+    "longitude": "-79.610886"
   },
   {
-    "date": "2025-03-07 04:22:00",
+    "occurrence_date": "2025-03-07 04:22:00",
     "municipality": "King",
-    "lat": 44.013255,
-    "lon": -79.608641
+    "fsa": "L7B",
+    "latitude": "44.013255",
+    "longitude": "-79.608641"
   },
   {
-    "date": "2025-08-02 06:32:00",
+    "occurrence_date": "2025-08-02 06:32:00",
     "municipality": "King",
-    "lat": 44.009484,
-    "lon": -79.59796
+    "fsa": "L7B",
+    "latitude": "44.009484",
+    "longitude": "-79.59796"
   },
   {
-    "date": "2024-07-01 07:05:00",
+    "occurrence_date": "2024-07-01 07:05:00",
     "municipality": "King",
-    "lat": 43.998126,
-    "lon": -79.597323
+    "fsa": "L7B",
+    "latitude": "43.998126",
+    "longitude": "-79.597323"
   },
   {
-    "date": "2024-09-28 18:27:00",
+    "occurrence_date": "2024-09-28 18:27:00",
     "municipality": "King",
-    "lat": 43.990846,
-    "lon": -79.595558
+    "fsa": "L7B",
+    "latitude": "43.990846",
+    "longitude": "-79.595558"
   },
   {
-    "date": "2025-04-28 16:51:00",
+    "occurrence_date": "2025-04-28 16:51:00",
     "municipality": "King",
-    "lat": 43.972771,
-    "lon": -79.591101
+    "fsa": "L7B",
+    "latitude": "43.972771",
+    "longitude": "-79.591101"
   },
   {
-    "date": "2024-09-05 22:03:00",
+    "occurrence_date": "2024-09-05 22:03:00",
     "municipality": "King",
-    "lat": 43.965936,
-    "lon": -79.589437
+    "fsa": "L7B",
+    "latitude": "43.965936",
+    "longitude": "-79.589437"
   },
   {
-    "date": "2024-08-21 13:01:00",
+    "occurrence_date": "2024-08-21 13:01:00",
     "municipality": "Vaughan",
-    "lat": 43.899893,
-    "lon": -79.57353
+    "fsa": "L7B",
+    "latitude": "43.899893",
+    "longitude": "-79.57353"
   },
   {
-    "date": "2024-12-13 09:30:00",
+    "occurrence_date": "2024-12-13 09:30:00",
     "municipality": "King",
-    "lat": 43.959594,
-    "lon": -79.563048
+    "fsa": "L7B",
+    "latitude": "43.959594",
+    "longitude": "-79.563048"
   },
   {
-    "date": "2024-12-15 22:30:00",
+    "occurrence_date": "2024-12-15 22:30:00",
     "municipality": "King",
-    "lat": 43.935723,
-    "lon": -79.554346
+    "fsa": "L7B",
+    "latitude": "43.935723",
+    "longitude": "-79.554346"
   },
   {
-    "date": "2025-04-24 01:38:00",
+    "occurrence_date": "2025-04-24 01:38:00",
     "municipality": "King",
-    "lat": 43.983156,
-    "lon": -79.54313
+    "fsa": "L7B",
+    "latitude": "43.983156",
+    "longitude": "-79.54313"
   },
   {
-    "date": "2024-07-02 15:38:00",
+    "occurrence_date": "2024-07-02 15:38:00",
     "municipality": "King",
-    "lat": 43.936474,
-    "lon": -79.534518
+    "fsa": "L7B",
+    "latitude": "43.936474",
+    "longitude": "-79.534518"
   },
   {
-    "date": "2025-05-27 19:04:00",
+    "occurrence_date": "2025-05-27 19:04:00",
     "municipality": "King",
-    "lat": 43.921151,
-    "lon": -79.531716
+    "fsa": "L7B",
+    "latitude": "43.921151",
+    "longitude": "-79.531716"
   },
   {
-    "date": "2024-12-21 00:00:00",
+    "occurrence_date": "2024-12-21 00:00:00",
     "municipality": "King",
-    "lat": 43.937206,
-    "lon": -79.530461
+    "fsa": "L7B",
+    "latitude": "43.937206",
+    "longitude": "-79.530461"
   },
   {
-    "date": "2025-02-15 11:25:00",
+    "occurrence_date": "2025-02-15 11:25:00",
     "municipality": "King",
-    "lat": 43.941936,
-    "lon": -79.526581
+    "fsa": "L7B",
+    "latitude": "43.941936",
+    "longitude": "-79.526581"
   },
   {
-    "date": "2025-02-15 11:33:00",
+    "occurrence_date": "2025-02-15 11:33:00",
     "municipality": "King",
-    "lat": 43.941936,
-    "lon": -79.526581
+    "fsa": "L7B",
+    "latitude": "43.941936",
+    "longitude": "-79.526581"
   },
   {
-    "date": "2024-10-23 01:56:00",
+    "occurrence_date": "2024-10-23 01:56:00",
     "municipality": "King",
-    "lat": 43.923589,
-    "lon": -79.526834
+    "fsa": "L7B",
+    "latitude": "43.923589",
+    "longitude": "-79.526834"
   },
   {
-    "date": "2024-11-18 14:46:00",
+    "occurrence_date": "2024-11-18 14:46:00",
     "municipality": "King",
-    "lat": 43.923312,
-    "lon": -79.523904
+    "fsa": "L7B",
+    "latitude": "43.923312",
+    "longitude": "-79.523904"
   },
   {
-    "date": "2024-12-21 14:00:00",
+    "occurrence_date": "2024-12-21 14:00:00",
     "municipality": "King",
-    "lat": 43.920061,
-    "lon": -79.522965
+    "fsa": "L7B",
+    "latitude": "43.920061",
+    "longitude": "-79.522965"
   },
   {
-    "date": "2024-10-09 18:23:00",
+    "occurrence_date": "2024-10-09 18:23:00",
     "municipality": "King",
-    "lat": 43.921672,
-    "lon": -79.521581
+    "fsa": "L7B",
+    "latitude": "43.921672",
+    "longitude": "-79.521581"
   },
   {
-    "date": "2024-12-10 05:01:00",
+    "occurrence_date": "2024-12-10 05:01:00",
     "municipality": "King",
-    "lat": 43.924479,
-    "lon": -79.520578
+    "fsa": "L7B",
+    "latitude": "43.924479",
+    "longitude": "-79.520578"
   },
   {
-    "date": "2025-06-01 03:57:00",
+    "occurrence_date": "2025-06-01 03:57:00",
     "municipality": "King",
-    "lat": 43.924479,
-    "lon": -79.520578
+    "fsa": "L7B",
+    "latitude": "43.924479",
+    "longitude": "-79.520578"
   },
   {
-    "date": "2025-06-02 00:16:00",
+    "occurrence_date": "2025-06-02 00:16:00",
     "municipality": "King",
-    "lat": 43.924479,
-    "lon": -79.520578
+    "fsa": "L7B",
+    "latitude": "43.924479",
+    "longitude": "-79.520578"
   },
   {
-    "date": "2025-05-03 15:00:00",
+    "occurrence_date": "2025-05-03 15:00:00",
     "municipality": "King",
-    "lat": 43.92325,
-    "lon": -79.520038
+    "fsa": "L7B",
+    "latitude": "43.92325",
+    "longitude": "-79.520038"
   },
   {
-    "date": "2025-06-12 14:27:00",
+    "occurrence_date": "2025-06-12 14:27:00",
     "municipality": "King",
-    "lat": 43.928078,
-    "lon": -79.519792
+    "fsa": "L7B",
+    "latitude": "43.928078",
+    "longitude": "-79.519792"
   },
   {
-    "date": "2025-07-06 08:09:00",
+    "occurrence_date": "2025-07-06 08:09:00",
     "municipality": "King",
-    "lat": 43.928981,
-    "lon": -79.51522
+    "fsa": "L7B",
+    "latitude": "43.928981",
+    "longitude": "-79.51522"
   },
   {
-    "date": "2025-07-05 02:23:00",
+    "occurrence_date": "2025-07-05 02:23:00",
     "municipality": "King",
-    "lat": 43.924992,
-    "lon": -79.514919
+    "fsa": "L7B",
+    "latitude": "43.924992",
+    "longitude": "-79.514919"
   },
   {
-    "date": "2025-03-01 21:00:00",
+    "occurrence_date": "2025-03-01 21:00:00",
     "municipality": "King",
-    "lat": 43.952176,
-    "lon": -79.509229
+    "fsa": "L7B",
+    "latitude": "43.952176",
+    "longitude": "-79.509229"
   },
   {
-    "date": "2024-08-05 14:26:00",
+    "occurrence_date": "2024-08-05 14:26:00",
     "municipality": "King",
-    "lat": 43.927108,
-    "lon": -79.508337
+    "fsa": "L7B",
+    "latitude": "43.927108",
+    "longitude": "-79.508337"
   }
 ]

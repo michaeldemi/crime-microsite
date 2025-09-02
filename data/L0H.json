@@ -1,20 +1,23 @@
 [
   {
-    "date": "2025-05-14 22:44:00",
+    "occurrence_date": "2025-05-14 22:44:00",
     "municipality": "Whitchurch-Stouffville",
-    "lat": 44.008,
-    "lon": -79.393603
+    "fsa": "L0H",
+    "latitude": "44.008",
+    "longitude": "-79.393603"
   },
   {
-    "date": "2025-08-01 16:50:00",
+    "occurrence_date": "2025-08-01 16:50:00",
     "municipality": "Whitchurch-Stouffville",
-    "lat": 44.004268,
-    "lon": -79.392738
+    "fsa": "L0H",
+    "latitude": "44.004268",
+    "longitude": "-79.392738"
   },
   {
-    "date": "2024-11-06 15:45:00",
+    "occurrence_date": "2024-11-06 15:45:00",
     "municipality": "Whitchurch-Stouffville",
-    "lat": 43.985054,
-    "lon": -79.387956
+    "fsa": "L0H",
+    "latitude": "43.985054",
+    "longitude": "-79.387956"
   }
 ]
