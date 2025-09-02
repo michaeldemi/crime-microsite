@@ -62,20 +62,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.59796,
-          44.009484
-        ]
-      },
-      "properties": {
-        "fsa": "L7B",
-        "municipality": "King"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -79.599935,
           43.789967
         ]
@@ -111,20 +97,6 @@
       "properties": {
         "fsa": "L4H",
         "municipality": "Vaughan"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.561207,
-          44.062919
-        ]
-      },
-      "properties": {
-        "fsa": "L3Y",
-        "municipality": "King"
       }
     },
     {
@@ -356,34 +328,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.459605,
-          44.05423
-        ]
-      },
-      "properties": {
-        "fsa": "L3Y",
-        "municipality": "Newmarket"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.459605,
-          44.05423
-        ]
-      },
-      "properties": {
-        "fsa": "L3Y",
-        "municipality": "Newmarket"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -79.451733,
           44.221727
         ]
@@ -538,20 +482,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.371548,
-          43.892164
-        ]
-      },
-      "properties": {
-        "fsa": "L6C",
-        "municipality": "Markham"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -79.367883,
           43.830902
         ]
@@ -652,20 +582,6 @@
         "coordinates": [
           -79.24796,
           43.977088
-        ]
-      },
-      "properties": {
-        "fsa": "L4A",
-        "municipality": "Whitchurch-Stouffville"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.245386,
-          43.976024
         ]
       },
       "properties": {
