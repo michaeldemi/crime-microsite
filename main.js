@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Filter for last 12 months and valid coordinates
         const cutoff12 = getLast12MonthsCutoff();
         const points = data.filter(entry =>
-            entry.occurrence_date && entry.latitude && entry.longitude && new Date(entry.occurrence_date) >= cutoff12  // Changed keys
+            entry.occurrence_date && entry.latitude && entry.longitude && new Date(entry.occurrence_date) >= cutoff12
         );
 
         // Fallback center
@@ -280,10 +280,19 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add markers and collect LatLngs
         const latlngs = [];
         points.forEach(entry => {
-            const latlng = [entry.lat, entry.lon];
-            latlngs.push(latlng);
-            L.marker([parseFloat(entry.latitude), parseFloat(entry.longitude)]).addTo(window.leafletMap)  // Changed to parseFloat and new keys
-                .bindPopup(`${entry.municipality || ''}<br>${entry.occurrence_date || ''}`);  // Changed from entry.date
+            // FIX #1: Use the correct latitude and longitude keys
+            const lat = parseFloat(entry.latitude);
+            const lon = parseFloat(entry.longitude);
+            
+            // Check if lat and lon are valid numbers before proceeding
+            if (!isNaN(lat) && !isNaN(lon)) {
+                const latlng = [lat, lon];
+                latlngs.push(latlng);
+                
+                // FIX #2: Use the correct occurrence_date key for the popup
+                L.marker(latlng).addTo(window.leafletMap)
+                    .bindPopup(`${entry.municipality || ''}<br>${entry.occurrence_date || ''}`);
+            }
         });
 
         // Fit map to bounds of all pins if there are any
