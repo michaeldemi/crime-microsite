@@ -46,6 +46,14 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Hide the single search container
             document.getElementById('search-container').style.display = 'none';
+
+            // --- START: ADD THIS CODE ---
+            // Make the content area scrollable on mobile to prevent the CTA from being cut off
+            const mainCardContent = document.getElementById('main-card-content');
+            if (mainCardContent) {
+                mainCardContent.classList.add('overflow-y-auto');
+            }
+            // --- END: ADD THIS CODE ---
             
             document.getElementById('map-bg').style.backgroundImage = 'none';
         } catch (err) {
