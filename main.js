@@ -160,10 +160,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const cutoff30 = getLast30DaysCutoff();
         let count12 = 0, count30 = 0;
         data.forEach(entry => {
-            if (!entry.occurrence_date) return;  // Changed from entry.date
-            const d = new Date(entry.occurrence_date);  // Changed from entry.date
-            if (d >= cutoff12) count12++;
-            if (d >= cutoff30) count30++;
+            if (!entry.occurrence_date) return;
+            
+            // FIX: Convert to ISO 8601 format for reliable parsing
+            const d = new Date(entry.occurrence_date.replace(' ', 'T'));
+            
+            // Check if the date is valid before comparing
+            if (!isNaN(d)) {
+                if (d >= cutoff12) count12++;
+                if (d >= cutoff30) count30++;
+            }
         });
         renderDashboard(fsa, count30, count12); // Pass fsa here
 
@@ -263,9 +269,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Filter for last 12 months and valid coordinates
         const cutoff12 = getLast12MonthsCutoff();
-        const points = data.filter(entry =>
-            entry.occurrence_date && entry.latitude && entry.longitude && new Date(entry.occurrence_date) >= cutoff12
-        );
+        const points = data.filter(entry => {
+            if (!entry.occurrence_date || !entry.latitude || !entry.longitude) return false;
+            
+            // FIX: Convert to ISO 8601 format for reliable parsing
+            const d = new Date(entry.occurrence_date.replace(' ', 'T'));
+            
+            return !isNaN(d) && d >= cutoff12;
+        });
 
         // Fallback center
         let fallbackCenter = [43.8, -79.4];
