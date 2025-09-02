@@ -1,653 +1,560 @@
 [
   {
-    "occurrence_date": "2024-11-17 09:02:00",
+    "date": "2024-11-17 09:02:00",
     "municipality": "Vaughan",
-    "fsa": "L4G",
-    "latitude": "43.888474",
-    "longitude": "-79.500358"
+    "lat": 43.888474,
+    "lon": -79.500358
   },
   {
-    "occurrence_date": "2024-12-29 09:15:00",
+    "date": "2024-12-29 09:15:00",
     "municipality": "Vaughan",
-    "fsa": "L4G",
-    "latitude": "43.889991",
-    "longitude": "-79.499564"
+    "lat": 43.889991,
+    "lon": -79.499564
   },
   {
-    "occurrence_date": "2025-02-14 01:19:00",
+    "date": "2025-02-14 01:19:00",
     "municipality": "Vaughan",
-    "fsa": "L4G",
-    "latitude": "43.889991",
-    "longitude": "-79.499564"
+    "lat": 43.889991,
+    "lon": -79.499564
   },
   {
-    "occurrence_date": "2025-07-26 02:30:00",
+    "date": "2025-07-26 02:30:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.006356",
-    "longitude": "-79.495274"
+    "lat": 44.006356,
+    "lon": -79.495274
   },
   {
-    "occurrence_date": "2024-12-04 21:59:00",
+    "date": "2024-12-04 21:59:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.009715",
-    "longitude": "-79.494601"
+    "lat": 44.009715,
+    "lon": -79.494601
   },
   {
-    "occurrence_date": "2024-12-24 16:25:00",
+    "date": "2024-12-24 16:25:00",
     "municipality": "Vaughan",
-    "fsa": "L4G",
-    "latitude": "43.892418",
-    "longitude": "-79.496738"
+    "lat": 43.892418,
+    "lon": -79.496738
   },
   {
-    "occurrence_date": "2025-03-27 06:15:00",
+    "date": "2025-03-27 06:15:00",
     "municipality": "Vaughan",
-    "fsa": "L4G",
-    "latitude": "43.887099",
-    "longitude": "-79.49646"
+    "lat": 43.887099,
+    "lon": -79.49646
   },
   {
-    "occurrence_date": "2024-10-29 23:18:00",
+    "date": "2024-10-29 23:18:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.014459",
-    "longitude": "-79.493111"
+    "lat": 44.014459,
+    "lon": -79.493111
   },
   {
-    "occurrence_date": "2024-08-10 17:19:00",
+    "date": "2024-08-10 17:19:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.003048",
-    "longitude": "-79.492766"
+    "lat": 44.003048,
+    "lon": -79.492766
   },
   {
-    "occurrence_date": "2025-01-17 23:30:00",
+    "date": "2025-01-17 23:30:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.999738",
-    "longitude": "-79.492147"
+    "lat": 43.999738,
+    "lon": -79.492147
   },
   {
-    "occurrence_date": "2025-01-21 03:06:00",
+    "date": "2025-01-21 03:06:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.999738",
-    "longitude": "-79.492147"
+    "lat": 43.999738,
+    "lon": -79.492147
   },
   {
-    "occurrence_date": "2024-07-27 16:00:00",
+    "date": "2024-07-27 16:00:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.011662",
-    "longitude": "-79.491568"
+    "lat": 44.011662,
+    "lon": -79.491568
   },
   {
-    "occurrence_date": "2024-12-22 00:28:00",
+    "date": "2024-12-22 00:28:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.011662",
-    "longitude": "-79.491568"
+    "lat": 44.011662,
+    "lon": -79.491568
   },
   {
-    "occurrence_date": "2024-08-05 08:11:00",
+    "date": "2024-08-05 08:11:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.010917",
-    "longitude": "-79.488622"
+    "lat": 44.010917,
+    "lon": -79.488622
   },
   {
-    "occurrence_date": "2025-03-17 02:00:00",
+    "date": "2025-03-17 02:00:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.00245",
-    "longitude": "-79.488104"
+    "lat": 44.00245,
+    "lon": -79.488104
   },
   {
-    "occurrence_date": "2025-04-03 00:14:00",
+    "date": "2025-04-03 00:14:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.009843",
-    "longitude": "-79.485729"
+    "lat": 44.009843,
+    "lon": -79.485729
   },
   {
-    "occurrence_date": "2025-07-29 01:30:00",
+    "date": "2025-07-29 01:30:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.971592",
-    "longitude": "-79.48634"
+    "lat": 43.971592,
+    "lon": -79.48634
   },
   {
-    "occurrence_date": "2024-11-28 22:45:00",
+    "date": "2024-11-28 22:45:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.013258",
-    "longitude": "-79.484987"
+    "lat": 44.013258,
+    "lon": -79.484987
   },
   {
-    "occurrence_date": "2025-01-05 02:00:00",
+    "date": "2025-01-05 02:00:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.013258",
-    "longitude": "-79.484987"
+    "lat": 44.013258,
+    "lon": -79.484987
   },
   {
-    "occurrence_date": "2025-02-24 19:30:00",
+    "date": "2025-02-24 19:30:00",
     "municipality": "King",
-    "fsa": "L4G",
-    "latitude": "43.957477",
-    "longitude": "-79.485551"
+    "lat": 43.957477,
+    "lon": -79.485551
   },
   {
-    "occurrence_date": "2025-03-04 01:48:00",
+    "date": "2025-03-04 01:48:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.980467",
-    "longitude": "-79.484295"
+    "lat": 43.980467,
+    "lon": -79.484295
   },
   {
-    "occurrence_date": "2024-10-12 16:00:00",
+    "date": "2024-10-12 16:00:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.004339",
-    "longitude": "-79.48323"
+    "lat": 44.004339,
+    "lon": -79.48323
   },
   {
-    "occurrence_date": "2025-03-22 23:00:00",
+    "date": "2025-03-22 23:00:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.006675",
-    "longitude": "-79.482715"
+    "lat": 44.006675,
+    "lon": -79.482715
   },
   {
-    "occurrence_date": "2024-11-19 23:29:00",
+    "date": "2024-11-19 23:29:00",
     "municipality": "Richmond Hill",
-    "fsa": "L4G",
-    "latitude": "43.956512",
-    "longitude": "-79.483605"
+    "lat": 43.956512,
+    "lon": -79.483605
   },
   {
-    "occurrence_date": "2024-12-11 00:10:00",
+    "date": "2024-12-11 00:10:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.014245",
-    "longitude": "-79.481064"
+    "lat": 44.014245,
+    "lon": -79.481064
   },
   {
-    "occurrence_date": "2024-12-11 15:46:00",
+    "date": "2024-12-11 15:46:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.014245",
-    "longitude": "-79.481064"
+    "lat": 44.014245,
+    "lon": -79.481064
   },
   {
-    "occurrence_date": "2024-08-20 04:00:00",
+    "date": "2024-08-20 04:00:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.985434",
-    "longitude": "-79.481416"
+    "lat": 43.985434,
+    "lon": -79.481416
   },
   {
-    "occurrence_date": "2024-08-05 19:00:00",
+    "date": "2024-08-05 19:00:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.007384",
-    "longitude": "-79.479466"
+    "lat": 44.007384,
+    "lon": -79.479466
   },
   {
-    "occurrence_date": "2024-07-18 15:30:00",
+    "date": "2024-07-18 15:30:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.990286",
-    "longitude": "-79.479671"
+    "lat": 43.990286,
+    "lon": -79.479671
   },
   {
-    "occurrence_date": "2025-03-06 16:30:00",
+    "date": "2025-03-06 16:30:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.990286",
-    "longitude": "-79.479671"
+    "lat": 43.990286,
+    "lon": -79.479671
   },
   {
-    "occurrence_date": "2025-02-11 00:00:00",
+    "date": "2025-02-11 00:00:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.991521",
-    "longitude": "-79.477827"
+    "lat": 43.991521,
+    "lon": -79.477827
   },
   {
-    "occurrence_date": "2024-12-21 21:00:00",
+    "date": "2024-12-21 21:00:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.01595",
-    "longitude": "-79.477017"
+    "lat": 44.01595,
+    "lon": -79.477017
   },
   {
-    "occurrence_date": "2024-11-12 17:23:00",
+    "date": "2024-11-12 17:23:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.972833",
-    "longitude": "-79.477712"
+    "lat": 43.972833,
+    "lon": -79.477712
   },
   {
-    "occurrence_date": "2024-07-08 16:07:00",
+    "date": "2024-07-08 16:07:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.977639",
-    "longitude": "-79.477012"
+    "lat": 43.977639,
+    "lon": -79.477012
   },
   {
-    "occurrence_date": "2024-12-17 00:21:00",
+    "date": "2024-12-17 00:21:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.996045",
-    "longitude": "-79.475214"
+    "lat": 43.996045,
+    "lon": -79.475214
   },
   {
-    "occurrence_date": "2024-09-08 16:00:00",
+    "date": "2024-09-08 16:00:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.001568",
-    "longitude": "-79.474554"
+    "lat": 44.001568,
+    "lon": -79.474554
   },
   {
-    "occurrence_date": "2024-10-29 23:53:00",
+    "date": "2024-10-29 23:53:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.962361",
-    "longitude": "-79.475553"
+    "lat": 43.962361,
+    "lon": -79.475553
   },
   {
-    "occurrence_date": "2024-08-01 20:30:00",
+    "date": "2024-08-01 20:30:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.000338",
-    "longitude": "-79.474509"
+    "lat": 44.000338,
+    "lon": -79.474509
   },
   {
-    "occurrence_date": "2025-02-17 00:30:00",
+    "date": "2025-02-17 00:30:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.005001",
-    "longitude": "-79.473492"
+    "lat": 44.005001,
+    "lon": -79.473492
   },
   {
-    "occurrence_date": "2025-08-12 04:00:00",
+    "date": "2025-08-12 04:00:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.005001",
-    "longitude": "-79.473492"
+    "lat": 44.005001,
+    "lon": -79.473492
   },
   {
-    "occurrence_date": "2025-02-11 16:24:00",
+    "date": "2025-02-11 16:24:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.98816",
-    "longitude": "-79.473373"
+    "lat": 43.98816,
+    "lon": -79.473373
   },
   {
-    "occurrence_date": "2025-01-17 00:00:00",
+    "date": "2025-01-17 00:00:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.994387",
-    "longitude": "-79.471686"
+    "lat": 43.994387,
+    "lon": -79.471686
   },
   {
-    "occurrence_date": "2025-07-25 14:52:00",
+    "date": "2025-07-25 14:52:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.988526",
-    "longitude": "-79.471713"
+    "lat": 43.988526,
+    "lon": -79.471713
   },
   {
-    "occurrence_date": "2025-03-13 16:00:00",
+    "date": "2025-03-13 16:00:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.992995",
-    "longitude": "-79.471308"
+    "lat": 43.992995,
+    "lon": -79.471308
   },
   {
-    "occurrence_date": "2025-08-01 04:01:00",
+    "date": "2025-08-01 04:01:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.992995",
-    "longitude": "-79.471308"
+    "lat": 43.992995,
+    "lon": -79.471308
   },
   {
-    "occurrence_date": "2025-01-05 23:19:00",
+    "date": "2025-01-05 23:19:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.97275",
-    "longitude": "-79.470336"
+    "lat": 43.97275,
+    "lon": -79.470336
   },
   {
-    "occurrence_date": "2025-08-07 17:00:00",
+    "date": "2025-08-07 17:00:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.01295",
-    "longitude": "-79.468545"
+    "lat": 44.01295,
+    "lon": -79.468545
   },
   {
-    "occurrence_date": "2024-08-14 19:00:00",
+    "date": "2024-08-14 19:00:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.004111",
-    "longitude": "-79.468658"
+    "lat": 44.004111,
+    "lon": -79.468658
   },
   {
-    "occurrence_date": "2025-03-03 05:22:00",
+    "date": "2025-03-03 05:22:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.004111",
-    "longitude": "-79.468658"
+    "lat": 44.004111,
+    "lon": -79.468658
   },
   {
-    "occurrence_date": "2025-06-22 07:00:00",
+    "date": "2025-06-22 07:00:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.004111",
-    "longitude": "-79.468658"
+    "lat": 44.004111,
+    "lon": -79.468658
   },
   {
-    "occurrence_date": "2025-06-07 23:32:00",
+    "date": "2025-06-07 23:32:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.011114",
-    "longitude": "-79.468197"
+    "lat": 44.011114,
+    "lon": -79.468197
   },
   {
-    "occurrence_date": "2024-08-30 17:19:00",
+    "date": "2024-08-30 17:19:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.002772",
-    "longitude": "-79.468327"
+    "lat": 44.002772,
+    "lon": -79.468327
   },
   {
-    "occurrence_date": "2025-01-10 15:14:00",
+    "date": "2025-01-10 15:14:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.000309",
-    "longitude": "-79.467731"
+    "lat": 44.000309,
+    "lon": -79.467731
   },
   {
-    "occurrence_date": "2025-04-28 14:26:00",
+    "date": "2025-04-28 14:26:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.000309",
-    "longitude": "-79.467731"
+    "lat": 44.000309,
+    "lon": -79.467731
   },
   {
-    "occurrence_date": "2025-04-28 15:10:00",
+    "date": "2025-04-28 15:10:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.000309",
-    "longitude": "-79.467731"
+    "lat": 44.000309,
+    "lon": -79.467731
   },
   {
-    "occurrence_date": "2025-06-25 16:15:00",
+    "date": "2025-06-25 16:15:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.000309",
-    "longitude": "-79.467731"
+    "lat": 44.000309,
+    "lon": -79.467731
   },
   {
-    "occurrence_date": "2025-07-28 13:30:00",
+    "date": "2025-07-28 13:30:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.008512",
-    "longitude": "-79.466875"
+    "lat": 44.008512,
+    "lon": -79.466875
   },
   {
-    "occurrence_date": "2024-11-11 19:00:00",
+    "date": "2024-11-11 19:00:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.007731",
-    "longitude": "-79.466873"
+    "lat": 44.007731,
+    "lon": -79.466873
   },
   {
-    "occurrence_date": "2024-11-20 20:30:00",
+    "date": "2024-11-20 20:30:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.001809",
-    "longitude": "-79.465801"
+    "lat": 44.001809,
+    "lon": -79.465801
   },
   {
-    "occurrence_date": "2024-11-29 19:00:00",
+    "date": "2024-11-29 19:00:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.001774",
-    "longitude": "-79.465704"
+    "lat": 44.001774,
+    "lon": -79.465704
   },
   {
-    "occurrence_date": "2024-10-16 14:41:00",
+    "date": "2024-10-16 14:41:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.013444",
-    "longitude": "-79.465214"
+    "lat": 44.013444,
+    "lon": -79.465214
   },
   {
-    "occurrence_date": "2025-01-14 19:00:00",
+    "date": "2025-01-14 19:00:00",
     "municipality": "Richmond Hill",
-    "fsa": "L4G",
-    "latitude": "43.957666",
-    "longitude": "-79.465194"
+    "lat": 43.957666,
+    "lon": -79.465194
   },
   {
-    "occurrence_date": "2025-04-23 07:05:00",
+    "date": "2025-04-23 07:05:00",
     "municipality": "Richmond Hill",
-    "fsa": "L4G",
-    "latitude": "43.957666",
-    "longitude": "-79.465194"
+    "lat": 43.957666,
+    "lon": -79.465194
   },
   {
-    "occurrence_date": "2024-07-09 22:56:00",
+    "date": "2024-07-09 22:56:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.976163",
-    "longitude": "-79.464701"
+    "lat": 43.976163,
+    "lon": -79.464701
   },
   {
-    "occurrence_date": "2025-03-01 05:00:00",
+    "date": "2025-03-01 05:00:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.976163",
-    "longitude": "-79.464701"
+    "lat": 43.976163,
+    "lon": -79.464701
   },
   {
-    "occurrence_date": "2024-12-01 00:00:00",
+    "date": "2024-12-01 00:00:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.968093",
-    "longitude": "-79.463376"
+    "lat": 43.968093,
+    "lon": -79.463376
   },
   {
-    "occurrence_date": "2024-12-01 02:51:00",
+    "date": "2024-12-01 02:51:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.968093",
-    "longitude": "-79.463376"
+    "lat": 43.968093,
+    "lon": -79.463376
   },
   {
-    "occurrence_date": "2025-08-07 21:00:00",
+    "date": "2025-08-07 21:00:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.005402",
-    "longitude": "-79.462395"
+    "lat": 44.005402,
+    "lon": -79.462395
   },
   {
-    "occurrence_date": "2025-05-21 14:19:00",
+    "date": "2025-05-21 14:19:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.002466",
-    "longitude": "-79.462324"
+    "lat": 44.002466,
+    "lon": -79.462324
   },
   {
-    "occurrence_date": "2025-06-16 13:44:00",
+    "date": "2025-06-16 13:44:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.99546",
-    "longitude": "-79.462418"
+    "lat": 43.99546,
+    "lon": -79.462418
   },
   {
-    "occurrence_date": "2025-03-31 15:30:00",
+    "date": "2025-03-31 15:30:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.00092",
-    "longitude": "-79.461831"
+    "lat": 44.00092,
+    "lon": -79.461831
   },
   {
-    "occurrence_date": "2025-06-07 16:45:00",
+    "date": "2025-06-07 16:45:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.999198",
-    "longitude": "-79.461743"
+    "lat": 43.999198,
+    "lon": -79.461743
   },
   {
-    "occurrence_date": "2025-07-26 23:01:00",
+    "date": "2025-07-26 23:01:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.015934",
-    "longitude": "-79.457957"
+    "lat": 44.015934,
+    "lon": -79.457957
   },
   {
-    "occurrence_date": "2024-09-01 23:07:00",
+    "date": "2024-09-01 23:07:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.019061",
-    "longitude": "-79.455822"
+    "lat": 44.019061,
+    "lon": -79.455822
   },
   {
-    "occurrence_date": "2024-10-30 23:28:00",
+    "date": "2024-10-30 23:28:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.024088",
-    "longitude": "-79.45046"
+    "lat": 44.024088,
+    "lon": -79.45046
   },
   {
-    "occurrence_date": "2024-08-25 01:15:00",
+    "date": "2024-08-25 01:15:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.993609",
-    "longitude": "-79.450382"
+    "lat": 43.993609,
+    "lon": -79.450382
   },
   {
-    "occurrence_date": "2024-09-26 15:23:00",
+    "date": "2024-09-26 15:23:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.993609",
-    "longitude": "-79.450382"
+    "lat": 43.993609,
+    "lon": -79.450382
   },
   {
-    "occurrence_date": "2025-01-22 13:57:00",
+    "date": "2025-01-22 13:57:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.019198",
-    "longitude": "-79.446965"
+    "lat": 44.019198,
+    "lon": -79.446965
   },
   {
-    "occurrence_date": "2024-08-17 00:23:00",
+    "date": "2024-08-17 00:23:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.023265",
-    "longitude": "-79.445586"
+    "lat": 44.023265,
+    "lon": -79.445586
   },
   {
-    "occurrence_date": "2025-02-12 16:28:00",
+    "date": "2025-02-12 16:28:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.017001",
-    "longitude": "-79.443854"
+    "lat": 44.017001,
+    "lon": -79.443854
   },
   {
-    "occurrence_date": "2025-01-12 12:00:00",
+    "date": "2025-01-12 12:00:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.012112",
-    "longitude": "-79.441946"
+    "lat": 44.012112,
+    "lon": -79.441946
   },
   {
-    "occurrence_date": "2025-07-12 18:30:00",
+    "date": "2025-07-12 18:30:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.014706",
-    "longitude": "-79.437012"
+    "lat": 44.014706,
+    "lon": -79.437012
   },
   {
-    "occurrence_date": "2025-04-23 20:30:00",
+    "date": "2025-04-23 20:30:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.012609",
-    "longitude": "-79.4361"
+    "lat": 44.012609,
+    "lon": -79.4361
   },
   {
-    "occurrence_date": "2024-12-13 05:00:00",
+    "date": "2024-12-13 05:00:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.986406",
-    "longitude": "-79.436598"
+    "lat": 43.986406,
+    "lon": -79.436598
   },
   {
-    "occurrence_date": "2024-10-26 21:00:00",
+    "date": "2024-10-26 21:00:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.985399",
-    "longitude": "-79.434531"
+    "lat": 43.985399,
+    "lon": -79.434531
   },
   {
-    "occurrence_date": "2025-04-11 21:50:00",
+    "date": "2025-04-11 21:50:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.023082",
-    "longitude": "-79.431727"
+    "lat": 44.023082,
+    "lon": -79.431727
   },
   {
-    "occurrence_date": "2025-06-23 23:15:00",
+    "date": "2025-06-23 23:15:00",
     "municipality": "Richmond Hill",
-    "fsa": "L4G",
-    "latitude": "43.881321",
-    "longitude": "-79.43379"
+    "lat": 43.881321,
+    "lon": -79.43379
   },
   {
-    "occurrence_date": "2024-07-19 22:30:00",
+    "date": "2024-07-19 22:30:00",
     "municipality": "Richmond Hill",
-    "fsa": "L4G",
-    "latitude": "43.879424",
-    "longitude": "-79.430802"
+    "lat": 43.879424,
+    "lon": -79.430802
   },
   {
-    "occurrence_date": "2025-07-16 17:37:00",
+    "date": "2025-07-16 17:37:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.97125",
-    "longitude": "-79.427"
+    "lat": 43.97125,
+    "lon": -79.427
   },
   {
-    "occurrence_date": "2024-11-22 20:00:00",
+    "date": "2024-11-22 20:00:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "44.005179",
-    "longitude": "-79.422895"
+    "lat": 44.005179,
+    "lon": -79.422895
   },
   {
-    "occurrence_date": "2024-08-22 15:28:00",
+    "date": "2024-08-22 15:28:00",
     "municipality": "Aurora",
-    "fsa": "L4G",
-    "latitude": "43.992932",
-    "longitude": "-79.41494"
+    "lat": 43.992932,
+    "lon": -79.41494
   },
   {
-    "occurrence_date": "2024-12-01 14:45:00",
+    "date": "2024-12-01 14:45:00",
     "municipality": "Whitchurch-Stouffville",
-    "fsa": "L4G",
-    "latitude": "44.006007",
-    "longitude": "-79.400486"
+    "lat": 44.006007,
+    "lon": -79.400486
   },
   {
-    "occurrence_date": "2024-11-14 14:00:00",
+    "date": "2024-11-14 14:00:00",
     "municipality": "Whitchurch-Stouffville",
-    "fsa": "L4G",
-    "latitude": "44.034332",
-    "longitude": "-79.399426"
+    "lat": 44.034332,
+    "lon": -79.399426
   }
 ]

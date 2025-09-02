@@ -1,212 +1,182 @@
 [
   {
-    "occurrence_date": "2024-09-26 21:17:00",
+    "date": "2024-09-26 21:17:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.045502",
-    "longitude": "-79.504479"
+    "lat": 44.045502,
+    "lon": -79.504479
   },
   {
-    "occurrence_date": "2025-02-06 22:10:00",
+    "date": "2025-02-06 22:10:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.050782",
-    "longitude": "-79.503538"
+    "lat": 44.050782,
+    "lon": -79.503538
   },
   {
-    "occurrence_date": "2024-07-18 23:00:00",
+    "date": "2024-07-18 23:00:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.039298",
-    "longitude": "-79.503444"
+    "lat": 44.039298,
+    "lon": -79.503444
   },
   {
-    "occurrence_date": "2024-12-29 02:21:00",
+    "date": "2024-12-29 02:21:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.04489",
-    "longitude": "-79.500095"
+    "lat": 44.04489,
+    "lon": -79.500095
   },
   {
-    "occurrence_date": "2024-08-20 14:13:00",
+    "date": "2024-08-20 14:13:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.053008",
-    "longitude": "-79.498281"
+    "lat": 44.053008,
+    "lon": -79.498281
   },
   {
-    "occurrence_date": "2024-10-12 16:00:00",
+    "date": "2024-10-12 16:00:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.051245",
-    "longitude": "-79.497019"
+    "lat": 44.051245,
+    "lon": -79.497019
   },
   {
-    "occurrence_date": "2025-04-20 05:29:00",
+    "date": "2025-04-20 05:29:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.038879",
-    "longitude": "-79.495677"
+    "lat": 44.038879,
+    "lon": -79.495677
   },
   {
-    "occurrence_date": "2025-08-08 12:03:00",
+    "date": "2025-08-08 12:03:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.051457",
-    "longitude": "-79.493873"
+    "lat": 44.051457,
+    "lon": -79.493873
   },
   {
-    "occurrence_date": "2025-06-09 04:38:00",
+    "date": "2025-06-09 04:38:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.034407",
-    "longitude": "-79.493384"
+    "lat": 44.034407,
+    "lon": -79.493384
   },
   {
-    "occurrence_date": "2025-06-08 19:45:00",
+    "date": "2025-06-08 19:45:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.053086",
-    "longitude": "-79.491979"
+    "lat": 44.053086,
+    "lon": -79.491979
   },
   {
-    "occurrence_date": "2025-03-10 20:00:00",
+    "date": "2025-03-10 20:00:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.054889",
-    "longitude": "-79.491496"
+    "lat": 44.054889,
+    "lon": -79.491496
   },
   {
-    "occurrence_date": "2025-08-04 23:53:00",
+    "date": "2025-08-04 23:53:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.034785",
-    "longitude": "-79.4897"
+    "lat": 44.034785,
+    "lon": -79.4897
   },
   {
-    "occurrence_date": "2024-08-05 16:30:00",
+    "date": "2024-08-05 16:30:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.060388",
-    "longitude": "-79.487929"
+    "lat": 44.060388,
+    "lon": -79.487929
   },
   {
-    "occurrence_date": "2024-12-28 21:00:00",
+    "date": "2024-12-28 21:00:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.035293",
-    "longitude": "-79.487373"
+    "lat": 44.035293,
+    "lon": -79.487373
   },
   {
-    "occurrence_date": "2024-10-28 15:00:00",
+    "date": "2024-10-28 15:00:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.025776",
-    "longitude": "-79.474961"
+    "lat": 44.025776,
+    "lon": -79.474961
   },
   {
-    "occurrence_date": "2025-04-17 16:24:00",
+    "date": "2025-04-17 16:24:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.025776",
-    "longitude": "-79.474961"
+    "lat": 44.025776,
+    "lon": -79.474961
   },
   {
-    "occurrence_date": "2024-10-28 09:30:00",
+    "date": "2024-10-28 09:30:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.029577",
-    "longitude": "-79.472741"
+    "lat": 44.029577,
+    "lon": -79.472741
   },
   {
-    "occurrence_date": "2024-12-28 21:55:00",
+    "date": "2024-12-28 21:55:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.029577",
-    "longitude": "-79.472741"
+    "lat": 44.029577,
+    "lon": -79.472741
   },
   {
-    "occurrence_date": "2024-07-02 22:36:00",
+    "date": "2024-07-02 22:36:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.027708",
-    "longitude": "-79.472334"
+    "lat": 44.027708,
+    "lon": -79.472334
   },
   {
-    "occurrence_date": "2024-09-07 13:00:00",
+    "date": "2024-09-07 13:00:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.028657",
-    "longitude": "-79.46392"
+    "lat": 44.028657,
+    "lon": -79.46392
   },
   {
-    "occurrence_date": "2024-12-16 05:01:00",
+    "date": "2024-12-16 05:01:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.03071",
-    "longitude": "-79.444191"
+    "lat": 44.03071,
+    "lon": -79.444191
   },
   {
-    "occurrence_date": "2025-03-13 04:00:00",
+    "date": "2025-03-13 04:00:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.037277",
-    "longitude": "-79.440964"
+    "lat": 44.037277,
+    "lon": -79.440964
   },
   {
-    "occurrence_date": "2025-02-13 00:25:00",
+    "date": "2025-02-13 00:25:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.038388",
-    "longitude": "-79.440229"
+    "lat": 44.038388,
+    "lon": -79.440229
   },
   {
-    "occurrence_date": "2024-10-29 18:25:00",
+    "date": "2024-10-29 18:25:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.033758",
-    "longitude": "-79.438914"
+    "lat": 44.033758,
+    "lon": -79.438914
   },
   {
-    "occurrence_date": "2024-08-01 16:00:00",
+    "date": "2024-08-01 16:00:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.040471",
-    "longitude": "-79.43595"
+    "lat": 44.040471,
+    "lon": -79.43595
   },
   {
-    "occurrence_date": "2024-10-21 00:21:00",
+    "date": "2024-10-21 00:21:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.03458",
-    "longitude": "-79.435374"
+    "lat": 44.03458,
+    "lon": -79.435374
   },
   {
-    "occurrence_date": "2025-04-25 19:23:00",
+    "date": "2025-04-25 19:23:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.040547",
-    "longitude": "-79.434688"
+    "lat": 44.040547,
+    "lon": -79.434688
   },
   {
-    "occurrence_date": "2024-08-04 05:13:00",
+    "date": "2024-08-04 05:13:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.031673",
-    "longitude": "-79.433246"
+    "lat": 44.031673,
+    "lon": -79.433246
   },
   {
-    "occurrence_date": "2025-03-20 23:30:00",
+    "date": "2025-03-20 23:30:00",
     "municipality": "Newmarket",
-    "fsa": "L3X",
-    "latitude": "44.034",
-    "longitude": "-79.429544"
+    "lat": 44.034,
+    "lon": -79.429544
   },
   {
-    "occurrence_date": "2025-07-12 05:59:00",
+    "date": "2025-07-12 05:59:00",
     "municipality": "Markham",
-    "fsa": "L3X",
-    "latitude": "43.862117",
-    "longitude": "-79.311065"
+    "lat": 43.862117,
+    "lon": -79.311065
   }
 ]

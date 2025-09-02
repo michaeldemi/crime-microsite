@@ -1,16 +1,14 @@
 [
   {
-    "occurrence_date": "2025-03-10 18:30:00",
+    "date": "2025-03-10 18:30:00",
     "municipality": "King",
-    "fsa": "L7E",
-    "latitude": "43.940687",
-    "longitude": "-79.739159"
+    "lat": 43.940687,
+    "lon": -79.739159
   },
   {
-    "occurrence_date": "2025-08-11 17:34:00",
+    "date": "2025-08-11 17:34:00",
     "municipality": "King",
-    "fsa": "L7E",
-    "latitude": "43.888031",
-    "longitude": "-79.71839"
+    "lat": 43.888031,
+    "lon": -79.71839
   }
 ]

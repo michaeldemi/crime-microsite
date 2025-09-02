@@ -1,835 +1,716 @@
 [
   {
-    "occurrence_date": "2025-07-04 06:44:00",
+    "date": "2025-07-04 06:44:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.847715",
-    "longitude": "-79.360465"
+    "lat": 43.847715,
+    "lon": -79.360465
   },
   {
-    "occurrence_date": "2024-12-26 21:54:00",
+    "date": "2024-12-26 21:54:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.864475",
-    "longitude": "-79.35974"
+    "lat": 43.864475,
+    "lon": -79.35974
   },
   {
-    "occurrence_date": "2025-01-06 20:15:00",
+    "date": "2025-01-06 20:15:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.814361",
-    "longitude": "-79.360736"
+    "lat": 43.814361,
+    "lon": -79.360736
   },
   {
-    "occurrence_date": "2025-01-23 05:01:00",
+    "date": "2025-01-23 05:01:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.863677",
-    "longitude": "-79.359157"
+    "lat": 43.863677,
+    "lon": -79.359157
   },
   {
-    "occurrence_date": "2025-01-29 05:01:00",
+    "date": "2025-01-29 05:01:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.863677",
-    "longitude": "-79.359157"
+    "lat": 43.863677,
+    "lon": -79.359157
   },
   {
-    "occurrence_date": "2025-02-19 21:20:00",
+    "date": "2025-02-19 21:20:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.863677",
-    "longitude": "-79.359157"
+    "lat": 43.863677,
+    "lon": -79.359157
   },
   {
-    "occurrence_date": "2024-08-09 20:00:00",
+    "date": "2024-08-09 20:00:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.864325",
-    "longitude": "-79.35894"
+    "lat": 43.864325,
+    "lon": -79.35894
   },
   {
-    "occurrence_date": "2024-08-10 16:00:00",
+    "date": "2024-08-10 16:00:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.864709",
-    "longitude": "-79.358314"
+    "lat": 43.864709,
+    "lon": -79.358314
   },
   {
-    "occurrence_date": "2024-11-01 00:21:00",
+    "date": "2024-11-01 00:21:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.861528",
-    "longitude": "-79.356971"
+    "lat": 43.861528,
+    "lon": -79.356971
   },
   {
-    "occurrence_date": "2024-10-16 00:38:00",
+    "date": "2024-10-16 00:38:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.861888",
-    "longitude": "-79.354887"
+    "lat": 43.861888,
+    "lon": -79.354887
   },
   {
-    "occurrence_date": "2025-04-06 00:00:00",
+    "date": "2025-04-06 00:00:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.859864",
-    "longitude": "-79.354213"
+    "lat": 43.859864,
+    "lon": -79.354213
   },
   {
-    "occurrence_date": "2024-11-09 21:00:00",
+    "date": "2024-11-09 21:00:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.86612",
-    "longitude": "-79.353043"
+    "lat": 43.86612,
+    "lon": -79.353043
   },
   {
-    "occurrence_date": "2024-09-02 17:30:00",
+    "date": "2024-09-02 17:30:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.858957",
-    "longitude": "-79.353069"
+    "lat": 43.858957,
+    "lon": -79.353069
   },
   {
-    "occurrence_date": "2024-09-10 03:59:00",
+    "date": "2024-09-10 03:59:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.85128",
-    "longitude": "-79.352023"
+    "lat": 43.85128,
+    "lon": -79.352023
   },
   {
-    "occurrence_date": "2025-01-02 01:28:00",
+    "date": "2025-01-02 01:28:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.861185",
-    "longitude": "-79.351705"
+    "lat": 43.861185,
+    "lon": -79.351705
   },
   {
-    "occurrence_date": "2025-01-24 05:00:00",
+    "date": "2025-01-24 05:00:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.861185",
-    "longitude": "-79.351705"
+    "lat": 43.861185,
+    "lon": -79.351705
   },
   {
-    "occurrence_date": "2024-07-20 01:57:00",
+    "date": "2024-07-20 01:57:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.863707",
-    "longitude": "-79.349886"
+    "lat": 43.863707,
+    "lon": -79.349886
   },
   {
-    "occurrence_date": "2025-04-01 02:57:00",
+    "date": "2025-04-01 02:57:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.875698",
-    "longitude": "-79.347494"
+    "lat": 43.875698,
+    "lon": -79.347494
   },
   {
-    "occurrence_date": "2024-09-22 00:25:00",
+    "date": "2024-09-22 00:25:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.866107",
-    "longitude": "-79.347618"
+    "lat": 43.866107,
+    "lon": -79.347618
   },
   {
-    "occurrence_date": "2024-10-31 17:00:00",
+    "date": "2024-10-31 17:00:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.869598",
-    "longitude": "-79.347495"
+    "lat": 43.869598,
+    "lon": -79.347495
   },
   {
-    "occurrence_date": "2025-01-21 15:27:00",
+    "date": "2025-01-21 15:27:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.865348",
-    "longitude": "-79.347297"
+    "lat": 43.865348,
+    "lon": -79.347297
   },
   {
-    "occurrence_date": "2025-02-19 16:00:00",
+    "date": "2025-02-19 16:00:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.865348",
-    "longitude": "-79.347297"
+    "lat": 43.865348,
+    "lon": -79.347297
   },
   {
-    "occurrence_date": "2024-12-21 16:30:00",
+    "date": "2024-12-21 16:30:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.870749",
-    "longitude": "-79.346832"
+    "lat": 43.870749,
+    "lon": -79.346832
   },
   {
-    "occurrence_date": "2025-02-01 20:15:00",
+    "date": "2025-02-01 20:15:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.868177",
-    "longitude": "-79.346881"
+    "lat": 43.868177,
+    "lon": -79.346881
   },
   {
-    "occurrence_date": "2025-05-03 21:30:00",
+    "date": "2025-05-03 21:30:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.868177",
-    "longitude": "-79.346881"
+    "lat": 43.868177,
+    "lon": -79.346881
   },
   {
-    "occurrence_date": "2024-10-08 16:15:00",
+    "date": "2024-10-08 16:15:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.861864",
-    "longitude": "-79.345448"
+    "lat": 43.861864,
+    "lon": -79.345448
   },
   {
-    "occurrence_date": "2024-10-31 21:30:00",
+    "date": "2024-10-31 21:30:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.870611",
-    "longitude": "-79.343874"
+    "lat": 43.870611,
+    "lon": -79.343874
   },
   {
-    "occurrence_date": "2025-01-24 22:30:00",
+    "date": "2025-01-24 22:30:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.867982",
-    "longitude": "-79.34312"
+    "lat": 43.867982,
+    "lon": -79.34312
   },
   {
-    "occurrence_date": "2025-02-17 22:59:00",
+    "date": "2025-02-17 22:59:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.853989",
-    "longitude": "-79.343352"
+    "lat": 43.853989,
+    "lon": -79.343352
   },
   {
-    "occurrence_date": "2025-05-03 12:20:00",
+    "date": "2025-05-03 12:20:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.866329",
-    "longitude": "-79.342711"
+    "lat": 43.866329,
+    "lon": -79.342711
   },
   {
-    "occurrence_date": "2024-11-10 17:37:00",
+    "date": "2024-11-10 17:37:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.870868",
-    "longitude": "-79.342463"
+    "lat": 43.870868,
+    "lon": -79.342463
   },
   {
-    "occurrence_date": "2024-08-18 05:18:00",
+    "date": "2024-08-18 05:18:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.86938",
-    "longitude": "-79.342071"
+    "lat": 43.86938,
+    "lon": -79.342071
   },
   {
-    "occurrence_date": "2024-12-05 23:26:00",
+    "date": "2024-12-05 23:26:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.863915",
-    "longitude": "-79.339412"
+    "lat": 43.863915,
+    "lon": -79.339412
   },
   {
-    "occurrence_date": "2024-12-07 15:26:00",
+    "date": "2024-12-07 15:26:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.863915",
-    "longitude": "-79.339412"
+    "lat": 43.863915,
+    "lon": -79.339412
   },
   {
-    "occurrence_date": "2024-12-12 10:53:00",
+    "date": "2024-12-12 10:53:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.863915",
-    "longitude": "-79.339412"
+    "lat": 43.863915,
+    "lon": -79.339412
   },
   {
-    "occurrence_date": "2024-12-29 10:24:00",
+    "date": "2024-12-29 10:24:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.863915",
-    "longitude": "-79.339412"
+    "lat": 43.863915,
+    "lon": -79.339412
   },
   {
-    "occurrence_date": "2024-12-14 17:18:00",
+    "date": "2024-12-14 17:18:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.873955",
-    "longitude": "-79.338685"
+    "lat": 43.873955,
+    "lon": -79.338685
   },
   {
-    "occurrence_date": "2024-11-09 20:51:00",
+    "date": "2024-11-09 20:51:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.869563",
-    "longitude": "-79.338707"
+    "lat": 43.869563,
+    "lon": -79.338707
   },
   {
-    "occurrence_date": "2025-07-08 12:53:00",
+    "date": "2025-07-08 12:53:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.861656",
-    "longitude": "-79.338563"
+    "lat": 43.861656,
+    "lon": -79.338563
   },
   {
-    "occurrence_date": "2025-03-22 18:00:00",
+    "date": "2025-03-22 18:00:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.86752",
-    "longitude": "-79.336997"
+    "lat": 43.86752,
+    "lon": -79.336997
   },
   {
-    "occurrence_date": "2025-01-22 23:30:00",
+    "date": "2025-01-22 23:30:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.869094",
-    "longitude": "-79.336494"
+    "lat": 43.869094,
+    "lon": -79.336494
   },
   {
-    "occurrence_date": "2025-05-24 01:32:00",
+    "date": "2025-05-24 01:32:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.867102",
-    "longitude": "-79.334453"
+    "lat": 43.867102,
+    "lon": -79.334453
   },
   {
-    "occurrence_date": "2024-12-26 22:11:00",
+    "date": "2024-12-26 22:11:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.86569",
-    "longitude": "-79.333712"
+    "lat": 43.86569,
+    "lon": -79.333712
   },
   {
-    "occurrence_date": "2024-12-27 23:04:00",
+    "date": "2024-12-27 23:04:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.86569",
-    "longitude": "-79.333712"
+    "lat": 43.86569,
+    "lon": -79.333712
   },
   {
-    "occurrence_date": "2025-04-08 08:34:00",
+    "date": "2025-04-08 08:34:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.875455",
-    "longitude": "-79.332147"
+    "lat": 43.875455,
+    "lon": -79.332147
   },
   {
-    "occurrence_date": "2024-12-21 14:01:00",
+    "date": "2024-12-21 14:01:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.87057",
-    "longitude": "-79.330473"
+    "lat": 43.87057,
+    "lon": -79.330473
   },
   {
-    "occurrence_date": "2024-12-20 22:15:00",
+    "date": "2024-12-20 22:15:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.871802",
-    "longitude": "-79.328844"
+    "lat": 43.871802,
+    "lon": -79.328844
   },
   {
-    "occurrence_date": "2024-08-14 13:00:00",
+    "date": "2024-08-14 13:00:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.856843",
-    "longitude": "-79.328868"
+    "lat": 43.856843,
+    "lon": -79.328868
   },
   {
-    "occurrence_date": "2025-04-19 13:50:00",
+    "date": "2025-04-19 13:50:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.870909",
-    "longitude": "-79.328333"
+    "lat": 43.870909,
+    "lon": -79.328333
   },
   {
-    "occurrence_date": "2024-09-09 03:39:00",
+    "date": "2024-09-09 03:39:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.818425",
-    "longitude": "-79.329765"
+    "lat": 43.818425,
+    "lon": -79.329765
   },
   {
-    "occurrence_date": "2024-07-22 17:45:00",
+    "date": "2024-07-22 17:45:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.863462",
-    "longitude": "-79.32614"
+    "lat": 43.863462,
+    "lon": -79.32614
   },
   {
-    "occurrence_date": "2025-06-27 23:36:00",
+    "date": "2025-06-27 23:36:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.857926",
-    "longitude": "-79.326152"
+    "lat": 43.857926,
+    "lon": -79.326152
   },
   {
-    "occurrence_date": "2024-11-23 15:00:00",
+    "date": "2024-11-23 15:00:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.872869",
-    "longitude": "-79.324269"
+    "lat": 43.872869,
+    "lon": -79.324269
   },
   {
-    "occurrence_date": "2025-04-19 04:01:00",
+    "date": "2025-04-19 04:01:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.871436",
-    "longitude": "-79.322129"
+    "lat": 43.871436,
+    "lon": -79.322129
   },
   {
-    "occurrence_date": "2024-11-26 05:01:00",
+    "date": "2024-11-26 05:01:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.828123",
-    "longitude": "-79.323048"
+    "lat": 43.828123,
+    "lon": -79.323048
   },
   {
-    "occurrence_date": "2024-09-01 00:00:00",
+    "date": "2024-09-01 00:00:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.877215",
-    "longitude": "-79.321489"
+    "lat": 43.877215,
+    "lon": -79.321489
   },
   {
-    "occurrence_date": "2025-02-16 08:22:00",
+    "date": "2025-02-16 08:22:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.865029",
-    "longitude": "-79.321663"
+    "lat": 43.865029,
+    "lon": -79.321663
   },
   {
-    "occurrence_date": "2024-08-07 20:11:00",
+    "date": "2024-08-07 20:11:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.822071",
-    "longitude": "-79.32283"
+    "lat": 43.822071,
+    "lon": -79.32283
   },
   {
-    "occurrence_date": "2024-12-08 04:00:00",
+    "date": "2024-12-08 04:00:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.875474",
-    "longitude": "-79.320776"
+    "lat": 43.875474,
+    "lon": -79.320776
   },
   {
-    "occurrence_date": "2025-06-08 03:50:00",
+    "date": "2025-06-08 03:50:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.868425",
-    "longitude": "-79.320694"
+    "lat": 43.868425,
+    "lon": -79.320694
   },
   {
-    "occurrence_date": "2025-04-26 06:46:00",
+    "date": "2025-04-26 06:46:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.821939",
-    "longitude": "-79.321915"
+    "lat": 43.821939,
+    "lon": -79.321915
   },
   {
-    "occurrence_date": "2024-09-20 00:14:00",
+    "date": "2024-09-20 00:14:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.862368",
-    "longitude": "-79.320534"
+    "lat": 43.862368,
+    "lon": -79.320534
   },
   {
-    "occurrence_date": "2024-09-21 16:20:00",
+    "date": "2024-09-21 16:20:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.82211",
-    "longitude": "-79.320574"
+    "lat": 43.82211,
+    "lon": -79.320574
   },
   {
-    "occurrence_date": "2024-09-08 02:15:00",
+    "date": "2024-09-08 02:15:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.872201",
-    "longitude": "-79.318661"
+    "lat": 43.872201,
+    "lon": -79.318661
   },
   {
-    "occurrence_date": "2025-03-07 21:00:00",
+    "date": "2025-03-07 21:00:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.872201",
-    "longitude": "-79.318661"
+    "lat": 43.872201,
+    "lon": -79.318661
   },
   {
-    "occurrence_date": "2024-12-10 22:28:00",
+    "date": "2024-12-10 22:28:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.822772",
-    "longitude": "-79.319933"
+    "lat": 43.822772,
+    "lon": -79.319933
   },
   {
-    "occurrence_date": "2024-12-20 00:56:00",
+    "date": "2024-12-20 00:56:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.861012",
-    "longitude": "-79.318839"
+    "lat": 43.861012,
+    "lon": -79.318839
   },
   {
-    "occurrence_date": "2025-07-28 23:30:00",
+    "date": "2025-07-28 23:30:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.86382",
-    "longitude": "-79.318288"
+    "lat": 43.86382,
+    "lon": -79.318288
   },
   {
-    "occurrence_date": "2024-12-04 15:00:00",
+    "date": "2024-12-04 15:00:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.832801",
-    "longitude": "-79.318812"
+    "lat": 43.832801,
+    "lon": -79.318812
   },
   {
-    "occurrence_date": "2025-08-15 18:37:00",
+    "date": "2025-08-15 18:37:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.880202",
-    "longitude": "-79.317428"
+    "lat": 43.880202,
+    "lon": -79.317428
   },
   {
-    "occurrence_date": "2025-06-23 02:56:00",
+    "date": "2025-06-23 02:56:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.865323",
-    "longitude": "-79.313024"
+    "lat": 43.865323,
+    "lon": -79.313024
   },
   {
-    "occurrence_date": "2025-02-22 17:15:00",
+    "date": "2025-02-22 17:15:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.871782",
-    "longitude": "-79.312261"
+    "lat": 43.871782,
+    "lon": -79.312261
   },
   {
-    "occurrence_date": "2025-01-09 23:03:00",
+    "date": "2025-01-09 23:03:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.827376",
-    "longitude": "-79.312855"
+    "lat": 43.827376,
+    "lon": -79.312855
   },
   {
-    "occurrence_date": "2025-02-01 20:00:00",
+    "date": "2025-02-01 20:00:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.86432",
-    "longitude": "-79.31033"
+    "lat": 43.86432,
+    "lon": -79.31033
   },
   {
-    "occurrence_date": "2025-05-03 20:00:00",
+    "date": "2025-05-03 20:00:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.873091",
-    "longitude": "-79.309832"
+    "lat": 43.873091,
+    "lon": -79.309832
   },
   {
-    "occurrence_date": "2025-04-26 03:30:00",
+    "date": "2025-04-26 03:30:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.88961",
-    "longitude": "-79.30935"
+    "lat": 43.88961,
+    "lon": -79.30935
   },
   {
-    "occurrence_date": "2024-11-28 00:38:00",
+    "date": "2024-11-28 00:38:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.877224",
-    "longitude": "-79.309567"
+    "lat": 43.877224,
+    "lon": -79.309567
   },
   {
-    "occurrence_date": "2024-10-31 06:34:00",
+    "date": "2024-10-31 06:34:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.826271",
-    "longitude": "-79.310831"
+    "lat": 43.826271,
+    "lon": -79.310831
   },
   {
-    "occurrence_date": "2025-03-14 03:05:00",
+    "date": "2025-03-14 03:05:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.824573",
-    "longitude": "-79.310673"
+    "lat": 43.824573,
+    "lon": -79.310673
   },
   {
-    "occurrence_date": "2025-02-02 00:29:00",
+    "date": "2025-02-02 00:29:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.871662",
-    "longitude": "-79.309271"
+    "lat": 43.871662,
+    "lon": -79.309271
   },
   {
-    "occurrence_date": "2024-09-02 03:00:00",
+    "date": "2024-09-02 03:00:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.860535",
-    "longitude": "-79.309379"
+    "lat": 43.860535,
+    "lon": -79.309379
   },
   {
-    "occurrence_date": "2024-09-07 15:01:00",
+    "date": "2024-09-07 15:01:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.860535",
-    "longitude": "-79.309379"
+    "lat": 43.860535,
+    "lon": -79.309379
   },
   {
-    "occurrence_date": "2024-11-06 22:45:00",
+    "date": "2024-11-06 22:45:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.876556",
-    "longitude": "-79.307096"
+    "lat": 43.876556,
+    "lon": -79.307096
   },
   {
-    "occurrence_date": "2025-05-15 15:30:00",
+    "date": "2025-05-15 15:30:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.876556",
-    "longitude": "-79.307096"
+    "lat": 43.876556,
+    "lon": -79.307096
   },
   {
-    "occurrence_date": "2025-01-10 09:10:00",
+    "date": "2025-01-10 09:10:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.878666",
-    "longitude": "-79.305948"
+    "lat": 43.878666,
+    "lon": -79.305948
   },
   {
-    "occurrence_date": "2025-02-13 14:40:00",
+    "date": "2025-02-13 14:40:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.888772",
-    "longitude": "-79.305548"
+    "lat": 43.888772,
+    "lon": -79.305548
   },
   {
-    "occurrence_date": "2025-02-13 23:30:00",
+    "date": "2025-02-13 23:30:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.888772",
-    "longitude": "-79.305548"
+    "lat": 43.888772,
+    "lon": -79.305548
   },
   {
-    "occurrence_date": "2024-11-29 18:00:00",
+    "date": "2024-11-29 18:00:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.873831",
-    "longitude": "-79.305628"
+    "lat": 43.873831,
+    "lon": -79.305628
   },
   {
-    "occurrence_date": "2024-10-31 20:00:00",
+    "date": "2024-10-31 20:00:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.87003",
-    "longitude": "-79.305124"
+    "lat": 43.87003,
+    "lon": -79.305124
   },
   {
-    "occurrence_date": "2024-12-04 20:00:00",
+    "date": "2024-12-04 20:00:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.87003",
-    "longitude": "-79.305124"
+    "lat": 43.87003,
+    "lon": -79.305124
   },
   {
-    "occurrence_date": "2024-11-16 00:16:00",
+    "date": "2024-11-16 00:16:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.88423",
-    "longitude": "-79.30253"
+    "lat": 43.88423,
+    "lon": -79.30253
   },
   {
-    "occurrence_date": "2024-12-31 22:47:00",
+    "date": "2024-12-31 22:47:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.876214",
-    "longitude": "-79.302707"
+    "lat": 43.876214,
+    "lon": -79.302707
   },
   {
-    "occurrence_date": "2024-11-13 18:13:00",
+    "date": "2024-11-13 18:13:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.838644",
-    "longitude": "-79.303649"
+    "lat": 43.838644,
+    "lon": -79.303649
   },
   {
-    "occurrence_date": "2025-07-24 23:00:00",
+    "date": "2025-07-24 23:00:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.838644",
-    "longitude": "-79.303649"
+    "lat": 43.838644,
+    "lon": -79.303649
   },
   {
-    "occurrence_date": "2024-11-27 17:30:00",
+    "date": "2024-11-27 17:30:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.871004",
-    "longitude": "-79.300796"
+    "lat": 43.871004,
+    "lon": -79.300796
   },
   {
-    "occurrence_date": "2024-09-09 02:30:00",
+    "date": "2024-09-09 02:30:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.842907",
-    "longitude": "-79.301532"
+    "lat": 43.842907,
+    "lon": -79.301532
   },
   {
-    "occurrence_date": "2025-06-28 00:57:00",
+    "date": "2025-06-28 00:57:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.827977",
-    "longitude": "-79.301333"
+    "lat": 43.827977,
+    "lon": -79.301333
   },
   {
-    "occurrence_date": "2024-07-10 01:30:00",
+    "date": "2024-07-10 01:30:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.829592",
-    "longitude": "-79.301226"
+    "lat": 43.829592,
+    "lon": -79.301226
   },
   {
-    "occurrence_date": "2025-07-19 16:30:00",
+    "date": "2025-07-19 16:30:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.85321",
-    "longitude": "-79.300383"
+    "lat": 43.85321,
+    "lon": -79.300383
   },
   {
-    "occurrence_date": "2024-11-11 22:38:00",
+    "date": "2024-11-11 22:38:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.838729",
-    "longitude": "-79.299539"
+    "lat": 43.838729,
+    "lon": -79.299539
   },
   {
-    "occurrence_date": "2025-06-07 08:00:00",
+    "date": "2025-06-07 08:00:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.863955",
-    "longitude": "-79.298335"
+    "lat": 43.863955,
+    "lon": -79.298335
   },
   {
-    "occurrence_date": "2024-12-28 22:45:00",
+    "date": "2024-12-28 22:45:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.843642",
-    "longitude": "-79.298361"
+    "lat": 43.843642,
+    "lon": -79.298361
   },
   {
-    "occurrence_date": "2024-08-15 16:00:00",
+    "date": "2024-08-15 16:00:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.861563",
-    "longitude": "-79.297744"
+    "lat": 43.861563,
+    "lon": -79.297744
   },
   {
-    "occurrence_date": "2025-02-22 02:41:00",
+    "date": "2025-02-22 02:41:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.832584",
-    "longitude": "-79.298448"
+    "lat": 43.832584,
+    "lon": -79.298448
   },
   {
-    "occurrence_date": "2024-09-17 15:30:00",
+    "date": "2024-09-17 15:30:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.827168",
-    "longitude": "-79.297853"
+    "lat": 43.827168,
+    "lon": -79.297853
   },
   {
-    "occurrence_date": "2025-01-09 15:45:00",
+    "date": "2025-01-09 15:45:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.827168",
-    "longitude": "-79.297853"
+    "lat": 43.827168,
+    "lon": -79.297853
   },
   {
-    "occurrence_date": "2025-03-28 15:00:00",
+    "date": "2025-03-28 15:00:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.827168",
-    "longitude": "-79.297853"
+    "lat": 43.827168,
+    "lon": -79.297853
   },
   {
-    "occurrence_date": "2025-05-01 07:10:00",
+    "date": "2025-05-01 07:10:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.858527",
-    "longitude": "-79.296293"
+    "lat": 43.858527,
+    "lon": -79.296293
   },
   {
-    "occurrence_date": "2024-12-16 15:15:00",
+    "date": "2024-12-16 15:15:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.835536",
-    "longitude": "-79.295802"
+    "lat": 43.835536,
+    "lon": -79.295802
   },
   {
-    "occurrence_date": "2024-07-29 04:59:00",
+    "date": "2024-07-29 04:59:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.859423",
-    "longitude": "-79.293255"
+    "lat": 43.859423,
+    "lon": -79.293255
   },
   {
-    "occurrence_date": "2025-01-10 18:24:00",
+    "date": "2025-01-10 18:24:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.859423",
-    "longitude": "-79.293255"
+    "lat": 43.859423,
+    "lon": -79.293255
   },
   {
-    "occurrence_date": "2024-11-05 21:41:00",
+    "date": "2024-11-05 21:41:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.828023",
-    "longitude": "-79.293722"
+    "lat": 43.828023,
+    "lon": -79.293722
   },
   {
-    "occurrence_date": "2025-05-02 15:45:00",
+    "date": "2025-05-02 15:45:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.855024",
-    "longitude": "-79.292043"
+    "lat": 43.855024,
+    "lon": -79.292043
   },
   {
-    "occurrence_date": "2024-11-29 19:00:00",
+    "date": "2024-11-29 19:00:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.837814",
-    "longitude": "-79.290859"
+    "lat": 43.837814,
+    "lon": -79.290859
   },
   {
-    "occurrence_date": "2025-02-16 00:45:00",
+    "date": "2025-02-16 00:45:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.834202",
-    "longitude": "-79.290137"
+    "lat": 43.834202,
+    "lon": -79.290137
   },
   {
-    "occurrence_date": "2025-06-22 08:39:00",
+    "date": "2025-06-22 08:39:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.862386",
-    "longitude": "-79.288621"
+    "lat": 43.862386,
+    "lon": -79.288621
   },
   {
-    "occurrence_date": "2025-01-18 23:15:00",
+    "date": "2025-01-18 23:15:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.833536",
-    "longitude": "-79.287307"
+    "lat": 43.833536,
+    "lon": -79.287307
   },
   {
-    "occurrence_date": "2025-02-07 22:00:00",
+    "date": "2025-02-07 22:00:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.86231",
-    "longitude": "-79.285278"
+    "lat": 43.86231,
+    "lon": -79.285278
   },
   {
-    "occurrence_date": "2025-07-19 18:30:00",
+    "date": "2025-07-19 18:30:00",
     "municipality": "Markham",
-    "fsa": "L3R",
-    "latitude": "43.859549",
-    "longitude": "-79.284609"
+    "lat": 43.859549,
+    "lon": -79.284609
   }
 ]

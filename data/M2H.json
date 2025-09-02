@@ -1,16 +1,14 @@
 [
   {
-    "occurrence_date": "2024-12-21 01:05:00",
+    "date": "2024-12-21 01:05:00",
     "municipality": "Markham",
-    "fsa": "M2H",
-    "latitude": "43.810915",
-    "longitude": "-79.377263"
+    "lat": 43.810915,
+    "lon": -79.377263
   },
   {
-    "occurrence_date": "2024-11-28 19:00:00",
+    "date": "2024-11-28 19:00:00",
     "municipality": "Markham",
-    "fsa": "M2H",
-    "latitude": "43.810545",
-    "longitude": "-79.371279"
+    "lat": 43.810545,
+    "lon": -79.371279
   }
 ]

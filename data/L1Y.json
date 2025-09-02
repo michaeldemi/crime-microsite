@@ -1,9 +1,8 @@
 [
   {
-    "occurrence_date": "2024-11-24 20:40:00",
+    "date": "2024-11-24 20:40:00",
     "municipality": "Whitchurch-Stouffville",
-    "fsa": "L1Y",
-    "latitude": "44.053249",
-    "longitude": "-79.262102"
+    "lat": 44.053249,
+    "lon": -79.262102
   }
 ]

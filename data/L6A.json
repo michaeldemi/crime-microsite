@@ -1,429 +1,368 @@
 [
   {
-    "occurrence_date": "2024-07-07 02:39:00",
+    "date": "2024-07-07 02:39:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.868577",
-    "longitude": "-79.561242"
+    "lat": 43.868577,
+    "lon": -79.561242
   },
   {
-    "occurrence_date": "2025-02-26 07:50:00",
+    "date": "2025-02-26 07:50:00",
     "municipality": "King",
-    "fsa": "L6A",
-    "latitude": "43.910139",
-    "longitude": "-79.550951"
+    "lat": 43.910139,
+    "lon": -79.550951
   },
   {
-    "occurrence_date": "2024-10-05 22:00:00",
+    "date": "2024-10-05 22:00:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.852497",
-    "longitude": "-79.548301"
+    "lat": 43.852497,
+    "lon": -79.548301
   },
   {
-    "occurrence_date": "2025-01-11 23:30:00",
+    "date": "2025-01-11 23:30:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.862176",
-    "longitude": "-79.546938"
+    "lat": 43.862176,
+    "lon": -79.546938
   },
   {
-    "occurrence_date": "2024-11-22 19:00:00",
+    "date": "2024-11-22 19:00:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.860252",
-    "longitude": "-79.545388"
+    "lat": 43.860252,
+    "lon": -79.545388
   },
   {
-    "occurrence_date": "2025-05-15 18:00:00",
+    "date": "2025-05-15 18:00:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.862522",
-    "longitude": "-79.545253"
+    "lat": 43.862522,
+    "lon": -79.545253
   },
   {
-    "occurrence_date": "2025-05-02 00:00:00",
+    "date": "2025-05-02 00:00:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.859185",
-    "longitude": "-79.541747"
+    "lat": 43.859185,
+    "lon": -79.541747
   },
   {
-    "occurrence_date": "2024-07-10 16:32:00",
+    "date": "2024-07-10 16:32:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.860667",
-    "longitude": "-79.538736"
+    "lat": 43.860667,
+    "lon": -79.538736
   },
   {
-    "occurrence_date": "2025-05-18 08:47:00",
+    "date": "2025-05-18 08:47:00",
     "municipality": "King",
-    "fsa": "L6A",
-    "latitude": "43.913587",
-    "longitude": "-79.536906"
+    "lat": 43.913587,
+    "lon": -79.536906
   },
   {
-    "occurrence_date": "2025-02-06 18:35:00",
+    "date": "2025-02-06 18:35:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.858125",
-    "longitude": "-79.534267"
+    "lat": 43.858125,
+    "lon": -79.534267
   },
   {
-    "occurrence_date": "2025-07-21 00:03:00",
+    "date": "2025-07-21 00:03:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.843752",
-    "longitude": "-79.534092"
+    "lat": 43.843752,
+    "lon": -79.534092
   },
   {
-    "occurrence_date": "2024-07-08 13:49:00",
+    "date": "2024-07-08 13:49:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.858367",
-    "longitude": "-79.533203"
+    "lat": 43.858367,
+    "lon": -79.533203
   },
   {
-    "occurrence_date": "2024-10-04 16:00:00",
+    "date": "2024-10-04 16:00:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.84221",
-    "longitude": "-79.533318"
+    "lat": 43.84221,
+    "lon": -79.533318
   },
   {
-    "occurrence_date": "2025-07-27 00:00:00",
+    "date": "2025-07-27 00:00:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.854672",
-    "longitude": "-79.528108"
+    "lat": 43.854672,
+    "lon": -79.528108
   },
   {
-    "occurrence_date": "2025-04-25 20:00:00",
+    "date": "2025-04-25 20:00:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.83818",
-    "longitude": "-79.528024"
+    "lat": 43.83818,
+    "lon": -79.528024
   },
   {
-    "occurrence_date": "2025-05-01 04:01:00",
+    "date": "2025-05-01 04:01:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.838095",
-    "longitude": "-79.526254"
+    "lat": 43.838095,
+    "lon": -79.526254
   },
   {
-    "occurrence_date": "2025-05-02 01:11:00",
+    "date": "2025-05-02 01:11:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.838095",
-    "longitude": "-79.526254"
+    "lat": 43.838095,
+    "lon": -79.526254
   },
   {
-    "occurrence_date": "2024-09-02 19:37:00",
+    "date": "2024-09-02 19:37:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.910721",
-    "longitude": "-79.523253"
+    "lat": 43.910721,
+    "lon": -79.523253
   },
   {
-    "occurrence_date": "2024-10-30 20:13:00",
+    "date": "2024-10-30 20:13:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.871768",
-    "longitude": "-79.524157"
+    "lat": 43.871768,
+    "lon": -79.524157
   },
   {
-    "occurrence_date": "2024-10-26 03:05:00",
+    "date": "2024-10-26 03:05:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.862664",
-    "longitude": "-79.521079"
+    "lat": 43.862664,
+    "lon": -79.521079
   },
   {
-    "occurrence_date": "2024-10-09 15:45:00",
+    "date": "2024-10-09 15:45:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.866765",
-    "longitude": "-79.520224"
+    "lat": 43.866765,
+    "lon": -79.520224
   },
   {
-    "occurrence_date": "2024-10-12 04:01:00",
+    "date": "2024-10-12 04:01:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.848804",
-    "longitude": "-79.519657"
+    "lat": 43.848804,
+    "lon": -79.519657
   },
   {
-    "occurrence_date": "2024-10-25 15:00:00",
+    "date": "2024-10-25 15:00:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.849609",
-    "longitude": "-79.516761"
+    "lat": 43.849609,
+    "lon": -79.516761
   },
   {
-    "occurrence_date": "2025-07-09 16:15:00",
+    "date": "2025-07-09 16:15:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.85081",
-    "longitude": "-79.515716"
+    "lat": 43.85081,
+    "lon": -79.515716
   },
   {
-    "occurrence_date": "2024-07-26 17:00:00",
+    "date": "2024-07-26 17:00:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.85387",
-    "longitude": "-79.512148"
+    "lat": 43.85387,
+    "lon": -79.512148
   },
   {
-    "occurrence_date": "2024-10-08 15:15:00",
+    "date": "2024-10-08 15:15:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.849424",
-    "longitude": "-79.511148"
+    "lat": 43.849424,
+    "lon": -79.511148
   },
   {
-    "occurrence_date": "2025-03-06 13:00:00",
+    "date": "2025-03-06 13:00:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.852222",
-    "longitude": "-79.507929"
+    "lat": 43.852222,
+    "lon": -79.507929
   },
   {
-    "occurrence_date": "2025-05-23 15:45:00",
+    "date": "2025-05-23 15:45:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.857971",
-    "longitude": "-79.507146"
+    "lat": 43.857971,
+    "lon": -79.507146
   },
   {
-    "occurrence_date": "2024-07-13 01:47:00",
+    "date": "2024-07-13 01:47:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.840293",
-    "longitude": "-79.506626"
+    "lat": 43.840293,
+    "lon": -79.506626
   },
   {
-    "occurrence_date": "2025-06-27 04:00:00",
+    "date": "2025-06-27 04:00:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.840293",
-    "longitude": "-79.506626"
+    "lat": 43.840293,
+    "lon": -79.506626
   },
   {
-    "occurrence_date": "2025-07-21 19:02:00",
+    "date": "2025-07-21 19:02:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.838555",
-    "longitude": "-79.506249"
+    "lat": 43.838555,
+    "lon": -79.506249
   },
   {
-    "occurrence_date": "2024-11-23 16:16:00",
+    "date": "2024-11-23 16:16:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.860791",
-    "longitude": "-79.504934"
+    "lat": 43.860791,
+    "lon": -79.504934
   },
   {
-    "occurrence_date": "2024-08-31 14:30:00",
+    "date": "2024-08-31 14:30:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.856225",
-    "longitude": "-79.504405"
+    "lat": 43.856225,
+    "lon": -79.504405
   },
   {
-    "occurrence_date": "2024-12-15 17:00:00",
+    "date": "2024-12-15 17:00:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.860414",
-    "longitude": "-79.503801"
+    "lat": 43.860414,
+    "lon": -79.503801
   },
   {
-    "occurrence_date": "2024-08-31 22:00:00",
+    "date": "2024-08-31 22:00:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.851717",
-    "longitude": "-79.503199"
+    "lat": 43.851717,
+    "lon": -79.503199
   },
   {
-    "occurrence_date": "2025-03-13 19:41:00",
+    "date": "2025-03-13 19:41:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.839948",
-    "longitude": "-79.502647"
+    "lat": 43.839948,
+    "lon": -79.502647
   },
   {
-    "occurrence_date": "2025-01-25 09:20:00",
+    "date": "2025-01-25 09:20:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.856841",
-    "longitude": "-79.498111"
+    "lat": 43.856841,
+    "lon": -79.498111
   },
   {
-    "occurrence_date": "2024-11-26 22:00:00",
+    "date": "2024-11-26 22:00:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.88429",
-    "longitude": "-79.497016"
+    "lat": 43.88429,
+    "lon": -79.497016
   },
   {
-    "occurrence_date": "2025-01-28 15:50:00",
+    "date": "2025-01-28 15:50:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.857301",
-    "longitude": "-79.496011"
+    "lat": 43.857301,
+    "lon": -79.496011
   },
   {
-    "occurrence_date": "2024-08-15 00:00:00",
+    "date": "2024-08-15 00:00:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.85307",
-    "longitude": "-79.495352"
+    "lat": 43.85307,
+    "lon": -79.495352
   },
   {
-    "occurrence_date": "2025-06-08 00:00:00",
+    "date": "2025-06-08 00:00:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.85832",
-    "longitude": "-79.49019"
+    "lat": 43.85832,
+    "lon": -79.49019
   },
   {
-    "occurrence_date": "2025-04-09 03:18:00",
+    "date": "2025-04-09 03:18:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.851706",
-    "longitude": "-79.490307"
+    "lat": 43.851706,
+    "lon": -79.490307
   },
   {
-    "occurrence_date": "2024-08-21 13:17:00",
+    "date": "2024-08-21 13:17:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.851231",
-    "longitude": "-79.488972"
+    "lat": 43.851231,
+    "lon": -79.488972
   },
   {
-    "occurrence_date": "2025-01-06 08:44:00",
+    "date": "2025-01-06 08:44:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.851231",
-    "longitude": "-79.488972"
+    "lat": 43.851231,
+    "lon": -79.488972
   },
   {
-    "occurrence_date": "2024-09-01 16:00:00",
+    "date": "2024-09-01 16:00:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.851647",
-    "longitude": "-79.487137"
+    "lat": 43.851647,
+    "lon": -79.487137
   },
   {
-    "occurrence_date": "2025-02-28 07:00:00",
+    "date": "2025-02-28 07:00:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.851647",
-    "longitude": "-79.487137"
+    "lat": 43.851647,
+    "lon": -79.487137
   },
   {
-    "occurrence_date": "2025-06-03 06:50:00",
+    "date": "2025-06-03 06:50:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.874316",
-    "longitude": "-79.485278"
+    "lat": 43.874316,
+    "lon": -79.485278
   },
   {
-    "occurrence_date": "2024-07-12 15:20:00",
+    "date": "2024-07-12 15:20:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.85914",
-    "longitude": "-79.482464"
+    "lat": 43.85914,
+    "lon": -79.482464
   },
   {
-    "occurrence_date": "2025-07-18 12:16:00",
+    "date": "2025-07-18 12:16:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.878111",
-    "longitude": "-79.480426"
+    "lat": 43.878111,
+    "lon": -79.480426
   },
   {
-    "occurrence_date": "2024-12-30 02:25:00",
+    "date": "2024-12-30 02:25:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.8904",
-    "longitude": "-79.479848"
+    "lat": 43.8904,
+    "lon": -79.479848
   },
   {
-    "occurrence_date": "2025-05-21 06:55:00",
+    "date": "2025-05-21 06:55:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.847385",
-    "longitude": "-79.478007"
+    "lat": 43.847385,
+    "lon": -79.478007
   },
   {
-    "occurrence_date": "2024-12-19 01:17:00",
+    "date": "2024-12-19 01:17:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.882764",
-    "longitude": "-79.473948"
+    "lat": 43.882764,
+    "lon": -79.473948
   },
   {
-    "occurrence_date": "2024-11-30 01:36:00",
+    "date": "2024-11-30 01:36:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.890258",
-    "longitude": "-79.473322"
+    "lat": 43.890258,
+    "lon": -79.473322
   },
   {
-    "occurrence_date": "2024-07-19 23:30:00",
+    "date": "2024-07-19 23:30:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.880436",
-    "longitude": "-79.472698"
+    "lat": 43.880436,
+    "lon": -79.472698
   },
   {
-    "occurrence_date": "2025-02-03 18:45:00",
+    "date": "2025-02-03 18:45:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.874937",
-    "longitude": "-79.472229"
+    "lat": 43.874937,
+    "lon": -79.472229
   },
   {
-    "occurrence_date": "2025-06-02 03:00:00",
+    "date": "2025-06-02 03:00:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.851386",
-    "longitude": "-79.470021"
+    "lat": 43.851386,
+    "lon": -79.470021
   },
   {
-    "occurrence_date": "2024-12-28 14:00:00",
+    "date": "2024-12-28 14:00:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.849877",
-    "longitude": "-79.469745"
+    "lat": 43.849877,
+    "lon": -79.469745
   },
   {
-    "occurrence_date": "2024-08-18 19:34:00",
+    "date": "2024-08-18 19:34:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.881237",
-    "longitude": "-79.468931"
+    "lat": 43.881237,
+    "lon": -79.468931
   },
   {
-    "occurrence_date": "2025-08-14 03:50:00",
+    "date": "2025-08-14 03:50:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.886536",
-    "longitude": "-79.467906"
+    "lat": 43.886536,
+    "lon": -79.467906
   },
   {
-    "occurrence_date": "2024-07-20 22:45:00",
+    "date": "2024-07-20 22:45:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.855746",
-    "longitude": "-79.467156"
+    "lat": 43.855746,
+    "lon": -79.467156
   },
   {
-    "occurrence_date": "2025-01-08 23:00:00",
+    "date": "2025-01-08 23:00:00",
     "municipality": "Vaughan",
-    "fsa": "L6A",
-    "latitude": "43.85398",
-    "longitude": "-79.465471"
+    "lat": 43.85398,
+    "lon": -79.465471
   }
 ]

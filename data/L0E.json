@@ -1,170 +1,146 @@
 [
   {
-    "occurrence_date": "2025-03-29 04:08:00",
+    "date": "2025-03-29 04:08:00",
     "municipality": "Georgina",
-    "fsa": "L0E",
-    "latitude": "44.320919",
-    "longitude": "-79.379024"
+    "lat": 44.320919,
+    "lon": -79.379024
   },
   {
-    "occurrence_date": "2025-03-29 04:44:00",
+    "date": "2025-03-29 04:44:00",
     "municipality": "Georgina",
-    "fsa": "L0E",
-    "latitude": "44.319614",
-    "longitude": "-79.378997"
+    "lat": 44.319614,
+    "lon": -79.378997
   },
   {
-    "occurrence_date": "2024-10-23 08:00:00",
+    "date": "2024-10-23 08:00:00",
     "municipality": "Georgina",
-    "fsa": "L0E",
-    "latitude": "44.303861",
-    "longitude": "-79.377928"
+    "lat": 44.303861,
+    "lon": -79.377928
   },
   {
-    "occurrence_date": "2025-03-29 11:39:00",
+    "date": "2025-03-29 11:39:00",
     "municipality": "Georgina",
-    "fsa": "L0E",
-    "latitude": "44.317356",
-    "longitude": "-79.373556"
+    "lat": 44.317356,
+    "lon": -79.373556
   },
   {
-    "occurrence_date": "2025-04-10 10:10:00",
+    "date": "2025-04-10 10:10:00",
     "municipality": "Georgina",
-    "fsa": "L0E",
-    "latitude": "44.317481",
-    "longitude": "-79.372516"
+    "lat": 44.317481,
+    "lon": -79.372516
   },
   {
-    "occurrence_date": "2025-04-19 10:46:00",
+    "date": "2025-04-19 10:46:00",
     "municipality": "Georgina",
-    "fsa": "L0E",
-    "latitude": "44.324549",
-    "longitude": "-79.372108"
+    "lat": 44.324549,
+    "lon": -79.372108
   },
   {
-    "occurrence_date": "2025-06-27 13:00:00",
+    "date": "2025-06-27 13:00:00",
     "municipality": "Georgina",
-    "fsa": "L0E",
-    "latitude": "44.326954",
-    "longitude": "-79.37002"
+    "lat": 44.326954,
+    "lon": -79.37002
   },
   {
-    "occurrence_date": "2025-06-05 21:44:00",
+    "date": "2025-06-05 21:44:00",
     "municipality": "Georgina",
-    "fsa": "L0E",
-    "latitude": "44.303166",
-    "longitude": "-79.363391"
+    "lat": 44.303166,
+    "lon": -79.363391
   },
   {
-    "occurrence_date": "2025-04-23 07:29:00",
+    "date": "2025-04-23 07:29:00",
     "municipality": "Georgina",
-    "fsa": "L0E",
-    "latitude": "44.312696",
-    "longitude": "-79.362568"
+    "lat": 44.312696,
+    "lon": -79.362568
   },
   {
-    "occurrence_date": "2024-10-25 09:15:00",
+    "date": "2024-10-25 09:15:00",
     "municipality": "Georgina",
-    "fsa": "L0E",
-    "latitude": "44.303399",
-    "longitude": "-79.362388"
+    "lat": 44.303399,
+    "lon": -79.362388
   },
   {
-    "occurrence_date": "2024-10-27 09:42:00",
+    "date": "2024-10-27 09:42:00",
     "municipality": "Georgina",
-    "fsa": "L0E",
-    "latitude": "44.301793",
-    "longitude": "-79.361745"
+    "lat": 44.301793,
+    "lon": -79.361745
   },
   {
-    "occurrence_date": "2025-06-03 03:49:00",
+    "date": "2025-06-03 03:49:00",
     "municipality": "Georgina",
-    "fsa": "L0E",
-    "latitude": "44.315565",
-    "longitude": "-79.360775"
+    "lat": 44.315565,
+    "lon": -79.360775
   },
   {
-    "occurrence_date": "2025-07-07 14:17:00",
+    "date": "2025-07-07 14:17:00",
     "municipality": "Georgina",
-    "fsa": "L0E",
-    "latitude": "44.308822",
-    "longitude": "-79.358257"
+    "lat": 44.308822,
+    "lon": -79.358257
   },
   {
-    "occurrence_date": "2025-04-16 07:52:00",
+    "date": "2025-04-16 07:52:00",
     "municipality": "Georgina",
-    "fsa": "L0E",
-    "latitude": "44.304644",
-    "longitude": "-79.357694"
+    "lat": 44.304644,
+    "lon": -79.357694
   },
   {
-    "occurrence_date": "2024-09-26 00:32:00",
+    "date": "2024-09-26 00:32:00",
     "municipality": "Georgina",
-    "fsa": "L0E",
-    "latitude": "44.309179",
-    "longitude": "-79.356649"
+    "lat": 44.309179,
+    "lon": -79.356649
   },
   {
-    "occurrence_date": "2025-05-14 04:50:00",
+    "date": "2025-05-14 04:50:00",
     "municipality": "Georgina",
-    "fsa": "L0E",
-    "latitude": "44.303259",
-    "longitude": "-79.35549"
+    "lat": 44.303259,
+    "lon": -79.35549
   },
   {
-    "occurrence_date": "2025-03-13 16:58:00",
+    "date": "2025-03-13 16:58:00",
     "municipality": "Georgina",
-    "fsa": "L0E",
-    "latitude": "44.31073",
-    "longitude": "-79.353104"
+    "lat": 44.31073,
+    "lon": -79.353104
   },
   {
-    "occurrence_date": "2024-09-27 18:43:00",
+    "date": "2024-09-27 18:43:00",
     "municipality": "Georgina",
-    "fsa": "L0E",
-    "latitude": "44.3004",
-    "longitude": "-79.353152"
+    "lat": 44.3004,
+    "lon": -79.353152
   },
   {
-    "occurrence_date": "2025-02-01 06:30:00",
+    "date": "2025-02-01 06:30:00",
     "municipality": "Georgina",
-    "fsa": "L0E",
-    "latitude": "44.302723",
-    "longitude": "-79.352295"
+    "lat": 44.302723,
+    "lon": -79.352295
   },
   {
-    "occurrence_date": "2025-03-25 16:08:00",
+    "date": "2025-03-25 16:08:00",
     "municipality": "Georgina",
-    "fsa": "L0E",
-    "latitude": "44.302723",
-    "longitude": "-79.352295"
+    "lat": 44.302723,
+    "lon": -79.352295
   },
   {
-    "occurrence_date": "2025-06-14 18:04:00",
+    "date": "2025-06-14 18:04:00",
     "municipality": "Georgina",
-    "fsa": "L0E",
-    "latitude": "44.256297",
-    "longitude": "-79.350356"
+    "lat": 44.256297,
+    "lon": -79.350356
   },
   {
-    "occurrence_date": "2025-03-31 20:06:00",
+    "date": "2025-03-31 20:06:00",
     "municipality": "Georgina",
-    "fsa": "L0E",
-    "latitude": "44.346545",
-    "longitude": "-79.252165"
+    "lat": 44.346545,
+    "lon": -79.252165
   },
   {
-    "occurrence_date": "2024-08-21 20:50:00",
+    "date": "2024-08-21 20:50:00",
     "municipality": "Georgina",
-    "fsa": "L0E",
-    "latitude": "44.313782",
-    "longitude": "-79.230541"
+    "lat": 44.313782,
+    "lon": -79.230541
   },
   {
-    "occurrence_date": "2024-07-02 21:09:00",
+    "date": "2024-07-02 21:09:00",
     "municipality": "Georgina",
-    "fsa": "L0E",
-    "latitude": "44.320599",
-    "longitude": "-79.214161"
+    "lat": 44.320599,
+    "lon": -79.214161
   }
 ]
