@@ -160,8 +160,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const cutoff30 = getLast30DaysCutoff();
         let count12 = 0, count30 = 0;
         data.forEach(entry => {
-            if (!entry.date) return;
-            const d = new Date(entry.date);
+            if (!entry.occurrence_date) return;  // Changed from entry.date
+            const d = new Date(entry.occurrence_date);  // Changed from entry.date
             if (d >= cutoff12) count12++;
             if (d >= cutoff30) count30++;
         });
@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Filter for last 12 months and valid coordinates
         const cutoff12 = getLast12MonthsCutoff();
         const points = data.filter(entry =>
-            entry.date && entry.lat && entry.lon && new Date(entry.date) >= cutoff12
+            entry.occurrence_date && entry.latitude && entry.longitude && new Date(entry.occurrence_date) >= cutoff12  // Changed keys
         );
 
         // Fallback center
@@ -282,8 +282,8 @@ document.addEventListener('DOMContentLoaded', function() {
         points.forEach(entry => {
             const latlng = [entry.lat, entry.lon];
             latlngs.push(latlng);
-            L.marker(latlng).addTo(window.leafletMap)
-                .bindPopup(`${entry.municipality || ''}<br>${entry.date || ''}`);
+            L.marker([parseFloat(entry.latitude), parseFloat(entry.longitude)]).addTo(window.leafletMap)  // Changed to parseFloat and new keys
+                .bindPopup(`${entry.municipality || ''}<br>${entry.occurrence_date || ''}`);  // Changed from entry.date
         });
 
         // Fit map to bounds of all pins if there are any
