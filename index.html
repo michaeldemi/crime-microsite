@@ -30,9 +30,12 @@
           height: 20px;
         }
       }
+      .dynamic-vh {
+        min-height: 100dvh;
+      }
     </style>
 </head>
-<body class="bg-gray-100 min-h-screen relative overflow-hidden flex flex-col justify-end sm:justify-center">
+<body class="bg-gray-100 dynamic-vh relative overflow-auto flex flex-col justify-end sm:justify-center">
     <div id="map-bg" class="fixed inset-0 z-0" style="background-image: url('images/hero-background.webp'); background-size: cover; background-position: center;">
         <div id="map" class="w-full h-screen sm:absolute sm:right-0 sm:top-0 sm:h-screen sm:w-2/3"></div>
     </div>
@@ -99,5 +102,17 @@
     </div>
 </div>
     <script src="main.js"></script>
+    <script>
+  function setDynamicHeight() {
+    const height = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+    document.body.style.minHeight = height + 'px';
+  }
+  window.addEventListener('load', setDynamicHeight);
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', setDynamicHeight);
+  } else {
+    window.addEventListener('resize', setDynamicHeight);
+  }
+</script>
 </body>
 </html>
