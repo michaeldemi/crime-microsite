@@ -160,20 +160,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.4897,
-          44.034785
-        ]
-      },
-      "properties": {
-        "fsa": "L3X",
-        "municipality": "Newmarket"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -79.486494,
           44.049687
         ]
@@ -372,20 +358,6 @@
         "coordinates": [
           -79.430852,
           43.859945
-        ]
-      },
-      "properties": {
-        "fsa": "L4C",
-        "municipality": "Richmond Hill"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.423971,
-          43.883847
         ]
       },
       "properties": {
