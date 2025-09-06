@@ -76,20 +76,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.599249,
-          43.792591
-        ]
-      },
-      "properties": {
-        "fsa": "L4L",
-        "municipality": "Vaughan"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -79.58736,
           43.873469
         ]
@@ -300,20 +286,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.451733,
-          44.221727
-        ]
-      },
-      "properties": {
-        "fsa": "L4P",
-        "municipality": "Georgina"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -79.457115,
           43.925182
         ]
@@ -412,20 +384,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.388777,
-          43.822563
-        ]
-      },
-      "properties": {
-        "fsa": "L3T",
-        "municipality": "Markham"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -79.375248,
           43.967202
         ]
@@ -446,34 +404,6 @@
       },
       "properties": {
         "fsa": "L3T",
-        "municipality": "Markham"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.367883,
-          43.830902
-        ]
-      },
-      "properties": {
-        "fsa": "L3T",
-        "municipality": "Markham"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.323604,
-          43.915613
-        ]
-      },
-      "properties": {
-        "fsa": "L6C",
         "municipality": "Markham"
       }
     },
@@ -503,20 +433,6 @@
       "properties": {
         "fsa": "L4A",
         "municipality": "Whitchurch-Stouffville"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.2563,
-          43.884767
-        ]
-      },
-      "properties": {
-        "fsa": "L3P",
-        "municipality": "Markham"
       }
     },
     {
