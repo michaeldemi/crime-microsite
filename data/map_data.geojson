@@ -188,20 +188,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.468545,
-          44.01295
-        ]
-      },
-      "properties": {
-        "fsa": "L4G",
-        "municipality": "Aurora"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -79.469483,
           43.946808
         ]
@@ -209,20 +195,6 @@
       "properties": {
         "fsa": "L4E",
         "municipality": "Richmond Hill"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.461069,
-          44.195764
-        ]
-      },
-      "properties": {
-        "fsa": "L4P",
-        "municipality": "Georgina"
       }
     },
     {
@@ -244,20 +216,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.460494,
-          44.215434
-        ]
-      },
-      "properties": {
-        "fsa": "L4P",
-        "municipality": "Georgina"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -79.467906,
           43.886536
         ]
@@ -265,20 +223,6 @@
       "properties": {
         "fsa": "L6A",
         "municipality": "Vaughan"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.462395,
-          44.005402
-        ]
-      },
-      "properties": {
-        "fsa": "L4G",
-        "municipality": "Aurora"
       }
     },
     {
@@ -363,20 +307,6 @@
       "properties": {
         "fsa": "L4C",
         "municipality": "Richmond Hill"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.390349,
-          43.838511
-        ]
-      },
-      "properties": {
-        "fsa": "L3T",
-        "municipality": "Markham"
       }
     },
     {
