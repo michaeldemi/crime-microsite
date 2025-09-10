@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Break-in Map for York Region | Local Safety Report</title>
+    <meta property="og:title" content="How Safe is Your York Region Neighbourhood? See the Latest Break-in Reports">
+    <meta property="og:description" content="Worried about property crime in your area? Our live safety report maps out recent break-ins across York Region. Get the facts, stay informed, and help keep your family safe. View the live map for free.">
+    <meta property="og:image" content="images/safety-report-og-image.webp">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <style>
+      /* Grayscale map tiles only */
+      .leaflet-tile-pane img {
+        filter: grayscale(1);
+      }
+      h1, h2, h3, h4, h5, h6 {
+        color: #0F2A3D !important;
+        font-family: 'Poppins', sans-serif !important;
+        font-weight: 600 !important;
+      }
+      .logo-img {
+        height: 14px;
+        width: auto;
+        max-width: 100%;
+        display: block;
+        object-fit: contain;
+      }
+      @media (min-width: 640px) { /* sm: breakpoint */
+        .logo-img {
+          height: 20px;
+        }
+      }
+      .dynamic-vh {
+        min-height: 100dvh;
+      }
+      /* Add background styles */
+      body {
+        background-image: url('/images/hero-background-b.webp');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="relative z-10 max-w-xl mx-auto my-8 bg-[#F7F8FA] rounded-md shadow-lg p-4 sm:p-8">
+        <img src="images/window-guradian.svg" alt="Window Guardian Logo" class="logo-img">
+        
+        <div id="main-card-content" class="overflow-y-auto">
+            <div id="search-container">
+                <div class="border-b border-gray-200 pt-4 w-full"></div>
+                <h1 id="headline" class="text-4xl font-bold pt-4 mb-4 sm:mb-6 text-blue-800">How Safe Is Your Neighborhood?</h1>
+                <form id="fsa-form" class="flex flex-col gap-3">
+                    <div id="subhead" class="text-base text-gray-700 mb-1 w-full">
+                        Enter your postal code's first 3 characters to see your free, daily updated security report.
+                    </div>
+                    <label for="fsa-input" class="text-base sm:text-lg font-medium text-gray-700">Your Postal Code (First 3 Characters):</label>
+                    <input type="text" id="fsa-input" maxlength="3" required class="uppercase border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 w-full text-center" style="text-transform:uppercase;" placeholder="e.g., L4H">
+                    <div id="error-message" class="text-red-500 text-sm mt-1" style="display:none;"></div>
+                    <button type="submit" class="bg-[#A06D36] hover:bg-[#8C5F2F] text-white font-semibold px-6 py-2 rounded transition w-full sm:w-auto">
+                        See My Report
+                    </button>
+                </form>
+            </div>
+    
+            <div id="dashboard-section" class="w-full pt-0 sm:pt-2"></div>
+
+            <!-- NEW: Map Container Inside Card -->
+            <div id="map-container-card" class="relative w-full h-[200px] mt-4 rounded-md overflow-hidden border border-gray-200 transition-all duration-500 ease-in-out" style="display: none;">
+                <div id="map-card" class="w-full h-full"></div>
+                <button id="map-expand-btn" class="absolute top-2 right-2 bg-white p-1.5 rounded-md shadow-md z-[1000] hover:bg-gray-100 transition" aria-label="Expand map">
+                    <svg id="map-expand-icon" class="h-5 w-5 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
+                    </svg>
+                    <svg id="map-collapse-icon" class="h-5 w-5 text-gray-700 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 9V4.5M9 9H4.5M9 9L3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5M15 15l5.25 5.25" />
+                    </svg>
+                </button>
+            </div>
+
+            <div id="marketing-message"></div>
+            
+            <!-- NEW: Video Placeholder Section (only for variant B) -->
+            <div id="video-section" class="mt-6 border-t border-gray-200 pt-6" style="display: none;">
+                <h2 class="text-2xl font-bold text-[#0F2A3D] mb-4">Security Film in Action</h2>
+                <div class="relative aspect-square bg-gray-100 rounded-md overflow-hidden border border-gray-200">
+                    <!-- Video placeholder with play button overlay -->
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button id="video-play-btn" class="bg-white bg-opacity-80 rounded-full p-4 shadow-lg hover:bg-opacity-100 transition">
+                            <svg class="h-12 w-12 text-[#A06D36]" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <img src="/images/video-cover.webp" alt="Security film demonstration video thumbnail" class="w-full h-full object-cover">
+                </div>
+                <p class="text-gray-700 mt-3 text-sm">
+                    Watch how our security film holds glass together under attack, buying you critical time to respond.
+                </p>
+            </div>
+            
+            <!-- NEW: Protection Options Section -->
+            <div id="protection-options-section" class="mt-6 border-t border-gray-200 pt-6" style="display: none;">
+                <h2 class="text-2xl font-bold text-[#0F2A3D] mb-2">What do you want to protect?</h2>
+                <p class="text-gray-700 mb-4">Choose areas—we'll show a typical price range for <span id="fsa-placeholder">L4H</span> homes.</p>
+                <form id="protection-form" class="flex flex-col gap-4">
+                    <div class="grid grid-cols-2 gap-3">
+                        <label class="relative">
+                            <input type="checkbox" name="protection" value="patio-door" class="peer sr-only">
+                            <span class="flex items-center justify-center w-full cursor-pointer rounded-md border border-gray-300 bg-white px-3 py-2 text-center text-sm font-medium text-gray-700 transition hover:bg-gray-50 peer-checked:border-[#A06D36] peer-checked:bg-[#F5EFE7] peer-checked:text-[#A06D36]">
+                                <svg class="hidden peer-checked:block h-4 w-4 mr-2 shrink-0 text-[#A06D36]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                Patio door
+                            </span>
+                        </label>
+                        <label class="relative">
+                            <input type="checkbox" name="protection" value="front-sidelites" class="peer sr-only">
+                            <span class="flex items-center justify-center w-full cursor-pointer rounded-md border border-gray-300 bg-white px-3 py-2 text-center text-sm font-medium text-gray-700 transition hover:bg-gray-50 peer-checked:border-[#A06D36] peer-checked:bg-[#F5EFE7] peer-checked:text-[#A06D36]">
+                                <svg class="hidden peer-checked:block h-4 w-4 mr-2 shrink-0 text-[#A06D36]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                Front sidelites
+                            </span>
+                        </label>
+                        <label class="relative">
+                            <input type="checkbox" name="protection" value="basement-windows" class="peer sr-only">
+                            <span class="flex items-center justify-center w-full cursor-pointer rounded-md border border-gray-300 bg-white px-3 py-2 text-center text-sm font-medium text-gray-700 transition hover:bg-gray-50 peer-checked:border-[#A06D36] peer-checked:bg-[#F5EFE7] peer-checked:text-[#A06D36]">
+                                <svg class="hidden peer-checked:block h-4 w-4 mr-2 shrink-0 text-[#A06D36]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                Basement
+                            </span>
+                        </label>
+                        <label class="relative">
+                            <input type="checkbox" name="protection" value="whole-home" class="peer sr-only">
+                            <span class="flex items-center justify-center w-full cursor-pointer rounded-md border border-gray-300 bg-white px-3 py-2 text-center text-sm font-medium text-gray-700 transition hover:bg-gray-50 peer-checked:border-[#A06D36] peer-checked:bg-[#F5EFE7] peer-checked:text-[#A06D36]">
+                                <svg class="hidden peer-checked:block h-4 w-4 mr-2 shrink-0 text-[#A06D36]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                Whole home
+                            </span>
+                        </label>
+                    </div>
+                    <button type="button" id="see-range-btn" class="bg-[#A06D36] hover:bg-[#8C5F2F] text-white font-semibold px-6 py-2 rounded transition w-full sm:w-auto">
+                        See My Range
+                    </button>
+                </form>
+
+                <!-- NEW: Price Range Section (hidden by default) -->
+                <div id="price-range-section" class="mt-6 border-t border-gray-200 pt-6" style="display: none;">
+                    <h3 class="text-xl font-bold text-[#0F2A3D] mb-2">Your typical price range in <span id="price-range-fsa">L4H</span></h3>
+                    <p class="text-gray-700 mb-4 text-sm">Exact quote depends on sizes and film choice.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200">
+                            <div class="grid grid-cols-2 gap-4 items-center mb-4">
+                                <div class="font-medium text-gray-800">Townhome</div>
+                                <div class="text-right font-semibold text-[#0F2A3D]">$750 - $1,500</div>
+                            </div>
+                            
+                            <!-- Moving bullet points inside the card -->
+                            <ul class="mt-4 space-y-2 text-sm text-gray-600 border-t border-gray-100 pt-4">
+                                <li class="flex items-center gap-2">
+                                    <svg class="h-4 w-4 text-green-500 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                                    <span>Professional install, licensed & insured</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="h-4 w-4 text-green-500 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                                    <span>Includes manufacturer warranty (up to 10 yrs)</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="h-4 w-4 text-green-500 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                                    <span>Most installs done in a day</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <button type="button" id="tailored-quote-btn" class="mt-6 w-full bg-[#A06D36] hover:bg-[#8C5F2F] text-white font-semibold py-3 rounded-lg shadow transition">
+                        Send Me My Tailored Quote
+                    </button>
+                </div>
+            </div>
+            
+            <!-- NEW: Social Proof Section -->
+            <div id="social-proof-section" class="mt-6 border-t border-gray-200 pt-6" style="display: none;">
+                <div class="text-center mb-4">
+                    <div class="flex justify-center mb-2">
+                        <div class="flex text-yellow-400">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        </div>
+                    </div>
+                    <p class="font-medium text-gray-900">4.9 out of 5 stars from 120+ customers</p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                    <!-- Customer Testimonials -->
+                    <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200">
+                        <div class="flex text-yellow-400 mb-2">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        </div>
+                        <p class="text-sm text-gray-700 italic mb-2">"Great peace of mind knowing our windows are reinforced. Clean install, professional service."</p>
+                        <p class="text-xs font-semibold text-gray-900">— Michael T., Maple</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200">
+                        <div class="flex text-yellow-400 mb-2">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        </div>
+                        <p class="text-sm text-gray-700 italic mb-2">"After a break-in next door, we immediately called Window Guardian. Love that you can't even tell it's there."</p>
+                        <p class="text-xs font-semibold text-gray-900">— Sarah K., Richmond Hill</p>
+                    </div>
+                </div>
+                
+
+            
+            <!-- Accordion FAQ Section -->
+            <div id="faq-section" class="mt-6 border-t border-gray-200 pt-6" style="display: none;">
+                <h2 class="text-2xl font-bold text-[#0F2A3D] mb-4">Frequently Asked Questions</h2>
+                <div class="space-y-2">
+                    <details class="bg-white rounded-md shadow-sm border border-gray-200">
+                        <summary class="cursor-pointer px-4 py-3 font-semibold text-[#0F2A3D] hover:bg-gray-50 transition">
+                            Will it stop a break-in?
+                        </summary>
+                        <div class="px-4 pb-3 text-gray-700">
+                            Our security film is designed to deter opportunists and buy critical time during an attempted break-in by making it much harder to smash through glass. However, it's not unbreakable—it's a layer of protection that works best when combined with other security measures like alarms and locks.
+                        </div>
+                    </details>
+                    
+                    <details class="bg-white rounded-md shadow-sm border border-gray-200">
+                        <summary class="cursor-pointer px-4 py-3 font-semibold text-[#0F2A3D] hover:bg-gray-50 transition">
+                            What does it look like?
+                        </summary>
+                        <div class="px-4 pb-3 text-gray-700">
+                            We offer both clear and tinted options. The clear film is virtually invisible, maintaining your view while providing protection. Tinted versions add a subtle privacy layer without blocking light.
+                        </div>
+                    </details>
+                    
+                    <details class="bg-white rounded-md shadow-sm border border-gray-200">
+                        <summary class="cursor-pointer px-4 py-3 font-semibold text-[#0F2A3D] hover:bg-gray-50 transition">
+                            How long does installation take?
+                        </summary>
+                        <div class="px-4 pb-3 text-gray-700">
+                            Installation typically takes 2-4 hours per window, depending on the size and number of panes. We schedule at your convenience and ensure minimal disruption to your home.
+                        </div>
+                    </details>
+                    
+                    <details class="bg-white rounded-md shadow-sm border border-gray-200">
+                        <summary class="cursor-pointer px-4 py-3 font-semibold text-[#0F2A3D] hover:bg-gray-50 transition">
+                            What’s covered by the warranty?
+                        </summary>
+                        <div class="px-4 pb-3 text-gray-700">
+                            Our warranty covers defects in materials and workmanship for up to 10 years. It also includes protection against fading, bubbling, and delamination under normal use. Damage from misuse or extreme impacts is not covered.
+                        </div>
+                    </details>
+                    
+                    <details class="bg-white rounded-md shadow-sm border border-gray-200">
+                        <summary class="cursor-pointer px-4 py-3 font-semibold text-[#0F2A3D] hover:bg-gray-50 transition">
+                            Is it compliant with condo bylaws?
+                        </summary>
+                        <div class="px-4 pb-3 text-gray-700">
+                            Yes, our film is designed to comply with most condo associations' rules, as it doesn't alter the external appearance of the building. We can provide documentation to confirm compliance if needed.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Lead-Gen Overlay -->
+    <div id="lead-gen-overlay" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-md shadow-lg p-6 max-w-md w-full mx-4 overlay-content">
+            <h1 class="text-4xl font-bold text-[#0F2A3D] mb-4">Your First Step to a Safer Home</h1>
+            <p class="text-gray-700 mb-6">
+                Just a few details and one of our Vaughan security experts will be in touch shortly for your free, no-obligation consultation.
+            </p>
+            <form id="lead-gen-form" class="flex flex-col gap-8">
+                <div class="flex flex-col gap-4">
+                    <div>
+                        <label for="name-input" class="text-base font-medium text-gray-700">Name</label>
+                        <input type="text" id="name-input" name="name" required class="border border-gray-300 rounded mt-1 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 w-full" placeholder="Enter your name">
+                    </div>
+                    <div>
+                        <label for="email-input" class="text-base font-medium text-gray-700">Email Address</label>
+                        <input type="email" id="email-input" name="email" required class="border border-gray-300 rounded mt-1 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 w-full" placeholder="you@example.com">
+                    </div>
+                    <div>
+                        <label for="phone-input" class="text-base font-medium text-gray-700">Phone Number</label>
+                        <input type="tel" id="phone-input" name="phone" required class="border border-gray-300 rounded mt-1 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 w-full" placeholder="Enter your phone number">
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500">✓ Your information is 100% secure. No spam, ever.</p>
+                <div class="flex items-start gap-2">
+                    <input type="checkbox" id="newsletter-checkbox" name="newsletter" value="subscribed" class="mt-1">
+                    <label for="newsletter-checkbox" class="text-sm text-gray-700">
+                        Yes, send me occasional emails from Window Guardian with security tips, news, and special offers. I know I can unsubscribe at any time.
+                    </label>
+                </div>
+                <div id="checkbox-error" class="text-red-500 text-sm mt-1" style="display:none;"></div>
+                <button type="submit" class="bg-[#A06D36] hover:bg-[#8C5F2F] text-white font-semibold px-6 py-2 rounded transition w-full">
+                    Request My Free Consultation
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- NEW: Sticky Footer CTA -->
+    <div id="sticky-footer" class="fixed bottom-0 left-0 right-0 bg-[#A06D36] text-white py-4 px-4 text-center shadow-lg z-40 hidden">
+        <div class="flex flex-row items-center justify-center gap-8">
+            <button id="sticky-quote-btn" class="bg-white text-[#A06D36] font-semibold px-6 py-2 rounded hover:bg-gray-100 transition">
+                Get a Quote
+            </button>
+            <span class="text-xs text-white/90">10 Year Warranty • No Obligation</span>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+  function setDynamicHeight() {
+    const height = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+    document.body.style.minHeight = height + 'px';
+  }
+  window.addEventListener('load', setDynamicHeight);
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', setDynamicHeight);
+  } else {
+    window.addEventListener('resize', setDynamicHeight);
+  }
+</script>
+</body>
+</html>

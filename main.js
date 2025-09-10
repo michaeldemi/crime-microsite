@@ -2,6 +2,17 @@
 // Loads FSA data, shows dashboard and map
 
 document.addEventListener('DOMContentLoaded', function() {
+    // At the top of your script, after variables declaration, add this:
+    let pageVersion = "Version A"; // Default version
+    
+    // Detect if this is version B by checking for elements unique to that version
+    if (document.getElementById('sticky-quote-btn')) {
+        pageVersion = "Version B";
+    }
+    
+    // Set this as a global variable for access in other functions
+    window.pageVersion = pageVersion;
+
     const fsaForm = document.getElementById('fsa-form');
     const fsaInput = document.getElementById('fsa-input');
     const errorMessage = document.getElementById('error-message'); // Add this
@@ -24,9 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
         errorMessage.style.display = 'none';
     });
 
-    fsaForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const fsa = fsaInput.value.trim().toUpperCase();
+    // --- NEW: Reusable function to load the report ---
+    async function loadReport(fsa) {
         if (!/^[A-Z][0-9][A-Z]$/.test(fsa)) {
             errorMessage.textContent = 'Please enter a valid FSA code (e.g., L4C)';
             errorMessage.style.display = 'block';
@@ -44,18 +54,21 @@ document.addEventListener('DOMContentLoaded', function() {
             showDashboard(fsa, data);
             showMap(data);
             
-            // Hide the single search container
-            document.getElementById('search-container').style.display = 'none';
+            const searchContainer = document.getElementById('search-container');
+            if (searchContainer) {
+                searchContainer.style.display = 'none';
+            }
 
-            // --- START: ADD THIS CODE ---
-            // Make the content area scrollable on mobile to prevent the CTA from being cut off
             const mainCardContent = document.getElementById('main-card-content');
             if (mainCardContent) {
                 mainCardContent.classList.add('overflow-y-auto');
             }
-            // --- END: ADD THIS CODE ---
-            
-            document.getElementById('map-bg').style.backgroundImage = 'none';
+
+            // --- FIX: Check if map-bg exists before changing its style ---
+            const mapBg = document.getElementById('map-bg');
+            if (mapBg) {
+                mapBg.style.backgroundImage = 'none';
+            }
         } catch (err) {
             // Find the main content container
             const mainCardContent = document.getElementById('main-card-content');
@@ -153,84 +166,296 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             // Hide the map and clean up
-            mapSection.style.display = 'none';
+            // --- FIX: Check if mapSection exists before using it ---
+            if (mapSection) {
+                mapSection.style.display = 'none';
+            }
             if (window.leafletMap) {
                 window.leafletMap.remove();
                 window.leafletMap = null;
             }
         }
+    }
+
+    // ==================================================
+    //  START: MOVE THIS BLOCK FROM THE TOP TO THE BOTTOM
+    // ==================================================
+    // --- MODIFIED: Form submission now calls the reusable function ---
+    fsaForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const fsa = fsaInput.value.trim().toUpperCase();
+        await loadReport(fsa);
     });
 
-    function showDashboard(fsa, data) { // Accept fsa here
+    // --- NEW: Check for URL parameter on page load ---
+    const urlParams = new URLSearchParams(window.location.search);
+    const fsaFromUrl = urlParams.get('fsa');
+    if (fsaFromUrl) {
+        // Automatically load the report if the FSA is in the URL
+        loadReport(fsaFromUrl.trim().toUpperCase());
+    }
+    // ==================================================
+    //  END: MOVE THIS BLOCK
+    // ==================================================
+
+    function showDashboard(fsa, data, municipality) { // Accept municipality
         // Count break-ins last 30 days and last 12 months
-        const now = new Date();
         const cutoff12 = getLast12MonthsCutoff();
         const cutoff30 = getLast30DaysCutoff();
         let count12 = 0, count30 = 0;
         data.forEach(entry => {
             if (!entry.occurrence_date) return;
             
-            // FIX: Convert to ISO 8601 format for reliable parsing
             const d = new Date(entry.occurrence_date.replace(' ', 'T'));
             
-            // Check if the date is valid before comparing
             if (!isNaN(d)) {
                 if (d >= cutoff12) count12++;
                 if (d >= cutoff30) count30++;
             }
         });
-        renderDashboard(fsa, count30, count12); // Pass fsa here
-
-        // Find the most common municipality in the data
-        let municipality = '';
-        if (data.length > 0) {
-            const counts = {};
-            data.forEach(entry => {
-                if (entry.municipality) {
-                    counts[entry.municipality] = (counts[entry.municipality] || 0) + 1;
-                }
-            });
-            municipality = Object.entries(counts).sort((a, b) => b[1] - a[1])[0]?.[0] || '';
-        }
+        renderDashboard(fsa, count30, count12);
 
         // Render the marketing message
         const marketing = document.getElementById('marketing-message');
-        marketing.innerHTML = `
-            <div class="text-left mt-4">
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Invisible Protection for Your Home's Weakest Point</h3>
-                <p class="text-gray-700 text-base">
-                    Our security film creates a powerful, shatter-resistant barrier on your glass doors and windows, the #1 entry point for break-ins in <span class="font-semibold">${municipality}</span>.
-                </p>
-                <ul class="mt-2 space-y-1 text-gray-700 text-base">
-                    <li>🛡️ Shatter-Resistant Glass</li>
-                    <li>⏰ Buys Critical Time</li>
-                    <li>👨‍👩‍👧‍👦 Keeps Family Safe</li>
-                </ul>
-                <button id="quote-btn" class="mt-6 w-full bg-[#A06D36] hover:bg-[#8C5F2F] text-white font-semibold py-3 rounded-lg shadow transition">
-                    Secure My Free Quote
-                </button>
-            </div>
-        `;
+        
+        // --- VERSION B LOGIC (sticky footer) ---
+        const stickyQuoteBtn = document.getElementById('sticky-quote-btn');
+        if (stickyQuoteBtn) {
+            marketing.innerHTML = `
+                <div class="text-left mt-4">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-2">Invisible Protection for Your Home's Weakest Point</h2>
+                    <p class="text-gray-700 text-base">
+                        Most forced entries target ground-floor glass—our security film adds a shatter-resistant layer that buys you time.
+                    </p>
+                    <ul class="mt-2 space-y-1 text-gray-700 text-base">
+                        <li>🛡️ Shatter-Resistant Glass</li>
+                        <li>⏰ Buys Critical Time</li>
+                        <li>👨‍👩‍👧‍👦 Keeps Family Safe</li>
+                    </ul>
+                </div>
+            `;
+            stickyQuoteBtn.addEventListener('click', () => document.getElementById('lead-gen-overlay').classList.remove('hidden'));
+            const stickyFooter = document.getElementById('sticky-footer');
+            if(stickyFooter) stickyFooter.classList.remove('hidden');
+            
+            // NEW: Show video section in version B
+            const videoSection = document.getElementById('video-section');
+            if (videoSection) {
+                videoSection.style.display = 'block';
+                
+                // Add click handler for play button
+                const playBtn = document.getElementById('video-play-btn');
+                if (playBtn) {
+                    playBtn.addEventListener('click', function() {
+                        // Replace the image and play button with a video player
+                        const videoContainer = this.closest('.relative');
+                        if (videoContainer) {
+                            videoContainer.innerHTML = `
+                                <video 
+                                    class="w-full h-full object-cover" 
+                                    controls 
+                                    autoplay
+                                    src="/images/product-demo.mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            `;
+                        }
+                    });
+                }
+            }
+        } 
+        // --- VERSION A LOGIC (original inline button) ---
+        else {
+            marketing.innerHTML = `
+                <div class="text-left mt-4">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Invisible Protection for Your Home's Weakest Point</h3>
+                    <p class="text-gray-700 text-base">
+                        Reinforce your glass doors and windows—<span class="font-semibold">${municipality}</span>'s #1 break-in point—with our shatter-resistant security film.
+                    </p>
+                    <ul class="mt-2 space-y-1 text-gray-700 text-base">
+                        <li>🛡️ Shatter-Resistant Glass</li>
+                        <li>⏰ Buys Critical Time</li>
+                        <li>👨‍👩‍👧‍👦 Keeps Family Safe</li>
+                    </ul>
+                    <button id="quote-btn" class="mt-6 w-full bg-[#A06D36] hover:bg-[#8C5F2F] text-white font-semibold py-3 rounded-lg shadow transition">
+                        Secure My Free Quote
+                    </button>
+                </div>
+            `;
+            const quoteBtn = document.getElementById('quote-btn');
+            if (quoteBtn) {
+                quoteBtn.addEventListener('click', () => document.getElementById('lead-gen-overlay').classList.remove('hidden'));
+            }
+        }
         marketing.style.display = '';
 
-        // Handle "Secure My Free Quote" button click
-        const quoteBtn = document.getElementById('quote-btn');
-        if (quoteBtn) {
-            quoteBtn.addEventListener('click', function() {
-                const overlay = document.getElementById('lead-gen-overlay');
-                overlay.classList.remove('hidden');
+        // Optional: Close overlay when clicking outside
+        const leadGenOverlay = document.getElementById('lead-gen-overlay');
+        if (leadGenOverlay) {
+            leadGenOverlay.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.add('hidden');
+                }
             });
         }
-
-        // Optional: Close overlay when clicking outside
-        document.getElementById('lead-gen-overlay').addEventListener('click', function(e) {
-            if (e.target === this) {
-                this.classList.add('hidden');
-            }
-        });
         
         window.municipality = municipality;
-        window.currentFSA = fsa; // <-- ADD THIS LINE
+        window.currentFSA = fsa;
+
+        // --- Show FAQ section after dashboard loads ---
+        const faqSection = document.getElementById('faq-section');
+        if (faqSection) {
+            faqSection.style.display = 'block';
+        }
+
+        // --- NEW: Show social proof section after dashboard loads ---
+        const socialProofSection = document.getElementById('social-proof-section');
+        if (socialProofSection) {
+            socialProofSection.style.display = 'block';
+        }
+
+        // --- NEW: Show protection options section after dashboard loads ---
+        const protectionSection = document.getElementById('protection-options-section');
+        if (protectionSection) {
+            // Update the FSA placeholder dynamically
+            const fsaPlaceholder = document.getElementById('fsa-placeholder');
+            if (fsaPlaceholder) {
+                fsaPlaceholder.textContent = fsa.toUpperCase();
+            }
+            protectionSection.style.display = 'block';
+
+            // Handle "See My Range" button click
+            const seeRangeBtn = document.getElementById('see-range-btn');
+            if (seeRangeBtn) {
+                seeRangeBtn.addEventListener('click', function() {
+                    const selectedOptions = Array.from(document.querySelectorAll('#protection-form input[name="protection"]:checked')).map(cb => cb.value);
+                    console.log('Selected protection options:', selectedOptions);
+
+                    // --- NEW: Show error message if no selection is made ---
+                    if (selectedOptions.length === 0) {
+                        // Create or update the error message
+                        let errorMsg = document.getElementById('protection-error-message');
+                        if (!errorMsg) {
+                            errorMsg = document.createElement('div');
+                            errorMsg.id = 'protection-error-message';
+                            errorMsg.className = 'text-red-600 text-sm mt-2 animate-pulse';
+                            const formElement = document.getElementById('protection-form');
+                            // Insert error message after the checkbox grid but before the button
+                            formElement.querySelector('.grid').insertAdjacentElement('afterend', errorMsg);
+                        }
+                        errorMsg.textContent = '⚠️ Please select at least one area to protect';
+                        
+                        // Clear error after 5 seconds
+                        setTimeout(() => {
+                            if (errorMsg) errorMsg.textContent = '';
+                        }, 5000);
+                        
+                        return; // Stop execution if no options selected
+                    } else {
+                        // Clear any existing error message
+                        const errorMsg = document.getElementById('protection-error-message');
+                        if (errorMsg) errorMsg.textContent = '';
+                    }
+
+                    // --- NEW: Calculate prices based on selections ---
+                    let minPrice = 0;
+                    let maxPrice = 0;
+                    let priceLabel = '';
+                    
+                    // If "whole-home" is selected, use that price range regardless of other selections
+                    if (selectedOptions.includes('whole-home')) {
+                        minPrice = 1300;
+                        maxPrice = 2900;
+                        priceLabel = 'Whole Home Protection';
+                    } else {
+                        // Otherwise calculate based on individual selections
+                        if (selectedOptions.includes('patio-door')) {
+                            minPrice += 500;
+                            maxPrice += 500;
+                        }
+                        
+                        if (selectedOptions.includes('front-sidelites')) {
+                            minPrice += 400;
+                            maxPrice += 400;
+                        }
+                        
+                        if (selectedOptions.includes('basement-windows')) {
+                            minPrice += 300;
+                            maxPrice += 500;
+                        }
+                        
+                        // Create label based on selected items
+                        const labelParts = [];
+                        if (selectedOptions.includes('patio-door')) labelParts.push('Patio Door');
+                        if (selectedOptions.includes('front-sidelites')) labelParts.push('Front Sidelites');
+                        if (selectedOptions.includes('basement-windows')) labelParts.push('Basement');
+                        
+                        priceLabel = labelParts.join(' + ');
+                    }
+                    
+                    // Format prices and create price display text
+                    const formattedMinPrice = minPrice.toLocaleString('en-US');
+                    const formattedMaxPrice = maxPrice.toLocaleString('en-US');
+                    const priceDisplay = minPrice === maxPrice ? 
+                        `$${formattedMinPrice}` : 
+                        `$${formattedMinPrice} - $${formattedMaxPrice}`;
+
+                    // --- NEW: Show the price range section ---
+                    const priceRangeSection = document.getElementById('price-range-section');
+                    if (priceRangeSection && selectedOptions.length > 0) {
+                        // Update the FSA in the price range headline
+                        const priceRangeFsa = document.getElementById('price-range-fsa');
+                        if (priceRangeFsa) {
+                            priceRangeFsa.textContent = fsa.toUpperCase();
+                        }
+                        
+                        // Replace the previous house-type price table with our calculated price
+                        const priceContent = `
+                        <div class="space-y-4">
+                            <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200">
+                                <div class="grid grid-cols-2 gap-4 items-center mb-4">
+                                    <div class="font-medium text-gray-800">${priceLabel}</div>
+                                    <div class="text-right font-semibold text-[#0F2A3D]">${priceDisplay}</div>
+                                </div>
+                                
+                                <!-- Bullet points inside the card -->
+                                <ul class="mt-4 space-y-2 text-sm text-gray-600 border-t border-gray-100 pt-4">
+                                    <li class="flex items-center gap-2">
+                                        <svg class="h-4 w-4 text-green-500 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                                        <span>Professional install, licensed & insured</span>
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <svg class="h-4 w-4 text-green-500 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                                        <span>Includes manufacturer warranty (up to 10 yrs)</span>
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <svg class="h-4 w-4 text-green-500 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                                        <span>Most installs done in a day</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        `;
+                        
+                        // Replace the entire space-y-4 div with our new content
+                        const priceTableContainer = priceRangeSection.querySelector('.space-y-4');
+                        if (priceTableContainer) {
+                            priceTableContainer.outerHTML = priceContent;
+                        }
+                        
+                        priceRangeSection.style.display = 'block';
+
+                        // Add event listener for the CTA button
+                        const tailoredQuoteBtn = document.getElementById('tailored-quote-btn');
+                        if (tailoredQuoteBtn) {
+                            tailoredQuoteBtn.addEventListener('click', function() {
+                                document.getElementById('lead-gen-overlay').classList.remove('hidden');
+                            });
+                        }
+                    }
+                });
+            }
+        }
     }
 
     function renderDashboard(fsa, count30, count12) {
@@ -246,7 +471,7 @@ document.addEventListener('DOMContentLoaded', function() {
         dashboard.innerHTML = `
             <div class="border-b border-gray-200 pb-4 sm:pb-2 w-full"></div>    
             <div class="mb-0">
-                <h3 class="text-lg font-bold pt-2 sm:pt-4">${fsa.toUpperCase()} Break-in Report</h3>
+                <h1 class="text-2xl  pt-2 sm:pt-4">${fsa.toUpperCase()} Break-in Report</h3>
             </div>
             <div class="flex flex-wrap items-center gap-x-1 text-sm mb-4">
                 <span class="text-gray-400 text-xs">Updated ${formattedDate}</span>
@@ -254,11 +479,11 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <div class="flex flex-row flex-wrap gap-4 w-full mt-2">
                 <div class="flex-1 bg-white-100 rounded-md p-3 text-black shadow-md text-left">
-                    <div class="text-5xl text-[#4e9acd]">${count30}</div>
+                    <div class="text-3xl text-[#4e9acd] font-bold">${count30}</div>
                     <div class="text-xs mt-1 text-gray-500">Last 30 Days</div>
                 </div>
                 <div class="flex-1 bg-white-100 rounded-md p-3 text-black shadow-md text-left">
-                    <div class="text-5xl text-[#4e9acd]">${count12}</div>
+                    <div class="text-3xl text-[#4e9acd] font-bold">${count12}</div>
                     <div class="text-xs mt-1 text-gray-500">Last 12 months</div>
                 </div>
             </div>
@@ -267,78 +492,79 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showMap(data) {
-        const mapDiv = document.getElementById('map');
+        const mapContainerCard = document.getElementById('map-container-card');
+        const mapSection = document.getElementById('map-section'); // The original map container
 
-        // Remove previous map if exists
+        // Filter points once
+        const cutoff12 = getLast12MonthsCutoff();
+        const points = data.filter(entry => {
+            if (!entry.occurrence_date || !entry.latitude || !entry.longitude) return false;
+            const d = new Date(entry.occurrence_date.replace(' ', 'T'));
+            return !isNaN(d) && d >= cutoff12;
+        });
+
+        // Remove previous map if it exists
         if (window.leafletMap) {
             window.leafletMap.remove();
             window.leafletMap = null;
         }
 
-        // Filter for last 12 months and valid coordinates
-        const cutoff12 = getLast12MonthsCutoff();
-        const points = data.filter(entry => {
-            if (!entry.occurrence_date || !entry.latitude || !entry.longitude) return false;
-            
-            // FIX: Convert to ISO 8601 format for reliable parsing
-            const d = new Date(entry.occurrence_date.replace(' ', 'T'));
-            
-            return !isNaN(d) && d >= cutoff12;
-        });
+        // --- VERSION B LOGIC (in-card map) ---
+        if (mapContainerCard) {
+            mapContainerCard.style.display = 'block';
+            window.leafletMap = L.map('map-card').setView([43.8, -79.4], 11);
 
-        // Fallback center
-        let fallbackCenter = [43.8, -79.4];
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(window.leafletMap);
 
-        // Initialize map
-        window.leafletMap = L.map('map').setView(fallbackCenter, 13);
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(window.leafletMap);
-
-        // Add markers and collect LatLngs
-        const latlngs = [];
-        points.forEach(entry => {
-            // FIX #1: Use the correct latitude and longitude keys
-            const lat = parseFloat(entry.latitude);
-            const lon = parseFloat(entry.longitude);
-            
-            // Check if lat and lon are valid numbers before proceeding
-            if (!isNaN(lat) && !isNaN(lon)) {
-                const latlng = [lat, lon];
+            const latlngs = [];
+            points.forEach(point => {
+                const latlng = [point.latitude, point.longitude];
+                L.marker(latlng).addTo(window.leafletMap);
                 latlngs.push(latlng);
-                
-                // FIX #2: Use the correct occurrence_date key for the popup
-                L.marker(latlng).addTo(window.leafletMap)
-                    .bindPopup(`${entry.municipality || ''}<br>${entry.occurrence_date || ''}`);
+            });
+
+            if (latlngs.length > 0) {
+                const bounds = L.latLngBounds(latlngs);
+                window.leafletMap.fitBounds(bounds, { padding: [50, 50] });
             }
-        });
 
-        // Fit map to bounds of all pins if there are any
-        if (latlngs.length > 0) {
-            const bounds = L.latLngBounds(latlngs);
+            // Handle map expansion
+            const expandBtn = document.getElementById('map-expand-btn');
+            const expandIcon = document.getElementById('map-expand-icon');
+            const collapseIcon = document.getElementById('map-collapse-icon');
 
-            let padding;
-            if (window.innerWidth >= 640) { // Desktop: pins in right 2/3
-                const mapWidth = mapDiv.offsetWidth;
-                padding = {
-                    paddingTopLeft: [Math.round(mapWidth / 3), 20],
-                    paddingBottomRight: [20, 20]
-                };
-            } else { // Mobile: pins in top 30%
-                const mapHeight = mapDiv.offsetHeight;
-                const mapWidth = mapDiv.offsetWidth;
-                padding = {
-                    paddingTopLeft: [Math.round(mapWidth * 0.05), Math.round(mapHeight * 0.10)],
-                    paddingBottomRight: [Math.round(mapWidth * 0.05), Math.round(mapHeight * 0.60)]
-                };
+            if (expandBtn) {
+                expandBtn.addEventListener('click', () => {
+                    const isExpanded = mapContainerCard.style.height === '600px';
+                    mapContainerCard.style.height = isExpanded ? '200px' : '600px';
+                    expandIcon.classList.toggle('hidden', !isExpanded);
+                    collapseIcon.classList.toggle('hidden', isExpanded);
+                    setTimeout(() => window.leafletMap.invalidateSize(), 500);
+                });
             }
-            window.leafletMap.fitBounds(bounds, padding);
+        } 
+        // --- VERSION A LOGIC (original background map) ---
+        else if (mapSection) {
+            mapSection.style.display = 'block';
+            window.leafletMap = L.map('map-section').setView([43.8, -79.4], 11);
 
-            // Force zoom to 14 on desktop
-            if (window.innerWidth >= 640) {
-                const center = bounds.getCenter();
-                window.leafletMap.setView(center, 13);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(window.leafletMap);
+
+            const latlngs = [];
+            points.forEach(point => {
+                const latlng = [point.latitude, point.longitude];
+                L.marker(latlng).addTo(window.leafletMap);
+                latlngs.push(latlng);
+            });
+
+            if (latlngs.length > 0) {
+                const bounds = L.latLngBounds(latlngs);
+                // Use padding that accounts for the card on the left
+                window.leafletMap.fitBounds(bounds, { paddingTopLeft: [500, 50], paddingBottomRight: [50, 50] });
             }
         }
     }
@@ -407,7 +633,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     email: document.getElementById('email-input').value,
                     phone: document.getElementById('phone-input').value,
                     newsletter: document.getElementById('newsletter-checkbox').checked ? 'subscribed' : 'unsubscribed',
-                    fsa: window.currentFSA || 'N/A' // <-- ADD THIS LINE
+                    fsa: window.currentFSA || 'N/A',
+                    version: window.pageVersion || 'Unknown' // Add the version identifier
                 })
             })
             .then(response => {
