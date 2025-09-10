@@ -12,22 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Set this as a global variable for access in other functions
     window.pageVersion = pageVersion;
-
-    // --- UPDATED: Check for URL parameter with case-insensitive handling ---
-    const urlParams = new URLSearchParams(window.location.search);
-    // Look for both lowercase 'fsa' and uppercase 'FSA' parameters
-    const fsaFromUrl = urlParams.get('fsa') || urlParams.get('FSA');
-    
-    if (fsaFromUrl) {
-        // Automatically load the report if the FSA is in the URL
-        loadReport(fsaFromUrl.trim().toUpperCase());
-        
-        // Also update the input field to show the FSA code
-        const fsaInput = document.getElementById('fsa-input');
-        if (fsaInput) {
-            fsaInput.value = fsaFromUrl.trim().toUpperCase();
-        }
-    }
     
     const fsaForm = document.getElementById('fsa-form');
     const fsaInput = document.getElementById('fsa-input');
@@ -51,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         errorMessage.style.display = 'none';
     });
 
-    // --- NEW: Reusable function to load the report ---
+    // --- DEFINE loadReport FIRST, before trying to use it ---
     async function loadReport(fsa) {
         if (!/^[A-Z][0-9][A-Z]$/.test(fsa)) {
             errorMessage.textContent = 'Please enter a valid FSA code (e.g., L4C)';
@@ -62,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
         errorMessage.style.display = 'none';
 
         try {
-            // CHANGE THIS LINE - Use a relative path that works both locally and on GitHub
+            // Use a relative path that works both locally and on GitHub
             const resp = await fetch(`./data/${fsa}.json`);
             if (!resp.ok) throw new Error('No data for this FSA');
             const data = await resp.json();
@@ -698,6 +682,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-
-
+    // --- Check for URL parameters (case-insensitive) ---
+    const urlParams = new URLSearchParams(window.location.search);
+    // Look for both lowercase and uppercase parameter
+    const fsaFromUrl = urlParams.get('fsa') || urlParams.get('FSA');
+    
+    if (fsaFromUrl) {
+        // Update the input field to show the FSA code
+        if (fsaInput) {
+            fsaInput.value = fsaFromUrl.trim().toUpperCase();
+        }
+        
+        // Now call loadReport directly to load the data
+        loadReport(fsaFromUrl.trim().toUpperCase());
+    }
 });
