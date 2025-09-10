@@ -227,7 +227,20 @@ document.addEventListener('DOMContentLoaded', function() {
                     </ul>
                 </div>
             `;
-            stickyQuoteBtn.addEventListener('click', () => document.getElementById('lead-gen-overlay').classList.remove('hidden'));
+            stickyQuoteBtn.addEventListener('click', function() {
+                // Before showing the modal, hide or adjust the map
+                const mapContainer = document.getElementById('map-container-card');
+                if (mapContainer) {
+                    // Option 1: Hide the map completely when the modal is open
+                    mapContainer.style.display = 'none';
+                    
+                    // OR Option 2: Keep the map but ensure it's below the modal
+                    // mapContainer.style.zIndex = '10'; 
+                }
+                
+                // Now show the lead-gen overlay
+                document.getElementById('lead-gen-overlay').classList.remove('hidden');
+            });
             const stickyFooter = document.getElementById('sticky-footer');
             if(stickyFooter) stickyFooter.classList.remove('hidden');
             
