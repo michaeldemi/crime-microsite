@@ -13,6 +13,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // Set this as a global variable for access in other functions
     window.pageVersion = pageVersion;
 
+    // --- UPDATED: Check for URL parameter with case-insensitive handling ---
+    const urlParams = new URLSearchParams(window.location.search);
+    // Look for both lowercase 'fsa' and uppercase 'FSA' parameters
+    const fsaFromUrl = urlParams.get('fsa') || urlParams.get('FSA');
+    
+    if (fsaFromUrl) {
+        // Automatically load the report if the FSA is in the URL
+        loadReport(fsaFromUrl.trim().toUpperCase());
+        
+        // Also update the input field to show the FSA code
+        const fsaInput = document.getElementById('fsa-input');
+        if (fsaInput) {
+            fsaInput.value = fsaFromUrl.trim().toUpperCase();
+        }
+    }
+    
     const fsaForm = document.getElementById('fsa-form');
     const fsaInput = document.getElementById('fsa-input');
     const errorMessage = document.getElementById('error-message'); // Add this
@@ -187,14 +203,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const fsa = fsaInput.value.trim().toUpperCase();
         await loadReport(fsa);
     });
-
-    // --- NEW: Check for URL parameter on page load ---
-    const urlParams = new URLSearchParams(window.location.search);
-    const fsaFromUrl = urlParams.get('fsa');
-    if (fsaFromUrl) {
-        // Automatically load the report if the FSA is in the URL
-        loadReport(fsaFromUrl.trim().toUpperCase());
-    }
     // ==================================================
     //  END: MOVE THIS BLOCK
     // ==================================================
