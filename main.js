@@ -46,7 +46,8 @@ document.addEventListener('DOMContentLoaded', function() {
         errorMessage.style.display = 'none';
 
         try {
-            const resp = await fetch(`data/${fsa}.json`);
+            // CHANGE THIS LINE - Use a relative path that works both locally and on GitHub
+            const resp = await fetch(`./data/${fsa}.json`);
             if (!resp.ok) throw new Error('No data for this FSA');
             const data = await resp.json();
             if (data.length === 0) throw new Error('No data for this FSA');
