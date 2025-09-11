@@ -6,20 +6,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.71839,
-          43.888031
-        ]
-      },
-      "properties": {
-        "fsa": "L7E",
-        "municipality": "King"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -79.626056,
           43.803822
         ]
@@ -90,36 +76,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.473492,
-          44.005001
-        ]
-      },
-      "properties": {
-        "fsa": "L4G",
-        "municipality": "Aurora"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -79.472409,
           43.919215
-        ]
-      },
-      "properties": {
-        "fsa": "L4E",
-        "municipality": "Richmond Hill"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.469483,
-          43.946808
         ]
       },
       "properties": {
@@ -181,20 +139,6 @@
       "properties": {
         "fsa": "L3Y",
         "municipality": "Newmarket"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.430852,
-          43.859945
-        ]
-      },
-      "properties": {
-        "fsa": "L4C",
-        "municipality": "Richmond Hill"
       }
     },
     {
