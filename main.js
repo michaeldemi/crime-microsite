@@ -524,12 +524,49 @@ document.addEventListener('DOMContentLoaded', function() {
                 attribution: '&copy; OpenStreetMap contributors'
             }).addTo(window.leafletMap);
 
-            const latlngs = [];
-            points.forEach(point => {
+            const latlngs = []; // FIXED: Only declare once
+            
+            // Create markers with click tracking
+            points.forEach((point, index) => {
                 const latlng = [point.latitude, point.longitude];
-                L.marker(latlng).addTo(window.leafletMap);
+                const marker = L.marker(latlng).addTo(window.leafletMap);
+                
+                // Add click event to marker
+                marker.on('click', function() {
+                    // Push marker click event to dataLayer
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({
+                        'event': 'map_marker_click',
+                        'marker_index': index,
+                        'marker_location': `${point.latitude},${point.longitude}`,
+                        'fsa_code': window.currentFSA || 'N/A'
+                    });
+                });
+                
                 latlngs.push(latlng);
             });
+            
+            // Add map movement tracking
+            window.leafletMap.on('moveend', function(e) {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'map_pan',
+                    'map_center': `${window.leafletMap.getCenter().lat.toFixed(5)},${window.leafletMap.getCenter().lng.toFixed(5)}`,
+                    'fsa_code': window.currentFSA || 'N/A'
+                });
+            });
+            
+            // Add zoom tracking
+            window.leafletMap.on('zoomend', function(e) {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'map_zoom',
+                    'zoom_level': window.leafletMap.getZoom(),
+                    'fsa_code': window.currentFSA || 'N/A'
+                });
+            });
+            
+            // REMOVED: Duplicate latlngs declaration and marker creation
 
             if (latlngs.length > 0) {
                 const bounds = L.latLngBounds(latlngs);
@@ -560,12 +597,49 @@ document.addEventListener('DOMContentLoaded', function() {
                 attribution: '&copy; OpenStreetMap contributors'
             }).addTo(window.leafletMap);
 
-            const latlngs = [];
-            points.forEach(point => {
+            const latlngs = []; // FIXED: Only declare once
+            
+            // Create markers with click tracking
+            points.forEach((point, index) => {
                 const latlng = [point.latitude, point.longitude];
-                L.marker(latlng).addTo(window.leafletMap);
+                const marker = L.marker(latlng).addTo(window.leafletMap);
+                
+                // Add click event to marker
+                marker.on('click', function() {
+                    // Push marker click event to dataLayer
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({
+                        'event': 'map_marker_click',
+                        'marker_index': index,
+                        'marker_location': `${point.latitude},${point.longitude}`,
+                        'fsa_code': window.currentFSA || 'N/A'
+                    });
+                });
+                
                 latlngs.push(latlng);
             });
+            
+            // Add map movement tracking
+            window.leafletMap.on('moveend', function(e) {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'map_pan',
+                    'map_center': `${window.leafletMap.getCenter().lat.toFixed(5)},${window.leafletMap.getCenter().lng.toFixed(5)}`,
+                    'fsa_code': window.currentFSA || 'N/A'
+                });
+            });
+            
+            // Add zoom tracking
+            window.leafletMap.on('zoomend', function(e) {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'map_zoom',
+                    'zoom_level': window.leafletMap.getZoom(),
+                    'fsa_code': window.currentFSA || 'N/A'
+                });
+            });
+            
+            // REMOVED: Duplicate latlngs declaration and marker creation
 
             if (latlngs.length > 0) {
                 const bounds = L.latLngBounds(latlngs);
