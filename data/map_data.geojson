@@ -48,20 +48,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.559537,
-          43.807989
-        ]
-      },
-      "properties": {
-        "fsa": "L4L",
-        "municipality": "Vaughan"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -79.555362,
           43.861735
         ]
