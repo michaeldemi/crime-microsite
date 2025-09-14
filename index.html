@@ -104,13 +104,77 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </button>
             </div>
 
-            <div id="marketing-message"></div>
-            
+            <!-- NEW: Price Check Section -->
+            <div id="price-check-section" class="p-4 bg-white mt-6 shadow rounded-lg border-gray-200 pt-6" style="display: none;">
+                <!-- State 1: Email Form -->
+                <div id="price-check-form-container">
+                    <h2 class="text-2xl font-bold text-[#0F2A3D] mb-2">Break-ins are rising in <span id="price-check-fsa-1">L4H</span>.</h2>
+                    <p class="text-gray-700 mb-4">See what protection costs for your home.</p>
+                    <form id="price-check-form" class="flex flex-col gap-3">
+                        <label for="price-check-email" class="sr-only">Email</label>
+                        <input type="email" id="price-check-email" name="email" required class="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 w-full" placeholder="Enter your email address">
+                        <input type="hidden" id="price-check-fsa-hidden" name="fsa">
+                        <button type="submit" class="bg-[#A06D36] hover:bg-[#8C5F2F] text-white font-semibold px-6 py-2 rounded transition w-full">
+                            Check My Price
+                        </button>
+                    </form>
+                    <p class="text-gray-500 text-xs mt-2">We’ll show you typical price ranges for homes like yours. No spam, ever.</p>
+                </div>
+
+                <!-- State 2: Price Table (hidden by default) -->
+                <div id="price-table-container" style="display: none;">
+                    <h2 class="text-2xl font-bold text-[#0F2A3D] mb-2">Typical Protection Costs for <span id="price-check-fsa-2">L4H</span> Homes</h2>
+                    <p class="text-gray-700 mb-4">Every home is different — here’s what most families in L4H pay to secure their glass.</p>
+                    
+                    <div class="overflow-x-auto rounded-md border border-gray-200 bg-white">
+                        <table class="min-w-full divide-y divide-gray-200 text-sm">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th scope="col" class="px-4 py-2 text-left font-semibold text-gray-700">Area protected</th>
+                                    <th scope="col" class="px-4 py-2 text-right font-semibold text-gray-700">Typical range (CAD)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100">
+                                <tr>
+                                    <td class="px-4 py-2 font-medium text-gray-800">Patio door</td>
+                                    <td class="px-4 py-2 text-right text-gray-700">$300 – $500</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 font-medium text-gray-800">Front sidelites</td>
+                                    <td class="px-4 py-2 text-right text-gray-700">$250 – $400</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 font-medium text-gray-800">Whole home</td>
+                                    <td class="px-4 py-2 text-right text-gray-700">$1,200 – $2,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mt-4 mt-4 bg-white p-4 rounded-md shadow" style="background-color:#efe7de;">
+                        <h3 class="text-xl font-bold text-[#0F2A3D] mb-2">Want your exact quote?</h3>
+                        <p class="text-gray-700 mb-4">Get a custom price for your home — no obligation.</p>
+                        <button type="button" id="get-full-quote-btn" class="bg-[#A06D36] hover:bg-[#8C5F2F] text-white font-semibold px-8 py-3 rounded-lg transition shadow-md">
+                            Get My Full Quote
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="video-quote" class="mt-6" style="display: none;">
+                <figure>
+                    <div class="text-lg mb-2" aria-hidden="true">⭐⭐⭐⭐⭐</div>
+                    <blockquote class="text-gray-800 italic">
+                        “After a break-in next door, we immediately called Window Guardian. Love that you can’t even tell it’s there.”
+                    </blockquote>
+                    <figcaption class="mt-2 text-sm font-semibold text-gray-900">– Sarah K., Richmond Hill</figcaption>
+                </figure>
+            </div>
+
             <!-- NEW: Video Placeholder Section (only for variant B) -->
             <div id="video-section" class="mt-6 border-t border-gray-200 pt-6" style="display: none;">
                 <h2 class="text-2xl font-bold text-[#0F2A3D] mb-4">Security Film in Action</h2>
                 <div class="relative aspect-square bg-gray-100 rounded-md overflow-hidden border border-gray-200">
-                    <!-- Video placeholder with play button overlay -->
                     <div class="absolute inset-0 flex items-center justify-center">
                         <button id="video-play-btn" class="bg-white bg-opacity-80 rounded-full p-4 shadow-lg hover:bg-opacity-100 transition">
                             <svg class="h-12 w-12 text-[#A06D36]" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
@@ -118,96 +182,84 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </svg>
                         </button>
                     </div>
-                    <img src="/images/video-cover.webp" alt="Security film demonstration video thumbnail" class="w-full h-full object-cover">
+                    <img src="images/video-cover.webp" alt="Security film demonstration video thumbnail" class="w-full h-full object-cover">
                 </div>
                 <p class="text-gray-700 mt-3 text-sm">
                     Watch how our security film holds glass together under attack, buying you critical time to respond.
                 </p>
             </div>
-            
-            <!-- NEW: Protection Options Section -->
-            <div id="protection-options-section" class="mt-6 border-t border-gray-200 pt-6" style="display: none;">
-                <h2 class="text-2xl font-bold text-[#0F2A3D] mb-2">What do you want to protect?</h2>
-                <p class="text-gray-700 mb-4">Choose areas—we'll show a typical price range for <span id="fsa-placeholder">L4H</span> homes.</p>
-                <form id="protection-form" class="flex flex-col gap-4">
-                    <div class="grid grid-cols-2 gap-3">
-                        <label class="relative">
-                            <input type="checkbox" name="protection" value="patio-door" class="peer sr-only">
-                            <span class="flex items-center justify-center w-full cursor-pointer rounded-md border border-gray-300 bg-white px-3 py-2 text-center text-sm font-medium text-gray-700 transition hover:bg-gray-50 peer-checked:border-[#A06D36] peer-checked:bg-[#F5EFE7] peer-checked:text-[#A06D36]">
-                                <svg class="hidden peer-checked:block h-4 w-4 mr-2 shrink-0 text-[#A06D36]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                </svg>
-                                Patio door
-                            </span>
-                        </label>
-                        <label class="relative">
-                            <input type="checkbox" name="protection" value="front-sidelites" class="peer sr-only">
-                            <span class="flex items-center justify-center w-full cursor-pointer rounded-md border border-gray-300 bg-white px-3 py-2 text-center text-sm font-medium text-gray-700 transition hover:bg-gray-50 peer-checked:border-[#A06D36] peer-checked:bg-[#F5EFE7] peer-checked:text-[#A06D36]">
-                                <svg class="hidden peer-checked:block h-4 w-4 mr-2 shrink-0 text-[#A06D36]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                </svg>
-                                Front sidelites
-                            </span>
-                        </label>
-                        <label class="relative">
-                            <input type="checkbox" name="protection" value="basement-windows" class="peer sr-only">
-                            <span class="flex items-center justify-center w-full cursor-pointer rounded-md border border-gray-300 bg-white px-3 py-2 text-center text-sm font-medium text-gray-700 transition hover:bg-gray-50 peer-checked:border-[#A06D36] peer-checked:bg-[#F5EFE7] peer-checked:text-[#A06D36]">
-                                <svg class="hidden peer-checked:block h-4 w-4 mr-2 shrink-0 text-[#A06D36]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                </svg>
-                                Basement
-                            </span>
-                        </label>
-                        <label class="relative">
-                            <input type="checkbox" name="protection" value="whole-home" class="peer sr-only">
-                            <span class="flex items-center justify-center w-full cursor-pointer rounded-md border border-gray-300 bg-white px-3 py-2 text-center text-sm font-medium text-gray-700 transition hover:bg-gray-50 peer-checked:border-[#A06D36] peer-checked:bg-[#F5EFE7] peer-checked:text-[#A06D36]">
-                                <svg class="hidden peer-checked:block h-4 w-4 mr-2 shrink-0 text-[#A06D36]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                </svg>
-                                Whole home
-                            </span>
-                        </label>
-                    </div>
-                    <button type="button" id="see-range-btn" class="bg-[#A06D36] hover:bg-[#8C5F2F] text-white font-semibold px-6 py-2 rounded transition w-full sm:w-auto">
-                        See My Range
-                    </button>
-                </form>
 
-                <!-- NEW: Price Range Section (hidden by default) -->
-                <div id="price-range-section" class="mt-6 border-t border-gray-200 pt-6" style="display: none;">
-                    <h3 class="text-xl font-bold text-[#0F2A3D] mb-2">Your typical price range in <span id="price-range-fsa">L4H</span></h3>
-                    <p class="text-gray-700 mb-4 text-sm">Exact quote depends on sizes and film choice.</p>
+            <!-- NEW: Protection Benefits Section (below video) -->
+            <section id="protection-benefits-section" class="mt-6 border-t border-gray-200 pt-6" style="display: none;">
+                <h2 class="text-2xl font-bold text-[#0F2A3D] mb-2">Protect Your Home’s Weakest Point</h2>
+                <p class="text-gray-700 mb-4">
+                    Most forced entries target ground-floor glass — our security film adds a shatter-resistant layer that buys you time.
+                </p>
+                <ul class="space-y-2 text-gray-800">
+                    <li>🛡️ Shatter-Resistant Glass</li>
+                    <li>⏰ Buys Critical Time</li>
+                    <li>👨‍👩‍👧‍👦 Keeps Family Safe</li>
+                </ul>
+            </section>
+
+            <!-- DUPLICATE: Price Check Section -->
+            <div id="price-check-section-2" class="p-4 bg-white mt-6 shadow rounded-lg border-gray-200 pt-6" style="display: none;">
+                <!-- State 1: Email Form -->
+                <div id="price-check-form-container-2">
+                    <h2 class="text-2xl font-bold text-[#0F2A3D] mb-2">Get your personalized cost estimate.</h2>
+                    <p class="text-gray-700 mb-4">Find out how affordable shatter-resistant protection can be.</p>
+                    <form id="price-check-form-2" class="flex flex-col gap-3">
+                        <label for="price-check-email-2" class="sr-only">Email</label>
+                        <input type="email" id="price-check-email-2" name="email" required class="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 w-full" placeholder="Enter your email address">
+                        <input type="hidden" id="price-check-fsa-hidden-2" name="fsa">
+                        <button type="submit" class="bg-[#A06D36] hover:bg-[#8C5F2F] text-white font-semibold px-6 py-2 rounded transition w-full">
+                            See My Estimate
+                        </button>
+                        <p class="text-gray-500 text-xs">Takes less than 10 seconds. Backed by a 10-year warranty.</p>
+                    </form>
+                </div>
+
+                <!-- State 2: Price Table (hidden by default) -->
+                <div id="price-table-container-2" style="display: none;">
+                    <h2 class="text-2xl font-bold text-[#0F2A3D] mb-2">Typical Protection Costs for <span id="price-check-fsa-2-2">L4H</span> Homes</h2>
+                    <p class="text-gray-700 mb-4">Every home is different — here’s what most families in L4H pay to secure their glass.</p>
                     
-                    <div class="space-y-4">
-                        <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200">
-                            <div class="grid grid-cols-2 gap-4 items-center mb-4">
-                                <div class="font-medium text-gray-800">Townhome</div>
-                                <div class="text-right font-semibold text-[#0F2A3D]">$750 - $1,500</div>
-                            </div>
-                            
-                            <!-- Moving bullet points inside the card -->
-                            <ul class="mt-4 space-y-2 text-sm text-gray-600 border-t border-gray-100 pt-4">
-                                <li class="flex items-center gap-2">
-                                    <svg class="h-4 w-4 text-green-500 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
-                                    <span>Professional install, licensed & insured</span>
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <svg class="h-4 w-4 text-green-500 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
-                                    <span>Includes manufacturer warranty (up to 10 yrs)</span>
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <svg class="h-4 w-4 text-green-500 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
-                                    <span>Most installs done in a day</span>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="overflow-x-auto rounded-md border border-gray-200 bg-white">
+                        <table class="min-w-full divide-y divide-gray-200 text-sm">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th scope="col" class="px-4 py-2 text-left font-semibold text-gray-700">Area protected</th>
+                                    <th scope="col" class="px-4 py-2 text-right font-semibold text-gray-700">Typical range (CAD)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100">
+                                <tr>
+                                    <td class="px-4 py-2 font-medium text-gray-800">Patio door</td>
+                                    <td class="px-4 py-2 text-right text-gray-700">$300 – $500</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 font-medium text-gray-800">Front sidelites</td>
+                                    <td class="px-4 py-2 text-right text-gray-700">$250 – $400</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 font-medium text-gray-800">Whole home</td>
+                                    <td class="px-4 py-2 text-right text-gray-700">$1,200 – $2,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
 
-                    <button type="button" id="tailored-quote-btn" class="mt-6 w-full bg-[#A06D36] hover:bg-[#8C5F2F] text-white font-semibold py-3 rounded-lg shadow transition">
-                        Send Me My Tailored Quote
-                    </button>
+                    <div class="mt-4 mt-4 bg-white p-4 rounded-md" style="background-color:#efe7de;">
+                        <h3 class="text-xl font-bold text-[#0F2A3D] mb-2">Want your exact quote?</h3>
+                        <p class="text-gray-700 mb-4">Get a custom price for your home — no obligation.</p>
+                        <button type="button" id="get-full-quote-btn-2" class="bg-[#A06D36] hover:bg-[#8C5F2F] text-white font-semibold px-8 py-3 rounded-lg transition shadow-md">
+                            Get My Full Quote
+                        </button>
+                    </div>
                 </div>
             </div>
+
+            
             
             <!-- NEW: Social Proof Section -->
             <div id="social-proof-section" class="mt-6 border-t border-gray-200 pt-6" style="display: none;">
@@ -223,9 +275,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <p class="font-medium text-gray-900">4.9 out of 5 stars from 120+ customers</p>
                 </div>
 
-                <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="grid grid-cols-1 gap-4 mb-6">
                     <!-- Customer Testimonials -->
-                    <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200">
+                    <div>
                         <div class="flex text-yellow-400 mb-2">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
@@ -236,15 +288,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <p class="text-xs font-semibold text-gray-900">— Michael T., Maple</p>
                     </div>
                     
-                    <div class="bg-white p-4 rounded-md shadow-sm border border-gray-200">
+                    <div>
                         <div class="flex text-yellow-400 mb-2">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                         </div>
-                        <p class="text-sm text-gray-700 italic mb-2">"After a break-in next door, we immediately called Window Guardian. Love that you can't even tell it's there."</p>
-                        <p class="text-xs font-semibold text-gray-900">— Sarah K., Richmond Hill</p>
+                        <p class="text-sm text-gray-700 italic mb-2">"We sleep easier knowing our windows are reinforced. The installation was quick and the film is nearly invisible."</p>
+                        <p class="text-xs font-semibold text-gray-900">— Daniel R., Vaughan</p>
                     </div>
                 </div>
                 
@@ -365,4 +417,3 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </script>
 </body>
 </html>
-
