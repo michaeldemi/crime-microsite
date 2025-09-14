@@ -230,13 +230,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Load report
+  // Ensure hidden before valid FSA
   async function loadReport(rawFsa) {
-    // Keep these hidden until a valid FSA is loaded
-    hide(document.getElementById('video-section'));
-    hide(document.getElementById('video-quote'));
-    hide(document.getElementById('protection-benefits-section'));
+    const vs = document.getElementById('video-section');
+    const vq = document.getElementById('video-quote');
+    const vb = document.getElementById('protection-benefits-section');
+    if (vs) vs.style.display = 'none';
+    if (vq) vq.style.display = 'none';
+    if (vb) vb.style.display = 'none';
 
+    // Keep these hidden until a valid FSA is loaded
     const fsa = String(rawFsa || '').trim().toUpperCase();
     if (!/^[A-Z][0-9][A-Z]$/.test(fsa)) {
       if (errorMessage) {
@@ -430,31 +433,48 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   } catch { /* ignore */ }
 
-  // Reveal video + quote + benefits (Variant B only) and wire play
+  // Reveal video+quote+benefits (Variant B only) and wire play
   function showVideoSection() {
     if (window.pageVersion !== 'Version B') return;
 
     const videoSection = document.getElementById('video-section');
-    const videoQuote = document.getElementById('video-quote');
-    const benefits = document.getElementById('protection-benefits-section');
-
-    if (videoQuote) videoQuote.style.display = '';
-    if (videoSection) videoSection.style.display = '';
-    if (benefits) benefits.style.display = '';
-
+    const video = document.getElementById('product-demo-video');
     const playBtn = document.getElementById('video-play-btn');
-    if (playBtn && videoSection) {
-      playBtn.addEventListener('click', function () {
-        const container = videoSection.querySelector('.relative');
-        if (!container) return;
-        container.innerHTML = `
-          <video class="w-full h-full object-cover" controls autoplay playsinline>
-            <source src="images/product-demo.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        `;
+
+    if (videoSection) videoSection.style.display = '';
+
+    // Ensure teaser plays muted/looping until user interacts
+    if (video) {
+      video.muted = true;
+      video.loop = true;
+      video.autoplay = true;
+      video.playsInline = true;
+      video.play().catch(() => {});
+    }
+
+    // On click, switch to full video and play with sound
+    if (playBtn && video) {
+      playBtn.addEventListener('click', () => {
+        // Swap source to the full video file
+        const fullSrc = 'images/product-demo.mp4';
+        try { video.pause(); } catch {}
+        if (!video.src.includes('product-demo.mp4')) {
+          video.src = fullSrc;
+          try { video.load(); } catch {}
+        }
+        video.muted = false;
+        video.loop = false;
+        video.controls = true;
+        video.play().catch(() => {});
+
+        // Hide overlay button
+        const overlay = playBtn.parentElement;
+        if (overlay) overlay.style.display = 'none';
       }, { once: true });
     }
+
+    document.getElementById('video-quote')?.style && (document.getElementById('video-quote').style.display = '');
+    document.getElementById('protection-benefits-section')?.style && (document.getElementById('protection-benefits-section').style.display = '');
   }
 
   // Ensure this is called after renderDashboard in your render flow
