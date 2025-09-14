@@ -19,7 +19,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-NHLMCPTB');</script>
 <!-- End Google Tag Manager -->
 
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Live Break-in Map for York Region | Local Safety Report</title>
@@ -176,14 +175,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div id="video-section" class="mt-6 border-t border-gray-200 pt-6" style="display: none;">
                 <h2 class="text-2xl font-bold text-[#0F2A3D] mb-4">Security Film in Action</h2>
                 <div class="relative aspect-square bg-gray-100 rounded-md overflow-hidden border border-gray-200">
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <button id="video-play-btn" class="bg-white bg-opacity-80 rounded-full p-4 shadow-lg hover:bg-opacity-100 transition">
+                    <!-- Autoplaying muted video -->
+                    <video
+                      id="product-demo-video"
+                      class="w-full h-full object-cover"
+                      src="images/product-demo-short.mp4"
+                      poster="images/video-cover.webp"
+                      autoplay
+                      muted
+                      loop
+                      playsinline
+                      preload="metadata">
+                    </video>
+
+                    <!-- Play button overlay (to unmute and show controls) -->
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <button id="video-play-btn" class="bg-white bg-opacity-80 rounded-full p-4 shadow-lg hover:bg-opacity-100 transition pointer-events-auto">
                             <svg class="h-12 w-12 text-[#A06D36]" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
                         </button>
                     </div>
-                    <img src="images/video-cover.webp" alt="Security film demonstration video thumbnail" class="w-full h-full object-cover">
                 </div>
                 <p class="text-gray-700 mt-3 text-sm">
                     Watch how our security film holds glass together under attack, buying you critical time to respond.
@@ -418,5 +430,3 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </script>
 </body>
 </html>
-
-
