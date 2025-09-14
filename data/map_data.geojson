@@ -6,20 +6,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.58736,
-          43.873469
-        ]
-      },
-      "properties": {
-        "fsa": "L4H",
-        "municipality": "Vaughan"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -79.566118,
           43.845152
         ]
@@ -41,20 +27,6 @@
       "properties": {
         "fsa": "L4H",
         "municipality": "Vaughan"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.472409,
-          43.919215
-        ]
-      },
-      "properties": {
-        "fsa": "L4E",
-        "municipality": "Richmond Hill"
       }
     },
     {
@@ -97,20 +69,6 @@
       "properties": {
         "fsa": "L3Y",
         "municipality": "Newmarket"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.413475,
-          43.886369
-        ]
-      },
-      "properties": {
-        "fsa": "L4C",
-        "municipality": "Richmond Hill"
       }
     },
     {
