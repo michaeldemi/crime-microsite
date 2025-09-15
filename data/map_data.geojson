@@ -6,34 +6,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.566118,
-          43.845152
-        ]
-      },
-      "properties": {
-        "fsa": "L4H",
-        "municipality": "Vaughan"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.555362,
-          43.861735
-        ]
-      },
-      "properties": {
-        "fsa": "L4H",
-        "municipality": "Vaughan"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -79.457115,
           43.925182
         ]
@@ -76,40 +48,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.375248,
-          43.967202
-        ]
-      },
-      "properties": {
-        "fsa": "L4A",
-        "municipality": "Whitchurch-Stouffville"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -79.367883,
           43.830902
         ]
       },
       "properties": {
         "fsa": "L3T",
-        "municipality": "Markham"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.317428,
-          43.880202
-        ]
-      },
-      "properties": {
-        "fsa": "L3R",
         "municipality": "Markham"
       }
     },
