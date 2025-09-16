@@ -6,34 +6,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.457115,
-          43.925182
-        ]
-      },
-      "properties": {
-        "fsa": "L4E",
-        "municipality": "Richmond Hill"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.453348,
-          44.06269
-        ]
-      },
-      "properties": {
-        "fsa": "L3Y",
-        "municipality": "Newmarket"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -79.429063,
           44.047336
         ]
@@ -41,34 +13,6 @@
       "properties": {
         "fsa": "L3Y",
         "municipality": "Newmarket"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.367883,
-          43.830902
-        ]
-      },
-      "properties": {
-        "fsa": "L3T",
-        "municipality": "Markham"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.24796,
-          43.977088
-        ]
-      },
-      "properties": {
-        "fsa": "L4A",
-        "municipality": "Whitchurch-Stouffville"
       }
     }
   ]
