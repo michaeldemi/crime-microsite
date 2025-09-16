@@ -119,32 +119,54 @@ function buildArcgisUrl(baseUrl, cutoffDate, offset = 0, pageSize = 2000) {
   return url.toString();
 }
 
+// Update fetchArcgisRows to handle HTML responses
+
 async function fetchArcgisRows(baseUrl, cutoffDate) {
   const pageSize = 2000;
   let offset = 0;
   let all = [];
+  
   // Page through all records
   while (true) {
     const url = buildArcgisUrl(baseUrl, cutoffDate, offset, pageSize);
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(`ArcGIS fetch ${res.status}`);
-    const json = await res.json();
-    const feats = Array.isArray(json.features) ? json.features : [];
-    if (!feats.length) break;
+    console.log(`Fetching ArcGIS data: ${url.substring(0, 100)}...`);
+    
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(`ArcGIS fetch failed: ${res.status}`);
+      
+      const contentType = res.headers.get('content-type');
+      if (contentType && contentType.includes('text/html')) {
+        console.error('Error: ArcGIS returned HTML instead of JSON');
+        console.log('Response starts with:', (await res.text()).substring(0, 200));
+        throw new Error('Received HTML response instead of JSON');
+      }
+      
+      const json = await res.json();
+      const feats = Array.isArray(json.features) ? json.features : [];
+      if (!feats.length) break;
+      
+      console.log(`Got ${feats.length} features from ArcGIS`);
 
-    const rows = feats.map(f => {
-      const a = f.attributes || {};
-      const g = f.geometry || {};
-      // Use geometry if available, else pick from attributes
-      const lon = Number(g.x ?? pick(a, LON_FIELDS));
-      const lat = Number(g.y ?? pick(a, LAT_FIELDS));
-      const occurrence_date = a.OCC_DATE ?? a.occurrence_date ?? a.Report_Date;
-      return { occurrence_date, latitude: lat, longitude: lon };
-    }).filter(p => isFinite(p.latitude) && isFinite(p.longitude) && p.occurrence_date);
-    all = all.concat(rows);
+      const rows = feats.map(f => {
+        const a = f.attributes || {};
+        const g = f.geometry || {};
+        // Use geometry if available, else pick from attributes
+        const lon = Number(g.x ?? pick(a, LON_FIELDS));
+        const lat = Number(g.y ?? pick(a, LAT_FIELDS));
+        const occurrence_date = a.OCC_DATE ?? a.occurrence_date ?? a.Report_Date;
+        return { occurrence_date, latitude: lat, longitude: lon };
+      }).filter(p => isFinite(p.latitude) && isFinite(p.longitude) && p.occurrence_date);
+      
+      all = all.concat(rows);
+      console.log(`Added ${rows.length} valid points, total: ${all.length}`);
 
-    if (!json.exceededTransferLimit) break; // done
-    offset += pageSize;
+      if (!json.exceededTransferLimit) break; // done
+      offset += pageSize;
+    } catch (err) {
+      console.error('Error fetching ArcGIS data:', err);
+      break; // Stop on error
+    }
   }
   return all;
 }
