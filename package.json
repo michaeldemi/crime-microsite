@@ -1,0 +1,13 @@
+{
+  "name": "crime-microsite-quote",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "preprocess": "node scripts/preprocess.js"
+  },
+  "dependencies": {
+    "@turf/bbox": "^6.5.0",
+    "@turf/boolean-point-in-polygon": "^6.5.0",
+    "@turf/helpers": "^6.5.0"
+  }
+}
