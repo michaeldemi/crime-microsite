@@ -60,13 +60,46 @@ async function loadTPSRows() {
 }
 
 async function loadFSAGeo() {
-  const raw = await fs.readFile(FSA_GEOJSON, 'utf8');
-  const gj = JSON.parse(raw);
-  return (gj.features || []).map(f => ({
-    code: f.properties?.CFSAUID || f.properties?.FSA || f.properties?.fsa || f.properties?.FSAUID,
-    feature: f,
-    bbox: bbox(f)
-  })).filter(f => !!f.code);
+  try {
+    // Check if file exists and has content
+    const exists = await fs.access(FSA_GEOJSON)
+      .then(() => true)
+      .catch(() => false);
+    
+    if (!exists) {
+      console.error(`GeoJSON file not found: ${FSA_GEOJSON}`);
+      // Return empty array as fallback
+      return [];
+    }
+    
+    const raw = await fs.readFile(FSA_GEOJSON, 'utf8');
+    
+    // Log the first 100 chars to debug
+    console.log(`GeoJSON file starts with: ${raw.substring(0, 100)}...`);
+    
+    if (raw.trim().startsWith('<!DOCTYPE') || raw.trim().startsWith('<html')) {
+      console.error('Error: FSA GeoJSON file contains HTML instead of JSON');
+      return [];
+    }
+    
+    try {
+      const gj = JSON.parse(raw);
+      const features = gj.features || [];
+      console.log(`Parsed ${features.length} FSA features`);
+      
+      return features.map(f => ({
+        code: f.properties?.CFSAUID || f.properties?.FSA || f.properties?.fsa || f.properties?.FSAUID,
+        feature: f,
+        bbox: bbox(f)
+      })).filter(f => !!f.code);
+    } catch (jsonError) {
+      console.error('JSON parse error:', jsonError.message);
+      return [];
+    }
+  } catch (err) {
+    console.error('Error reading FSA GeoJSON:', err);
+    return [];
+  }
 }
 function pointInBbox([x,y], bb){ return x>=bb[0] && x<=bb[2] && y>=bb[1] && y<=bb[3]; }
 async function ensureDir(dir){ await fs.mkdir(dir, { recursive: true }); }
