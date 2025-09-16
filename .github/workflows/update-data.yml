@@ -1,8 +1,12 @@
 name: Update per-FSA data
 on:
   schedule:
-    - cron: '17 3 * * *'  # Runs daily at 03:17 UTC (adjust if needed)
+    - cron: '17 3 * * *'  # Runs daily at 03:17 UTC
   workflow_dispatch:      # Allows manual runs from the Actions tab
+
+# Added permissions block
+permissions:
+  contents: write         # This gives write access to repository contents
 
 jobs:
   build:
@@ -37,4 +41,4 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@v0.8.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ github.token }}  # Using the default token with write permissions
