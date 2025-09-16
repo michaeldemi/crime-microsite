@@ -38,25 +38,78 @@ const CUTOFF = cutoffDate(MONTHS_BACK);
 function parseDateSafe(v){ if(!v) return null; const d=new Date(String(v).replace(' ','T')); return isNaN(d)?null:d; }
 function pick(obj, keys){ for(const k of keys){ if(obj?.[k]!=null && obj[k]!=='') return obj[k]; } }
 
+// Add additional logging in loadTPSRows:
+
 async function loadTPSRows() {
   const url = TPS_URL || buildCkanSql(TPS_RESOURCE_ID, TPS_DATE_FIELD, CUTOFF);
   if (!url) throw new Error('Set TPS_URL or TPS_RESOURCE_ID env var');
 
-  const res = await fetch(url, { cache: 'no-store' });
-  if (!res.ok) throw new Error(`TPS fetch failed: ${res.status}`);
-  const json = await res.json();
-  const rows = json.result?.records || json.records || json.data || [];
-
-  // Add these fields for TPS data
-  const LAT_FIELDS = ['latitude','Lat','LAT','Y','y','lat','LAT_WGS84'];
-  const LON_FIELDS = ['longitude','Lon','LON','X','x','lon','long','LONG','LONG_WGS84'];
-
-  return rows.map(r => {
-    const lat = Number(pick(r, LAT_FIELDS));
-    const lon = Number(pick(r, LON_FIELDS));
-    const occurrence_date = r[dateField] || r.occurrence_date || r.Report_Date || r.OCC_DATE;
-    return { occurrence_date, latitude: lat, longitude: lon };
-  }).filter(p => isFinite(p.latitude) && isFinite(p.longitude) && p.occurrence_date);
+  console.log(`Fetching TPS data from: ${url}`);
+  
+  try {
+    const res = await fetch(url, { cache: 'no-store' });
+    if (!res.ok) throw new Error(`TPS fetch failed: ${res.status}`);
+    
+    // Get response as text first to check content
+    const text = await res.text();
+    console.log(`Response length: ${text.length} characters`);
+    console.log(`First 100 chars: ${text.substring(0, 100)}`);
+    
+    if (text.trim().startsWith('<!DOCTYPE') || text.trim().startsWith('<html')) {
+      console.error('Error: TPS endpoint returned HTML instead of JSON');
+      throw new Error('Received HTML instead of JSON from TPS endpoint');
+    }
+    
+    // Parse text as JSON
+    const json = JSON.parse(text);
+    
+    // For GeoJSON format
+    if (json.type === 'FeatureCollection') {
+      console.log(`Received GeoJSON with ${json.features?.length || 0} features`);
+      
+      // Map GeoJSON features to your expected format
+      const rows = (json.features || []).map(feature => {
+        const props = feature.properties || {};
+        const geom = feature.geometry || {};
+        const coords = geom.coordinates || [];
+        
+        // Get coordinates based on geometry type
+        let lon = null, lat = null;
+        if (geom.type === 'Point' && coords.length >= 2) {
+          [lon, lat] = coords;
+        }
+        
+        // Try to get date from properties
+        const occurrence_date = props.OCC_DATE || props.occurrence_date || props.REPORT_DATE;
+        
+        return { occurrence_date, latitude: lat, longitude: lon };
+      }).filter(p => isFinite(p.latitude) && isFinite(p.longitude) && p.occurrence_date);
+      
+      console.log(`Mapped ${rows.length} valid points with coordinates and dates`);
+      return rows;
+    }
+    
+    // For regular JSON
+    const rows = json.result?.records || json.features || json.records || json.data || [];
+    console.log(`Received ${rows.length} rows from TPS endpoint`);
+    
+    // Process as before with detailed logging
+    const LAT_FIELDS = ['latitude','Lat','LAT','Y','y','lat','LAT_WGS84'];
+    const LON_FIELDS = ['longitude','Lon','LON','X','x','lon','long','LONG','LONG_WGS84'];
+    
+    const processed = rows.map(r => {
+      const lat = Number(pick(r, LAT_FIELDS));
+      const lon = Number(pick(r, LON_FIELDS));
+      const occurrence_date = r[TPS_DATE_FIELD] || r.occurrence_date || r.Report_Date || r.OCC_DATE;
+      return { occurrence_date, latitude: lat, longitude: lon };
+    }).filter(p => isFinite(p.latitude) && isFinite(p.longitude) && p.occurrence_date);
+    
+    console.log(`Processed ${processed.length} valid points with coordinates and dates`);
+    return processed;
+  } catch (err) {
+    console.error('Error in loadTPSRows:', err);
+    return [];
+  }
 }
 
 async function loadFSAGeo() {
