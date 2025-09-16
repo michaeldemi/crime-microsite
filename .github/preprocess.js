@@ -178,27 +178,51 @@ async function main() {
   console.log(`Rows: ${rows.length}, FSA polygons: ${fsaFeatures.length}`);
 
   const groups = new Map();
-  let matched = 0;
-
+  let matched = 0, unmatched = 0;
+  
   for (const r of rows) {
     const lon = Number(r.longitude), lat = Number(r.latitude);
+    if (!isFinite(lon) || !isFinite(lat)) {
+      unmatched++;
+      continue;
+    }
+    
     const pt = [lon, lat];
     const candidates = fsaFeatures.filter(f => pointInBbox(pt, f.bbox));
     const ptFeat = turfPoint(pt);
+    
     let code = null;
     for (const c of candidates) {
-      if (booleanPointInPolygon(ptFeat, c.feature)) { code = c.code; break; }
+      if (booleanPointInPolygon(ptFeat, c.feature)) { 
+        code = c.code; 
+        break; 
+      }
     }
-    if (!code) continue;
+    
+    if (!code) {
+      unmatched++;
+      continue;
+    }
+    
     matched++;
     const arr = groups.get(code) || [];
-    arr.push({ occurrence_date: r.occurrence_date, latitude: lat, longitude: lon });
+    
+    // Store only the required fields to match expected format
+    arr.push({ 
+      occurrence_date: r.occurrence_date, 
+      latitude: lat, 
+      longitude: lon 
+    });
     groups.set(code, arr);
   }
-
-  console.log(`Matched: ${matched}. Writing ${groups.size} FSA files…`);
+  
+  // This ensures each FSA file only contains points within that FSA's boundaries
   for (const [code, arr] of groups.entries()) {
-    await fs.writeFile(path.join(DATA_DIR, `${code}.json`), JSON.stringify(arr, null, 2), 'utf8');
+    await fs.writeFile(
+      path.join(DATA_DIR, `${code}.json`),
+      JSON.stringify(arr, null, 2), 
+      'utf8'
+    );
   }
   console.log('Done.');
 }
