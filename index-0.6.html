@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CC71CGDT4P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CC71CGDT4P');
+</script>
+
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NHLMCPTB');</script>
+<!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Break-in Map for York Region | Local Safety Report</title>
+    <meta property="og:title" content="How Safe is Your York Region Neighbourhood? See the Latest Break-in Reports">
+    <meta property="og:description" content="Worried about property crime in your area? Our live safety report maps out recent break-ins across York Region. Get the facts, stay informed, and help keep your family safe. View the live map for free.">
+    <meta property="og:image" content="images/safety-report-og-image.webp">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <style>
+      /* Grayscale map tiles only */
+      .leaflet-tile-pane img {
+        filter: grayscale(1);
+      }
+      h1, h2, h3, h4, h5, h6 {
+        color: #0F2A3D !important;
+        font-family: 'Poppins', sans-serif !important;
+        font-weight: 600 !important;
+      }
+      .logo-img {
+        height: 14px;
+        width: auto;
+        max-width: 100%;
+        display: block;
+        object-fit: contain;
+      }
+      @media (min-width: 640px) { /* sm: breakpoint */
+        .logo-img {
+          height: 20px;
+        }
+      }
+      .dynamic-vh {
+        min-height: 100dvh;
+      }
+      /* Add background styles */
+      body {
+        background-image: url('/images/hero-background-b.webp');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHLMCPTB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    
+    <div class="relative z-10 max-w-xl mx-auto my-8 bg-[#F7F8FA] rounded-md shadow-lg p-4 sm:p-8">
+        <img src="images/window-guradian.svg" alt="Window Guardian Logo" class="logo-img">
+        
+        <!-- This section will be shown/hidden based on search status -->
+        <div id="search-container" class="overflow-y-auto">
+            <h1 id="headline" class="text-4xl font-bold pt-4 mb-4 sm:mb-6 text-blue-800">
+                How Safe Is Your Neighborhood?
+            </h1>
+            <form id="fsa-form" class="flex flex-col gap-3">
+                <div id="subhead" class="text-base text-gray-700 mb-1 w-full">
+                    Enter your postal code's first 3 characters to see your free, daily updated security report.
+                </div>
+                <label for="fsa-input" class="text-base sm:text-lg font-medium text-gray-700">Your Postal Code (First 3 Characters):</label>
+                <input type="text" id="fsa-input" maxlength="3" required class="uppercase border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 w-full text-center" style="text-transform:uppercase;" placeholder="e.g., L4H">
+                <div id="error-message" class="text-red-500 text-sm mt-1" style="display:none;"></div>
+                <button type="submit" class="bg-[#A06D36] hover:bg-[#8C5F2F] text-white font-semibold px-6 py-2 rounded transition w-full sm:w-auto">
+                    See My Report
+                </button>
+            </form>
+        </div>
+    
+        <!-- Report Results (initially hidden) -->
+        <div id="report-container" style="display: none;">
+            <!-- Dynamic headline will be updated here -->
+            <h1 id="results-headline" class="text-4xl font-bold pt-4 mb-2 text-blue-800"></h1>
+            <p id="results-subheadline" class="text-xl text-gray-700 mb-4"></p>
+
+            <!-- Dashboard Section (JS will add content here) -->
+            <div id="dashboard-section"></div>
+            
+
+            <!-- Video Section -->
+            <div id="video-section" class="mt-6 border-t border-gray-200 pt-6" style="display: none;">
+                <h2 class="text-2xl font-bold text-[#0F2A3D] mb-4">Turn Your Greatest Vulnerability Into Your Greatest Strength</h2>
+                <div class="relative aspect-square bg-gray-100 rounded-md overflow-hidden border border-gray-200">
+                    <video
+                      id="product-demo-video"
+                      class="w-full h-full object-cover"
+                      src="images/product-demo-short.mp4"
+                      poster="images/video-cover.webp"
+                      autoplay
+                      muted
+                      loop
+                      playsinline
+                      preload="metadata"
+                      controls>
+                    </video>
+                </div>
+                
+                <p class="text-gray-700 mt-4 mb-4">
+                    Watch what happens when a baseball bat meets our security film.
+                </p>
+                <ul class="space-y-4 text-gray-800">
+                    <li class="flex items-start gap-x-3">
+                        <div class="flex-shrink-0 h-6 w-6">
+                            <svg class="h-6 w-6 text-blue-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.286zm0 13.036h.008v.008h-.008v-.008z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">Denies Forced Entry</p>
+                            <p class="text-gray-700">Turns glass into a barrier that frustrates intruders.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-x-3">
+                        <div class="flex-shrink-0 h-6 w-6">
+                            <svg class="h-6 w-6 text-blue-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">Buys Precious Seconds</p>
+                            <p class="text-gray-700">Gives your family time to react and call for help.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-x-3">
+                        <div class="flex-shrink-0 h-6 w-6">
+                            <svg class="h-6 w-6 text-blue-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">Provides 24/7 Peace of Mind</p>
+                            <p class="text-gray-700">Invisibly secures your home so you can relax.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="video-quote" class="mt-6 border-t border-gray-200 pt-6" style="display: none;">
+                <figure>
+                    <div class="text-lg mb-2" aria-hidden="true">⭐⭐⭐⭐⭐</div>
+                    <blockquote class="text-gray-800 italic">
+                        "After a break-in next door, we immediately called Window Guardian. Love that you can't even tell it's there."
+                    </blockquote>
+                    <figcaption class="mt-2 text-sm font-semibold text-gray-900">– Sarah K., Richmond Hill</figcaption>
+                </figure>
+            </div>
+
+            <!-- Price Check Section -->
+            <div id="price-check-section" class="mt-6 border-t border-gray-200 pt-6 p-4 bg-white shadow rounded-lg">
+                <!-- Price Table (shown by default) -->
+                <div id="price-table-container">
+                    <h2 class="text-2xl font-bold text-[#0F2A3D] mb-2">Simple Process, Transparent Pricing</h2>
+                    <p class="text-gray-700 mb-4">Every home is different — here's what most families pay to secure their glass.</p>
+                    
+                    <!-- Price table content remains the same -->
+                    <div class="overflow-x-auto rounded-md border border-gray-200 bg-white">
+                        <table class="min-w-full divide-y divide-gray-200 text-sm">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th scope="col" class="px-4 py-2 text-left font-semibold text-gray-700">Area protected</th>
+                                    <th scope="col" class="px-4 py-2 text-right font-semibold text-gray-700">Typical range (CAD)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100">
+                                <tr>
+                                    <td class="px-4 py-2 font-medium text-gray-800">Patio Door / Glass Sliders</td>
+                                    <td class="px-4 py-2 text-right text-gray-700">$300 – $500</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 font-medium text-gray-800">Front Door Glass</td>
+                                    <td class="px-4 py-2 text-right text-gray-700">$250 – $400</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 font-medium text-gray-800">Whole home</td>
+                                    <td class="px-4 py-2 text-right text-gray-700">$1,200 – $2,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- NEW: 3-Step Process Section -->
+                    <div class="mt-6">
+                        <ul class="space-y-4 text-gray-800">
+                            <li class="flex items-start gap-x-3">
+                                <div class="flex-shrink-0 h-6 w-6 text-xl">📏</div>
+                                <div>
+                                    <p class="font-bold text-gray-900">Step 1: Get Your Free, Exact Quote</p>
+                                    <p class="text-gray-700">We'll visit your home, measure your specific windows, and provide a precise, no-obligation quote.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-x-3">
+                                <div class="flex-shrink-0 h-6 w-6 text-xl">📅</div>
+                                <div>
+                                    <p class="font-bold text-gray-900">Step 2: Schedule Your Installation</p>
+                                    <p class="text-gray-700">Our certified, in-house technicians complete most installations in just a few hours.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-x-3">
+                                <div class="flex-shrink-0 h-6 w-6 text-xl">🛡️</div>
+                                <div>
+                                    <p class="font-bold text-gray-900">Step 3: Gain Peace of Mind</p>
+                                    <p class="text-gray-700">Your home's weakest points are now secured with an invisible layer of protection, backed by our 10-year warranty.</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="mt-4">
+                        <button type="button" id="get-full-quote-btn" class="bg-[#A06D36] hover:bg-[#8C5F2F] text-white font-semibold px-8 py-3 rounded-lg transition shadow-md">
+                            Get a Precise, No-Obligation Quote
+                        </button>
+                        </div>
+                                    <!-- September Bonus Banner -->
+            <div id="september-bonus-banner" class="mt-6 border-t border-gray-200 pt-6">
+                <div class="flex items-center gap-x-4 text-amber-800 p-4 rounded-lg" role="alert">
+                    <div class="w-1/4 flex-shrink-0">
+                        <img src="images/patio-door-bar.webp" alt="Free Patio Door Security Bar" class="w-full h-auto rounded-md shadow-sm">
+                    </div>
+                    <div class="w-3/4">
+                        <p class="font-bold">Get a FREE Patio Door Security Bar ($75 Value) With Your September Installation!</p>
+                    </div>
+                </div>
+            </div>  
+
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Social Proof Section -->
+            <div id="social-proof-section" class="mt-6 border-t border-gray-200 pt-6">
+                <h2 class="text-2xl font-bold text-[#0F2A3D] mb-4 text-center">Trusted by Over 120 of Your Neighbours</h2>
+                <div class="text-center mb-4">
+                    <div class="flex justify-center mb-4">
+                        <div class="flex text-yellow-400">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        </div>
+                    </div>
+                    <p class="font-medium text-gray-700"><strong>4.9 out of 5 stars</strong> from 120+ customers</p>
+                </div>
+
+                <div id="testimonial-carousel" class="relative">
+                    <!-- Carousel Wrapper -->
+                    <div id="testimonial-track" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide">
+                        <!-- Testimonial Slide 1 -->
+                        <div class="testimonial-slide w-full flex-shrink-0 snap-start p-2">
+                            <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 h-full">
+                                <div class="flex text-yellow-400 mb-3">
+                                    <!-- 5 stars -->
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                </div>
+                                <blockquote class="text-gray-800 italic text-base">"After a break-in on our street, we knew we had to act. The installation took just a few hours, and now we have total peace of mind without ugly bars on our windows."</blockquote>
+                                <figcaption class="mt-4 font-semibold text-gray-900">— Mark D., Vaughan</figcaption>
+                            </div>
+                        </div>
+                        <!-- Testimonial Slide 2 -->
+                        <div class="testimonial-slide w-full flex-shrink-0 snap-start p-2">
+                            <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 h-full">
+                                <div class="flex text-yellow-400 mb-3">
+                                    <!-- 5 stars -->
+                                                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                </div>
+                                <blockquote class="text-gray-800 italic text-base">"I was worried the film would be noticeable, but it's completely invisible. The installation team was incredibly professional and left no mess. A huge relief."</blockquote>
+                                <figcaption class="mt-4 font-semibold text-gray-900">— Sarah K., Richmond Hill</figcaption>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Navigation Buttons -->
+                    <button id="testimonial-prev" class="absolute top-1/2 left-0 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow-md hover:bg-white hidden md:block">
+                        <svg class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+                    </button>
+                    <button id="testimonial-next" class="absolute top-1/2 right-0 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow-md hover:bg-white hidden md:block">
+                        <svg class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                    </button>
+                </div>
+                <!-- Pagination Dots -->
+                <div id="testimonial-dots" class="flex justify-center gap-2 mt-4"></div>
+            </div>
+            
+            <!-- Accordion FAQ Section -->
+            <div id="faq-section" class="mt-6 border-t border-gray-200 pt-6">
+                <h2 class="text-2xl font-bold text-[#0F2A3D] mb-4">Frequently Asked Questions</h2>
+                <div class="space-y-2">
+                    <details class="bg-white rounded-md shadow-sm border border-gray-200">
+                        <summary class="cursor-pointer px-4 py-3 font-semibold text-[#0F2A3D] hover:bg-gray-50 transition">
+                            Will it stop a break-in?
+                        </summary>
+                        <div class="px-4 pb-3 text-gray-700">
+                            Our security film is designed to deter opportunists and buy critical time during an attempted break-in by making it much harder to smash through glass. However, it's not unbreakable—it's a layer of protection that works best when combined with other security measures like alarms and locks.
+                        </div>
+                    </details>
+                    
+                    <details class="bg-white rounded-md shadow-sm border border-gray-200">
+                        <summary class="cursor-pointer px-4 py-3 font-semibold text-[#0F2A3D] hover:bg-gray-50 transition">
+                            What does it look like?
+                        </summary>
+                        <div class="px-4 pb-3 text-gray-700">
+                            We offer both clear and tinted options. The clear film is virtually invisible, maintaining your view while providing protection. Tinted versions add a subtle privacy layer without blocking light.
+                        </div>
+                    </details>
+                    
+                    <details class="bg-white rounded-md shadow-sm border border-gray-200">
+                        <summary class="cursor-pointer px-4 py-3 font-semibold text-[#0F2A3D] hover:bg-gray-50 transition">
+                            How long does installation take?
+                        </summary>
+                        <div class="px-4 pb-3 text-gray-700">
+                            Installation typically takes 2-4 hours per window, depending on the size and number of panes. We schedule at your convenience and ensure minimal disruption to your home.
+                        </div>
+                    </details>
+                    
+                    <details class="bg-white rounded-md shadow-sm border border-gray-200">
+                        <summary class="cursor-pointer px-4 py-3 font-semibold text-[#0F2A3D] hover:bg-gray-50 transition">
+                            What’s covered by the warranty?
+                        </summary>
+                        <div class="px-4 pb-3 text-gray-700">
+                            Our warranty covers defects in materials and workmanship for up to 10 years. It also includes protection against fading, bubbling, and delamination under normal use. Damage from misuse or extreme impacts is not covered.
+                        </div>
+                    </details>
+                    
+                    <details class="bg-white rounded-md shadow-sm border border-gray-200">
+                        <summary class="cursor-pointer px-4 py-3 font-semibold text-[#0F2A3D] hover:bg-gray-50 transition">
+                            Is it compliant with condo bylaws?
+                        </summary>
+                        <div class="px-4 pb-3 text-gray-700">
+                            Yes, our film is designed to comply with most condo associations' rules, as it doesn't alter the external appearance of the building. We can provide documentation to confirm compliance if needed.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lead-Gen Overlay -->
+    <div id="lead-gen-overlay" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-[9999] flex items-center justify-center hidden">
+        <div class="bg-white rounded-md shadow-lg p-6 max-w-md w-full mx-4 overlay-content">
+            <h1 class="text-4xl font-bold text-[#0F2A3D] mb-4">Your First Step to a Safer Home</h1>
+            <p class="text-gray-700 mb-6">
+                Just a few details and one of our Vaughan security experts will be in touch shortly for your free, no-obligation consultation.
+            </p>
+            <form id="lead-gen-form" class="flex flex-col gap-8">
+                <div class="flex flex-col gap-4">
+                    <div>
+                        <label for="name-input" class="text-base font-medium text-gray-700">Name</label>
+                        <input type="text" id="name-input" name="name" required class="border border-gray-300 rounded mt-1 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 w-full" placeholder="Enter your name">
+                    </div>
+                    <div>
+                        <label for="email-input" class="text-base font-medium text-gray-700">Email Address</label>
+                        <input type="email" id="email-input" name="email" required class="border border-gray-300 rounded mt-1 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 w-full" placeholder="you@example.com">
+                    </div>
+                    <div>
+                        <label for="phone-input" class="text-base font-medium text-gray-700">Phone Number</label>
+                        <input type="tel" id="phone-input" name="phone" required class="border border-gray-300 rounded mt-1 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 w-full" placeholder="Enter your phone number">
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500">✓ Your information is 100% secure. No spam, ever.</p>
+                <div class="flex items-start gap-2">
+                    <input type="checkbox" id="newsletter-checkbox" name="newsletter" value="subscribed" class="mt-1">
+                    <label for="newsletter-checkbox" class="text-sm text-gray-700">
+                        Yes, send me occasional emails from Window Guardian with security tips, news, and special offers. I know I can unsubscribe at any time.
+                    </label>
+                </div>
+                <div id="checkbox-error" class="text-red-500 text-sm mt-1" style="display:none;"></div>
+                <button type="submit" class="bg-[#A06D36] hover:bg-[#8C5F2F] text-white font-semibold px-6 py-2 rounded transition w-full">
+                    Request My Free Consultation
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sticky Footer CTA -->
+    <div id="sticky-footer" class="fixed bottom-0 left-0 right-0 bg-[#A06D36] text-white py-4 px-4 text-center shadow-lg z-40 hidden">
+        <div class="flex flex-row items-center justify-center gap-8">
+            <button id="sticky-quote-btn" class="bg-white text-[#A06D36] font-semibold px-6 py-2 rounded hover:bg-gray-100 transition">
+                Get a Quote
+            </button>
+            <span class="text-xs text-white/90">10 Year Warranty • No Obligation</span>
+        </div>
+    </div>
+
+    <script src="main-simplified.js"></script>
+    <script>
+        function setDynamicHeight() {
+            const height = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+            document.body.style.minHeight = height + 'px';
+        }
+        window.addEventListener('load', setDynamicHeight);
+        if (window.visualViewport) {
+            window.visualViewport.addEventListener('resize', setDynamicHeight);
+        } else {
+            window.addEventListener('resize', setDynamicHeight);
+        }
+    </script>
+</body>
+</html>
