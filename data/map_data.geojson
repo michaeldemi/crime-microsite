@@ -1,19 +1,4 @@
 {
   "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -79.429063,
-          44.047336
-        ]
-      },
-      "properties": {
-        "fsa": "L3Y",
-        "municipality": "Newmarket"
-      }
-    }
-  ]
+  "features": []
 }
