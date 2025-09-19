@@ -16,10 +16,11 @@ document.addEventListener('DOMContentLoaded', function () {
   const leadGenOverlay = document.getElementById('lead-gen-overlay');
   const leadGenForm = document.getElementById('lead-gen-form');
 
-  // Formspark endpoints
+  // Formspark endpoints - updated to include the guide download form
   const FORMSPARK = {
     lead: 'ZpsuLRXX7',        // Quote overlay form
-    notInArea: 'YYyOI0pCQ'    // "Not in your area" form
+    notInArea: 'YYyOI0pCQ',    // "Not in your area" form
+    guideDownload: 'XQZjL56XI'  // Guide download form
   };
   
   function fsEndpoint(id) { return `https://submit-form.com/${id}`; }
@@ -198,7 +199,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Display the results after a successful data fetch
-  // Update displayResults to ensure proper sequencing
   function displayResults(fsa, data) {
     // Calculate counts
     const cutoff12 = getLast12MonthsCutoff();
@@ -241,6 +241,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Update FSA in price check section
     setText(priceCheckFsa, fsa);
     
+    // REMOVE THIS BLOCK:
+    /*
     // Show sticky footer after scrolling
     if (stickyFooter) {
       window.addEventListener('scroll', () => {
@@ -248,6 +250,12 @@ document.addEventListener('DOMContentLoaded', function () {
         if (window.scrollY > threshold) stickyFooter.classList.remove('hidden');
         else stickyFooter.classList.add('hidden');
       }, { passive: true });
+    }
+    */
+    
+    // Instead, just make sure the footer is visible
+    if (stickyFooter) {
+      stickyFooter.classList.remove('hidden');
     }
   }
 
@@ -319,6 +327,105 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  // Handle guide download form - updated to use Formspark
+  const guideDownloadForm = document.getElementById('guide-download-form');
+  if (guideDownloadForm) {
+    guideDownloadForm.addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent the form from submitting normally
+      
+      const emailInput = document.getElementById('guide-email');
+      const email = emailInput ? emailInput.value : '';
+      
+      if (!email) return; // Basic validation
+      
+      // Get the parent container to replace its contents
+      const formContainer = guideDownloadForm.closest('.mt-6.bg-gray-50');
+      
+      // Show loading state
+      if (formContainer) {
+        formContainer.innerHTML = `
+          <div class="text-center py-4">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-800 mx-auto mb-4"></div>
+            <p class="text-gray-700">Sending your guide...</p>
+          </div>
+        `;
+      }
+      
+      // Submit to Formspark using the existing submitFS function
+      submitFS('guideDownload', {
+        email: email,
+        formName: 'Security Guide Download',
+        subject: 'Home Security Guide Download Request'
+      })
+      .then(() => {
+        // Success - show thank you message
+        if (formContainer) {
+          formContainer.innerHTML = `
+            <div class="text-center py-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto text-green-500 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <h3 class="text-xl font-bold text-gray-800 mb-2">Thank You!</h3>
+              <p class="text-gray-700 mb-3">Your security guide has been sent to ${email}</p>
+              <p class="text-gray-700">Check your inbox (and spam folder) for an email with your download link.</p>
+            </div>
+          `;
+        }
+      })
+      .catch(error => {
+        console.error('Error submitting form:', error);
+        // Show error message
+        if (formContainer) {
+          formContainer.innerHTML = `
+            <div class="text-center py-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto text-red-500 mb-4" fill="none" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <h3 class="text-xl font-bold text-gray-800 mb-2">Something went wrong</h3>
+              <p class="text-gray-700 mb-3">We couldn't process your request.</p>
+              <button id="retry-download" class="bg-[#A06D36] hover:bg-[#8C5F2F] text-white font-semibold px-4 py-2 rounded transition">Try Again</button>
+            </div>
+          `;
+          
+          // Add event listener to retry button
+          const retryButton = document.getElementById('retry-download');
+          if (retryButton) {
+            retryButton.addEventListener('click', () => {
+              // Restore the original form
+              if (formContainer) {
+                formContainer.innerHTML = `
+                  <p class="font-medium text-gray-800 mb-2">Enter your email to get this free guide instantly:</p>
+                  <form id="guide-download-form" class="flex flex-col sm:flex-row gap-2">
+                    <input 
+                      type="email" 
+                      id="guide-email" 
+                      name="email" 
+                      required 
+                      class="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 flex-grow" 
+                      placeholder="you@example.com"
+                      value="${email}">
+                    <button 
+                      type="submit" 
+                      class="bg-[#A06D36] hover:bg-[#8C5F2F] text-white font-semibold px-4 py-2 rounded transition">
+                      Download Guide
+                    </button>
+                  </form>
+                  <p class="text-xs text-gray-500 mt-1">We respect your privacy. Your email will never be shared.</p>
+                `;
+                
+                // Re-attach event listener to the new form
+                const newForm = document.getElementById('guide-download-form');
+                if (newForm) {
+                  newForm.addEventListener('submit', arguments.callee);
+                }
+              }
+            });
+          }
+        }
+      });
+    });
+  }
+  
   // Event listeners
   if (fsaInput && errorMessage) {
     fsaInput.addEventListener('input', () => hide(errorMessage));
