@@ -245,7 +245,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        </div>
                     </div>
                     <p class="font-medium text-gray-700"><strong>4.9 out of 5 stars</strong> from 120+ customers</p>
                 </div>
@@ -396,6 +395,40 @@ The best security is layered. While alarm systems are great for alerting you aft
         } else {
             window.addEventListener('resize', setDynamicHeight);
         }
+
+        // Hide sticky footer on initial load when search container is visible
+        document.addEventListener('DOMContentLoaded', function() {
+            const stickyFooter = document.getElementById('sticky-footer');
+            const searchContainer = document.getElementById('search-container');
+            
+            // Initially hide the footer if we're on the search screen
+            if (stickyFooter && searchContainer && window.getComputedStyle(searchContainer).display !== 'none') {
+                stickyFooter.classList.add('hidden');
+            }
+            
+            // Add sticky footer button click handler
+            const stickyBtn = document.getElementById('sticky-quote-btn');
+            if (stickyBtn) {
+                stickyBtn.addEventListener('click', function() {
+                    // Find the email capture form container
+                    const formContainer = document.querySelector('.mt-6.bg-gray-50');
+                    
+                    if (formContainer) {
+                        // Scroll to the form with smooth behavior
+                        formContainer.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'center'
+                        });
+                        
+                        // Focus the email input field after scrolling
+                        setTimeout(() => {
+                            const emailInput = document.getElementById('guide-email');
+                            if (emailInput) emailInput.focus();
+                        }, 800);
+                    }
+                });
+            }
+        });
     </script>
 </body>
 </html>

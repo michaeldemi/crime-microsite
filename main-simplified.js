@@ -219,9 +219,15 @@ document.addEventListener('DOMContentLoaded', function () {
       resultsSubheadline.textContent = "See how to make yours impenetrable with our invisible security film.";
     }
     
-    // Hide search container and show report container FIRST
+    // Hide search container and show report container
     hide(searchContainer);
     show(reportContainer);
+    
+    // Show the sticky footer when displaying results
+    const stickyFooter = document.getElementById('sticky-footer');
+    if (stickyFooter) {
+      stickyFooter.classList.remove('hidden');
+    }
     
     // Render the dashboard
     renderDashboard(count12);
