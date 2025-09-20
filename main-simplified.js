@@ -223,6 +223,13 @@ document.addEventListener('DOMContentLoaded', function () {
     hide(searchContainer);
     show(reportContainer);
     
+    // IMPORTANT: Set the FSA value in the hidden form field
+    const guideFsaField = document.getElementById('guide-fsa');
+    if (guideFsaField) {
+      guideFsaField.value = fsa;
+      console.log('Setting guide-fsa field to:', fsa); // Debug log
+    }
+    
     // Show the sticky footer when displaying results
     const stickyFooter = document.getElementById('sticky-footer');
     if (stickyFooter) {
@@ -242,6 +249,9 @@ document.addEventListener('DOMContentLoaded', function () {
       const videoQuote = document.getElementById('video-quote');
       if (videoSection) show(videoSection);
       if (videoQuote) show(videoQuote);
+      
+      // NEW: Configure videos after showing sections
+      configureVideoElements();
     }, 100);
     
     // Update FSA in price check section
@@ -333,7 +343,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Handle guide download form - updated to use Formspark
+  // Handle guide download form
   const guideDownloadForm = document.getElementById('guide-download-form');
   if (guideDownloadForm) {
     guideDownloadForm.addEventListener('submit', function(e) {
@@ -341,6 +351,12 @@ document.addEventListener('DOMContentLoaded', function () {
       
       const emailInput = document.getElementById('guide-email');
       const email = emailInput ? emailInput.value : '';
+      
+      // Get the FSA value from the hidden field
+      const fsaField = document.getElementById('guide-fsa');
+      const fsa = fsaField ? fsaField.value : '';
+      
+      console.log('Submitting form with FSA:', fsa); // Debug log
       
       if (!email) return; // Basic validation
       
@@ -357,9 +373,10 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
       }
       
-      // Submit to Formspark using the existing submitFS function
+      // Submit to Formspark
       submitFS('guideDownload', {
         email: email,
+        fsa: fsa, // Include the FSA value
         formName: 'Security Guide Download',
         subject: 'Home Security Guide Download Request'
       })
@@ -432,6 +449,38 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
   
+  // Add this function to properly configure video elements
+  function configureVideoElements() {
+    // Find all video elements on the page
+    const videos = document.querySelectorAll('video');
+    
+    videos.forEach(video => {
+      // Ensure proper attributes for cross-device compatibility
+      video.setAttribute('muted', '');
+      video.setAttribute('playsinline', '');
+      video.setAttribute('preload', 'metadata');
+      video.muted = true; // JavaScript property as backup
+      
+      // Additional iOS Safari compatibility
+      if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+        video.setAttribute('webkit-playsinline', '');
+      }
+      
+      // Force muted state
+      video.defaultMuted = true;
+      video.volume = 0;
+      
+      // Handle autoplay with fallback
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.log('Video autoplay failed:', error);
+          // Video will still be available with controls
+        });
+      }
+    });
+  }
+
   // Event listeners
   if (fsaInput && errorMessage) {
     fsaInput.addEventListener('input', () => hide(errorMessage));
