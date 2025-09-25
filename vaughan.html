@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CC71CGDT4P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CC71CGDT4P');
+</script>
+
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NHLMCPTB');</script>
+<!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vaughan Break-in Alerts | Free Service</title>
@@ -133,10 +150,10 @@
                             </div>
                             <div class="flex items-start">
                                 <div class="flex items-center h-5">
-                                    <input id="casl-consent" name="casl-consent" type="checkbox" class="h-4 w-4 text-blue-600 border-slate-300 rounded focus:ring-blue-500">
+                                    <input id="casl-consent" name="casl-consent" type="checkbox" class="h-4 w-4 text-blue-600 border-slate-300 rounded focus:ring-blue-500" required>
                                 </div>
                                 <div class="ml-3 text-sm">
-                                    <label for="casl-consent" class="text-slate-500">Yes, send me occasional tips and exclusive offers from Window Guardian.</label>
+                                    <label for="casl-consent" class="text-slate-500">Yes, send me occasional tips and exclusive offers from Window Guardian. <span class="text-red-500">*</span></label>
                                 </div>
                             </div>
                             <!-- NEW: Recommendation 3 - CTA Animation -->
@@ -161,7 +178,7 @@
                         <div class="mt-6 p-4 bg-slate-100 rounded-lg">
                              <p class="font-semibold text-slate-800">In the meantime, don't leave your home unprotected.</p>
                              <p class="mt-1 text-slate-600">View our free Home Security Guide now to identify and fix your home's biggest vulnerabilities this weekend.</p>
-                             <a href="#" class="mt-3 inline-block bg-slate-800 text-white font-semibold py-2 px-4 rounded-lg hover:bg-slate-900 transition-colors duration-300">
+                             <a href="https://safetyreport.windowguardian.ca/vaughan-guide.html" target="_blank" class="mt-3 inline-block bg-slate-800 text-white font-semibold py-2 px-4 rounded-lg hover:bg-slate-900 transition-colors duration-300">
                                 View The Guide
                              </a>
                         </div>
@@ -300,6 +317,32 @@
     <script>
         lucide.createIcons();
 
+        // FormSpark configuration
+        const FORMSPARK_ENDPOINT = 'https://submit-form.com/XQZjL56XI';
+
+        // Helper function to submit to FormSpark
+        async function submitToFormSpark(formData) {
+            try {
+                const response = await fetch(FORMSPARK_ENDPOINT, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                if (response.ok) {
+                    return { success: true };
+                } else {
+                    throw new Error(`FormSpark error: ${response.status}`);
+                }
+            } catch (error) {
+                console.error('FormSpark submission failed:', error);
+                return { success: false, error: error.message };
+            }
+        }
+
         // Map initialization function - UPDATED to calculate dynamic count
         async function initializeVaughanMap() {
             const mapElement = document.getElementById('vaughan-map');
@@ -415,25 +458,77 @@
             }, 1000); // Wait 1 second after page load
         });
 
-        // --- Form Submission Logic for Active Service ---
+        // --- UPDATED Form Submission Logic with FormSpark Integration ---
         const formContainer = document.getElementById('waitlist-form-container');
         const thankYouMessage = document.getElementById('thank-you-message');
         const waitlistForm = document.getElementById('waitlist-form');
 
-        waitlistForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent actual form submission
+        if (waitlistForm) {
+            waitlistForm.addEventListener('submit', async function(event) {
+                event.preventDefault(); // Prevent default form submission
 
-            // Here you would typically send the data to your server or email list provider
-            // to ACTUALLY subscribe the user.
-            const email = document.getElementById('email').value;
-            console.log(`Email submitted for active service: ${email}`);
+                const submitButton = event.target.querySelector('button[type="submit"]');
+                const originalButtonText = submitButton.textContent;
+                
+                // Get form values
+                const email = document.getElementById('email').value;
+                const caslConsent = document.getElementById('casl-consent').checked;
+                
+                // Validate required fields
+                if (!email || !email.trim()) {
+                    alert('Please enter your email address.');
+                    return;
+                }
+                
+                if (!caslConsent) {
+                    alert('Please check the consent box to receive alerts and offers from Window Guardian.');
+                    return;
+                }
+                
+                // Show loading state
+                submitButton.disabled = true;
+                submitButton.textContent = 'Submitting...';
+                
+                try {
+                    // Collect form data
+                    const formData = {
+                        email: email,
+                        casl_consent: caslConsent,
+                        page_source: 'vaughan-alerts',
+                        municipality: 'Vaughan',
+                        timestamp: new Date().toISOString(),
+                        user_agent: navigator.userAgent
+                    };
 
-            // Hide the form and show the thank you message
-            if (formContainer && thankYouMessage) {
-                formContainer.classList.add('hidden');
-                thankYouMessage.classList.remove('hidden');
-            }
-        });
+                    console.log('Submitting form data:', formData);
+
+                    // Submit to FormSpark
+                    const result = await submitToFormSpark(formData);
+                    
+                    if (result.success) {
+                        console.log('Form submitted successfully to FormSpark');
+                        
+                        // Hide the form and show the thank you message
+                        if (formContainer && thankYouMessage) {
+                            formContainer.classList.add('hidden');
+                            thankYouMessage.classList.remove('hidden');
+                        }
+                    } else {
+                        throw new Error(result.error || 'Submission failed');
+                    }
+                    
+                } catch (error) {
+                    console.error('Form submission error:', error);
+                    
+                    // Show error message to user
+                    alert('There was an error submitting your request. Please try again or contact us directly.');
+                    
+                    // Reset button
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalButtonText;
+                }
+            });
+        }
 
         // --- Smooth scroll for the final CTA ---
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
