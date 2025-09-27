@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CC71CGDT4P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CC71CGDT4P');
+</script>
+
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NHLMCPTB');</script>
+<!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Signup | Window Guardian</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .form-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 500px;
+            margin: 1rem;
+        }
+        
+        /* Hide MailerLite email input while keeping it functional */
+        .ml-embedded input[type="email"] {
+            display: none !important;
+        }
+        
+        /* Style the MailerLite form to fit the design */
+        .ml-embedded {
+            width: 100%;
+        }
+        
+        /* Override any MailerLite default styling */
+        .ml-embedded .ml-form-embedContainer {
+            background: transparent !important;
+            border: none !important;
+            border-radius: 0 !important;
+        }
+        
+        @media (max-width: 640px) {
+            .form-container {
+                margin: 0.5rem;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+
+    <!-- MailerLite Universal -->
+<script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '1807889');
+</script>
+<!-- End MailerLite Universal -->
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHLMCPTB"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="form-container">
+       
+        <div class="ml-embedded" data-form="paw1qk"></div>
+    </div>
+
+    <script>
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Function to populate MailerLite embedded form
+        function populateMailerLiteForm() {
+            const userEmail = getUrlParameter('fields[email]') || getUrlParameter('email');
+            
+            if (userEmail) {
+                console.log('Found email in URL:', userEmail);
+                
+                // Wait for MailerLite form to load
+                const checkForForm = setInterval(() => {
+                    // Try multiple selectors that MailerLite might use
+                    const emailInput = document.querySelector('input[type="email"]') || 
+                                     document.querySelector('input[name="fields[email]"]') ||
+                                     document.querySelector('.ml-embedded input[type="email"]') ||
+                                     document.querySelector('[data-form="paw1qk"] input[type="email"]');
+                    
+                    if (emailInput) {
+                        emailInput.value = userEmail;
+                        // Trigger input event to ensure MailerLite recognizes the value
+                        emailInput.dispatchEvent(new Event('input', { bubbles: true }));
+                        emailInput.dispatchEvent(new Event('change', { bubbles: true }));
+                        console.log('Email populated:', userEmail);
+                        clearInterval(checkForForm);
+                    }
+                }, 100); // Check every 100ms
+                
+                // Stop checking after 10 seconds
+                setTimeout(() => {
+                    clearInterval(checkForForm);
+                    console.log('Stopped checking for form after 10 seconds');
+                }, 10000);
+            }
+        }
+
+        // Run when page loads and after MailerLite loads
+        document.addEventListener('DOMContentLoaded', populateMailerLiteForm);
+        window.addEventListener('load', populateMailerLiteForm);
+        
+        // Also try after a delay to catch late-loading MailerLite forms
+        setTimeout(populateMailerLiteForm, 2000);
+    </script>
+
+</body>
+</html>
+
