@@ -67,6 +67,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             border-radius: 0 !important;
         }
         
+        /* Basic FSA input styling - removed real-time validation styles */
+        .ml-embedded input[type="text"] {
+            transition: all 0.2s ease !important;
+        }
+        
+        /* Focus styling */
+        .ml-embedded input[type="text"]:focus {
+            outline: none !important;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+        }
+        
         @media (max-width: 640px) {
             .form-container {
                 margin: 0.5rem;
@@ -103,6 +114,120 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             return urlParams.get(name);
         }
 
+        // FSA validation function - now only validates format, doesn't modify input
+        function isValidFSA(value) {
+            // Remove spaces and convert to uppercase for validation
+            const cleanValue = value.replace(/\s/g, '').toUpperCase();
+            
+            // Check if it's exactly 3 characters and follows Letter-Number-Letter pattern
+            return cleanValue.length === 3 && /^[A-Z][0-9][A-Z]$/.test(cleanValue);
+        }
+
+        // Function to show error message
+        function showFSAError(input, message) {
+            // Remove any existing error message
+            removeFSAError(input);
+            
+            // Create error message element
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'fsa-error-message';
+            errorDiv.style.cssText = `
+                color: #dc2626;
+                font-size: 0.875rem;
+                margin-top: 0.5rem;
+                padding: 0.5rem;
+                background-color: #fef2f2;
+                border: 1px solid #fecaca;
+                border-radius: 0.375rem;
+                display: flex;
+                align-items: center;
+            `;
+            
+            errorDiv.innerHTML = `
+                <svg style="width: 1rem; height: 1rem; margin-right: 0.5rem; flex-shrink: 0;" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                </svg>
+                ${message}
+            `;
+            
+            // Add error styling to input
+            input.style.borderColor = '#dc2626';
+            input.style.backgroundColor = '#fef2f2';
+            
+            // Insert error message after the input's parent container
+            const inputContainer = input.closest('.ml-field-group') || input.closest('div') || input.parentElement;
+            inputContainer.insertAdjacentElement('afterend', errorDiv);
+        }
+
+        // Function to remove error message
+        function removeFSAError(input) {
+            const existingError = document.querySelector('.fsa-error-message');
+            if (existingError) {
+                existingError.remove();
+            }
+            
+            // Reset input styling
+            input.style.borderColor = '';
+            input.style.backgroundColor = '';
+        }
+
+        // Function to add FSA validation to MailerLite form
+        function addFSAValidation() {
+            const fsaInput = document.querySelector('input[name="fields[fsa]"]') || 
+                           document.querySelector('input[data-inputmask*="fsa"]') ||
+                           document.querySelector('.ml-embedded input[type="text"]');
+            
+            if (fsaInput) {
+                console.log('Found FSA input, adding validation');
+                
+                // Remove real-time validation, only add placeholder and maxlength
+                if (!fsaInput.placeholder) {
+                    fsaInput.placeholder = 'Enter your postal code (e.g. L4K, M5V, K1A)';
+                }
+                
+                // Remove maxlength to allow any input format
+                fsaInput.removeAttribute('maxlength');
+                
+                // Add input event to clear errors when user types
+                fsaInput.addEventListener('input', function() {
+                    removeFSAError(this);
+                });
+                
+                // Find the form and add submit validation
+                const form = fsaInput.closest('form');
+                if (form) {
+                    form.addEventListener('submit', function(e) {
+                        const fsaValue = fsaInput.value.trim();
+                        
+                        if (!fsaValue) {
+                            e.preventDefault();
+                            showFSAError(fsaInput, 'Please enter your postal code.');
+                            fsaInput.focus();
+                            return false;
+                        }
+                        
+                        if (!isValidFSA(fsaValue)) {
+                            e.preventDefault();
+                            showFSAError(fsaInput, 'Please enter a valid postal code format (Letter-Number-Letter, e.g. L4K, M5V, K1A).');
+                            fsaInput.focus();
+                            return false;
+                        }
+                        
+                        // If valid, clean up the value before submission
+                        fsaInput.value = fsaValue.replace(/\s/g, '').toUpperCase();
+                        
+                        // Allow form to submit
+                        return true;
+                    });
+                    
+                    console.log('Added submit validation to form');
+                }
+                
+                return true;
+            }
+            return false;
+        }
+
         // Function to populate MailerLite embedded form
         function populateMailerLiteForm() {
             const userEmail = getUrlParameter('fields[email]') || getUrlParameter('email');
@@ -136,12 +261,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }
         }
 
+        // Function to setup both email population and FSA validation
+        function setupForm() {
+            populateMailerLiteForm();
+            
+            // Try to add FSA validation
+            const checkForFSAInput = setInterval(() => {
+                if (addFSAValidation()) {
+                    clearInterval(checkForFSAInput);
+                }
+            }, 100);
+            
+            // Stop checking after 10 seconds
+            setTimeout(() => {
+                clearInterval(checkForFSAInput);
+            }, 10000);
+        }
+
         // Run when page loads and after MailerLite loads
-        document.addEventListener('DOMContentLoaded', populateMailerLiteForm);
-        window.addEventListener('load', populateMailerLiteForm);
+        document.addEventListener('DOMContentLoaded', setupForm);
+        window.addEventListener('load', setupForm);
         
         // Also try after a delay to catch late-loading MailerLite forms
-        setTimeout(populateMailerLiteForm, 2000);
+        setTimeout(setupForm, 2000);
     </script>
 
 </body>
