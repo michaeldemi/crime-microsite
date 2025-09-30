@@ -83,12 +83,6 @@ document.addEventListener('DOMContentLoaded', function () {
     return d;
   }
 
-  function parseDate(v) {
-    if (!v) return null;
-    const d = new Date(v);
-    return isNaN(d.getTime()) ? null : d;
-  }
-
   function show(el) {
     if (el) el.style.display = 'block';
   }
@@ -460,20 +454,21 @@ document.addEventListener('DOMContentLoaded', function () {
     const sevenDaysAgo = new Date(now.getTime() - (7 * 24 * 60 * 60 * 1000));
     const thirtyDaysAgo = new Date(now.getTime() - (30 * 24 * 60 * 60 * 1000));
     const twelveMonthsAgo = new Date(now.getTime() - (365 * 24 * 60 * 60 * 1000));
-    
+
     let last7Days = 0;
     let last30Days = 0;
     let last12Months = 0;
-    
+
     fsaData.forEach(incident => {
         const incidentDate = parseDate(incident.occurrence_date);
-        if (incidentDate) {
+        console.log('Raw:', incident.occurrence_date, 'Parsed:', incidentDate); // Add this line
+        if (incidentDate && incidentDate <= now) {
             if (incidentDate >= sevenDaysAgo) last7Days++;
             if (incidentDate >= thirtyDaysAgo) last30Days++;
             if (incidentDate >= twelveMonthsAgo) last12Months++;
         }
     });
-    
+
     return {
         fsa: fsaCode,
         last7Days,
@@ -583,8 +578,18 @@ document.addEventListener('DOMContentLoaded', function () {
   // Helper function to parse dates (use your existing parseDate function or implement)
   function parseDate(dateString) {
     if (!dateString) return null;
-    const date = new Date(dateString.replace(' ', 'T'));
-    return isNaN(date.getTime()) ? null : date;
+    let s = String(dateString).trim();
+    // Replace the space between date and time with 'T'
+    s = s.replace(/(\d{4}-\d{2}-\d{2}) (\d{2}:\d{2}:\d{2})/, '$1T$2').replace(/\/+/g, '-');
+    let d = new Date(s);
+    if (!isNaN(d.getTime())) return d;
+    // Try parsing just the date part
+    const m = s.match(/(\d{4}-\d{2}-\d{2})/);
+    if (m) {
+        d = new Date(m[1]);
+        if (!isNaN(d.getTime())) return d;
+    }
+    return null;
   }
 
   // Add this to your existing function that displays the dashboard/map
@@ -598,7 +603,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Helper function to check if FSA is in Vaughan
   function isVaughanArea(fsa) {
       const vaughanFSAs = ['L4H', 'L4J', 'L4K', 'L4L', 'L6A'];
-      return vaughanFSAs.includes(fsa);
+      return vaughanFSAs.includes((fsa || '').toUpperCase());
   }
 
   // Function to show FSA stats if in Vaughan
