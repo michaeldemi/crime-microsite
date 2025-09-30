@@ -580,6 +580,52 @@ function showFSAStatsIfVaughan(userFSA) {
         loadVaughanFSAStats();
     }
 }
+
+// Auto-detect when report is displayed and show table if Vaughan
+function autoShowTableWhenReportDisplayed() {
+    const reportContainer = document.getElementById('report-container');
+    if (reportContainer) {
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+                    if (reportContainer.style.display !== 'none' && reportContainer.style.display !== '') {
+                        // Report is now visible, check if user is in Vaughan
+                        const userFSA = getCurrentUserFSA();
+                        console.log('Report displayed, checking FSA:', userFSA);
+                        if (userFSA && isVaughanArea(userFSA)) {
+                            console.log('Vaughan FSA detected, loading table...');
+                            // Add a small delay to ensure all other content is loaded
+                            setTimeout(() => {
+                                loadVaughanFSAStats();
+                            }, 1000);
+                        }
+                    }
+                }
+            });
+        });
+        observer.observe(reportContainer, { attributes: true, attributeOldValue: true });
+    }
+}
+
+// Initialize the auto-detection
+autoShowTableWhenReportDisplayed();
+
+// Also add a backup method - check periodically if report is visible
+setInterval(() => {
+    const reportContainer = document.getElementById('report-container');
+    const tableContainer = document.getElementById('fsa-stats-table');
+    
+    if (reportContainer && tableContainer) {
+        const reportVisible = reportContainer.style.display !== 'none' && reportContainer.style.display !== '';
+        const tableVisible = tableContainer.style.display !== 'none';
+        const userFSA = getCurrentUserFSA();
+        
+        if (reportVisible && !tableVisible && userFSA && isVaughanArea(userFSA)) {
+            console.log('Backup check: Loading table for Vaughan FSA:', userFSA);
+            loadVaughanFSAStats();
+        }
+    }
+}, 2000); // Check every 2 seconds
     </script>
 </body>
 </html>
