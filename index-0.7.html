@@ -469,7 +469,8 @@ function calculateFSAStats(fsaData, fsaCode) {
     
     fsaData.forEach(incident => {
         const incidentDate = parseDate(incident.occurrence_date);
-        if (incidentDate) {
+        // Only process dates that are valid AND not in the future
+        if (incidentDate && incidentDate <= now) {
             if (incidentDate >= sevenDaysAgo) last7Days++;
             if (incidentDate >= thirtyDaysAgo) last30Days++;
             if (incidentDate >= twelveMonthsAgo) last12Months++;
