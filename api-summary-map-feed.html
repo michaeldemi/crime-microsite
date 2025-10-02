@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crime Data Table</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        #rss-feed {
+            margin-top: 20px;
+        }
+        #rss-xml {
+            width: 100%;
+            height: 300px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Crime Occurrence Data</h1>
+    <p id="row-count">Rows loaded: 0</p>
+    <table id="data-table" border="1">
+        <thead>
+            <tr id="header-row"></tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+    </table>
+
+    <h2>Monthly Break-ins in Vaughan (Last 12 Months from Latest Event)</h2>
+    <canvas id="breakinChart" width="400" height="200"></canvas>
+
+    <h2>Vaughan Break-ins Table</h2>
+    <table id="vaughan-table" border="1">
+        <thead>
+            <tr id="vaughan-header-row"></tr>
+        </thead>
+        <tbody id="vaughan-table-body"></tbody>
+    </table>
+
+    <h2>FSA Summary Table (L4J, L4K, L4L)</h2>
+    <table id="fsa-summary-table" border="1">
+        <thead>
+            <tr>
+                <th>FSA</th>
+                <th>7 Day Total</th>
+                <th>30 Day Total</th>
+                <th>12 Month Total</th>
+            </tr>
+        </thead>
+        <tbody id="fsa-summary-body"></tbody>
+    </table>
+
+    <h2>Break-ins Map</h2>
+    <div id="map"></div>
+
+    <h2>RSS Feed for MailerLite</h2>
+    <div id="rss-feed">
+        <p>Copy the XML below to a file named <code>feed.xml</code> and host it on a web server. Then, provide the URL (e.g., https://yourdomain.com/feed.xml) to MailerLite for RSS integration.</p>
+        <textarea id="rss-xml" readonly></textarea>
+    </div>
+
+    <script>
+        // Haversine formula to calculate distance between two lat/lng points in km
+        function haversineDistance(lat1, lon1, lat2, lon2) {
+            const R = 6371; // Earth's radius in km
+            const dLat = (lat2 - lat1) * Math.PI / 180;
+            const dLon = (lon2 - lon1) * Math.PI / 180;
+            const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            return R * c;
+        }
+
+        // Function to calculate the centroid of a polygon (approximate center by averaging coordinates)
+        function calculateCentroid(coordinates) {
+            if (!coordinates || !coordinates[0] || coordinates[0].length < 3) return null; // Invalid polygon
+            const ring = coordinates[0]; // Use outer ring
+            let sumLng = 0, sumLat = 0, count = 0;
+            ring.forEach(coord => {
+                sumLng += coord[0]; // lng
+                sumLat += coord[1]; // lat
+                count++;
+            });
+            return [sumLng / count, sumLat / count]; // [avgLng, avgLat]
+        }
+
+        // Function to find the closest FSA from map_data (using polygon centroids)
+        function findClosestFSA(lat, lng, mapData) {
+            let closest = null;
+            let minDistance = Infinity;
+            mapData.features.forEach(feature => {
+                const centroid = calculateCentroid(feature.geometry.coordinates);
+                if (!centroid) return; // Skip invalid polygons
+                const [refLng, refLat] = centroid;
+                const distance = haversineDistance(lat, lng, refLat, refLng);
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    closest = feature.properties.CFSAUID; // Use correct property name
+                }
+            });
+            // Only return FSA if within 5km
+            return minDistance <= 5 ? closest : '';
+        }
+
+        // Function to generate RSS XML from Vaughan features
+        function generateRSS(vaughanFeatures) {
+            const rssItems = vaughanFeatures.map(feature => {
+                const title = `Break-in in Vaughan - ${feature.properties.occ_type}`;
+                const description = `Location: ${feature.properties.location || 'Unknown'}, Date: ${new Date(feature.properties.occ_date).toLocaleDateString()}`;
+                const link = `https://example.com/crime/${feature.properties.objectid}`; // Placeholder link
+                const pubDate = new Date(feature.properties.occ_date).toUTCString();
+                return `
+    <item>
+        <title>${title}</title>
+        <description>${description}</description>
+        <link>${link}</link>
+        <pubDate>${pubDate}</pubDate>
+    </item>`;
+            }).join('');
+
+            const rssXML = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Vaughan Break-ins Feed</title>
+        <description>Latest break-ins in Vaughan</description>
+        <link>https://example.com</link>
+        <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+        ${rssItems}
+    </channel>
+</rss>`;
+            return rssXML;
+        }
+
+        async function fetchData() {
+            try {
+                // Load multiple FSA geojson files
+                const geojsonFiles = ['L6A', 'L4L', 'L4K', 'L4J', 'L4H', 'L0J'];
+                const promises = geojsonFiles.map(file => fetch(`data/geojson/${file}.geojson`).then(r => r.json()));
+                const dataArray = await Promise.all(promises);
+                // Filter out features with invalid coordinates
+                const allFeatures = dataArray.flatMap(d => d.features).filter(f => 
+                    f.geometry && f.geometry.coordinates && f.geometry.coordinates[0] && f.geometry.coordinates[0].length >= 3
+                );
+                const mapData = { features: allFeatures };
+                console.log('Map data loaded:', mapData.features.length, 'valid polygons');
+                console.log('Valid FSAs:', mapData.features.map(f => f.properties.CFSAUID));
+
+                // Fetch crime data
+                const whereClause = "occ_type='Break and Enter - Residential'";
+                const url = `https://services8.arcgis.com/lYI034SQcOoxRCR7/arcgis/rest/services/Occurrence/FeatureServer/0/query?outFields=*&where=${encodeURIComponent(whereClause)}&f=geojson&orderByFields=occ_date DESC`;
+                
+                const response = await fetch(url);
+                const data = await response.json();
+                let features = data.features;
+                
+                console.log('Fetched features count:', features.length);
+                console.log('Sample feature:', features[0]);
+                
+                // Find the latest date and filter to last 12 months
+                const dates = features.map(f => new Date(f.properties.occ_date)).filter(d => !isNaN(d));
+                if (dates.length === 0) {
+                    console.log('No valid dates found.');
+                    return;
+                }
+                const latestDate = new Date(Math.max(...dates));
+                const twelveMonthsAgo = new Date(latestDate);
+                twelveMonthsAgo.setMonth(latestDate.getMonth() - 12);
+                const thirtyDaysAgo = new Date(latestDate);
+                thirtyDaysAgo.setDate(latestDate.getDate() - 30);
+                const sevenDaysAgo = new Date(latestDate);
+                sevenDaysAgo.setDate(latestDate.getDate() - 7);
+                
+                console.log('Latest date:', latestDate);
+                console.log('Twelve months ago:', twelveMonthsAgo);
+                
+                // Filter features to last 12 months
+                features = features.filter(f => {
+                    const date = new Date(f.properties.occ_date);
+                    return date >= twelveMonthsAgo && date <= latestDate;
+                });
+                
+                console.log('Filtered features count (last 12 months):', features.length);
+                
+                // Update row count
+                document.getElementById('row-count').textContent = `Rows loaded: ${features.length}`;
+                
+                // Filter for Vaughan using 'municipality' attribute
+                const vaughanFeatures = features.filter(feature => feature.properties.municipality === 'Vaughan');
+                console.log('Vaughan features count:', vaughanFeatures.length);
+                console.log('Sample Vaughan feature:', vaughanFeatures[0]);
+                
+                // Get FSAs for Vaughan features using map_data
+                const fsas = vaughanFeatures.map(feature => {
+                    const lat = feature.geometry?.coordinates?.[1];
+                    const lng = feature.geometry?.coordinates?.[0];
+                    if (!lat || !lng) return '';
+                    const fsa = findClosestFSA(lat, lng, mapData);
+                    console.log(`Crime at (${lat}, ${lng}) -> FSA: ${fsa}`);
+                    return fsa;
+                });
+                console.log('FSAs from map data:', fsas);
+                
+                // Group by FSA and count for each period
+                const fsaSummaries = {};
+                const targetFSAs = ['L4J', 'L4K', 'L4L', 'L4H', 'L0J', 'L6A', 'L3L'];
+                vaughanFeatures.forEach((feature, index) => {
+                    const fsa = fsas[index];
+                    if (!fsa || !targetFSAs.includes(fsa)) return;
+                    
+                    const date = new Date(feature.properties.occ_date);
+                    if (!fsaSummaries[fsa]) {
+                        fsaSummaries[fsa] = { sevenDay: 0, thirtyDay: 0, twelveMonth: 0 };
+                    }
+                    if (date >= sevenDaysAgo) fsaSummaries[fsa].sevenDay++;
+                    if (date >= thirtyDaysAgo) fsaSummaries[fsa].thirtyDay++;
+                    fsaSummaries[fsa].twelveMonth++;
+                });
+                
+                // Build FSA summary table
+                const fsaSummaryBody = document.getElementById('fsa-summary-body');
+                targetFSAs.forEach(fsa => {
+                    const row = document.createElement('tr');
+                    const summary = fsaSummaries[fsa] || { sevenDay: 0, thirtyDay: 0, twelveMonth: 0 };
+                    row.innerHTML = `
+                        <td>${fsa}</td>
+                        <td>${summary.sevenDay}</td>
+                        <td>${summary.thirtyDay}</td>
+                        <td>${summary.twelveMonth}</td>
+                    `;
+                    fsaSummaryBody.appendChild(row);
+                });
+                
+                // Group by month and count for chart
+                const monthlyCounts = {};
+                vaughanFeatures.forEach(feature => {
+                    const dateStr = feature.properties.occ_date;
+                    if (dateStr) {
+                        const date = new Date(dateStr);
+                        const monthKey = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`; // e.g., "2024-01"
+                        monthlyCounts[monthKey] = (monthlyCounts[monthKey] || 0) + 1;
+                    }
+                });
+                
+                // Prepare data for chart: limit to last 12 months (already filtered, but ensure)
+                const allLabels = Object.keys(monthlyCounts).sort();
+                const labels = allLabels.slice(-12); // Last 12 months
+                const counts = labels.map(label => monthlyCounts[label]);
+                
+                // Render chart
+                const ctx = document.getElementById('breakinChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Break-ins',
+                            data: counts,
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+                
+                if (features.length > 0) {
+                    // Get field names from the first feature's properties
+                    const fields = Object.keys(features[0].properties);
+                    fields.push('X', 'Y');
+                    
+                    // Create header row for main table
+                    const headerRow = document.getElementById('header-row');
+                    fields.forEach(field => {
+                        const th = document.createElement('th');
+                        th.textContent = field;
+                        headerRow.appendChild(th);
+                    });
+                    
+                    // Create data rows for main table
+                    const tableBody = document.getElementById('table-body');
+                    features.forEach((feature, index) => {
+                        const row = document.createElement('tr');
+                        fields.forEach(field => {
+                            const td = document.createElement('td');
+                            if (field === 'X') {
+                                td.textContent = feature.geometry?.coordinates?.[0] || '';
+                            } else if (field === 'Y') {
+                                td.textContent = feature.geometry?.coordinates?.[1] || '';
+                            } else if (field === 'occ_date') {
+                                // Format date to show only date part
+                                const dateStr = feature.properties[field];
+                                if (dateStr) {
+                                    const date = new Date(dateStr);
+                                    td.textContent = date.toLocaleDateString(); // e.g., "1/1/2024"
+                                } else {
+                                    td.textContent = '';
+                                }
+                            } else {
+                                td.textContent = feature.properties[field] || '';
+                            }
+                            row.appendChild(td);
+                        });
+                        tableBody.appendChild(row);
+                    });
+                    console.log('Main table built successfully.');
+                } else {
+                    console.log('No features to display in main table.');
+                }
+                
+                // Build Vaughan table
+                try {
+                    if (vaughanFeatures.length > 0) {
+                        const fields = Object.keys(vaughanFeatures[0].properties);
+                        fields.push('X', 'Y', 'FSA');
+                        
+                        // Create header row for Vaughan table
+                        const vaughanHeaderRow = document.getElementById('vaughan-header-row');
+                        fields.forEach(field => {
+                            const th = document.createElement('th');
+                            th.textContent = field;
+                            vaughanHeaderRow.appendChild(th);
+                        });
+                        
+                        // Create data rows for Vaughan table
+                        const vaughanTableBody = document.getElementById('vaughan-table-body');
+                        vaughanFeatures.forEach((feature, index) => {
+                            const row = document.createElement('tr');
+                            fields.forEach(field => {
+                                const td = document.createElement('td');
+                                if (field === 'X') {
+                                    td.textContent = feature.geometry?.coordinates?.[0] || '';
+                                } else if (field === 'Y') {
+                                    td.textContent = feature.geometry?.coordinates?.[1] || '';
+                                } else if (field === 'FSA') {
+                                    td.textContent = fsas[index] || '';
+                                } else if (field === 'occ_date') {
+                                    // Format date to show only date part
+                                    const dateStr = feature.properties[field];
+                                    if (dateStr) {
+                                        const date = new Date(dateStr);
+                                        td.textContent = date.toLocaleDateString(); // e.g., "1/1/2024"
+                                    } else {
+                                        td.textContent = '';
+                                    }
+                                } else {
+                                    td.textContent = feature.properties[field] || '';
+                                }
+                                row.appendChild(td);
+                            });
+                            vaughanTableBody.appendChild(row);
+                        });
+                        
+                        // Add summary row for total break-ins
+                        const totalRow = document.createElement('tr');
+                        const totalCell = document.createElement('td');
+                        totalCell.colSpan = fields.length;
+                        totalCell.textContent = `Total Break-ins: ${vaughanFeatures.length}`;
+                        totalRow.appendChild(totalCell);
+                        vaughanTableBody.appendChild(totalRow);
+                        
+                        console.log('Vaughan table built successfully.');
+                    } else {
+                        console.log('No Vaughan features found.');
+                    }
+                } catch (tableError) {
+                    console.error('Error building Vaughan table:', tableError);
+                }
+
+                // Initialize Leaflet map
+                const map = L.map('map').setView([43.8361, -79.4983], 11); // Centered on Vaughan
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                    attribution: '© OpenStreetMap contributors'
+                }).addTo(map);
+
+                // Add markers for Vaughan break-ins
+                vaughanFeatures.forEach(feature => {
+                    const coords = feature.geometry?.coordinates;
+                    if (coords && coords.length === 2) {
+                        const [lng, lat] = coords;
+                        L.marker([lat, lng]).addTo(map)
+                            .bindPopup(`<strong>Break-in</strong><br>Date: ${new Date(feature.properties.occ_date).toLocaleDateString()}`);
+                    }
+                });
+
+                console.log('Map updated with break-in locations.');
+
+                // Generate and display RSS feed
+                const rssXML = generateRSS(vaughanFeatures);
+                document.getElementById('rss-xml').value = rssXML;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+        
+        // Call the function when the page loads
+        window.onload = fetchData;
+    </script>
+</body>
+</html>
