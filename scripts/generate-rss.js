@@ -1,12 +1,12 @@
-import fs from 'fs';
-import RSS from 'rss';
-import fetch from 'node-fetch';
+const RSS = require('rss');
+const fs = require('fs');
+const path = require('path');
 
 async function generateRssFeed() {
   // 1. Configure the main feed details
   const feed = new RSS({
     title: 'Vaughan Residential Break-in Alerts',
-    description: 'The most recent residential break-and-enter occurrences reported in Vaughan.',
+    description: 'The most recent residential break-and-enter occurrences reported in Vaughan, including FSA summaries.',
     // IMPORTANT: Replace these with your actual GitHub username and repository name
     feed_url: 'https://michaeldemi.github.io/crime-microsite/feed.xml',
     site_url: 'https://michaeldemi.github.io/crime-microsite/',
@@ -14,50 +14,139 @@ async function generateRssFeed() {
     pubDate: new Date(),
   });
 
-  // 2. Fetch the data from the ArcGIS API (the same one your page uses)
-  const whereClause = "occ_type='Break and Enter - Residential'";
-  const url = `https://services8.arcgis.com/lYI034SQcOoxRCR7/arcgis/rest/services/Occurrence/FeatureServer/0/query?outFields=*&where=${encodeURIComponent(whereClause)}&f=geojson&orderByFields=occ_date DESC`;
+  // Helper functions (copied from your HTML script)
+  function haversineDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371; // Earth's radius in km
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+              Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+  }
+
+  function calculateCentroid(coordinates) {
+    if (!coordinates || !coordinates[0] || coordinates[0].length < 3) return null;
+    const ring = coordinates[0];
+    let sumLng = 0, sumLat = 0, count = 0;
+    ring.forEach(coord => {
+      sumLng += coord[0];
+      sumLat += coord[1];
+      count++;
+    });
+    return [sumLng / count, sumLat / count];
+  }
+
+  function findClosestFSA(lat, lng, mapData) {
+    let closest = null;
+    let minDistance = Infinity;
+    mapData.features.forEach(feature => {
+      const centroid = calculateCentroid(feature.geometry.coordinates);
+      if (!centroid) return;
+      const [refLng, refLat] = centroid;
+      const distance = haversineDistance(lat, lng, refLat, refLng);
+      if (distance < minDistance) {
+        minDistance = distance;
+        closest = feature.properties.CFSAUID;
+      }
+    });
+    return minDistance <= 5 ? closest : '';
+  }
 
   try {
+    // 2. Load GeoJSON data for FSA mapping
+    const geojsonDir = path.join(__dirname, 'data', 'geojson'); // Adjust path if needed
+    const geojsonFiles = ['L6A', 'L4L', 'L4K', 'L4J', 'L4H', 'L0J'];
+    const dataArray = geojsonFiles.map(file => {
+      const filePath = path.join(geojsonDir, `${file}.geojson`);
+      return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    });
+    const allFeatures = dataArray.flatMap(d => d.features).filter(f => 
+      f.geometry && f.geometry.coordinates && f.geometry.coordinates[0] && f.geometry.coordinates[0].length >= 3
+    );
+    const mapData = { features: allFeatures };
+
+    // 3. Fetch crime data
+    const whereClause = "occ_type='Break and Enter - Residential'";
+    const url = `https://services8.arcgis.com/lYI034SQcOoxRCR7/arcgis/rest/services/Occurrence/FeatureServer/0/query?outFields=*&where=${encodeURIComponent(whereClause)}&f=geojson&orderByFields=occ_date DESC`;
     const response = await fetch(url);
     const data = await response.json();
+    let features = data.features;
 
-    // 3. Filter features for Vaughan and limit to the 25 most recent events
-    const vaughanFeatures = data.features
-      .filter(feature => feature.properties.municipality === 'Vaughan')
-      .slice(0, 25); // The API sorts by date descending, so this gets the latest
+    // Filter to last 12 months
+    const dates = features.map(f => new Date(f.properties.occ_date)).filter(d => !isNaN(d));
+    if (dates.length === 0) throw new Error('No valid dates found.');
+    const latestDate = new Date(Math.max(...dates));
+    const twelveMonthsAgo = new Date(latestDate);
+    twelveMonthsAgo.setMonth(latestDate.getMonth() - 12);
+    features = features.filter(f => new Date(f.properties.occ_date) >= twelveMonthsAgo);
 
-    // 4. Loop through the data and add each incident to the feed
-    vaughanFeatures.forEach(feature => {
-      const props = feature.properties;
-      const coords = feature.geometry.coordinates;
+    // Filter for Vaughan
+    const vaughanFeatures = features.filter(feature => feature.properties.municipality === 'Vaughan');
 
-      const title = `Break-in Reported on ${props.occ_street || 'Unknown Street'}`;
-      
-      // Create a detailed description for the RSS item
-      const description = `A residential break-in was reported in ${props.municipality} on ${new Date(props.occ_date).toDateString()}.
-        <br>Premise Type: ${props.premisetype}.
-        <br>Location: (${coords[1]}, ${coords[0]})`;
+    // Get FSAs
+    const fsas = vaughanFeatures.map(feature => {
+      const lat = feature.geometry?.coordinates?.[1];
+      const lng = feature.geometry?.coordinates?.[0];
+      if (!lat || !lng) return '';
+      return findClosestFSA(lat, lng, mapData);
+    });
 
+    // Calculate FSA summaries
+    const fsaSummaries = {};
+    const targetFSAs = ['L4J', 'L4K', 'L4L', 'L4H', 'L0J', 'L6A', 'L3L'];
+    const thirtyDaysAgo = new Date(latestDate);
+    thirtyDaysAgo.setDate(latestDate.getDate() - 30);
+    const sevenDaysAgo = new Date(latestDate);
+    sevenDaysAgo.setDate(latestDate.getDate() - 7);
+    vaughanFeatures.forEach((feature, index) => {
+      const fsa = fsas[index];
+      if (!fsa || !targetFSAs.includes(fsa)) return;
+      const date = new Date(feature.properties.occ_date);
+      if (!fsaSummaries[fsa]) fsaSummaries[fsa] = { sevenDay: 0, thirtyDay: 0, twelveMonth: 0 };
+      if (date >= sevenDaysAgo) fsaSummaries[fsa].sevenDay++;
+      if (date >= thirtyDaysAgo) fsaSummaries[fsa].thirtyDay++;
+      fsaSummaries[fsa].twelveMonth++;
+    });
+
+    // Generate HTML table for summary
+    let summaryTable = '<table border="1"><thead><tr><th>FSA</th><th>7 Day Total</th><th>30 Day Total</th><th>12 Month Total</th></tr></thead><tbody>';
+    targetFSAs.forEach(fsa => {
+      const summary = fsaSummaries[fsa] || { sevenDay: 0, thirtyDay: 0, twelveMonth: 0 };
+      summaryTable += `<tr><td>${fsa}</td><td>${summary.sevenDay}</td><td>${summary.thirtyDay}</td><td>${summary.twelveMonth}</td></tr>`;
+    });
+    summaryTable += '</tbody></table>';
+
+    // Add summary as the first item
+    feed.item({
+      title: 'FSA Summary of Vaughan Break-ins',
+      description: `Aggregated break-in counts by FSA for Vaughan:<br>${summaryTable}`,
+      url: 'https://michaeldemi.github.io/crime-microsite/', // Link to your site
+      date: new Date(),
+    });
+
+    // 4. Add individual break-in items (limited to 25)
+    vaughanFeatures.slice(0, 25).forEach(feature => {
+      const title = `Break-in in Vaughan - ${feature.properties.occ_type}`;
+      const description = `Location: ${feature.properties.location || 'Unknown'}, Date: ${new Date(feature.properties.occ_date).toLocaleDateString()}`;
+      const link = `https://michaeldemi.github.io/crime-microsite/crime/${feature.properties.objectid}`;
+      const pubDate = new Date(feature.properties.occ_date);
       feed.item({
-        title: title,
-        description: description,
-        url: feed.site_url, // Link back to the main map page
-        guid: props.OBJECTID, // The OBJECTID is a perfect unique identifier
-        date: new Date(props.occ_date),
-        lat: coords[1], // GeoRSS latitude
-        long: coords[0] // GeoRSS longitude
+        title,
+        description,
+        url: link,
+        date: pubDate,
       });
     });
 
     // 5. Write the generated XML to a file
     fs.writeFileSync('feed.xml', feed.xml({ indent: true }));
-    console.log('✅ RSS feed for Vaughan crime data generated successfully!');
+    console.log('✅ RSS feed for Vaughan crime data (with FSA summary) generated successfully!');
 
   } catch (error) {
-    console.error('Error generating RSS feed:', error);
+    console.error('❌ Error generating RSS feed:', error);
   }
 }
 
 generateRssFeed();
-
