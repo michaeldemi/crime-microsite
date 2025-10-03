@@ -1,1 +1,40 @@
+name: Generate Crime Data RSS Feed
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  # Runs on a schedule (this example is every hour)
+  schedule:
+    - cron: '0 * * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checks out your repository's code so the script can run
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Sets up the Node.js environment required to run the script
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 3. Installs the necessary libraries ('node-fetch' and 'rss')
+      - name: Install dependencies
+        run: npm install node-fetch rss
+
+      # 4. Runs your script to generate the feed.xml file
+      - name: Generate RSS feed
+        run: node ./scripts/generate-rss.js
+
+      # 5. Commits the updated feed.xml file back to the repository if it has changed
+      - name: Commit and push if changed
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: Auto-update crime data RSS feed'
+          file_pattern: 'feed.xml'
+
 
