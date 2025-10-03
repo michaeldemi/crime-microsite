@@ -1,6 +1,10 @@
-const RSS = require('rss');
-const fs = require('fs');
-const path = require('path');
+import RSS from 'rss';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 async function generateRssFeed() {
   // 1. Configure the main feed details
@@ -56,7 +60,7 @@ async function generateRssFeed() {
 
   try {
     // 2. Load GeoJSON data for FSA mapping
-    const geojsonDir = path.join(__dirname, 'data', 'geojson'); // Adjust path if needed
+    const geojsonDir = path.join(__dirname, '..', 'data', 'geojson'); // Adjusted to go up one level from scripts/
     const geojsonFiles = ['L6A', 'L4L', 'L4K', 'L4J', 'L4H', 'L0J'];
     const dataArray = geojsonFiles.map(file => {
       const filePath = path.join(geojsonDir, `${file}.geojson`);
@@ -141,7 +145,7 @@ async function generateRssFeed() {
     });
 
     // 5. Write the generated XML to a file
-    fs.writeFileSync('feed.xml', feed.xml({ indent: true }));
+    fs.writeFileSync(path.join(__dirname, 'feed.xml'), feed.xml({ indent: true }));
     console.log('✅ RSS feed for Vaughan crime data (with FSA summary) generated successfully!');
 
   } catch (error) {
