@@ -9,8 +9,8 @@ const __dirname = path.dirname(__filename);
 async function generateRssFeed() {
   // 1. Configure the main feed details
   const feed = new RSS({
-    title: 'Vaughan Residential Break-in Alerts',
-    description: 'The most recent residential break-and-enter occurrences reported in Vaughan, including FSA summaries.',
+    title: 'Vaughan Residential Break-in FSA Summary',
+    description: 'Aggregated break-in counts by FSA for Vaughan (last 12 months).',
     // IMPORTANT: Replace these with your actual GitHub username and repository name
     feed_url: 'https://michaeldemi.github.io/crime-microsite/feed.xml',
     site_url: 'https://michaeldemi.github.io/crime-microsite/',
@@ -122,7 +122,7 @@ async function generateRssFeed() {
     });
     summaryTable += '</tbody></table>';
 
-    // Add summary as the first item
+    // Add summary as the only item
     feed.item({
       title: 'FSA Summary of Vaughan Break-ins',
       description: `Aggregated break-in counts by FSA for Vaughan:<br>${summaryTable}`,
@@ -130,23 +130,9 @@ async function generateRssFeed() {
       date: new Date(),
     });
 
-    // 4. Add individual break-in items (limited to 25)
-    vaughanFeatures.slice(0, 25).forEach(feature => {
-      const title = `Break-in in Vaughan - ${feature.properties.occ_type}`;
-      const description = `Location: ${feature.properties.location || 'Unknown'}, Date: ${new Date(feature.properties.occ_date).toLocaleDateString()}`;
-      const link = `https://michaeldemi.github.io/crime-microsite/crime/${feature.properties.objectid}`;
-      const pubDate = new Date(feature.properties.occ_date);
-      feed.item({
-        title,
-        description,
-        url: link,
-        date: pubDate,
-      });
-    });
-
     // 5. Write the generated XML to a file
     fs.writeFileSync(path.join(__dirname, 'feed.xml'), feed.xml({ indent: true }));
-    console.log('✅ RSS feed for Vaughan crime data (with FSA summary) generated successfully!');
+    console.log('✅ RSS feed for Vaughan crime data (FSA summary only) generated successfully!');
 
   } catch (error) {
     console.error('❌ Error generating RSS feed:', error);
