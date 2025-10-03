@@ -10,6 +10,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Add this permissions block to allow the action to write to the repository
+    permissions:
+      contents: write
 
     steps:
       # 1. Checks out your repository's code so the script can run
@@ -36,5 +39,4 @@ jobs:
         with:
           commit_message: 'chore: Auto-update crime data RSS feed'
           file_pattern: 'feed.xml'
-
 
