@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
+    <channel>
+        <title><![CDATA[Vaughan Residential Break-in Alerts]]></title>
+        <description><![CDATA[The most recent residential break-and-enter occurrences reported in Vaughan.]]></description>
+        <link>https://michaeldemi.github.io/crime-microsite/</link>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Fri, 03 Oct 2025 22:30:40 GMT</lastBuildDate>
+        <atom:link href="https://michaeldemi.github.io/crime-microsite/feed.xml" rel="self" type="application/rss+xml"/>
+        <pubDate>Fri, 03 Oct 2025 22:30:40 GMT</pubDate>
+        <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[Break-in Reported on Unknown Street]]></title>
+            <description><![CDATA[A residential break-in was reported in Vaughan on Tue Sep 30 2025.
+        <br>Premise Type: undefined.
+        <br>Location: (43.8309116547494, -79.5326924586557)]]></description>
+            <link>https://michaeldemi.github.io/crime-microsite/</link>
+            <guid isPermaLink="false">1828574</guid>
+            <pubDate>Tue, 30 Sep 2025 08:20:00 GMT</pubDate>
+            <geo:lat>43.8309116547494</geo:lat>
+            <geo:long>-79.5326924586557</geo:long>
+        </item>
+        <item>
+            <title><![CDATA[Break-in Reported on Unknown Street]]></title>
+            <description><![CDATA[A residential break-in was reported in Vaughan on Sat Sep 27 2025.
+        <br>Premise Type: undefined.
+        <br>Location: (43.8244641799441, -79.4470500296705)]]></description>
+            <link>https://michaeldemi.github.io/crime-microsite/</link>
+            <guid isPermaLink="false">1512789</guid>
+            <pubDate>Sat, 27 Sep 2025 20:39:00 GMT</pubDate>
+            <geo:lat>43.8244641799441</geo:lat>
+            <geo:long>-79.4470500296705</geo:long>
+        </item>
+        <item>
+            <title><![CDATA[Break-in Reported on Unknown Street]]></title>
+            <description><![CDATA[A residential break-in was reported in Vaughan on Fri Sep 26 2025.
+        <br>Premise Type: undefined.
+        <br>Location: (43.8836510763965, -79.4961488344748)]]></description>
+            <link>https://michaeldemi.github.io/crime-microsite/</link>
+            <guid isPermaLink="false">1512746</guid>
+            <pubDate>Fri, 26 Sep 2025 13:02:00 GMT</pubDate>
+            <geo:lat>43.8836510763965</geo:lat>
+            <geo:long>-79.4961488344748</geo:long>
+        </item>
+        <item>
+            <title><![CDATA[Break-in Reported on Unknown Street]]></title>
+            <description><![CDATA[A residential break-in was reported in Vaughan on Sat Sep 20 2025.
+        <br>Premise Type: undefined.
+        <br>Location: (43.8402823849418, -79.6237404124931)]]></description>
+            <link>https://michaeldemi.github.io/crime-microsite/</link>
+            <guid isPermaLink="false">1511318</guid>
+            <pubDate>Sat, 20 Sep 2025 16:14:00 GMT</pubDate>
+            <geo:lat>43.8402823849418</geo:lat>
+            <geo:long>-79.6237404124931</geo:long>
+        </item>
+        <item>
+            <title><![CDATA[Break-in Reported on Unknown Street]]></title>
+            <description><![CDATA[A residential break-in was reported in Vaughan on Sat Sep 20 2025.
+        <br>Premise Type: undefined.
+        <br>Location: (43.7910147290696, -79.483063165623)]]></description>
+            <link>https://michaeldemi.github.io/crime-microsite/</link>
+            <guid isPermaLink="false">1511358</guid>
+            <pubDate>Sat, 20 Sep 2025 05:51:00 GMT</pubDate>
+            <geo:lat>43.7910147290696</geo:lat>
+            <geo:long>-79.483063165623</geo:long>
+        </item>
+        <item>
+            <title><![CDATA[Break-in Reported on Unknown Street]]></title>
+            <description><![CDATA[A residential break-in was reported in Vaughan on Sat Sep 20 2025.
+        <br>Premise Type: undefined.
+        <br>Location: (43.8491556080725, -79.5572876503434)]]></description>
+            <link>https://michaeldemi.github.io/crime-microsite/</link>
+            <guid isPermaLink="false">1512043</guid>
+            <pubDate>Sat, 20 Sep 2025 05:30:00 GMT</pubDate>
+            <geo:lat>43.8491556080725</geo:lat>
+            <geo:long>-79.5572876503434</geo:long>
+        </item>
+        <item>
+            <title><![CDATA[Break-in Reported on Unknown Street]]></title>
+            <description><![CDATA[A residential break-in was reported in Vaughan on Thu Sep 18 2025.
+        <br>Premise Type: undefined.
+        <br>Location: (43.8999017160369, -79.5735335364339)]]></description>
+            <link>https://michaeldemi.github.io/crime-microsite/</link>
+            <guid isPermaLink="false">1512232</guid>
+            <pubDate>Thu, 18 Sep 2025 00:01:00 GMT</pubDate>
+            <geo:lat>43.8999017160369</geo:lat>
+            <geo:long>-79.5735335364339</geo:long>
+        </item>
+        <item>
+            <title><![CDATA[Break-in Reported on Unknown Street]]></title>
+            <description><![CDATA[A residential break-in was reported in Vaughan on Wed Sep 17 2025.
+        <br>Premise Type: undefined.
+        <br>Location: (43.8273807429271, -79.6125265176413)]]></description>
+            <link>https://michaeldemi.github.io/crime-microsite/</link>
+            <guid isPermaLink="false">1512048</guid>
+            <pubDate>Wed, 17 Sep 2025 01:40:00 GMT</pubDate>
+            <geo:lat>43.8273807429271</geo:lat>
+            <geo:long>-79.6125265176413</geo:long>
+        </item>
+        <item>
+            <title><![CDATA[Break-in Reported on Unknown Street]]></title>
+            <description><![CDATA[A residential break-in was reported in Vaughan on Tue Sep 09 2025.
+        <br>Premise Type: undefined.
+        <br>Location: (43.856924229164, -79.5452958875653)]]></description>
+            <link>https://michaeldemi.github.io/crime-microsite/</link>
+            <guid isPermaLink="false">1511497</guid>
+            <pubDate>Tue, 09 Sep 2025 19:30:00 GMT</pubDate>
+            <geo:lat>43.856924229164</geo:lat>
+            <geo:long>-79.5452958875653</geo:long>
+        </item>
+        <item>
+            <title><![CDATA[Break-in Reported on Unknown Street]]></title>
+            <description><![CDATA[A residential break-in was reported in Vaughan on Sun Sep 07 2025.
+        <br>Premise Type: undefined.
+        <br>Location: (43.8532015166987, -79.5149502862073)]]></description>
+            <link>https://michaeldemi.github.io/crime-microsite/</link>
+            <guid isPermaLink="false">1510018</guid>
+            <pubDate>Sun, 07 Sep 2025 19:15:00 GMT</pubDate>
+            <geo:lat>43.8532015166987</geo:lat>
+            <geo:long>-79.5149502862073</geo:long>
+        </item>
+        <item>
+            <title><![CDATA[Break-in Reported on Unknown Street]]></title>
+            <description><![CDATA[A residential break-in was reported in Vaughan on Sat Sep 06 2025.
+        <br>Premise Type: undefined.
+        <br>Location: (43.8651610123223, -79.5293478475338)]]></description>
+            <link>https://michaeldemi.github.io/crime-microsite/</link>
+            <guid isPermaLink="false">1510966</guid>
+            <pubDate>Sat, 06 Sep 2025 20:45:00 GMT</pubDate>
+            <geo:lat>43.8651610123223</geo:lat>
+            <geo:long>-79.5293478475338</geo:long>
+        </item>
+        <item>
+            <title><![CDATA[Break-in Reported on Unknown Street]]></title>
+            <description><![CDATA[A residential break-in was reported in Vaughan on Thu Sep 04 2025.
+        <br>Premise Type: undefined.
+        <br>Location: (43.8244314493846, -79.6111587216911)]]></description>
+            <link>https://michaeldemi.github.io/crime-microsite/</link>
+            <guid isPermaLink="false">1510668</guid>
+            <pubDate>Thu, 04 Sep 2025 15:29:00 GMT</pubDate>
+            <geo:lat>43.8244314493846</geo:lat>
+            <geo:long>-79.6111587216911</geo:long>
+        </item>
+        <item>
+            <title><![CDATA[Break-in Reported on Unknown Street]]></title>
+            <description><![CDATA[A residential break-in was reported in Vaughan on Tue Sep 02 2025.
+        <br>Premise Type: undefined.
+        <br>Location: (43.8127101911401, -79.457094047444)]]></description>
+            <link>https://michaeldemi.github.io/crime-microsite/</link>
+            <guid isPermaLink="false">1510396</guid>
+            <pubDate>Tue, 02 Sep 2025 19:43:00 GMT</pubDate>
+            <geo:lat>43.8127101911401</geo:lat>
+            <geo:long>-79.457094047444</geo:long>
+        </item>
+        <item>
+            <title><![CDATA[Break-in Reported on Unknown Street]]></title>
+            <description><![CDATA[A residential break-in was reported in Vaughan on Sun Aug 31 2025.
+        <br>Premise Type: undefined.
+        <br>Location: (43.8317032859826, -79.6461239326176)]]></description>
+            <link>https://michaeldemi.github.io/crime-microsite/</link>
+            <guid isPermaLink="false">1510833</guid>
+            <pubDate>Sun, 31 Aug 2025 02:20:00 GMT</pubDate>
+            <geo:lat>43.8317032859826</geo:lat>
+            <geo:long>-79.6461239326176</geo:long>
+        </item>
+        <item>
+            <title><![CDATA[Break-in Reported on Unknown Street]]></title>
+            <description><![CDATA[A residential break-in was reported in Vaughan on Sun Aug 31 2025.
+        <br>Premise Type: undefined.
+        <br>Location: (43.833422966101, -79.6560289796072)]]></description>
+            <link>https://michaeldemi.github.io/crime-microsite/</link>
+            <guid isPermaLink="false">1508417</guid>
+            <pubDate>Sun, 31 Aug 2025 00:53:00 GMT</pubDate>
+            <geo:lat>43.833422966101</geo:lat>
+            <geo:long>-79.6560289796072</geo:long>
+        </item>
+        <item>
+            <title><![CDATA[Break-in Reported on Unknown Street]]></title>
+            <description><![CDATA[A residential break-in was reported in Vaughan on Sun Aug 31 2025.
+        <br>Premise Type: undefined.
+        <br>Location: (43.7980869269565, -79.5277527530779)]]></description>
+            <link>https://michaeldemi.github.io/crime-microsite/</link>
+            <guid isPermaLink="false">1510204</guid>
+            <pubDate>Sun, 31 Aug 2025 00:00:00 GMT</pubDate>
+            <geo:lat>43.7980869269565</geo:lat>
+            <geo:long>-79.5277527530779</geo:long>
+        </item>
+        <item>
+            <title><![CDATA[Break-in Reported on Unknown Street]]></title>
+            <description><![CDATA[A residential break-in was reported in Vaughan on Sat Aug 23 2025.
+        <br>Premise Type: undefined.
+        <br>Location: (43.8098098642438, -79.61413593568)]]></description>
+            <link>https://michaeldemi.github.io/crime-microsite/</link>
+            <guid isPermaLink="false">1508971</guid>
+            <pubDate>Sat, 23 Aug 2025 08:45:00 GMT</pubDate>
+            <geo:lat>43.8098098642438</geo:lat>
+            <geo:long>-79.61413593568</geo:long>
+        </item>
+        <item>
+            <title><![CDATA[Break-in Reported on Unknown Street]]></title>
+            <description><![CDATA[A residential break-in was reported in Vaughan on Fri Aug 22 2025.
+        <br>Premise Type: undefined.
+        <br>Location: (43.8077854231668, -79.4268688344887)]]></description>
+            <link>https://michaeldemi.github.io/crime-microsite/</link>
+            <guid isPermaLink="false">1509245</guid>
+            <pubDate>Fri, 22 Aug 2025 17:30:00 GMT</pubDate>
+            <geo:lat>43.8077854231668</geo:lat>
+            <geo:long>-79.4268688344887</geo:long>
+        </item>
+        <item>
+            <title><![CDATA[Break-in Reported on Unknown Street]]></title>
+            <description><![CDATA[A residential break-in was reported in Vaughan on Fri Aug 22 2025.
+        <br>Premise Type: undefined.
+        <br>Location: (43.8193432981896, -79.6067957284735)]]></description>
+            <link>https://michaeldemi.github.io/crime-microsite/</link>
+            <guid isPermaLink="false">1509043</guid>
+            <pubDate>Fri, 22 Aug 2025 15:00:00 GMT</pubDate>
+            <geo:lat>43.8193432981896</geo:lat>
+            <geo:long>-79.6067957284735</geo:long>
+        </item>
+        <item>
+            <title><![CDATA[Break-in Reported on Unknown Street]]></title>
+            <description><![CDATA[A residential break-in was reported in Vaughan on Fri Aug 22 2025.
+        <br>Premise Type: undefined.
+        <br>Location: (43.8011941225362, -79.444620948358)]]></description>
+            <link>https://michaeldemi.github.io/crime-microsite/</link>
+            <guid isPermaLink="false">1509512</guid>
+            <pubDate>Fri, 22 Aug 2025 08:00:00 GMT</pubDate>
+            <geo:lat>43.8011941225362</geo:lat>
+            <geo:long>-79.444620948358</geo:long>
+        </item>
+        <item>
+            <title><![CDATA[Break-in Reported on Unknown Street]]></title>
+            <description><![CDATA[A residential break-in was reported in Vaughan on Fri Aug 22 2025.
+        <br>Premise Type: undefined.
+        <br>Location: (43.8063101494731, -79.5926567309611)]]></description>
+            <link>https://michaeldemi.github.io/crime-microsite/</link>
+            <guid isPermaLink="false">1508949</guid>
+            <pubDate>Fri, 22 Aug 2025 01:32:00 GMT</pubDate>
+            <geo:lat>43.8063101494731</geo:lat>
+            <geo:long>-79.5926567309611</geo:long>
+        </item>
+        <item>
+            <title><![CDATA[Break-in Reported on Unknown Street]]></title>
+            <description><![CDATA[A residential break-in was reported in Vaughan on Thu Aug 21 2025.
+        <br>Premise Type: undefined.
+        <br>Location: (43.7969493776839, -79.4746188549098)]]></description>
+            <link>https://michaeldemi.github.io/crime-microsite/</link>
+            <guid isPermaLink="false">1509904</guid>
+            <pubDate>Thu, 21 Aug 2025 00:00:00 GMT</pubDate>
+            <geo:lat>43.7969493776839</geo:lat>
+            <geo:long>-79.4746188549098</geo:long>
+        </item>
+        <item>
+            <title><![CDATA[Break-in Reported on Unknown Street]]></title>
+            <description><![CDATA[A residential break-in was reported in Vaughan on Tue Aug 19 2025.
+        <br>Premise Type: undefined.
+        <br>Location: (43.8606109650626, -79.5626360599779)]]></description>
+            <link>https://michaeldemi.github.io/crime-microsite/</link>
+            <guid isPermaLink="false">1508836</guid>
+            <pubDate>Tue, 19 Aug 2025 05:26:00 GMT</pubDate>
+            <geo:lat>43.8606109650626</geo:lat>
+            <geo:long>-79.5626360599779</geo:long>
+        </item>
+        <item>
+            <title><![CDATA[Break-in Reported on Unknown Street]]></title>
+            <description><![CDATA[A residential break-in was reported in Vaughan on Tue Aug 19 2025.
+        <br>Premise Type: undefined.
+        <br>Location: (43.8139481503982, -79.4239606369177)]]></description>
+            <link>https://michaeldemi.github.io/crime-microsite/</link>
+            <guid isPermaLink="false">1508508</guid>
+            <pubDate>Tue, 19 Aug 2025 02:39:00 GMT</pubDate>
+            <geo:lat>43.8139481503982</geo:lat>
+            <geo:long>-79.4239606369177</geo:long>
+        </item>
+        <item>
+            <title><![CDATA[Break-in Reported on Unknown Street]]></title>
+            <description><![CDATA[A residential break-in was reported in Vaughan on Tue Aug 19 2025.
+        <br>Premise Type: undefined.
+        <br>Location: (43.796005645236, -79.5817308685445)]]></description>
+            <link>https://michaeldemi.github.io/crime-microsite/</link>
+            <guid isPermaLink="false">1508168</guid>
+            <pubDate>Tue, 19 Aug 2025 02:39:00 GMT</pubDate>
+            <geo:lat>43.796005645236</geo:lat>
+            <geo:long>-79.5817308685445</geo:long>
+        </item>
+    </channel>
+</rss>
