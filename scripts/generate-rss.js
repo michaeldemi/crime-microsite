@@ -164,7 +164,7 @@ async function generateRssFeed() {
     */
 
     // 5. Write the generated XML to a file
-    fs.writeFileSync(path.join(__dirname, 'feed.xml'), feed.xml({ indent: true }));
+    fs.writeFileSync(path.join(__dirname, '..', 'feed.xml'), feed.xml({ indent: true }));
     console.log('✅ RSS feed for Vaughan crime data (FSA summary only) generated successfully!');
 
   } catch (error) {
