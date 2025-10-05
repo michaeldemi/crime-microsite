@@ -115,10 +115,10 @@ async function generateRssFeed() {
     });
 
     // Generate HTML table for summary
-    let summaryTable = '<table border="1"><thead><tr><th>FSA</th><th>7 Day Total</th><th>30 Day Total</th><th>12 Month Total</th></tr></thead><tbody>';
+    let summaryTable = '<table style="border-collapse: collapse; width: 100%;"><thead><tr><th style="border-bottom: 1px solid #000;">FSA</th><th style="border-bottom: 1px solid #000;">7 Day Total</th><th style="border-bottom: 1px solid #000;">30 Day Total</th><th style="border-bottom: 1px solid #000;">12 Month Total</th></tr></thead><tbody>';
     targetFSAs.forEach(fsa => {
       const summary = fsaSummaries[fsa] || { sevenDay: 0, thirtyDay: 0, twelveMonth: 0 };
-      summaryTable += `<tr><td>${fsa}</td><td>${summary.sevenDay}</td><td>${summary.thirtyDay}</td><td>${summary.twelveMonth}</td></tr>`;
+      summaryTable += `<tr style="border-bottom: 1px solid #000;"><td>${fsa}</td><td>${summary.sevenDay}</td><td>${summary.thirtyDay}</td><td>${summary.twelveMonth}</td></tr>`;
     });
     summaryTable += '</tbody></table>';
 
