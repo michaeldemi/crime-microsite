@@ -58,6 +58,22 @@ async function generateRssFeed() {
     return minDistance <= 5 ? closest : '';
   }
 
+  // Add this function
+  async function getIntersection(lat, lng) {
+    const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=18&addressdetails=1`;
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      // Parse for intersections (approximate: use road names)
+      const address = data.address;
+      const road1 = address.road || 'Unknown';
+      const road2 = address.pedestrian || address.path || address.cycleway || 'Unknown'; // Fallback for intersections
+      return `${road1} & ${road2}`;
+    } catch (error) {
+      return 'Address unavailable';
+    }
+  }
+
   try {
     // 2. Load GeoJSON data for FSA mapping
     const geojsonDir = path.join(__dirname, '..', 'data', 'geojson'); // Adjusted to go up one level from scripts/
@@ -115,7 +131,7 @@ async function generateRssFeed() {
     });
 
     // Generate HTML table for summary
-    let summaryTable = '<table border="1" cellpadding="5" cellspacing="0" width="100%"><thead><tr><th>FSA</th><th>7 Day Total</th><th>30 Day Total</th><th>30 Day Total</th><th>12 Month Total</th></tr></thead><tbody>';
+    let summaryTable = '<table border="1"><thead><tr><th>FSA</th><th>7 Day Total</th><th>30 Day Total</th><th>12 Month Total</th></tr></thead><tbody>';
     targetFSAs.forEach(fsa => {
       const summary = fsaSummaries[fsa] || { sevenDay: 0, thirtyDay: 0, twelveMonth: 0 };
       summaryTable += `<tr><td>${fsa}</td><td>${summary.sevenDay}</td><td>${summary.thirtyDay}</td><td>${summary.twelveMonth}</td></tr>`;
@@ -130,8 +146,25 @@ async function generateRssFeed() {
       date: new Date(),
     });
 
+    // Individual incidents (optional): Uncomment to add
+    /*
+    for (const feature of vaughanFeatures) {
+      const lat = feature.geometry?.coordinates?.[1];
+      const lng = feature.geometry?.coordinates?.[0];
+      if (!lat || !lng) continue;
+      const intersection = await getIntersection(lat, lng);
+      const description = `Location: ${intersection}, Date: ${new Date(feature.properties.occ_date).toLocaleDateString()}`;
+      feed.item({
+        title: 'Vaughan Break-in Incident',
+        description,
+        url: 'https://michaeldemi.github.io/crime-microsite/', // Link to your site
+        date: new Date(feature.properties.occ_date),
+      });
+    }
+    */
+
     // 5. Write the generated XML to a file
-    fs.writeFileSync(path.join(__dirname, '..', 'feed.xml'), feed.xml({ indent: true }));
+    fs.writeFileSync(path.join(__dirname, 'feed.xml'), feed.xml({ indent: true }));
     console.log('✅ RSS feed for Vaughan crime data (FSA summary only) generated successfully!');
 
   } catch (error) {
