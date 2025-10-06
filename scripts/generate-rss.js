@@ -59,28 +59,41 @@ async function generateRssFeed() {
 
   async function getIntersection(lat, lng) {
     const apiKey = 'AIzaSyD-2EkkXVXjPBWjvW_u4SGSxz9wXeGAOv4'; // Replace with your key
-    const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${apiKey}`;
+    // First, try to find the nearest intersection using Places API
+    const placesUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=100&type=intersection&key=${apiKey}`;
     try {
-      const response = await fetch(url);
-      const data = await response.json();
-      if (data.status !== 'OK' || !data.results[0]) {
+      const placesResponse = await fetch(placesUrl);
+      const placesData = await placesResponse.json();
+      if (placesData.status === 'OK' && placesData.results.length > 0) {
+        // Return the name of the nearest intersection
+        return placesData.results[0].name; // e.g., "Main St & Elm St"
+      }
+    } catch (error) {
+      console.log(`Places API error for ${lat},${lng}:`, error);
+    }
+
+    // Fallback to Geocoding API if no intersection found
+    const geoUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${apiKey}`;
+    try {
+      const geoResponse = await fetch(geoUrl);
+      const geoData = await geoResponse.json();
+      if (geoData.status !== 'OK' || !geoData.results[0]) {
         console.log(`No address found for ${lat},${lng}`);
         return 'No address found';
       }
-      const components = data.results[0].address_components;
+      const components = geoData.results[0].address_components;
       const streets = components.filter(comp => comp.types.includes('route')).map(comp => comp.long_name);
       if (streets.length >= 2) {
-        return `${streets[0]} & ${streets[1]}`; // e.g., "Main St & Elm St"
+        return `${streets[0]} & ${streets[1]}`;
       } else if (streets.length === 1) {
-        return `${streets[0]} area`; // e.g., "Main St area"
+        return `${streets[0]} area`;
       } else {
-        // Fallback to generalized address (remove house number)
-        const address = data.results[0].formatted_address;
+        const address = geoData.results[0].formatted_address;
         const parts = address.split(', ');
-        return parts[0].replace(/^\d+\s*/, '') + ' area'; // Remove numbers and add "area"
+        return parts[0].replace(/^\d+\s*/, '') + ' area';
       }
     } catch (error) {
-      console.log(`Fetch error for ${lat},${lng}:`, error);
+      console.log(`Geocoding API error for ${lat},${lng}:`, error);
       return 'Address unavailable';
     }
   }
