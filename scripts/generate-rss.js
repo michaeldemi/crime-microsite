@@ -59,43 +59,33 @@ async function generateRssFeed() {
 
   async function getIntersection(lat, lng) {
     const apiKey = 'AIzaSyD-2EkkXVXjPBWjvW_u4SGSxz9wXeGAOv4'; // Replace with your key
-    // First, try to find the nearest intersection using Places API
-    const placesUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=2000&type=intersection&key=${apiKey}`;
-    try {
-      const placesResponse = await fetch(placesUrl);
-      const placesData = await placesResponse.json();
-      if (placesData.status === 'OK' && placesData.results.length > 0) {
-        // Return the name of the nearest intersection
-        return placesData.results[0].name; // e.g., "Main St & Elm St"
+    const radii = [2000, 5000, 10000]; // Radii to try in order
+    for (const radius of radii) {
+      const placesUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=${radius}&type=intersection&key=${apiKey}`;
+      try {
+        const placesResponse = await fetch(placesUrl);
+        const placesData = await placesResponse.json();
+        if (placesData.status === 'OK' && placesData.results.length > 0) {
+          // Calculate distance for each result and find the closest
+          let closest = null;
+          let minDistance = Infinity;
+          placesData.results.forEach(result => {
+            const resLat = result.geometry.location.lat;
+            const resLng = result.geometry.location.lng;
+            const distance = haversineDistance(lat, lng, resLat, resLng);
+            if (distance < minDistance) {
+              minDistance = distance;
+              closest = result.name;
+            }
+          });
+          return closest; // e.g., "Main St & Elm St"
+        }
+      } catch (error) {
+        console.log(`Places API error for ${lat},${lng} at radius ${radius}:`, error);
       }
-    } catch (error) {
-      console.log(`Places API error for ${lat},${lng}:`, error);
     }
-
-    // Fallback to Geocoding API if no intersection found
-    const geoUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${apiKey}`;
-    try {
-      const geoResponse = await fetch(geoUrl);
-      const geoData = await geoResponse.json();
-      if (geoData.status !== 'OK' || !geoData.results[0]) {
-        console.log(`No address found for ${lat},${lng}`);
-        return 'No address found';
-      }
-      const components = geoData.results[0].address_components;
-      const streets = components.filter(comp => comp.types.includes('route')).map(comp => comp.long_name);
-      if (streets.length >= 2) {
-        return `${streets[0]} & ${streets[1]}`;
-      } else if (streets.length === 1) {
-        return `${streets[0]} area`;
-      } else {
-        const address = geoData.results[0].formatted_address;
-        const parts = address.split(', ');
-        return parts[0].replace(/^\d+\s*/, '') + ' area';
-      }
-    } catch (error) {
-      console.log(`Geocoding API error for ${lat},${lng}:`, error);
-      return 'Address unavailable';
-    }
+    // If no intersections found at any radius
+    return 'No intersection found';
   }
 
   try {
