@@ -4,16 +4,16 @@
         <description><![CDATA[Aggregated break-in counts by FSA for Vaughan (last 12 months).]]></description>
         <link>https://michaeldemi.github.io/crime-microsite/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 06 Oct 2025 03:03:49 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 06 Oct 2025 04:25:43 GMT</lastBuildDate>
         <atom:link href="https://michaeldemi.github.io/crime-microsite/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 06 Oct 2025 03:03:47 GMT</pubDate>
+        <pubDate>Mon, 06 Oct 2025 04:25:42 GMT</pubDate>
         <language><![CDATA[en]]></language>
         <item>
             <title><![CDATA[FSA Summary of Vaughan Break-ins]]></title>
             <description><![CDATA[Aggregated break-in counts by FSA for Vaughan:<br><table border="1"><thead><tr><th>FSA</th><th>7 Day Total</th><th>30 Day Total</th><th>12 Month Total</th></tr></thead><tbody><tr><td>L4J</td><td>1</td><td>3</td><td>76</td></tr><tr><td>L4K</td><td>1</td><td>1</td><td>13</td></tr><tr><td>L4L</td><td>1</td><td>1</td><td>78</td></tr><tr><td>L4H</td><td>1</td><td>4</td><td>77</td></tr><tr><td>L0J</td><td>0</td><td>0</td><td>0</td></tr><tr><td>L6A</td><td>1</td><td>6</td><td>82</td></tr><tr><td>L3L</td><td>0</td><td>0</td><td>0</td></tr></tbody></table>]]></description>
             <link>https://michaeldemi.github.io/crime-microsite/</link>
             <guid isPermaLink="true">https://michaeldemi.github.io/crime-microsite/</guid>
-            <pubDate>Mon, 06 Oct 2025 03:03:49 GMT</pubDate>
+            <pubDate>Mon, 06 Oct 2025 04:25:43 GMT</pubDate>
         </item>
     </channel>
 </rss>
