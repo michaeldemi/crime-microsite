@@ -140,8 +140,8 @@ async function generateRssFeed() {
         url: 'https://safetyreport.windowguardian.ca/',
         date: new Date(feature.properties.occ_date),
       });
-      // Add 1-second delay to avoid rate limiting
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Add 2-second delay to avoid rate limiting
+      await new Promise(resolve => setTimeout(resolve, 2000));
     }
 
     // 5. Write the generated XML to a file
