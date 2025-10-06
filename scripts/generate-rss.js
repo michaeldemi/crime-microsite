@@ -65,6 +65,7 @@ async function generateRssFeed() {
       try {
         const placesResponse = await fetch(placesUrl);
         const placesData = await placesResponse.json();
+        console.log(`API response for ${lat},${lng} at radius ${radius}: status=${placesData.status}, results=${placesData.results.length}`);
         if (placesData.status === 'OK' && placesData.results.length > 0) {
           // Calculate distance for each result and find the closest
           let closest = null;
