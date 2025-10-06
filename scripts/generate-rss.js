@@ -67,9 +67,18 @@ async function generateRssFeed() {
         console.log(`No address found for ${lat},${lng}`);
         return 'No address found';
       }
-      const address = data.results[0].formatted_address;
-      // For intersections, parse the address or return as-is
-      return address; // Or customize to extract intersections
+      const components = data.results[0].address_components;
+      const streets = components.filter(comp => comp.types.includes('route')).map(comp => comp.long_name);
+      if (streets.length >= 2) {
+        return `${streets[0]} & ${streets[1]}`; // e.g., "Main St & Elm St"
+      } else if (streets.length === 1) {
+        return `${streets[0]} area`; // e.g., "Main St area"
+      } else {
+        // Fallback to generalized address (remove house number)
+        const address = data.results[0].formatted_address;
+        const parts = address.split(', ');
+        return parts[0].replace(/^\d+\s*/, '') + ' area'; // Remove numbers and add "area"
+      }
     } catch (error) {
       console.log(`Fetch error for ${lat},${lng}:`, error);
       return 'Address unavailable';
