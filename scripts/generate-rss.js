@@ -9,11 +9,10 @@ const __dirname = path.dirname(__filename);
 async function generateRssFeed() {
   // 1. Configure the main feed details
   const feed = new RSS({
-    title: 'Vaughan Residential Break-in FSA Summary',
-    description: 'Aggregated break-in counts by FSA for Vaughan (last 12 months).',
-    // IMPORTANT: Replace these with your actual GitHub username and repository name
-    feed_url: 'https://michaeldemi.github.io/crime-microsite/feed.xml',
-    site_url: 'https://michaeldemi.github.io/crime-microsite/',
+    title: 'L6A Vaughan Break-in Alerts (Last 7 Days)',
+    description: 'Recent residential break-ins in L6A FSA with intersection locations.',
+    feed_url: 'https://safetyreport.windowguardian.ca/feed.xml', // Update to your URL
+    site_url: 'https://safetyreport.windowguardian.ca/', // Update to your URL
     language: 'en',
     pubDate: new Date(),
   });
@@ -58,16 +57,14 @@ async function generateRssFeed() {
     return minDistance <= 5 ? closest : '';
   }
 
-  // Add this function
   async function getIntersection(lat, lng) {
     const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=18&addressdetails=1`;
     try {
       const response = await fetch(url);
       const data = await response.json();
-      // Parse for intersections (approximate: use road names)
       const address = data.address;
       const road1 = address.road || 'Unknown';
-      const road2 = address.pedestrian || address.path || address.cycleway || 'Unknown'; // Fallback for intersections
+      const road2 = address.pedestrian || address.path || address.cycleway || 'Unknown';
       return `${road1} & ${road2}`;
     } catch (error) {
       return 'Address unavailable';
@@ -76,8 +73,8 @@ async function generateRssFeed() {
 
   try {
     // 2. Load GeoJSON data for FSA mapping
-    const geojsonDir = path.join(__dirname, '..', 'data', 'geojson'); // Adjusted to go up one level from scripts/
-    const geojsonFiles = ['L6A', 'L4L', 'L4K', 'L4J', 'L4H', 'L0J'];
+    const geojsonDir = path.join(__dirname, '..', 'data', 'geojson');
+    const geojsonFiles = ['L6A']; // Only load L6A
     const dataArray = geojsonFiles.map(file => {
       const filePath = path.join(geojsonDir, `${file}.geojson`);
       return JSON.parse(fs.readFileSync(filePath, 'utf8'));
@@ -94,78 +91,44 @@ async function generateRssFeed() {
     const data = await response.json();
     let features = data.features;
 
-    // Filter to last 12 months
+    // Filter to last 7 days
     const dates = features.map(f => new Date(f.properties.occ_date)).filter(d => !isNaN(d));
     if (dates.length === 0) throw new Error('No valid dates found.');
     const latestDate = new Date(Math.max(...dates));
-    const twelveMonthsAgo = new Date(latestDate);
-    twelveMonthsAgo.setMonth(latestDate.getMonth() - 12);
-    features = features.filter(f => new Date(f.properties.occ_date) >= twelveMonthsAgo);
+    const sevenDaysAgo = new Date(latestDate);
+    sevenDaysAgo.setDate(latestDate.getDate() - 7);
+    features = features.filter(f => new Date(f.properties.occ_date) >= sevenDaysAgo);
 
     // Filter for Vaughan
     const vaughanFeatures = features.filter(feature => feature.properties.municipality === 'Vaughan');
 
-    // Get FSAs
-    const fsas = vaughanFeatures.map(feature => {
+    // Get FSAs and filter to L6A
+    const l6aFeatures = [];
+    vaughanFeatures.forEach(feature => {
       const lat = feature.geometry?.coordinates?.[1];
       const lng = feature.geometry?.coordinates?.[0];
-      if (!lat || !lng) return '';
-      return findClosestFSA(lat, lng, mapData);
+      if (!lat || !lng) return;
+      const fsa = findClosestFSA(lat, lng, mapData);
+      if (fsa === 'L6A') l6aFeatures.push(feature);
     });
 
-    // Calculate FSA summaries
-    const fsaSummaries = {};
-    const targetFSAs = ['L4J', 'L4K', 'L4L', 'L4H', 'L0J', 'L6A', 'L3L'];
-    const thirtyDaysAgo = new Date(latestDate);
-    thirtyDaysAgo.setDate(latestDate.getDate() - 30);
-    const sevenDaysAgo = new Date(latestDate);
-    sevenDaysAgo.setDate(latestDate.getDate() - 7);
-    vaughanFeatures.forEach((feature, index) => {
-      const fsa = fsas[index];
-      if (!fsa || !targetFSAs.includes(fsa)) return;
-      const date = new Date(feature.properties.occ_date);
-      if (!fsaSummaries[fsa]) fsaSummaries[fsa] = { sevenDay: 0, thirtyDay: 0, twelveMonth: 0 };
-      if (date >= sevenDaysAgo) fsaSummaries[fsa].sevenDay++;
-      if (date >= thirtyDaysAgo) fsaSummaries[fsa].thirtyDay++;
-      fsaSummaries[fsa].twelveMonth++;
-    });
-
-    // Generate HTML table for summary
-    let summaryTable = '<table border="1"><thead><tr><th>FSA</th><th>7 Day Total</th><th>30 Day Total</th><th>12 Month Total</th></tr></thead><tbody>';
-    targetFSAs.forEach(fsa => {
-      const summary = fsaSummaries[fsa] || { sevenDay: 0, thirtyDay: 0, twelveMonth: 0 };
-      summaryTable += `<tr><td>${fsa}</td><td>${summary.sevenDay}</td><td>${summary.thirtyDay}</td><td>${summary.twelveMonth}</td></tr>`;
-    });
-    summaryTable += '</tbody></table>';
-
-    // Add summary as the only item
-    feed.item({
-      title: 'FSA Summary of Vaughan Break-ins',
-      description: `Aggregated break-in counts by FSA for Vaughan:<br>${summaryTable}`,
-      url: 'https://michaeldemi.github.io/crime-microsite/', // Link to your site
-      date: new Date(),
-    });
-
-    // Individual incidents (optional): Uncomment to add
-    /*
-    for (const feature of vaughanFeatures) {
-      const lat = feature.geometry?.coordinates?.[1];
-      const lng = feature.geometry?.coordinates?.[0];
-      if (!lat || !lng) continue;
+    // Add individual items for L6A incidents
+    for (const feature of l6aFeatures) {
+      const lat = feature.geometry.coordinates[1];
+      const lng = feature.geometry.coordinates[0];
       const intersection = await getIntersection(lat, lng);
       const description = `Location: ${intersection}, Date: ${new Date(feature.properties.occ_date).toLocaleDateString()}`;
       feed.item({
-        title: 'Vaughan Break-in Incident',
+        title: 'L6A Vaughan Break-in Incident',
         description,
-        url: 'https://michaeldemi.github.io/crime-microsite/', // Link to your site
+        url: 'https://safetyreport.windowguardian.ca/', // Update to your site
         date: new Date(feature.properties.occ_date),
       });
     }
-    */
 
     // 5. Write the generated XML to a file
     fs.writeFileSync(path.join(__dirname, '..', 'feed.xml'), feed.xml({ indent: true }));
-    console.log('✅ RSS feed for Vaughan crime data (FSA summary only) generated successfully!');
+    console.log('✅ RSS feed for L6A Vaughan break-ins (last 7 days) generated successfully!');
 
   } catch (error) {
     console.error('❌ Error generating RSS feed:', error);
