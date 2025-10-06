@@ -58,27 +58,18 @@ async function generateRssFeed() {
   }
 
   async function getIntersection(lat, lng) {
-    if (typeof lat !== 'number' || typeof lng !== 'number' || isNaN(lat) || isNaN(lng)) {
-      console.log(`Invalid coordinates: lat=${lat}, lng=${lng}`);
-      return 'Invalid coordinates';
-    }
-    const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=18&addressdetails=1`;
+    const apiKey = 'AIzaSyD-2EkkXVXjPBWjvW_u4SGSxz9wXeGAOv4'; // Replace with your key
+    const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${apiKey}`;
     try {
       const response = await fetch(url);
-      if (!response.ok) {
-        console.log(`API error: ${response.status} for ${url}`);
-        return 'API error';
-      }
       const data = await response.json();
-      console.log(`API response for ${lat},${lng}:`, data); // Log full response for debugging
-      const address = data.address;
-      if (!address) {
+      if (data.status !== 'OK' || !data.results[0]) {
         console.log(`No address found for ${lat},${lng}`);
         return 'No address found';
       }
-      const road1 = address.road || 'Unknown';
-      const road2 = address.pedestrian || address.path || address.cycleway || 'Unknown';
-      return `${road1} & ${road2}`;
+      const address = data.results[0].formatted_address;
+      // For intersections, parse the address or return as-is
+      return address; // Or customize to extract intersections
     } catch (error) {
       console.log(`Fetch error for ${lat},${lng}:`, error);
       return 'Address unavailable';
@@ -141,7 +132,7 @@ async function generateRssFeed() {
         date: new Date(feature.properties.occ_date),
       });
       // Add 2-second delay to avoid rate limiting
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise(resolve => setTimeout(resolve, 500)); // Optional
     }
 
     // 5. Write the generated XML to a file
