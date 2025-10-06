@@ -58,15 +58,29 @@ async function generateRssFeed() {
   }
 
   async function getIntersection(lat, lng) {
+    if (typeof lat !== 'number' || typeof lng !== 'number' || isNaN(lat) || isNaN(lng)) {
+      console.log(`Invalid coordinates: lat=${lat}, lng=${lng}`);
+      return 'Invalid coordinates';
+    }
     const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=18&addressdetails=1`;
     try {
       const response = await fetch(url);
+      if (!response.ok) {
+        console.log(`API error: ${response.status} for ${url}`);
+        return 'API error';
+      }
       const data = await response.json();
+      console.log(`API response for ${lat},${lng}:`, data); // Log full response for debugging
       const address = data.address;
+      if (!address) {
+        console.log(`No address found for ${lat},${lng}`);
+        return 'No address found';
+      }
       const road1 = address.road || 'Unknown';
       const road2 = address.pedestrian || address.path || address.cycleway || 'Unknown';
       return `${road1} & ${road2}`;
     } catch (error) {
+      console.log(`Fetch error for ${lat},${lng}:`, error);
       return 'Address unavailable';
     }
   }
@@ -116,14 +130,18 @@ async function generateRssFeed() {
     for (const feature of l6aFeatures) {
       const lat = feature.geometry.coordinates[1];
       const lng = feature.geometry.coordinates[0];
+      console.log(`Processing coordinates: lat=${lat}, lng=${lng}`);
       const intersection = await getIntersection(lat, lng);
+      console.log(`Intersection result: ${intersection}`);
       const description = `Location: ${intersection}, Date: ${new Date(feature.properties.occ_date).toLocaleDateString()}`;
       feed.item({
         title: 'L6A Vaughan Break-in Incident',
         description,
-        url: 'https://safetyreport.windowguardian.ca/', // Update to your site
+        url: 'https://safetyreport.windowguardian.ca/',
         date: new Date(feature.properties.occ_date),
       });
+      // Add 1-second delay to avoid rate limiting
+      await new Promise(resolve => setTimeout(resolve, 1000));
     }
 
     // 5. Write the generated XML to a file
