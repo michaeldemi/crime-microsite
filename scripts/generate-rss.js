@@ -60,7 +60,7 @@ async function generateRssFeed() {
   async function getIntersection(lat, lng) {
     const apiKey = 'AIzaSyD-2EkkXVXjPBWjvW_u4SGSxz9wXeGAOv4'; // Replace with your key
     // First, try to find the nearest intersection using Places API
-    const placesUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=1000&type=intersection&key=${apiKey}`;
+    const placesUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=2000&type=intersection&key=${apiKey}`;
     try {
       const placesResponse = await fetch(placesUrl);
       const placesData = await placesResponse.json();
