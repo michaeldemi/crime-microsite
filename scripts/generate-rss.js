@@ -135,7 +135,7 @@ async function generateRssFeed() {
       const description = `<strong>Postal Code:</strong> ${feature.properties.postal_code || 'Unknown'}<br><strong>Date of Incident:</strong> ${new Date(feature.properties.occ_date).toLocaleDateString()}<br><strong>Location:</strong> Near ${intersection}`;
       feed.item({
         title: 'L6A Vaughan Break-in Incident',
-        description: `<![CDATA[${description}]]>`,
+        description,  // Remove <![CDATA[${description}]]>
         url: 'https://safetyreport.windowguardian.ca/',
         date: new Date(feature.properties.occ_date),
       });
