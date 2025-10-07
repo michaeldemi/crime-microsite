@@ -69,9 +69,9 @@ async function generateRssFeed() {
       }
       const address = data.results[0].formatted_address;
       console.log(`Geocoding result for ${lat},${lng}: ${address}`);
-      // Check if it's an intersection (contains '&' or 'at')
-      if (address.includes(' & ') || address.toLowerCase().includes(' at ')) {
-        return address.split(',')[0]; // e.g., "Main St & Elm St"
+      // Check if it's an intersection (contains '&', 'at', or '/')
+      if (address.includes(' & ') || address.toLowerCase().includes(' at ') || address.includes(' / ')) {
+        return address.split(',')[0]; // e.g., "Jane St / Rutherford Rd"
       } else {
         // Generalize to street area
         const components = data.results[0].address_components;
