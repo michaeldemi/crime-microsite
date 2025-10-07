@@ -59,34 +59,29 @@ async function generateRssFeed() {
 
   async function getIntersection(lat, lng) {
     const apiKey = 'AIzaSyD-2EkkXVXjPBWjvW_u4SGSxz9wXeGAOv4'; // Replace with your key
-    const radii = [2000, 5000, 10000]; // Radii to try in order
-    for (const radius of radii) {
-      const placesUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=${radius}&type=intersection&key=${apiKey}`;
-      try {
-        const placesResponse = await fetch(placesUrl);
-        const placesData = await placesResponse.json();
-        console.log(`API response for ${lat},${lng} at radius ${radius}: status=${placesData.status}, results=${placesData.results.length}`);
-        if (placesData.status === 'OK' && placesData.results.length > 0) {
-          // Calculate distance for each result and find the closest
-          let closest = null;
-          let minDistance = Infinity;
-          placesData.results.forEach(result => {
-            const resLat = result.geometry.location.lat;
-            const resLng = result.geometry.location.lng;
-            const distance = haversineDistance(lat, lng, resLat, resLng);
-            if (distance < minDistance) {
-              minDistance = distance;
-              closest = result.name;
-            }
-          });
-          return closest; // e.g., "Main St & Elm St"
-        }
-      } catch (error) {
-        console.log(`Places API error for ${lat},${lng} at radius ${radius}:`, error);
+    const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${apiKey}`;
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      if (data.status !== 'OK' || !data.results[0]) {
+        console.log(`No address found for ${lat},${lng}`);
+        return 'No address found';
       }
+      const address = data.results[0].formatted_address;
+      console.log(`Geocoding result for ${lat},${lng}: ${address}`);
+      // Check if it's an intersection (contains '&' or 'at')
+      if (address.includes(' & ') || address.toLowerCase().includes(' at ')) {
+        return address.split(',')[0]; // e.g., "Main St & Elm St"
+      } else {
+        // Generalize to street area
+        const components = data.results[0].address_components;
+        const street = components.find(comp => comp.types.includes('route'))?.long_name;
+        return street ? `${street} area` : 'No intersection found';
+      }
+    } catch (error) {
+      console.log(`Geocoding error for ${lat},${lng}:`, error);
+      return 'Address unavailable';
     }
-    // If no intersections found at any radius
-    return 'No intersection found';
   }
 
   try {
