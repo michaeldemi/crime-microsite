@@ -9,8 +9,8 @@ const __dirname = path.dirname(__filename);
 async function generateRssFeed() {
   // 1. Configure the main feed details
   const feed = new RSS({
-    title: 'L6A Vaughan Break-in Alerts (Last 7 Days)',
-    description: 'Recent residential break-ins in L6A FSA with intersection locations.',
+    title: 'L6A Vaughan Break-in Alerts (Last Day)',
+    description: 'Recent residential break-ins in L6A FSA with intersection locations for the last day.',
     feed_url: 'https://safetyreport.windowguardian.ca/feed.xml', // Update to your URL
     site_url: 'https://safetyreport.windowguardian.ca/', // Update to your URL
     language: 'en',
@@ -104,13 +104,13 @@ async function generateRssFeed() {
     const data = await response.json();
     let features = data.features;
 
-    // Filter to last 7 days
+    // Filter to last day
     const dates = features.map(f => new Date(f.properties.occ_date)).filter(d => !isNaN(d));
     if (dates.length === 0) throw new Error('No valid dates found.');
     const latestDate = new Date(Math.max(...dates));
-    const sevenDaysAgo = new Date(latestDate);
-    sevenDaysAgo.setDate(latestDate.getDate() - 7);
-    features = features.filter(f => new Date(f.properties.occ_date) >= sevenDaysAgo);
+    const oneDayAgo = new Date(latestDate);
+    oneDayAgo.setDate(latestDate.getDate() - 1);
+    features = features.filter(f => new Date(f.properties.occ_date) >= oneDayAgo);
 
     // Filter for Vaughan
     const vaughanFeatures = features.filter(feature => feature.properties.municipality === 'Vaughan');
@@ -132,10 +132,10 @@ async function generateRssFeed() {
       console.log(`Processing coordinates: lat=${lat}, lng=${lng}`);
       const intersection = await getIntersection(lat, lng);
       console.log(`Intersection result: ${intersection}`);
-      const description = `Location: ${intersection}, Date: ${new Date(feature.properties.occ_date).toLocaleDateString()}`;
+      const description = `<strong>Postal Code:</strong> ${feature.properties.postal_code || 'Unknown'}<br><strong>Date of Incident:</strong> ${new Date(feature.properties.occ_date).toLocaleDateString()}<br><strong>Location:</strong> Near ${intersection}`;
       feed.item({
         title: 'L6A Vaughan Break-in Incident',
-        description,
+        description: `<![CDATA[${description}]]>`,
         url: 'https://safetyreport.windowguardian.ca/',
         date: new Date(feature.properties.occ_date),
       });
@@ -145,7 +145,7 @@ async function generateRssFeed() {
 
     // 5. Write the generated XML to a file
     fs.writeFileSync(path.join(__dirname, '..', 'feed.xml'), feed.xml({ indent: true }));
-    console.log('✅ RSS feed for L6A Vaughan break-ins (last 7 days) generated successfully!');
+    console.log('✅ RSS feed for L6A Vaughan break-ins (last day) generated successfully!');
 
   } catch (error) {
     console.error('❌ Error generating RSS feed:', error);
