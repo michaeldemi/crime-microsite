@@ -132,7 +132,7 @@ async function generateRssFeed() {
       console.log(`Processing coordinates: lat=${lat}, lng=${lng}`);
       const intersection = await getIntersection(lat, lng);
       console.log(`Intersection result: ${intersection}`);
-      const description = `<strong>Postal Code:</strong> ${feature.properties.postal_code || 'Unknown'}<br><strong>Date of Incident:</strong> ${new Date(feature.properties.occ_date).toLocaleDateString()}<br><strong>Location:</strong> Near ${intersection}`;
+      const description = `<strong>Date of Incident:</strong> ${new Date(feature.properties.occ_date).toLocaleDateString()}<br><strong>Location:</strong> Near ${intersection}`;
       feed.item({
         title: 'L6A Vaughan Break-in Incident',
         description,  // Remove <![CDATA[${description}]]>
