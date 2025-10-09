@@ -29,14 +29,15 @@ jobs:
       - name: Install dependencies
         run: npm install node-fetch rss
 
-      # 4. Runs your script to generate the feed.xml file
-      - name: Generate RSS feed
-        run: node ./scripts/generate-rss.js
+      # 4. Runs your script to generate the feed-{fsa}.xml files (multiple)
+      - name: Generate RSS feeds
+        run: node ./scripts/generate-rss.js  # Ensure this matches your filename
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}  # Add your API key to repo secrets
 
-      # 5. Commits the updated feed.xml file back to the repository if it has changed
+      # 5. Commits the updated feed-{fsa}.xml files back to the repository if they have changed
       - name: Commit and push if changed
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: 'chore: Auto-update crime data RSS feed'
-          file_pattern: 'feed.xml'
-
+          commit_message: 'chore: Auto-update crime data RSS feeds'
+          file_pattern: 'feed-*.xml'  # Commit all FSA-specific feeds
