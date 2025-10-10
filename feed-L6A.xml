@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title><![CDATA[L6A Vaughan Break-in Alerts (Current Day)]]></title>
-        <description><![CDATA[Recent residential break-ins in L6A FSA with intersection locations for the current day.]]></description>
+        <title><![CDATA[L6A Vaughan Break-in Alerts (Yesterday)]]></title>
+        <description><![CDATA[Recent residential break-ins in L6A FSA with intersection locations for yesterday.]]></description>
         <link>https://safetyreport.windowguardian.ca/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 10 Oct 2025 21:17:59 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 10 Oct 2025 22:18:48 GMT</lastBuildDate>
         <atom:link href="https://safetyreport.windowguardian.ca/feed-L6A.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Fri, 10 Oct 2025 21:17:59 GMT</pubDate>
+        <pubDate>Fri, 10 Oct 2025 22:18:48 GMT</pubDate>
         <language><![CDATA[en]]></language>
     </channel>
 </rss>
