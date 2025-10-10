@@ -13,8 +13,8 @@ import RSS from 'rss';
     for (const fsa of targetFSAs) {
       // 1. Configure the main feed details (customize per FSA)
       const feed = new RSS({
-        title: `${fsa} Vaughan Break-in Alerts (Current Day)`,
-        description: `Recent residential break-ins in ${fsa} FSA with intersection locations for the current day.`,
+        title: `${fsa} Vaughan Break-in Alerts (Yesterday)`,
+        description: `Recent residential break-ins in ${fsa} FSA with intersection locations for yesterday.`,
         feed_url: `https://safetyreport.windowguardian.ca/feed-${fsa}.xml`,
         site_url: 'https://safetyreport.windowguardian.ca/',
         language: 'en',
@@ -108,13 +108,15 @@ import RSS from 'rss';
         const data = await response.json();
         let features = data.features;
 
-        // Filter to current day (same for all)
+        // Filter to yesterday
         const today = new Date();
-        const startOfToday = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-        const endOfToday = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
+        const yesterday = new Date(today);
+        yesterday.setDate(today.getDate() - 1); // Subtract 1 day
+        const startOfYesterday = new Date(yesterday.getFullYear(), yesterday.getMonth(), yesterday.getDate());
+        const endOfYesterday = new Date(yesterday.getFullYear(), yesterday.getMonth(), yesterday.getDate() + 1);
         features = features.filter(f => {
           const incidentDate = new Date(f.properties.occ_date);
-          return incidentDate >= startOfToday && incidentDate < endOfToday;
+          return incidentDate >= startOfYesterday && incidentDate < endOfYesterday;
         });
 
         // Filter for Vaughan (same for all)
@@ -149,7 +151,7 @@ import RSS from 'rss';
 
         // 5. Write the generated XML to a file (unique per FSA)
         fs.writeFileSync(path.join(__dirname, '..', `feed-${fsa}.xml`), feed.xml({ indent: true }));
-        console.log(`✅ RSS feed for ${fsa} Vaughan break-ins (current day) generated successfully!`);
+        console.log(`✅ RSS feed for ${fsa} Vaughan break-ins (yesterday) generated successfully!`);
 
       } catch (error) {
         console.error(`❌ Error generating RSS feed for ${fsa}:`, error);
