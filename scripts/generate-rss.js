@@ -139,7 +139,7 @@ import RSS from 'rss';
           console.log(`Processing coordinates for ${fsa}: lat=${lat}, lng=${lng}`);
           const intersection = await getIntersection(lat, lng);
           console.log(`Intersection result: ${intersection}`);
-          const description = `<strong>Date of Incident:</strong> ${new Date(feature.properties.occ_date).toLocaleDateString()}<br><strong>Location:</strong> Near ${intersection}`;
+          const description = `<strong>Date of Incident:</strong> ${new Date(feature.properties.occ_date).toLocaleDateString()}<br><strong>Location:</strong> Near ${intersection}<br><a href="https://safetyreport.windowguardian.ca/?FSA=${fsa}">View Break-In Map to spot trends and stay proactive.</a>`;
           feed.item({
             title: 'Incident Details',
             description,
