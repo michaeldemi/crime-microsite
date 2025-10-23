@@ -6,9 +6,6 @@ import RSS from 'rss';
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = path.dirname(__filename);
 
-  // At the top, define the FSAs
-  const targetFSAs = ['L6A', 'L4K', 'L3L', 'L4H', 'L4J', 'L4L', 'L0J', ]; // Add more as needed
-
   // NEW: Define cities with their municipalities and FSAs
 const cities = [
   {
