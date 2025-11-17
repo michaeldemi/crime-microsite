@@ -4,9 +4,16 @@
         <description><![CDATA[Recent residential break-ins in L4J FSA with intersection locations for yesterday.]]></description>
         <link>https://safetyreport.windowguardian.ca/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 17 Nov 2025 07:22:44 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 17 Nov 2025 08:33:09 GMT</lastBuildDate>
         <atom:link href="https://safetyreport.windowguardian.ca/feed-L4J.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 17 Nov 2025 07:22:44 GMT</pubDate>
+        <pubDate>Mon, 17 Nov 2025 08:33:09 GMT</pubDate>
         <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[Incident Details]]></title>
+            <description><![CDATA[<strong>Date of Incident:</strong> 11/16/2025<br><strong>Location:</strong> Near Jane St / Portage Pkwy<br><a href="https://safetyreport.windowguardian.ca/?FSA=L4J">View Break-In Map to spot trends and stay proactive.</a>]]></description>
+            <link>https://safetyreport.windowguardian.ca/</link>
+            <guid isPermaLink="true">https://safetyreport.windowguardian.ca/</guid>
+            <pubDate>Sun, 16 Nov 2025 04:53:00 GMT</pubDate>
+        </item>
     </channel>
 </rss>
