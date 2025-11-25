@@ -4,9 +4,16 @@
         <description><![CDATA[Recent residential break-ins in L3L FSA with intersection locations for yesterday.]]></description>
         <link>https://safetyreport.windowguardian.ca/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 25 Nov 2025 07:23:11 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 25 Nov 2025 08:32:16 GMT</lastBuildDate>
         <atom:link href="https://safetyreport.windowguardian.ca/feed-L3L.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 25 Nov 2025 07:23:11 GMT</pubDate>
+        <pubDate>Tue, 25 Nov 2025 08:32:16 GMT</pubDate>
         <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[Incident Details]]></title>
+            <description><![CDATA[<strong>Date of Incident:</strong> 11/24/2025<br><strong>Location:</strong> Near High Valley Court area<br><a href="https://safetyreport.windowguardian.ca/?FSA=L3L">View Break-In Map to spot trends and stay proactive.</a>]]></description>
+            <link>https://safetyreport.windowguardian.ca/</link>
+            <guid isPermaLink="true">https://safetyreport.windowguardian.ca/</guid>
+            <pubDate>Mon, 24 Nov 2025 00:00:00 GMT</pubDate>
+        </item>
     </channel>
 </rss>
