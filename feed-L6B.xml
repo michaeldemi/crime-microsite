@@ -4,23 +4,23 @@
         <description><![CDATA[Recent residential break-ins in L6B FSA with intersection locations for yesterday.]]></description>
         <link>https://safetyreport.windowguardian.ca/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 26 Nov 2025 14:24:49 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 26 Nov 2025 15:23:13 GMT</lastBuildDate>
         <atom:link href="https://safetyreport.windowguardian.ca/feed-L6B.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Wed, 26 Nov 2025 14:24:48 GMT</pubDate>
+        <pubDate>Wed, 26 Nov 2025 15:23:12 GMT</pubDate>
         <language><![CDATA[en]]></language>
         <item>
             <title><![CDATA[Incident Details]]></title>
             <description><![CDATA[<strong>Date of Incident:</strong> 11/25/2025<br><strong>Location:</strong> Near Saffron Street area<br><a href="https://safetyreport.windowguardian.ca/?FSA=L6B">View Break-In Map to spot trends and stay proactive.</a>]]></description>
             <link>https://safetyreport.windowguardian.ca/</link>
             <guid isPermaLink="true">https://safetyreport.windowguardian.ca/</guid>
-            <pubDate>Tue, 25 Nov 2025 00:00:00 GMT</pubDate>
+            <pubDate>Tue, 25 Nov 2025 05:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Incident Details]]></title>
             <description><![CDATA[<strong>Date of Incident:</strong> 11/25/2025<br><strong>Location:</strong> Near George Street area<br><a href="https://safetyreport.windowguardian.ca/?FSA=L6B">View Break-In Map to spot trends and stay proactive.</a>]]></description>
             <link>https://safetyreport.windowguardian.ca/</link>
             <guid isPermaLink="true">https://safetyreport.windowguardian.ca/</guid>
-            <pubDate>Tue, 25 Nov 2025 00:00:00 GMT</pubDate>
+            <pubDate>Tue, 25 Nov 2025 05:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>
