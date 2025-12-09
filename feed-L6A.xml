@@ -4,16 +4,9 @@
         <description><![CDATA[Recent residential break-ins in L6A FSA with intersection locations for yesterday.]]></description>
         <link>https://safetyreport.windowguardian.ca/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 08 Dec 2025 23:06:44 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 09 Dec 2025 00:29:53 GMT</lastBuildDate>
         <atom:link href="https://safetyreport.windowguardian.ca/feed-L6A.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 08 Dec 2025 23:06:42 GMT</pubDate>
+        <pubDate>Tue, 09 Dec 2025 00:29:52 GMT</pubDate>
         <language><![CDATA[en]]></language>
-        <item>
-            <title><![CDATA[Incident Details]]></title>
-            <description><![CDATA[<strong>Date of Incident:</strong> 12/7/2025<br><strong>Location:</strong> Near Crieff Avenue area<br><a href="https://safetyreport.windowguardian.ca/?FSA=L6A">View Break-In Map to spot trends and stay proactive.</a>]]></description>
-            <link>https://safetyreport.windowguardian.ca/</link>
-            <guid isPermaLink="true">https://safetyreport.windowguardian.ca/</guid>
-            <pubDate>Sun, 07 Dec 2025 05:00:00 GMT</pubDate>
-        </item>
     </channel>
 </rss>
