@@ -4,16 +4,9 @@
         <description><![CDATA[Recent residential break-ins in L4J FSA with intersection locations for yesterday.]]></description>
         <link>https://safetyreport.windowguardian.ca/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 10 Dec 2025 23:06:13 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 11 Dec 2025 00:30:23 GMT</lastBuildDate>
         <atom:link href="https://safetyreport.windowguardian.ca/feed-L4J.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Wed, 10 Dec 2025 23:06:12 GMT</pubDate>
+        <pubDate>Thu, 11 Dec 2025 00:30:23 GMT</pubDate>
         <language><![CDATA[en]]></language>
-        <item>
-            <title><![CDATA[Incident Details]]></title>
-            <description><![CDATA[<strong>Date of Incident:</strong> 12/9/2025<br><strong>Location:</strong> Near Beverley Glen Boulevard area<br><a href="https://safetyreport.windowguardian.ca/?FSA=L4J">View Break-In Map to spot trends and stay proactive.</a>]]></description>
-            <link>https://safetyreport.windowguardian.ca/</link>
-            <guid isPermaLink="true">https://safetyreport.windowguardian.ca/</guid>
-            <pubDate>Tue, 09 Dec 2025 05:00:00 GMT</pubDate>
-        </item>
     </channel>
 </rss>
