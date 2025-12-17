@@ -4,9 +4,16 @@
         <description><![CDATA[Recent residential break-ins in L4B FSA with intersection locations for yesterday.]]></description>
         <link>https://safetyreport.windowguardian.ca/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 17 Dec 2025 07:09:08 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 17 Dec 2025 08:10:08 GMT</lastBuildDate>
         <atom:link href="https://safetyreport.windowguardian.ca/feed-L4B.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Wed, 17 Dec 2025 07:09:08 GMT</pubDate>
+        <pubDate>Wed, 17 Dec 2025 08:10:08 GMT</pubDate>
         <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[Incident Details]]></title>
+            <description><![CDATA[<strong>Date of Incident:</strong> 12/16/2025<br><strong>Location:</strong> Near Grey Alder Avenue area<br><a href="https://safetyreport.windowguardian.ca/?FSA=L4B">View Break-In Map to spot trends and stay proactive.</a>]]></description>
+            <link>https://safetyreport.windowguardian.ca/</link>
+            <guid isPermaLink="true">https://safetyreport.windowguardian.ca/</guid>
+            <pubDate>Tue, 16 Dec 2025 00:10:00 GMT</pubDate>
+        </item>
     </channel>
 </rss>
