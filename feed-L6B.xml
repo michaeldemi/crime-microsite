@@ -4,9 +4,16 @@
         <description><![CDATA[Recent residential break-ins in L6B FSA with intersection locations for yesterday.]]></description>
         <link>https://safetyreport.windowguardian.ca/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 22 Dec 2025 07:09:54 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 22 Dec 2025 08:10:59 GMT</lastBuildDate>
         <atom:link href="https://safetyreport.windowguardian.ca/feed-L6B.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 22 Dec 2025 07:09:54 GMT</pubDate>
+        <pubDate>Mon, 22 Dec 2025 08:10:59 GMT</pubDate>
         <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[Incident Details]]></title>
+            <description><![CDATA[<strong>Date of Incident:</strong> 12/21/2025<br><strong>Location:</strong> Near Markham Rd at Parkway Ave<br><a href="https://safetyreport.windowguardian.ca/?FSA=L6B">View Break-In Map to spot trends and stay proactive.</a>]]></description>
+            <link>https://safetyreport.windowguardian.ca/</link>
+            <guid isPermaLink="true">https://safetyreport.windowguardian.ca/</guid>
+            <pubDate>Sun, 21 Dec 2025 13:00:00 GMT</pubDate>
+        </item>
     </channel>
 </rss>
