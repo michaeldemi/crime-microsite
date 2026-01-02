@@ -4,16 +4,9 @@
         <description><![CDATA[Recent residential break-ins in L4E FSA with intersection locations for yesterday.]]></description>
         <link>https://safetyreport.windowguardian.ca/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 01 Jan 2026 23:06:56 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 02 Jan 2026 00:30:55 GMT</lastBuildDate>
         <atom:link href="https://safetyreport.windowguardian.ca/feed-L4E.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Thu, 01 Jan 2026 23:06:55 GMT</pubDate>
+        <pubDate>Fri, 02 Jan 2026 00:30:55 GMT</pubDate>
         <language><![CDATA[en]]></language>
-        <item>
-            <title><![CDATA[Incident Details]]></title>
-            <description><![CDATA[<strong>Date of Incident:</strong> 12/31/2025<br><strong>Location:</strong> Near Puccini Drive area<br><a href="https://safetyreport.windowguardian.ca/?FSA=L4E">View Break-In Map to spot trends and stay proactive.</a>]]></description>
-            <link>https://safetyreport.windowguardian.ca/</link>
-            <guid isPermaLink="true">https://safetyreport.windowguardian.ca/</guid>
-            <pubDate>Wed, 31 Dec 2025 03:22:00 GMT</pubDate>
-        </item>
     </channel>
 </rss>
