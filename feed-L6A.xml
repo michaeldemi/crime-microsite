@@ -4,16 +4,9 @@
         <description><![CDATA[Recent residential break-ins in L6A FSA with intersection locations for yesterday.]]></description>
         <link>https://safetyreport.windowguardian.ca/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 03 Jan 2026 23:06:43 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 04 Jan 2026 00:34:55 GMT</lastBuildDate>
         <atom:link href="https://safetyreport.windowguardian.ca/feed-L6A.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sat, 03 Jan 2026 23:06:42 GMT</pubDate>
+        <pubDate>Sun, 04 Jan 2026 00:34:55 GMT</pubDate>
         <language><![CDATA[en]]></language>
-        <item>
-            <title><![CDATA[Incident Details]]></title>
-            <description><![CDATA[<strong>Date of Incident:</strong> 1/2/2026<br><strong>Location:</strong> Near Thornhill Woods Drive area<br><a href="https://safetyreport.windowguardian.ca/?FSA=L6A">View Break-In Map to spot trends and stay proactive.</a>]]></description>
-            <link>https://safetyreport.windowguardian.ca/</link>
-            <guid isPermaLink="true">https://safetyreport.windowguardian.ca/</guid>
-            <pubDate>Fri, 02 Jan 2026 23:21:00 GMT</pubDate>
-        </item>
     </channel>
 </rss>
