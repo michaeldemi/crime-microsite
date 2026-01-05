@@ -4,9 +4,16 @@
         <description><![CDATA[Recent residential break-ins in L6B FSA with intersection locations for yesterday.]]></description>
         <link>https://safetyreport.windowguardian.ca/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 05 Jan 2026 07:13:55 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 05 Jan 2026 08:11:39 GMT</lastBuildDate>
         <atom:link href="https://safetyreport.windowguardian.ca/feed-L6B.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 05 Jan 2026 07:13:54 GMT</pubDate>
+        <pubDate>Mon, 05 Jan 2026 08:11:38 GMT</pubDate>
         <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[Incident Details]]></title>
+            <description><![CDATA[<strong>Date of Incident:</strong> 1/4/2026<br><strong>Location:</strong> Near Bur Oak Av / Swan Park Rd<br><a href="https://safetyreport.windowguardian.ca/?FSA=L6B">View Break-In Map to spot trends and stay proactive.</a>]]></description>
+            <link>https://safetyreport.windowguardian.ca/</link>
+            <guid isPermaLink="true">https://safetyreport.windowguardian.ca/</guid>
+            <pubDate>Sun, 04 Jan 2026 00:00:00 GMT</pubDate>
+        </item>
     </channel>
 </rss>
