@@ -4,16 +4,16 @@
         <description><![CDATA[Recent residential break-ins in L4E FSA with intersection locations for yesterday.]]></description>
         <link>https://safetyreport.windowguardian.ca/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 05 Jan 2026 23:06:58 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 06 Jan 2026 00:31:25 GMT</lastBuildDate>
         <atom:link href="https://safetyreport.windowguardian.ca/feed-L4E.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 05 Jan 2026 23:06:58 GMT</pubDate>
+        <pubDate>Tue, 06 Jan 2026 00:31:24 GMT</pubDate>
         <language><![CDATA[en]]></language>
         <item>
             <title><![CDATA[Incident Details]]></title>
-            <description><![CDATA[<strong>Date of Incident:</strong> 1/4/2026<br><strong>Location:</strong> Near Alamo Heights Drive area<br><a href="https://safetyreport.windowguardian.ca/?FSA=L4E">View Break-In Map to spot trends and stay proactive.</a>]]></description>
+            <description><![CDATA[<strong>Date of Incident:</strong> 1/5/2026<br><strong>Location:</strong> Near Bloomington Rd / Elderberry Trl<br><a href="https://safetyreport.windowguardian.ca/?FSA=L4E">View Break-In Map to spot trends and stay proactive.</a>]]></description>
             <link>https://safetyreport.windowguardian.ca/</link>
             <guid isPermaLink="true">https://safetyreport.windowguardian.ca/</guid>
-            <pubDate>Sun, 04 Jan 2026 02:30:00 GMT</pubDate>
+            <pubDate>Mon, 05 Jan 2026 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>
