@@ -4,9 +4,16 @@
         <description><![CDATA[Recent residential break-ins in L4H FSA with intersection locations for yesterday.]]></description>
         <link>https://safetyreport.windowguardian.ca/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 19 Jan 2026 07:14:07 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 19 Jan 2026 08:11:58 GMT</lastBuildDate>
         <atom:link href="https://safetyreport.windowguardian.ca/feed-L4H.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 19 Jan 2026 07:14:07 GMT</pubDate>
+        <pubDate>Mon, 19 Jan 2026 08:11:57 GMT</pubDate>
         <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[Incident Details]]></title>
+            <description><![CDATA[<strong>Date of Incident:</strong> 1/18/2026<br><strong>Location:</strong> Near Roselawn Drive area<br><a href="https://safetyreport.windowguardian.ca/?FSA=L4H">View Break-In Map to spot trends and stay proactive.</a>]]></description>
+            <link>https://safetyreport.windowguardian.ca/</link>
+            <guid isPermaLink="true">https://safetyreport.windowguardian.ca/</guid>
+            <pubDate>Sun, 18 Jan 2026 00:00:00 GMT</pubDate>
+        </item>
     </channel>
 </rss>
