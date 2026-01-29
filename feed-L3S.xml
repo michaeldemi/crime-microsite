@@ -4,9 +4,16 @@
         <description><![CDATA[Recent residential break-ins in L3S FSA with intersection locations for yesterday.]]></description>
         <link>https://safetyreport.windowguardian.ca/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 29 Jan 2026 07:21:26 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 29 Jan 2026 08:15:31 GMT</lastBuildDate>
         <atom:link href="https://safetyreport.windowguardian.ca/feed-L3S.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Thu, 29 Jan 2026 07:21:26 GMT</pubDate>
+        <pubDate>Thu, 29 Jan 2026 08:15:31 GMT</pubDate>
         <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[Incident Details]]></title>
+            <description><![CDATA[<strong>Date of Incident:</strong> 1/28/2026<br><strong>Location:</strong> Near Beck Drive area<br><a href="https://safetyreport.windowguardian.ca/?FSA=L3S">View Break-In Map to spot trends and stay proactive.</a>]]></description>
+            <link>https://safetyreport.windowguardian.ca/</link>
+            <guid isPermaLink="true">https://safetyreport.windowguardian.ca/</guid>
+            <pubDate>Wed, 28 Jan 2026 00:00:00 GMT</pubDate>
+        </item>
     </channel>
 </rss>
