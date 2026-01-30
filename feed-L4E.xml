@@ -4,9 +4,16 @@
         <description><![CDATA[Recent residential break-ins in L4E FSA with intersection locations for yesterday.]]></description>
         <link>https://safetyreport.windowguardian.ca/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 30 Jan 2026 07:20:43 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 30 Jan 2026 08:15:27 GMT</lastBuildDate>
         <atom:link href="https://safetyreport.windowguardian.ca/feed-L4E.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Fri, 30 Jan 2026 07:20:43 GMT</pubDate>
+        <pubDate>Fri, 30 Jan 2026 08:15:26 GMT</pubDate>
         <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[Incident Details]]></title>
+            <description><![CDATA[<strong>Date of Incident:</strong> 1/29/2026<br><strong>Location:</strong> Near Kingshill Rd / Selleck Dr<br><a href="https://safetyreport.windowguardian.ca/?FSA=L4E">View Break-In Map to spot trends and stay proactive.</a>]]></description>
+            <link>https://safetyreport.windowguardian.ca/</link>
+            <guid isPermaLink="true">https://safetyreport.windowguardian.ca/</guid>
+            <pubDate>Thu, 29 Jan 2026 00:00:00 GMT</pubDate>
+        </item>
     </channel>
 </rss>
