@@ -4,9 +4,23 @@
         <description><![CDATA[Recent residential break-ins in L4L FSA with intersection locations for yesterday.]]></description>
         <link>https://safetyreport.windowguardian.ca/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 05 Feb 2026 08:18:22 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 05 Feb 2026 09:20:34 GMT</lastBuildDate>
         <atom:link href="https://safetyreport.windowguardian.ca/feed-L4L.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Thu, 05 Feb 2026 08:18:22 GMT</pubDate>
+        <pubDate>Thu, 05 Feb 2026 09:20:33 GMT</pubDate>
         <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[Incident Details]]></title>
+            <description><![CDATA[<strong>Date of Incident:</strong> 2/4/2026<br><strong>Location:</strong> Near Firglen Ridge area<br><a href="https://safetyreport.windowguardian.ca/?FSA=L4L">View Break-In Map to spot trends and stay proactive.</a>]]></description>
+            <link>https://safetyreport.windowguardian.ca/</link>
+            <guid isPermaLink="true">https://safetyreport.windowguardian.ca/</guid>
+            <pubDate>Wed, 04 Feb 2026 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Incident Details]]></title>
+            <description><![CDATA[<strong>Date of Incident:</strong> 2/4/2026<br><strong>Location:</strong> Near Ingleside Street area<br><a href="https://safetyreport.windowguardian.ca/?FSA=L4L">View Break-In Map to spot trends and stay proactive.</a>]]></description>
+            <link>https://safetyreport.windowguardian.ca/</link>
+            <guid isPermaLink="true">https://safetyreport.windowguardian.ca/</guid>
+            <pubDate>Wed, 04 Feb 2026 00:00:00 GMT</pubDate>
+        </item>
     </channel>
 </rss>
