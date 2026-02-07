@@ -4,9 +4,16 @@
         <description><![CDATA[Recent residential break-ins in L4E FSA with intersection locations for yesterday.]]></description>
         <link>https://safetyreport.windowguardian.ca/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 07 Feb 2026 07:16:31 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 07 Feb 2026 08:11:06 GMT</lastBuildDate>
         <atom:link href="https://safetyreport.windowguardian.ca/feed-L4E.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sat, 07 Feb 2026 07:16:31 GMT</pubDate>
+        <pubDate>Sat, 07 Feb 2026 08:11:05 GMT</pubDate>
         <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[Incident Details]]></title>
+            <description><![CDATA[<strong>Date of Incident:</strong> 2/6/2026<br><strong>Location:</strong> Near Tower Hill Road area<br><a href="https://safetyreport.windowguardian.ca/?FSA=L4E">View Break-In Map to spot trends and stay proactive.</a>]]></description>
+            <link>https://safetyreport.windowguardian.ca/</link>
+            <guid isPermaLink="true">https://safetyreport.windowguardian.ca/</guid>
+            <pubDate>Fri, 06 Feb 2026 00:00:00 GMT</pubDate>
+        </item>
     </channel>
 </rss>
