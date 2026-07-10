@@ -4,9 +4,16 @@
         <description><![CDATA[Recent residential break-ins in L4H FSA with intersection locations for yesterday.]]></description>
         <link>https://safetyreport.windowguardian.ca/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 10 Jul 2026 04:54:21 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 10 Jul 2026 08:25:04 GMT</lastBuildDate>
         <atom:link href="https://safetyreport.windowguardian.ca/feed-L4H.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Fri, 10 Jul 2026 04:54:21 GMT</pubDate>
+        <pubDate>Fri, 10 Jul 2026 08:25:04 GMT</pubDate>
         <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[Incident Details]]></title>
+            <description><![CDATA[<strong>Date of Incident:</strong> 7/9/2026<br><strong>Location:</strong> Near Lipa Drive area<br><a href="https://safetyreport.windowguardian.ca/?FSA=L4H">View Break-In Map to spot trends and stay proactive.</a>]]></description>
+            <link>https://safetyreport.windowguardian.ca/</link>
+            <guid isPermaLink="true">https://safetyreport.windowguardian.ca/</guid>
+            <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
+        </item>
     </channel>
 </rss>
